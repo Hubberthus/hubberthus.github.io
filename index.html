@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>MCU setup</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" \>
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet" \>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
 
-<div ng-app="">
- 
-<p>Input something in the input box:</p>
-<p>Name: <input type="text" ng-model="name"></p>
-<p>{{name}}</p>
+<div ng-app="mcuSetupApp" ng-controller="mcuSetupController" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">Left</div>
+    <div class="col-sm-6">{{products}}</div>
+    <div class="col-sm-4">Right</div>
+  </div>
 
 </div>
 
