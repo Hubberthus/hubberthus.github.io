@@ -1,0 +1,60 @@
+{
+name: "ESP32",
+pins: [
+	{
+	number: 1,
+	name: "VDD_ANA",
+	description: "Analog power supply (2.3V-3.6)",
+	color: "red",
+	pwm: false,
+	input: false,
+	output: false,
+	pullup: false,
+	pulldown: false
+	},
+	{
+	number: 2,
+	name: "LNA_IN",
+	description: "???",
+	color: "brown",
+	pwm: false,
+	input: true,
+	output: false,
+	pullup: false,
+	pulldown: false
+	},
+	{
+	number: 3,
+	name: "VDD_AMP",
+	description: "Amplifier power supply (2.3V-3.6V)",
+	color: "red",
+	pwm: false,
+	input: false,
+	output: false,
+	pullup: false,
+	pulldown: false
+	},
+	{
+	number: 4,
+	name: "VDD_AMP",
+	description: "Amplifier power supply (2.3V-3.6V)",
+	color: "red",
+	pwm: false,
+	input: false,
+	output: false,
+	pullup: false,
+	pulldown: false
+	},
+	{
+	number: 5,
+	name: "GPI36",
+	description: "GPI36/SensVP/ADC1_0/ADC_H",
+	color: "grey",
+	pwm: false,
+	input: true,
+	output: false,
+	pullup: false,
+	pulldown: false
+	},
+	]
+}
