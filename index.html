@@ -2,22 +2,26 @@
 <html lang="en">
 <head>
   <title>MCU setup</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet" \>
-  <link href="css/bootstrap-theme.min.css" rel="stylesheet" \>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+  <script src="js/jquery-3.1.1.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="js/app.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
 </head>
 <body>
 
 <div ng-app="mcuSetupApp" ng-controller="mcuSetupController" class="container-fluid">
+  <include-cores></include-cores>
   <div class="row">
     <div class="col-sm-2">Left</div>
-    <div class="col-sm-6">{{cores}}</div>
+    <div class="col-sm-6" id="center"></img></div>
     <div class="col-sm-4">Right</div>
   </div>
 
 </div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
 
 </body>
 </html>

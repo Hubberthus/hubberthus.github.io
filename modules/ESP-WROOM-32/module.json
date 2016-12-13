@@ -1,4 +1,26 @@
 {
-name: "ESP-WROOM-32",
-core: "ESP32"
+"name": "ESP-WROOM-32",
+"core": "ESP32",
+"pins": [
+	{
+	"number": 1,
+	"position": 24.5
+	},
+	{
+	"number": 2,
+	"position": 28
+	},
+	{
+	"number": 3,
+	"position": 31.5
+	},
+	{
+	"number": 4,
+	"position": 35
+	},
+	{
+	"number": 5,
+	"position": 38.5
+	}
+]
 }
