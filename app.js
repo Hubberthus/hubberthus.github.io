@@ -1,4 +1,5 @@
 var app = angular.module("mcuSetupApp", []);
+var activeModule;
 
 app
 .controller("mcuSetupController", function( $scope ) {
@@ -12,18 +13,72 @@ app
 
 update = function ( $scope ) {
 	
-	var center = d3.select("#center");
+	var moduleTag = d3.select("#module");
+	var featuresTag = d3.select("#features");
+	var core;
 	
-	var image = center.append("center").append("img")
-	.attr("src", $scope.modules[0].image)
+	module = $scope.modules[0];
+	core = selectCore($scope, module);
+	
+	moduleTag.append("center").append("img")
+	.attr("src", module.image)
 	.attr("width", "70%");
 	
-	$scope.modules[0].pins.forEach(function ( pin ) {
+	module.pins.forEach(function ( pin ) {
 		
-		center.append("div")
-		.attr("style", "position: absolute; left: 0%; top: " + pin.position + "%;")
-		.text(pin.number);
+		var corePin = selectCorePin(core, pin);
+		
+		moduleTag.append("div")
+		.attr("style", "position: absolute;"
+					+ "width: 15%;"
+				    + "text-align: center;"
+					+ "left: " + (pin.side == "left" ? "0" : "85") + "%;"
+					+ "top: " + pin.position + "%;"
+					+ "background: " + corePin.color + ";"
+					+ "border-radius: 1em;"
+					+ "cursor: default;")
+		.text(corePin.name);
 	});
+	
+	core.features.forEach(function ( feature ) {
+		
+		featuresTag.append("div")
+		.attr("class", "row")
+		.attr("style", "padding: 5px;")
+		.append("div")
+		.attr("style", "width: 50%;"
+				    + "text-align: center;"
+					+ "background: lightblue;"
+					+ "border-radius: 1em;"
+					+ "cursor: pointer;")
+		.text(feature.name);
+	});
+}
+
+selectCorePin = function ( core, pin ) {
+	
+	var retVal = null;
+	
+	core.pins.forEach(function ( corePin ) {
+		if (corePin.number == pin.number) {
+			retVal = corePin;
+		}
+	});
+	
+	return retVal;
+}
+
+selectCore = function ( $scope, module ) {
+	
+	var retVal = null;
+	
+	$scope.cores.forEach(function( core ) {
+		if(core.name == module.core) {
+			retVal = core;
+		}
+	});
+	
+	return retVal;
 }
 
 loadCores = function ( $scope ) {

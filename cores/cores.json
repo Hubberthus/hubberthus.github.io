@@ -1,6 +1,20 @@
 [
 {
   "name": "ESP32",
+  "features" : [
+    {
+      "name": "I2C_1"
+    },
+    {
+      "name": "I2C_2"
+    },
+    {
+      "name": "SPI_1"
+    },
+    {
+      "name": "SPI_2"
+    }
+  ],
   "pins": [
     {
       "number": 1,
