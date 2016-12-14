@@ -1,7 +1,7 @@
 [
 {
   "name": "ESP32",
-  "features" : [
+  "peripherals" : [
     {
       "name": "I2C_1"
     },
