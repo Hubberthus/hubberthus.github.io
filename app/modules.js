@@ -18,17 +18,12 @@ define(function (require) {
     				
     				$.getJSON("/modules/" + module_dir + "/module.json")
     				.done(function( module ) {
-    					try {
     					
-    						module.image = "/modules/" + module_dir + "/module.png";
-	    					module_list.push(module);
-	    					
-	    					update();
-	    					
-    					} catch(e) {
-    						
-    						selected_module = null;
-    					}
+    					module.name = module_dir;
+						module.image = "/modules/" + module_dir + "/module.png";
+						module_list.push(module);
+    					
+    					update();
     				});
     			});
     		});

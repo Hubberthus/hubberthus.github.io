@@ -11,6 +11,10 @@ define(function (require) {
 	
 	app.controller("mcuSetupController", function( $scope ) {
 		
+		$.ajaxSetup({
+		    async: false
+		});
+		
 		cores.loadCores();
 		modules.loadModules();
 	})

@@ -1,5 +1,4 @@
 {
-"name": "ESP-WROOM-32",
 "core": "ESP32",
 "pins": [
 	{
