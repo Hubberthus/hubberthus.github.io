@@ -81,7 +81,7 @@
   },
   {
     "number": 9,
-    "name": "ChipPU",
+    "name": "EN",
     "description": "Chip Enabled (High:ON, Low: OFF)",
     "pwm": false,
     "input": true,

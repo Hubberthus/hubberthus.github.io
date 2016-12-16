@@ -61,13 +61,13 @@ define(function (require) {
         	return selected_core;
         },
     	
-    	getPin: function ( number ) {
+    	getPin: function ( name ) {
     		
     		try {
     			var retVal = null;
     			
 	    		selected_core.pinout.forEach(function ( pin ) {
-	    			if (pin.number == number) {
+	    			if (pin.name == name) {
 	    				retVal = pin;
 	    				return;
 	    			}

@@ -11,14 +11,14 @@ define(function (require) {
     		
     		module_list = [];
     		selected_module = null;
-    		
+
     		$.getJSON("/modules/modules.json")
     		.done(function( module_dir_list ) {
     			module_dir_list.forEach(function( module_dir ) {
     				
     				$.getJSON("/modules/" + module_dir + "/module.json")
     				.done(function( module ) {
-    					
+
     					module.name = module_dir;
 						module.image = "/modules/" + module_dir + "/module.png";
 						module_list.push(module);
@@ -45,7 +45,7 @@ define(function (require) {
         		
         		selected_module.pins.forEach(function ( pin ) {
         			
-        			var corePin = cores.getPin(pin.number);
+        			var corePin = cores.getPin(pin.name);
         			
         			moduleTag.append("div")
         			.attr("style", "position: absolute;"
@@ -53,10 +53,10 @@ define(function (require) {
         					    + "text-align: center;"
         						+ "left: " + (pin.side == "left" ? "0" : "85") + "%;"
         						+ "top: " + pin.position + "%;"
-        						+ "background: " + corePin.color + ";"
+        						+ "background: " +pin.color + ";"
         						+ "border-radius: 1em;"
         						+ "cursor: default;")
-        			.text(corePin.name);
+        			.text(pin.name);
         		});
         	
         	} catch(e) {

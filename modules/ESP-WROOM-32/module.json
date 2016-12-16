@@ -2,27 +2,230 @@
 "core": "ESP32",
 "pins": [
 	{
-	"number": 1,
+	"name": "GND",
+	"color": "black",
 	"position": 24.5,
 	"side": "left"
 	},
 	{
-	"number": 2,
+	"name": "VCC",
+	"color": "red",
 	"position": 28,
 	"side": "left"
 	},
 	{
-	"number": 3,
+	"name": "EN",
+	"color": "yellow",
 	"position": 31.5,
 	"side": "left"
 	},
 	{
-	"number": 4,
+	"name": "GPI36",
+	"color": "grey",
 	"position": 35,
 	"side": "left"
 	},
 	{
-	"number": 5,
+	"name": "GPI39",
+	"color": "grey",
+	"position": 38.5,
+	"side": "left"
+	},
+	{
+	"name": "GPI34",
+	"color": "grey",
+	"position": 42,
+	"side": "left"
+	},
+	{
+	"name": "GPI35",
+	"color": "grey",
+	"position": 45.5,
+	"side": "left"
+	},
+	{
+	"name": "GPO32",
+	"color": "grey",
+	"position": 49,
+	"side": "left"
+	},
+	{
+	"name": "GPO33",
+	"color": "grey",
+	"position": 52.5,
+	"side": "left"
+	},
+	{
+	"name": "GPIO25",
+	"color": "grey",
+	"position": 56,
+	"side": "left"
+	},
+	{
+	"name": "GPIO26",
+	"color": "grey",
+	"position": 59.5,
+	"side": "left"
+	},
+	{
+	"name": "GPIO27",
+	"color": "grey",
+	"position": 63,
+	"side": "left"
+	},
+	{
+	"name": "GPIO14",
+	"color": "grey",
+	"position": 66.5,
+	"side": "left"
+	},
+	{
+	"name": "GPIO12",
+	"color": "grey",
+	"position": 70,
+	"side": "left"
+	},
+	{
+	"name": "GND",
+	"color": "black",
+	"position": 78,
+	"side": "left"
+	},
+	{
+	"name": "GPIO13",
+	"color": "grey",
+	"position": 81.5,
+	"side": "left"
+	},
+	{
+	"name": "GPIO9",
+	"color": "grey",
+	"position": 85,
+	"side": "left"
+	},
+	{
+	"name": "GPIO10",
+	"color": "grey",
+	"position": 88.5,
+	"side": "left"
+	},
+	{
+	"name": "GPIO11",
+	"color": "grey",
+	"position": 92,
+	"side": "left"
+	},
+	{
+	"name": "GPIO6",
+	"color": "grey",
+	"position": 92,
+	"side": "right"
+	},
+	{
+	"name": "GPIO7",
+	"color": "grey",
+	"position": 88.5,
+	"side": "right"
+	},
+	{
+	"name": "GPIO8",
+	"color": "grey",
+	"position": 85,
+	"side": "right"
+	},
+	{
+	"name": "GPIO15",
+	"color": "grey",
+	"position": 81.5,
+	"side": "right"
+	},
+	{
+	"name": "GPIO2",
+	"color": "grey",
+	"position": 78,
+	"side": "right"
+	},
+	{
+	"name": "GPIO0",
+	"color": "grey",
+	"position": 70,
+	"side": "right"
+	},
+	{
+	"name": "GPIO4",
+	"color": "grey",
+	"position": 66.5,
+	"side": "right"
+	},
+	{
+	"name": "GPIO16",
+	"color": "grey",
+	"position": 63,
+	"side": "right"
+	},
+	{
+	"name": "GPIO17",
+	"color": "grey",
+	"position": 59.5,
+	"side": "right"
+	},
+	{
+	"name": "GPIO5",
+	"color": "grey",
+	"position": 56,
+	"side": "right"
+	},
+	{
+	"name": "GPIO18",
+	"color": "grey",
+	"position": 52.5,
+	"side": "right"
+	},
+	{
+	"name": "GPIO19",
+	"color": "grey",
+	"position": 49,
+	"side": "right"
+	},
+	{
+	"name": "GPIO20",
+	"color": "grey",
+	"position": 45.5,
+	"side": "right"
+	},
+	{
+	"name": "GPIO21",
+	"color": "grey",
+	"position": 42,
+	"side": "right"
+	},
+	{
+	"name": "GPIO3",
+	"color": "grey",
+	"position": 38.5,
+	"side": "right"
+	},
+	{
+	"name": "GPIO1",
+	"color": "grey",
+	"position": 35,
+	"side": "right"
+	},
+	{
+	"name": "GPIO22",
+	"color": "grey",
+	"position": 31.5,
+	"side": "right"
+	},
+	{
+	"name": "GPIO23",
+	"color": "grey",
+	"position": 28,
+	"side": "right"
+	},
+	{
+	"name": "GND",
+	"color": "black",
 	"position": 24.5,
 	"side": "right"
 	}
