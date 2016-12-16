@@ -20,37 +20,37 @@
 	"side": "left"
 	},
 	{
-	"name": "GPI36",
+	"name": "GPIO36",
 	"color": "grey",
 	"position": 35,
 	"side": "left"
 	},
 	{
-	"name": "GPI39",
+	"name": "GPIO39",
 	"color": "grey",
 	"position": 38.5,
 	"side": "left"
 	},
 	{
-	"name": "GPI34",
+	"name": "GPIO34",
 	"color": "grey",
 	"position": 42,
 	"side": "left"
 	},
 	{
-	"name": "GPI35",
+	"name": "GPIO35",
 	"color": "grey",
 	"position": 45.5,
 	"side": "left"
 	},
 	{
-	"name": "GPO32",
+	"name": "GPIO32",
 	"color": "grey",
 	"position": 49,
 	"side": "left"
 	},
 	{
-	"name": "GPO33",
+	"name": "GPIO33",
 	"color": "grey",
 	"position": 52.5,
 	"side": "left"

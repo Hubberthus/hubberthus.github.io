@@ -12,16 +12,16 @@
   {
     "number": 2,
     "name": "LNA_IN",
-    "description": "LNA_IN",
+    "description": "RF input and output",
     "pwm": false,
     "input": true,
-    "output": false,
+    "output": true,
     "pullup": 0,
     "pulldown": 0
   },
   {
     "number": 3,
-    "name": "VDD_AMP",
+    "name": "VDD_3P3",
     "description": "Amplifier power supply (2.3V-3.6V)",
     "pwm": false,
     "input": true,
@@ -31,7 +31,7 @@
   },
   {
     "number": 4,
-    "name": "VDD_AMP",
+    "name": "VDD_3P3",
     "description": "Amplifier power supply (2.3V-3.6V)",
     "pwm": false,
     "input": true,
@@ -41,9 +41,9 @@
   },
   {
     "number": 5,
-    "name": "GPI36",
-    "description": "GPI36/SensVP/ADC1_0/ADC_H",
-    "pwm": false,
+    "name": "GPIO36",
+    "description": "GPIO36/SensVP/ADC1_0/RTCIO0/ADC_PA (Connect a 10nF capacitor to SensVP to CapVP)",
+    "pwm": true,
     "input": true,
     "output": false,
     "pullup": 0,
@@ -51,29 +51,29 @@
   },
   {
     "number": 6,
-    "name": "CapVP",
-    "description": "Connect a 10nF capacitor to SensVP to CapVP",
-    "pwm": false,
-    "input": false,
+    "name": "GPIO37",
+    "description": "GPIO37/CapVP/ADC1_1/RTCIO1/ADC_PA (Connect a 10nF capacitor to SensVP to CapVP)",
+    "pwm": true,
+    "input": true,
     "output": false,
     "pullup": 0,
     "pulldown": 0
   },
   {
     "number": 7,
-    "name": "CapVN",
-    "description": "Connect a 10nF capacitor to SensVN to CapVN",
-    "pwm": false,
-    "input": false,
+    "name": "GPIO38",
+    "description": "GPIO38/CapVN/ADC1_2/RTCIO2/ADC_PA (Connect a 10nF capacitor to SensVN to CapVN)",
+    "pwm": true,
+    "input": true,
     "output": false,
     "pullup": 0,
     "pulldown": 0
   },
   {
     "number": 8,
-    "name": "GPI39",
-    "description": "GPI39/SensVN/ADC1_3/ADC_H",
-    "pwm": false,
+    "name": "GPIO39",
+    "description": "GPIO39/SensVN/ADC1_3/RTCIO3/ADC_PA (Connect a 10nF capacitor to SensVN to CapVN)",
+    "pwm": true,
     "input": true,
     "output": false,
     "pullup": 0,
@@ -82,7 +82,7 @@
   {
     "number": 9,
     "name": "EN",
-    "description": "Chip Enabled (High:ON, Low: OFF)",
+    "description": "Chip Enabled (High:ON, Low: OFF - chip works at the minimum power)",
     "pwm": false,
     "input": true,
     "output": false,
@@ -91,9 +91,9 @@
   },
   {
     "number": 10,
-    "name": "GPI34",
-    "description": "GPI34/ADC1_6",
-    "pwm": false,
+    "name": "GPIO34",
+    "description": "GPIO34/VDET1/ADC1_6/RTCIO4",
+    "pwm": true,
     "input": true,
     "output": false,
     "pullup": 0,
@@ -101,9 +101,9 @@
   },
   {
     "number": 11,
-    "name": "GPI35",
-    "description": "GPI35/ADC1_7",
-    "pwm": false,
+    "name": "GPIO35",
+    "description": "GPIO35/VDET2/ADC1_7/RTCIO5",
+    "pwm": true,
     "input": true,
     "output": false,
     "pullup": 0,
@@ -111,8 +111,8 @@
   },
   {
     "number": 12,
-    "name": "GPO32",
-    "description": "GPO32/Touch9/ADC1_4/XTAL32",
+    "name": "GPIO32",
+    "description": "GPIO32/XTAL32/ADC1_4/RTCIO9/Touch9",
     "pwm": true,
     "input": true,
     "output": true,
@@ -121,8 +121,8 @@
   },
   {
     "number": 13,
-    "name": "GPO33",
-    "description": "GPO33/Touch8/ADC1_5/XTAL32",
+    "name": "GPIO33",
+    "description": "GPIO33/ADC1_5/RTCIO8/Touch8/XTAL32",
     "pwm": true,
     "input": true,
     "output": true,
@@ -132,7 +132,7 @@
   {
     "number": 14,
     "name": "GPIO25",
-    "description": "GPIO25/DAC_1/ADC2_8",
+    "description": "GPIO25/EMAC_RXD0/ADC2_8/RTCIO6/DAC_1",
     "pwm": true,
     "input": true,
     "output": true,
@@ -142,7 +142,7 @@
   {
     "number": 15,
     "name": "GPIO26",
-    "description": "GPIO26/DAC_2/ADC2_9",
+    "description": "GPIO26/EMAC_RXD1/ADC2_9/RTCIO7/DAC2",
     "pwm": true,
     "input": true,
     "output": true,
@@ -152,7 +152,7 @@
   {
     "number": 16,
     "name": "GPIO27",
-    "description": "GPIO27/Touch7/ADC2_7",
+    "description": "GPIO27/EMAC_RXDV/ADC2_7/RTCIO17/Touch7",
     "pwm": true,
     "input": true,
     "output": true,
@@ -162,7 +162,7 @@
   {
     "number": 17,
     "name": "GPIO14",
-    "description": "GPIO14/Touch6/ADC2_6/MTMS/HSPI_CLK",
+    "description": "GPIO14/EMAC_TXD2/ADC2_6/RTCIO16/Touch6/MTMS/HSPI_CLK/SD_CLK/HS2_CLK",
     "pwm": true,
     "input": true,
     "output": true,
@@ -172,7 +172,7 @@
   {
     "number": 18,
     "name": "GPIO12",
-    "description": "GPIO12/Touch5/ADC2_5/MTDI/HSPI_Q",
+    "description": "GPIO12/EMAC_TXD3/ADC2_5/RTCIO15/Touch5/MTDI/HSPI_Q/SD_DATA2/HS2_DATA2",
     "pwm": true,
     "input": true,
     "output": true,
@@ -192,7 +192,7 @@
   {
     "number": 20,
     "name": "GPIO13",
-    "description": "GPIO13/Touch4/ADC2_4/MTCK/HSPI_ID/U0_CTS",
+    "description": "GPIO13/EMAC_RXER/ADC2_4/RTCIO14/Touch4/MTCK/HSPI_ID/SD_DATA3/HS2_DATA3",
     "pwm": true,
     "input": true,
     "output": true,
@@ -202,7 +202,7 @@
   {
     "number": 21,
     "name": "GPIO15",
-    "description": "GPIO15/Touch3/ADC2_3/MTD0/HSPI_CS0/U0_RTS",
+    "description": "GPIO15/EMAC_RXD3/ADC2_3/RTCIO13/Touch3/MTD0/HSPI_CS0/SD_CMD/HS2_CMD",
     "pwm": true,
     "input": true,
     "output": true,
@@ -212,7 +212,7 @@
   {
     "number": 22,
     "name": "GPIO2",
-    "description": "GPIO2/Touch2/ADC2_2/HSPI_WP",
+    "description": "GPIO2/HSPI_WP/ADC2_2/RTCIO12/Touch2/SD_DATA0/HS2_DATA0",
     "pwm": true,
     "input": true,
     "output": true,
@@ -221,8 +221,8 @@
   },
   {
     "number": 23,
-    "name": "GPIO1",
-    "description": "GPIO1/Touch1/ADC2_1/CLK01",
+    "name": "GPIO0",
+    "description": "GPIO0/EMAC_TXCLK/ADC2_1/RTCIO11/Touch1/CLK_OUT1",
     "pwm": true,
     "input": true,
     "output": true,
@@ -232,7 +232,7 @@
   {
     "number": 24,
     "name": "GPIO4",
-    "description": "GPIO4/Touch0/ADC2_0/HSPI_HD",
+    "description": "GPIO4/EMAC_TXER/ADC2_0/RTCIO10/Touch0/HSPI_HD/SD_DATA1/HS2_DATA1",
     "pwm": true,
     "input": true,
     "output": true,
@@ -241,18 +241,8 @@
   },
   {
     "number": 25,
-    "name": "V1.8_OUT",
-    "description": "1.8V power supply output",
-    "pwm": false,
-    "input": false,
-    "output": true,
-    "pullup": 0,
-    "pulldown": 0
-  },
-  {
-    "number": 26,
     "name": "GPIO16",
-    "description": "GPIO16/HS1_D4",
+    "description": "GPIO16/EMAC_CLKOUT/U2_RXD/HS1_DATA4",
     "pwm": true,
     "input": true,
     "output": true,
@@ -260,9 +250,19 @@
     "pulldown": 0
   },
   {
+    "number": 26,
+    "name": "VDD_SDIO",
+    "description": "1.8V-3.3V power supply output",
+    "pwm": false,
+    "input": false,
+    "output": true,
+    "pullup": 0,
+    "pulldown": 0
+  },
+  {
     "number": 27,
     "name": "GPIO17",
-    "description": "GPIO17/HS1_D5",
+    "description": "GPIO17/EMAC_CO180/U2_TXD/HS1_DATA5",
     "pwm": true,
     "input": true,
     "output": true,
@@ -272,7 +272,7 @@
   {
     "number": 28,
     "name": "GPIO9",
-    "description": "GPIO9/U1_RXD/SD_D2/HS1_D2/SPI_HD",
+    "description": "GPIO9/SPI_HD/U1_RXD/HS1_DATA2/SD_DATA2",
     "pwm": true,
     "input": true,
     "output": true,
@@ -282,7 +282,7 @@
   {
     "number": 29,
     "name": "GPIO10",
-    "description": "GPIO10/U1_TXD/SD_D3/HS1_D3/SPI_WP",
+    "description": "GPIO10/SPI_WP/U1_TXD/HS1_DATA3/SD_DATA3",
     "pwm": true,
     "input": true,
     "output": true,
@@ -292,7 +292,7 @@
   {
     "number": 30,
     "name": "GPIO11",
-    "description": "GPIO11/U1_RTS/SD_CMD/HS1_CMD/SPI_CS0",
+    "description": "GPIO11/U1_RTS/HS1_CMD/SD_CMD",
     "pwm": true,
     "input": true,
     "output": true,
@@ -302,7 +302,7 @@
   {
     "number": 31,
     "name": "GPIO6",
-    "description": "GPIO6/U1_CTS/SD_CLK/HS1_CLK/SPI_CLK",
+    "description": "GPIO6/SPI_CLK/U1_CTS/HS1_CLK/SD_CLK",
     "pwm": true,
     "input": true,
     "output": true,
@@ -312,7 +312,7 @@
   {
     "number": 32,
     "name": "GPIO7",
-    "description": "GPIO7/SD_D0/HS1_D0/SPI_Q",
+    "description": "GPIO7/SPI_Q/U2_RTS/HS1_DATA0/SD_DATA0",
     "pwm": true,
     "input": true,
     "output": true,
@@ -322,7 +322,7 @@
   {
     "number": 33,
     "name": "GPIO8",
-    "description": "GPIO8/SD_D1/HS1_D1/SPI_D",
+    "description": "GPIO8/SPI_D/U2_CTS/HS1_DATA1/SD_DATA1",
     "pwm": true,
     "input": true,
     "output": true,
@@ -332,7 +332,7 @@
   {
     "number": 34,
     "name": "GPIO5",
-    "description": "GPIO5/HS1_D6/VSPI_CS0",
+    "description": "GPIO5/EMAC_RXCLK/VSPI_CS0/HS1_DATA6",
     "pwm": true,
     "input": true,
     "output": true,
@@ -342,7 +342,7 @@
   {
     "number": 35,
     "name": "GPIO18",
-    "description": "GPIO18/HS1_D7/VSPI_CLK",
+    "description": "GPIO18/VSPI_CLK/HS1_DATA7",
     "pwm": true,
     "input": true,
     "output": true,
@@ -351,18 +351,8 @@
   },
   {
     "number": 36,
-    "name": "VDD_CPU",
-    "description": "CPU power supply (1.8V-3.3V)",
-    "pwm": false,
-    "input": true,
-    "output": false,
-    "pullup": 0,
-    "pulldown": 0
-  },
-  {
-    "number": 37,
-    "name": "GPIO19",
-    "description": "GPIO19/HS2_D2/VSPI_Q",
+    "name": "GPIO23",
+    "description": "GPIO23/VSPI_ID/HS1_STROBE",
     "pwm": true,
     "input": true,
     "output": true,
@@ -370,9 +360,19 @@
     "pulldown": 0
   },
   {
+    "number": 37,
+    "name": "VDD_CPU",
+    "description": "CPU IO power supply input (2.3V-3.6V)",
+    "pwm": false,
+    "input": true,
+    "output": false,
+    "pullup": 0,
+    "pulldown": 0
+  },
+  {
     "number": 38,
-    "name": "GPIO20",
-    "description": "GPIO20/HS2_D3/VSPI_ID",
+    "name": "GPIO19",
+    "description": "GPIO19/EMAC_TXD0/U0_CTS/VSPI_Q",
     "pwm": true,
     "input": true,
     "output": true,
@@ -381,8 +381,8 @@
   },
   {
     "number": 39,
-    "name": "GPIO21",
-    "description": "GPIO21/HS2_CMD/VSPI_H2",
+    "name": "GPIO22",
+    "description": "GPIO22/EMAC_TXD1/U0_RTS/VSPI_WP",
     "pwm": true,
     "input": true,
     "output": true,
@@ -392,7 +392,7 @@
   {
     "number": 40,
     "name": "GPIO3",
-    "description": "GPIO3/HS2_D0/U0_RXD/CLK02",
+    "description": "GPIO3/U0_RXD/CLK_OUT2",
     "pwm": true,
     "input": true,
     "output": true,
@@ -402,7 +402,7 @@
   {
     "number": 41,
     "name": "GPIO1",
-    "description": "GPIO1/HS2_D1/U0_TXD/CLK03",
+    "description": "GPIO1/EMAC_RXD2/U0_TXD/CLK_OUT3",
     "pwm": true,
     "input": true,
     "output": true,
@@ -411,8 +411,8 @@
   },
   {
     "number": 42,
-    "name": "GPIO22",
-    "description": "GPIO22/HS2_CLK/VSPI_WP",
+    "name": "GPIO21",
+    "description": "GPIO21/EMAC_TXEN/VSPI_HD",
     "pwm": true,
     "input": true,
     "output": true,
@@ -421,18 +421,8 @@
   },
   {
     "number": 43,
-    "name": "GPIO23",
-    "description": "GPIO23",
-    "pwm": true,
-    "input": true,
-    "output": true,
-    "pullup": 0,
-    "pulldown": 0
-  },
-  {
-    "number": 44,
-    "name": "XTAL_N",
-    "description": "External crystal (26MHz)",
+    "name": "VDDA_ANA",
+    "description": "Analog power supply (2.3V-3.6V)",
     "pwm": false,
     "input": true,
     "output": false,
@@ -440,9 +430,19 @@
     "pulldown": 0
   },
   {
-    "number": 45,
+    "number": 44,
     "name": "XTAL_N",
-    "description": "External crystal (26MHz)",
+    "description": "External crystal",
+    "pwm": false,
+    "input": false,
+    "output": true,
+    "pullup": 0,
+    "pulldown": 0
+  },
+  {
+    "number": 45,
+    "name": "XTAL_P",
+    "description": "External crystal",
     "pwm": false,
     "input": true,
     "output": false,
@@ -451,7 +451,7 @@
   },
   {
     "number": 46,
-    "name": "VDD_PLL",
+    "name": "VDDA_PLL",
     "description": "Digital power supply for PLL (2.3V-3.6V)",
     "pwm": false,
     "input": true,
@@ -461,20 +461,20 @@
   },
   {
     "number": 47,
-    "name": "RES_14k",
-    "description": "RES_14k",
+    "name": "CAP2",
+    "description": "Connects with a 3nF capacitor and a 20k resistor in parallel to CAP1",
     "pwm": false,
-    "input": false,
+    "input": true,
     "output": false,
     "pullup": 0,
     "pulldown": 0
   },
   {
     "number": 48,
-    "name": "CAP_10n",
-    "description": "CAP_10n",
+    "name": "CAP1",
+    "description": "Connects with a 10nF series capacitor to ground",
     "pwm": false,
-    "input": false,
+    "input": true,
     "output": false,
     "pullup": 0,
     "pulldown": 0
