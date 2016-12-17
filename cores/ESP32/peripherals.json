@@ -1,14 +1,24 @@
 [
-  {
-    "name": "I2C_1"
-  },
-  {
-    "name": "I2C_2"
-  },
-  {
-    "name": "SPI_1"
-  },
-  {
-    "name": "SPI_2"
-  }
+	{
+	"category": "GPIO",
+	"color": grey,
+	"peripherals": [
+		{
+		"name": "GPIO36",
+		"pins": [{ "GPIO36", [5]}],
+		"default": true
+		}
+	]
+	},
+	{
+	"category": "JTAG",
+	"color": purple,
+	"peripherals": [
+		{
+		"name": "JTAG",
+		"pins": [{"MTMS", [17]}, {MTDI, [18]}, {MTCK, [20]}, {MTDO, [21]}],
+		"default": true
+		}
+	]
+	}
 ]
