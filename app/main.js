@@ -2,6 +2,7 @@ define(function (require) {
 
 	var $ = require ('jquery');
 	var angular = require ('angular');
+	var bootstrap = require ('bootstrap');
 	var d3 = require ('d3');
 	
 	var cores = require ('./cores');

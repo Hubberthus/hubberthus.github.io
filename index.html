@@ -5,18 +5,29 @@
 	  <meta charset="utf-8">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <title>MCU setup</title>
 	  <link href="css/bootstrap.min.css" rel="stylesheet" />
 	  <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+	  <link href="css/main.css" rel="stylesheet" />
+	  <title>MCU setup</title>
 	</head>
 	
 	<body>
 	
 		<div ng-app="mcuSetupApp" ng-controller="mcuSetupController" class="container-fluid">
 			<div class="row">
-				<div class="col-sm-2" id="peripherals"></div>
-				<div class="col-sm-6" id="module"></img></div>
-				<div class="col-sm-4" id="codeview">//TODO: Generated code view goes here.</div>
+				<div class="col-sm-2 panel-group">
+					<div class="panel panel-info">
+						<div class="panel-heading">Peripherals</div>
+						<div class="panel-body" id="peripherals"></div>
+					</div>
+				</div>
+				<div class="col-sm-6" id="module"></div>
+				<div class="col-sm-4">
+					<div class="panel panel-info">
+						<div class="panel-heading">Code view</div>
+						<div class="panel-body" id="codeview"></div>
+					</div>
+				</div>
 			</div>
 		
 		</div>

@@ -44,18 +44,31 @@ define(function (require) {
         		}
         	});
         	
-        	selected_core.peripherals.forEach(function ( peripheral ) {
+        	selected_core.peripherals.forEach(function ( category ) {
         		
-        		peripheralsTag.append("div")
-        		.attr("class", "row")
-        		.attr("style", "padding: 5px;")
-        		.append("div")
-        		.attr("style", "width: 50%;"
-        				    + "text-align: center;"
-        					+ "background: lightblue;"
-        					+ "border-radius: 1em;"
+        		var panelTag = peripheralsTag.append("div")
+        		.attr("class", "panel");
+        		
+        		panelTag.append("div")
+        		.attr("class", "panel-heading")
+        		.attr("style", "background: " + category.color + ";"
         					+ "cursor: pointer;")
-        		.text(peripheral.name);
+        		.append("h5")
+        		.attr("class", "panel-title collapsed")
+        		.attr("data-toggle", "collapse")
+        		.attr("href", "#collapse" + category.name)
+        		.attr("aria-expanded", "false")
+        		.text(category.name);
+        		
+        		var contentTag = panelTag.append("div")
+        		.attr("class", "panel-collapse collapse")
+        		.attr("id", "collapse" + category.name);
+        		
+        		category.peripherals.forEach(function ( peripheral ) {
+        			
+        			contentTag.append("div")
+        			.text(peripheral.name);
+        		});
         	});
         	
         	return selected_core;

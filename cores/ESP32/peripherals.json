@@ -1,22 +1,22 @@
 [
 	{
-	"category": "GPIO",
-	"color": grey,
+	"name": "GPIO",
+	"color": "grey",
 	"peripherals": [
 		{
 		"name": "GPIO36",
-		"pins": [{ "GPIO36", [5]}],
+		"pins": [{ "GPIO36": [5]}],
 		"default": true
 		}
 	]
 	},
 	{
-	"category": "JTAG",
-	"color": purple,
+	"name": "JTAG",
+	"color": "lightblue",
 	"peripherals": [
 		{
 		"name": "JTAG",
-		"pins": [{"MTMS", [17]}, {MTDI, [18]}, {MTCK, [20]}, {MTDO, [21]}],
+		"pins": [{"MTMS": [17]}, {"MTDI": [18]}, {"MTCK": [20]}, {"MTDO": [21]}],
 		"default": true
 		}
 	]
