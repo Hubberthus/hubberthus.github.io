@@ -44,10 +44,6 @@ define(function (require) {
         		.attr("width", "70%");
         		
         		selected_module.pins.forEach(function ( pin ) {
-
-        			//var pinName = pin.name;
-        			
-        			//var pinTag = moduleTag.append("div");
       			
         			if (pin.name) {
         				
@@ -83,6 +79,9 @@ define(function (require) {
 	        						+ "display: inline-block;"
 	        						+ "background: " +pinFunc.color + ";"
 	        						+ "border-radius: 1em;")
+
+	        				.append("span")
+	        				.attr("style", "font-size: " + (100.0/pinFuncList.length) + "%;")
 	        				.text(pinFunc.name);
     					});
     				} else {

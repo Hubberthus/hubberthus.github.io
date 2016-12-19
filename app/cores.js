@@ -89,12 +89,6 @@ define(function (require) {
         		.append("button")
         		.attr("class", "btn btn-default")
         		.text((peripheral.enabled ? "disable" : "enable"));
-        		
-        		/*peripheral.pins.forEach(function ( peripheral ) {
-        			
-        			contentTag.append("div")
-        			.text(peripheral.description);
-        		});*/
         	});
         	
         	return selected_core;
