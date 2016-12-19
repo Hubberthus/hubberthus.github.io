@@ -7,6 +7,7 @@ define(function (require) {
 	
 	var cores = require ('./cores');
 	var modules = require ('./modules');
+	var setting = require ('./setting');
 	
 	var app = angular.module("mcuSetupApp", []);
 	

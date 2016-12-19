@@ -2,6 +2,7 @@ define(function (require) {
 	
 	var d3 = require ('d3');
 	var cores = require ('./cores');
+	var setting = require ('./setting');
 	
 	var module_list = [];
 	var selected_module = null;
@@ -33,11 +34,10 @@ define(function (require) {
         	try {
         		
         		var moduleTag = d3.select("#module");
-        		var core;
         		
         		selected_module = module_list[number];
         		
-        		core = cores.selectCore(selected_module.core);
+        		cores.selectCore(selected_module.core);
         		
         		moduleTag.append("center").append("img")
         		.attr("src", selected_module.image)
@@ -45,15 +45,14 @@ define(function (require) {
         		
         		selected_module.pins.forEach(function ( pin ) {
 
-        			var pinName = pin.name;
+        			//var pinName = pin.name;
+        			
+        			//var pinTag = moduleTag.append("div");
       			
-        			if (pin.name == undefined) {
-        				var corePin = cores.getPin(pin.number);
-        				pinName = corePin.name;
-        			}
-
-        			moduleTag.append("div")
-        			.attr("style", "position: absolute;"
+        			if (pin.name) {
+        				
+        				moduleTag.append("div")
+        				.attr("style", "position: absolute;"
         						+ "width: 15%;"
         						+ "text-align: center;"
         						+ "left: " + (pin.side == "left" ? "0" : "85") + "%;"
@@ -61,7 +60,44 @@ define(function (require) {
         						+ "background: " +pin.color + ";"
         						+ "border-radius: 1em;"
         						+ "cursor: default;")
-        			.text(pinName);
+        				.text(pin.name);
+        				return;
+        			}
+        			
+    				var pinFuncList = setting.getPinFunctions(pin.number);
+    				
+    				if (pinFuncList != null && pinFuncList.length > 0) {
+    					
+    					var pinTag = moduleTag.append("div")
+        				.attr("style", "position: absolute;"
+        						+ "width: 15%;"
+        						+ "text-align: center;"
+        						+ "left: " + (pin.side == "left" ? "0" : "85") + "%;"
+        						+ "top: " + pin.position + "%;"
+        						+ "border-radius: 1em;"
+        						+ "cursor: default;");
+    					
+    					pinFuncList.forEach(function ( pinFunc ) {
+    						pinTag.append("div")
+	        				.attr("style", "width: " + (100.0/pinFuncList.length) + "%;"
+	        						+ "display: inline-block;"
+	        						+ "background: " +pinFunc.color + ";"
+	        						+ "border-radius: 1em;")
+	        				.text(pinFunc.name);
+    					});
+    				} else {
+    					
+    					moduleTag.append("div")
+        				.attr("style", "position: absolute;"
+        						+ "width: 15%;"
+        						+ "text-align: center;"
+        						+ "left: " + (pin.side == "left" ? "0" : "85") + "%;"
+        						+ "top: " + pin.position + "%;"
+        						+ "background: " +pin.color + ";"
+        						+ "border-radius: 1em;"
+        						+ "cursor: default;")
+        				.text(cores.getPin(pin.number).name);
+    				}
         		});
         	
         	} catch(e) {

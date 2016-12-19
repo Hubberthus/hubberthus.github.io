@@ -1,6 +1,7 @@
 define(function (require) {
 	
 	var d3 = require ('d3');
+	var setting = require ('./setting');
 	
 	var core_list = [];
 	var selected_core = null;
@@ -44,31 +45,56 @@ define(function (require) {
         		}
         	});
         	
-        	selected_core.peripherals.forEach(function ( category ) {
+        	selected_core.peripherals.forEach(function ( peripheral ) {
+        		
+        		for (pinFunc in peripheral.pins) {
+        			
+        			peripheral.pins[pinFunc].forEach(function ( pin ) {
+        				
+        				setting.setPinFunction(pin, {"name": pinFunc, "color": peripheral.color});
+        			});
+        		}
+        		
+        		if (peripheral.name == "GPIO") {
+        			return;
+        		}
         		
         		var panelTag = peripheralsTag.append("div")
         		.attr("class", "panel");
         		
         		panelTag.append("div")
         		.attr("class", "panel-heading")
-        		.attr("style", "background: " + category.color + ";"
+        		.attr("style", "background: " + peripheral.color + ";"
         					+ "cursor: pointer;")
+
         		.append("h5")
         		.attr("class", "panel-title collapsed")
         		.attr("data-toggle", "collapse")
-        		.attr("href", "#collapse" + category.name)
+        		.attr("href", "#collapse" + peripheral.name)
         		.attr("aria-expanded", "false")
-        		.text(category.name);
+        		.text(peripheral.name + " ")
+        		
+        		.append("span")
+        		.attr("class", "glyphicon glyphicon-ok")
+        		.attr("style", "color: white;"
+        					+ " visibility: " + (peripheral.enabled ? "visible" : "hidden") + ";");
         		
         		var contentTag = panelTag.append("div")
         		.attr("class", "panel-collapse collapse")
-        		.attr("id", "collapse" + category.name);
+        		.attr("id", "collapse" + peripheral.name)
         		
-        		category.peripherals.forEach(function ( peripheral ) {
+        		.append("span")
+        		.text(peripheral.description)
+        		
+        		.append("button")
+        		.attr("class", "btn btn-default")
+        		.text((peripheral.enabled ? "disable" : "enable"));
+        		
+        		/*peripheral.pins.forEach(function ( peripheral ) {
         			
         			contentTag.append("div")
-        			.text(peripheral.name);
-        		});
+        			.text(peripheral.description);
+        		});*/
         	});
         	
         	return selected_core;

@@ -1,24 +1,20 @@
 [
 	{
-	"name": "GPIO",
-	"color": "grey",
-	"peripherals": [
-		{
-		"name": "GPIO36",
-		"pins": [{ "GPIO36": [5]}],
-		"default": true
-		}
-	]
+		"name": "GPIO",
+		"pins": {"GPIO0": [23], "GPIO1": [41], "GPIO2": [22], "GPIO3": [40], "GPIO4": [24],
+			"GPIO5": [34], "GPIO6": [31], "GPIO7": [32], "GPIO8": [33], "GPIO9": [28],
+			"GPIO10": [29], "GPIO11": [30], "GPIO12": [18], "GPIO13": [20], "GPIO14": [17],
+			"GPIO15": [21], "GPIO16": [25], "GPIO17": [27], "GPIO18": [35], "GPIO19": [38],
+			"GPIO21": [42], "GPIO22": [39], "GPIO23": [36], "GPIO25": [14], "GPIO26": [15],
+			"GPIO27": [16], "GPIO32": [12], "GPIO33": [13], "GPIO34": [10], "GPIO35": [11],
+			"GPIO36": [5], "GPIO37": [6], "GPIO38": [7], "GPIO39": [8]},
+		"color": "grey"
 	},
 	{
-	"name": "JTAG",
-	"color": "lightblue",
-	"peripherals": [
-		{
 		"name": "JTAG",
-		"pins": [{"MTMS": [17]}, {"MTDI": [18]}, {"MTCK": [20]}, {"MTDO": [21]}],
-		"default": true
-		}
-	]
+		"description": "JTAG interface for debugging.",
+		"pins": {"MTMS": [17], "MTDI": [18], "MTCK": [20], "MTDO": [21]},
+		"color": "lightblue",
+		"enabled": true
 	}
 ]
