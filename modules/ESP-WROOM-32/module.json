@@ -16,7 +16,7 @@
 	},
 	{
 	"number": 9,
-	"color": "yellow",
+	"color": "orange",
 	"position": 31.5,
 	"side": "left"
 	},
@@ -164,6 +164,7 @@
 	{
 	"name": "NC",
 	"description": "Not connected",
+	"color": "lightgrey",
 	"position": 45.5,
 	"side": "right"
 	},

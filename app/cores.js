@@ -88,7 +88,13 @@ define(function (require) {
         		
         		.append("button")
         		.attr("class", "btn btn-default")
-        		.text((peripheral.enabled ? "disable" : "enable"));
+        		.text((peripheral.enabled ? "disable" : "enable"))
+        		.on("click", function() {
+        			
+        			peripheral.enabled = ! peripheral.enabled;
+        			
+        			this.text = (peripheral.enabled ? "disable" : "enable");
+        		});
         	});
         	
         	return selected_core;

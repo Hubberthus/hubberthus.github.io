@@ -48,14 +48,12 @@ define(function (require) {
         			if (pin.name) {
         				
         				moduleTag.append("div")
-        				.attr("style", "position: absolute;"
-        						+ "width: 15%;"
-        						+ "text-align: center;"
-        						+ "left: " + (pin.side == "left" ? "0" : "85") + "%;"
-        						+ "top: " + pin.position + "%;"
-        						+ "background: " +pin.color + ";"
-        						+ "border-radius: 1em;"
-        						+ "cursor: default;")
+        				.attr("class", "label-pin-" + pin.side)
+        				.attr("style", "top: " + pin.position + "%;")
+        				.append("div")
+        				.attr("class", "label")
+        				.attr("style", "width: 100%;"
+        							+ "background: " + pin.color + ";")
         				.text(pin.name);
         				return;
         			}
@@ -65,36 +63,25 @@ define(function (require) {
     				if (pinFuncList != null && pinFuncList.length > 0) {
     					
     					var pinTag = moduleTag.append("div")
-        				.attr("style", "position: absolute;"
-        						+ "width: 15%;"
-        						+ "text-align: center;"
-        						+ "left: " + (pin.side == "left" ? "0" : "85") + "%;"
-        						+ "top: " + pin.position + "%;"
-        						+ "border-radius: 1em;"
-        						+ "cursor: default;");
+    					.attr("class", "label-pin-" + pin.side)
+        				.attr("style", "top: " + pin.position + "%;");
     					
     					pinFuncList.forEach(function ( pinFunc ) {
     						pinTag.append("div")
+    						.attr("class", "label")
 	        				.attr("style", "width: " + (100.0/pinFuncList.length) + "%;"
-	        						+ "display: inline-block;"
-	        						+ "background: " +pinFunc.color + ";"
-	        						+ "border-radius: 1em;")
-
-	        				.append("span")
-	        				.attr("style", "font-size: " + (100.0/pinFuncList.length) + "%;")
+	        						+ "background: " + pinFunc.color + ";")
 	        				.text(pinFunc.name);
     					});
     				} else {
     					
     					moduleTag.append("div")
-        				.attr("style", "position: absolute;"
-        						+ "width: 15%;"
-        						+ "text-align: center;"
-        						+ "left: " + (pin.side == "left" ? "0" : "85") + "%;"
-        						+ "top: " + pin.position + "%;"
-        						+ "background: " +pin.color + ";"
-        						+ "border-radius: 1em;"
-        						+ "cursor: default;")
+        				.attr("class", "label-pin-" + pin.side)
+        				.attr("style", "top: " + pin.position + "%;")
+        				.append("div")
+        				.attr("class", "label")
+        				.attr("style", "width: 100%;"
+        						+ "background: " + pin.color + ";")
         				.text(cores.getPin(pin.number).name);
     				}
         		});

@@ -1,3 +1,21 @@
+.label {
+	display: inline-block;
+}
+
+.label-pin-left {
+	position: absolute;
+	width: 15%;
+	left: 0%;
+	cursor: default;
+}
+
+.label-pin-right {
+	position: absolute;
+	width: 15%;
+	left: 85%;
+	cursor: default;
+}
+
 .panel-heading .panel-title:after {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
