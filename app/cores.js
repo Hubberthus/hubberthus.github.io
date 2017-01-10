@@ -92,7 +92,7 @@ define(function (require) {
         		.on("click", function() {
         			
         			peripheral.enabled = ! peripheral.enabled;
-        			
+
         			this.text = (peripheral.enabled ? "disable" : "enable");
         		});
         	});
