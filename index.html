@@ -25,14 +25,14 @@
 								<div class="panel-heading" style="background: {{peripheral.color}}; cursor: pointer;">
 									<h5 class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}" aria-expanded="false">
 										{{peripheral.name}}
-										<span class="glyphicon glyphicon-ok" style="color: white; visibility: visible;"></span>
+										<span class="glyphicon glyphicon-ok" style="color: white; visibility: {{(peripheral.enabled ? 'visible' : 'hidden')}};"></span>
 									</h5>
 								</div>
 								<div class="panel-collapse collapse" id="collapse{{peripheral.name}}">
 									<div>
 										{{peripheral.description}}
 									</div>
-									<button class="btn btn-default" style="visibility: {{(peripheral.name == 'GPIO' ? 'hidden' : 'show')}};">
+									<button ng-click="peripheral.enabled = ! peripheral.enabled" class="btn btn-default" style="{{(peripheral.name == 'GPIO' ? 'display: none;' : '')}};">
 										{{(peripheral.enabled ? "disable" : "enable")}}
 									</button>
 								</div>
@@ -53,7 +53,7 @@
 						<div ng-if="!pin.name"> 
 							<div ng-repeat="peripheral in cores[0].peripherals" style="display:inline-block;">
 								<div ng-repeat="(peripinname,peripin) in peripheral.pins">
-									<span ng-if="peripin[0] == pin.number" class="label" style="background: {{peripheral.color}};">
+									<span ng-if="(peripin[0] == pin.number) && (peripheral.enabled)" class="label" style="background: {{peripheral.color}};">
 										{{peripinname}}
 									</span>
 								</div>
