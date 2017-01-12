@@ -18,5 +18,83 @@
 		"pins": {"MTMS": [17], "MTDI": [18], "MTCK": [20], "MTDO": [21]},
 		"color": "lightblue",
 		"enabled": true
+	},
+	{
+		"name": "SDIO1",
+		"description": "SDIO slave interface. The MCU can be controlled via this interface.",
+		"pins": {"SD_DATA2": [28], "SD_DATA3": [29], "SD_CMD": [30], "SD_CLK": [31], "SD_DATA0": [32], "SD_DATA1": [33]},
+		"color": "lightgreen",
+		"enabled": true
+	},
+	{
+		"name": "SDIO2",
+		"description": "SDIO slave interface. The MCU can be controlled via this interface.",
+		"pins": {"SD_CLK": [17], "SD_DATA2": [18], "SD_DATA3": [20], "SD_CMD": [21], "SD_DATA0": [22], "SD_DATA1": [24]},
+		"color": "lime",
+		"enabled": false
+	},
+	{
+		"name": "HS1",
+		"description": "SDIO host interface. Can be used to control SD/MMC cards.",
+		"pins": {"HS1_CMD": [30], "HS1_CLK": [31], "HS1_DATA0": [32], "HS1_DATA1": [33]},
+		"pins_optional": {"HS1_DATA4": [25], "HS1_DATA5": [27], "HS1_DATA2": [28], "HS1_DATA3": [29], "HS1_DATA6": [34], "HS1_DATA7": [35], "HS1_STROBE": [36]},
+		"color": "limegreen",
+		"enabled": false
+	},
+	{
+		"name": "HS2",
+		"description": "SDIO host interface. Can be used to control SD/MMC cards.",
+		"pins": {"HS2_CLK": [17], "HS2_CMD": [21], "HS2_DATA0": [22], "HS2_DATA1": [24]},
+		"pins_optional": {"HS2_DATA2": [18], "HS2_DATA3": [20]},
+		"color": "green",
+		"enabled": false
+	},
+	{
+		"name": "UART0",
+		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
+		"pins": {"U0RXD": [40], "U0TXD": [41]},
+		"pins_optional": {"U0CTS": [38], "U0RTS": [39]},
+		"color": "blue",
+		"enabled": true
+	},
+	{
+		"name": "UART1",
+		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
+		"pins": {"U1RXD": [28], "U1TXD": [29]},
+		"pins_optional": {"U1RTS": [30], "U1CTS": [31]},
+		"color": "royalblue",
+		"enabled": false
+	},
+	{
+		"name": "UART2",
+		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
+		"pins": {"U2RXD": [25], "U2TXD": [27]},
+		"pins_optional": {"U2RTS": [32], "U2CTS": [33]},
+		"color": "deepskyblue",
+		"enabled": false
+	},
+	{
+		"name": "SPI1",
+		"description": "Generic master/slave SPI interface, optionally can handle dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"pins": {"SPIHD": [28], "SPIWP": [29], "SPICS0": [30], "SPICLK": [31]},
+		"pins_optional": {"SPIQ": [32], "SPID": [33]},
+		"color": "purple",
+		"enabled": false
+	},
+	{
+		"name": "SPI2",
+		"description": "Generic master/slave SPI interface, optionally can handle dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"pins": {"HSPICLK": [17], "HSPICS0": [21], "HSPIWP": [22], "HSPIHD": [24]},
+		"pins_optional": {"HSPIQ": [18], "HSPID": [20]},
+		"color": "magenta",
+		"enabled": false
+	},
+	{
+		"name": "SPI3",
+		"description": "Generic master/slave SPI interface, optionally can handle dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"pins": {"VSPICS0": [34], "VSPICLK": [35], "VSPIWP": [39], "VSPIHD": [42]},
+		"pins_optional": {"VSPID": [36], "VSPIQ": [38]},
+		"color": "orangered",
+		"enabled": false
 	}
 ]

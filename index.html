@@ -23,7 +23,7 @@
 							<div ng-repeat="peripheral in cores[0].peripherals" class="panel">
 
 								<div class="panel-heading" style="background: {{peripheral.color}}; cursor: pointer;">
-									<h5 class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}" aria-expanded="false">
+									<h5 class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}" aria-expanded="false" style="color: white;">
 										{{peripheral.name}}
 										<span class="glyphicon glyphicon-ok" style="color: white; visibility: {{(peripheral.enabled ? 'visible' : 'hidden')}};"></span>
 									</h5>
