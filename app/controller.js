@@ -11,12 +11,7 @@ define([
 		    async: false
 		});
 		
-		cores.loadCores();
-		modules.loadModules();
+		$scope.cores = cores.loadCores();
+		$scope.modules = modules.loadModules();
 	});
-	
-	update = function() {
-		
-		modules.selectModule(0);
-	}
 });

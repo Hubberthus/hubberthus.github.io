@@ -18,10 +18,50 @@
 				<div class="col-sm-4 panel-group">
 					<div class="panel panel-info">
 						<div class="panel-heading">Peripherals</div>
-						<div class="panel-body" id="peripherals"></div>
+						<div class="panel-body" id="peripherals">
+
+							<div ng-repeat="peripheral in cores[0].peripherals" class="panel">
+
+								<div class="panel-heading" style="background: {{peripheral.color}}; cursor: pointer;">
+									<h5 class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}" aria-expanded="false">
+										{{peripheral.name}}
+										<span class="glyphicon glyphicon-ok" style="color: white; visibility: visible;"></span>
+									</h5>
+								</div>
+								<div class="panel-collapse collapse" id="collapse{{peripheral.name}}">
+									<div>
+										{{peripheral.description}}
+									</div>
+									<button class="btn btn-default" style="visibility: {{(peripheral.name == 'GPIO' ? 'hidden' : 'show')}};">
+										{{(peripheral.enabled ? "disable" : "enable")}}
+									</button>
+								</div>
+							</div>
+							
+						</div>
 					</div>
 				</div>
-				<div class="col-sm-6" id="module"></div>
+				<div class="col-sm-6" id="module">
+				
+					<img src="{{modules[0].image}}" width="70%" style="margin: auto; display: block;"></img>
+					
+					<div ng-repeat="pin in modules[0].pins" class="label-pin-{{pin.side}}" style="top: {{pin.position}}%;">
+						<div ng-if="pin.name" class="label" style="display:inline-block; background: {{pin.color}};">
+							{{pin.name}}
+						</div>
+						
+						<div ng-if="!pin.name"> 
+							<div ng-repeat="peripheral in cores[0].peripherals" style="display:inline-block;">
+								<div ng-repeat="(peripinname,peripin) in peripheral.pins">
+									<span ng-if="peripin[0] == pin.number" class="label" style="background: {{peripheral.color}};">
+										{{peripinname}}
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</div>
 				<div class="col-sm-2">
 					<div class="panel panel-info">
 						<div class="panel-heading">Features</div>

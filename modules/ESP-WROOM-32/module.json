@@ -2,6 +2,7 @@
 "core": "ESP32",
 "pins": [
 	{
+	"name": "GND",
 	"number": 49,
 	"color": "black",
 	"position": 24.5,
@@ -15,6 +16,7 @@
 	"side": "left"
 	},
 	{
+	"name": "CHIP_PU",
 	"number": 9,
 	"color": "orange",
 	"position": 31.5,
@@ -76,6 +78,7 @@
 	"side": "left"
 	},
 	{
+	"name": "GND",
 	"number": 49,
 	"color": "black",
 	"position": 78,
@@ -194,6 +197,7 @@
 	"side": "right"
 	},
 	{
+	"name": "GND",
 	"number": 49,
 	"color": "black",
 	"position": 24.5,
