@@ -15,7 +15,7 @@
 	
 		<div ng-controller="mcuSetupController" class="container-fluid">
 			<div class="row">
-				<div class="col-sm-4 panel-group">
+				<div class="col-sm-3 panel-group">
 					<div class="panel panel-info">
 						<div class="panel-heading">Peripherals</div>
 						<div class="panel-body" id="peripherals">
@@ -41,9 +41,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6" id="module">
+				<div class="col-sm-9" id="module">
 				
-					<img src="{{modules[0].image}}" width="70%" style="margin: auto; display: block;"></img>
+					<img src="{{modules[0].image}}" width="50%" style="margin: auto; display: block;"></img>
 					
 					<div ng-repeat="pin in modules[0].pins" class="label-pin-{{pin.side}}" style="top: {{pin.position}}%;">
 						<div ng-if="pin.name" class="label" style="display:inline-block; background: {{pin.color}};">
@@ -61,12 +61,6 @@
 						</div>
 					</div>
 				
-				</div>
-				<div class="col-sm-2">
-					<div class="panel panel-info">
-						<div class="panel-heading">Features</div>
-						<div class="panel-body" id="features"></div>
-					</div>
 				</div>
 			</div>
 		

@@ -3,16 +3,18 @@
 }
 
 .label-pin-left {
+	text-align: right;
 	position: absolute;
-	width: 15%;
+	width: 25%;
 	left: 0%;
 	cursor: default;
 }
 
 .label-pin-right {
+	text-align: left;
 	position: absolute;
-	width: 15%;
-	left: 85%;
+	width: 25%;
+	left: 75%;
 	cursor: default;
 }
 
