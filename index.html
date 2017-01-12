@@ -32,6 +32,27 @@
 									<div>
 										{{peripheral.description}}
 									</div>
+									
+									<div ng-repeat="(pinname, pinnums) in peripheral.pins_optional">
+										<span style="display: inline-block; width: 50%;">
+											{{pinname}}
+										</span>
+										<div class="dropdown" style="display: inline-block;">
+											<button class="btn btn-default dropdown-toggle" type="button" id="dropdown{{pinname}}" data-toggle="dropdown">
+											    ---
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu">
+												<li>
+													<a href="#">---</a>
+												</li>
+												<li ng-repeat="pin in pinnums">
+													<a href="#">{{pin}}</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									
 									<button ng-click="peripheral.enabled = ! peripheral.enabled" class="btn btn-default" style="{{(peripheral.name == 'GPIO' ? 'display: none;' : '')}};">
 										{{(peripheral.enabled ? "disable" : "enable")}}
 									</button>
