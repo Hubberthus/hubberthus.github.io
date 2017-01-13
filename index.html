@@ -33,23 +33,17 @@
 										{{peripheral.description}}
 									</div>
 									
-									<div ng-repeat="(pinname, pinnums) in peripheral.pins_optional">
-										<span class="pin-name">
-											{{pinname}}
-										</span>
-										<div class="dropdown">
-											<button class="btn btn-default dropdown-toggle" type="button" id="dropdown{{pinname}}" data-toggle="dropdown">
-											    ---
-												<span class="caret"></span>
+									<div ng-repeat="(pinname, pinnums) in peripheral.pins" style="background: {{($even ? 'white' : 'lightgrey')}};">
+										<div ng-if="pinnums.length > 1">
+											<span class="pin-name">
+												{{pinname}}
+											</span>
+											<button ng-if="pinnums.length == 2" ng-click="(peripheral.active_pins[pinname] ? peripheral.active_pins[pinname] = null : peripheral.active_pins[pinname] = pinnums[1])" class="btn label {{(peripheral.active_pins[pinname] ? 'label-success' : 'label-default')}} selector">
+												{{(peripheral.active_pins[pinname] ? "ON" : "OFF")}}
 											</button>
-											<ul class="dropdown-menu">
-												<li>
-													<a href="#">---</a>
-												</li>
-												<li ng-repeat="pin in pinnums">
-													<a href="#">{{active_module.pin_map[pin]}}</a>
-												</li>
-											</ul>
+											<select ng-if="pinnums.length > 2" ng-model="peripheral.active_pins[pinname]" class="selector">
+												<option ng-repeat="num in pinnums" value="{{num}}">{{(num ? active_module.pin_map[num] : "---")}}</option>
+											</select>
 										</div>
 									</div>
 									
@@ -73,8 +67,8 @@
 						
 						<div ng-if="!pin.name"> 
 							<div ng-repeat="peripheral in core.peripherals" style="display:inline-block;">
-								<div ng-repeat="(peripinname,peripin) in peripheral.pins">
-									<span ng-if="(peripin[0] == pin.number) && (peripheral.enabled)" class="label" style="background: {{peripheral.color}};">
+								<div ng-repeat="(peripinname,peripin) in peripheral.active_pins">
+									<span ng-if="(peripin == pin.number) && (peripheral.enabled)" class="label" style="background: {{peripheral.color}};">
 										{{peripinname}}
 									</span>
 								</div>

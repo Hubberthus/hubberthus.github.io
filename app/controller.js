@@ -12,8 +12,18 @@ define([
 		});
 		
 		$scope.modules = modules.loadModules();
-		$scope.active_module = $scope.modules[0]; 
+		$scope.active_module = $scope.modules[0];
 		
 		$scope.core = cores.loadCore($scope.active_module.core);
+		
+		$scope.core.peripherals.forEach(function( peripheral ) {
+			
+			peripheral.active_pins = {};
+			
+			for (var name in peripheral.pins) {
+
+				peripheral.active_pins[name] = peripheral.pins[name][0];
+			};
+		});
 	});
 });
