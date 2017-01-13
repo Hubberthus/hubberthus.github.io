@@ -1,29 +1,38 @@
 define(function (require) {
 	
-	var cores = require ('./cores');
+	var module_names = ["ESP-WROOM-32"];
 	
-	var module_list = [];
-	var selected_module = null;
+	generatePinMap = function ( module ) {
+		
+		module.pin_map = new Array(module.pins.length);
+
+		var i = 1;
+		
+		module.pins.forEach(function( pin ) {
+
+			if (pin.number) {
+				module.pin_map[pin.number] = i;
+			}
+		
+			i++;
+		});
+	}
 	
     return {
     	loadModules: function () {
     		
     		module_list = [];
-    		selected_module = null;
 
-    		$.getJSON("/modules/modules.json")
-    		.done(function( module_dir_list ) {
-    			module_dir_list.forEach(function( module_dir ) {
-    				
-    				$.getJSON("/modules/" + module_dir + "/module.json")
-    				.done(function( module ) {
+    		module_names.forEach(function( name ) {
 
-    					module.name = module_dir;
-						module.image = "/modules/" + module_dir + "/module.png";
-						module_list.push(module);
-    				});
-    			});
-    		});
+				$.getJSON("/modules/" + name + "/module.json")
+				.done(function( module ) {
+
+					module.image = "/modules/" + name + "/module.png";
+					generatePinMap(module);
+					module_list.push(module);
+				});
+			});
     		
     		return module_list;
         }

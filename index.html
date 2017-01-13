@@ -20,12 +20,12 @@
 						<div class="panel-heading">Peripherals</div>
 						<div class="panel-body" id="peripherals">
 
-							<div ng-repeat="peripheral in cores[0].peripherals" class="panel">
+							<div ng-repeat="peripheral in core.peripherals" class="panel">
 
-								<div class="panel-heading" style="background: {{peripheral.color}}; cursor: pointer;">
-									<h5 class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}" aria-expanded="false" style="color: white;">
+								<div class="panel-heading" style="background: {{peripheral.color}};">
+									<h5 class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}">
 										{{peripheral.name}}
-										<span class="glyphicon glyphicon-ok" style="color: white; visibility: {{(peripheral.enabled ? 'visible' : 'hidden')}};"></span>
+										<span class="glyphicon {{(peripheral.enabled ? 'glyphicon-ok' : 'glyphicon-remove')}}"></span>
 									</h5>
 								</div>
 								<div class="panel-collapse collapse" id="collapse{{peripheral.name}}">
@@ -34,10 +34,10 @@
 									</div>
 									
 									<div ng-repeat="(pinname, pinnums) in peripheral.pins_optional">
-										<span style="display: inline-block; width: 50%;">
+										<span class="pin-name">
 											{{pinname}}
 										</span>
-										<div class="dropdown" style="display: inline-block;">
+										<div class="dropdown">
 											<button class="btn btn-default dropdown-toggle" type="button" id="dropdown{{pinname}}" data-toggle="dropdown">
 											    ---
 												<span class="caret"></span>
@@ -47,7 +47,7 @@
 													<a href="#">---</a>
 												</li>
 												<li ng-repeat="pin in pinnums">
-													<a href="#">{{pin_map[pin]}}</a>
+													<a href="#">{{active_module.pin_map[pin]}}</a>
 												</li>
 											</ul>
 										</div>
@@ -64,15 +64,15 @@
 				</div>
 				<div class="col-sm-9" id="module">
 				
-					<img src="{{modules[0].image}}" width="50%" style="margin: auto; display: block;"></img>
+					<img src="{{active_module.image}}" class="module-image"></img>
 					
-					<div ng-repeat="pin in modules[0].pins" class="label-pin-{{pin.side}}" style="top: {{pin.position}}%;">
-						<div ng-if="pin.name" class="label" style="display:inline-block; background: {{pin.color}};">
+					<div ng-repeat="pin in active_module.pins" class="label-pin-{{pin.side}}" style="top: {{pin.position}}%;">
+						<div ng-if="pin.name" class="label" style="background: {{pin.color}};">
 							{{pin.name}}
 						</div>
 						
 						<div ng-if="!pin.name"> 
-							<div ng-repeat="peripheral in cores[0].peripherals" style="display:inline-block;">
+							<div ng-repeat="peripheral in core.peripherals" style="display:inline-block;">
 								<div ng-repeat="(peripinname,peripin) in peripheral.pins">
 									<span ng-if="(peripin[0] == pin.number) && (peripheral.enabled)" class="label" style="background: {{peripheral.color}};">
 										{{peripinname}}

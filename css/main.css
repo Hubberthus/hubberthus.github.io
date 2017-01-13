@@ -1,3 +1,18 @@
+.pin-name {
+	display: inline-block;
+	width: 50%;
+}
+
+.module-image {
+	width: 50%;
+	margin: auto;
+	display: block;
+}
+
+.dropdown {
+	display: inline-block;
+}
+
 .label {
 	display: inline-block;
 }
@@ -18,11 +33,24 @@
 	cursor: default;
 }
 
+.panel-heading {
+	cursor: pointer;
+}
+
+.panel-heading .panel-title {
+    color: white;
+}
+
+.panel-heading .panel-title .glyphicon {
+    color: white;
+    float: right;
+}
+
 .panel-heading .panel-title:after {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* taken from bootstrap.css */
-    float: right;
+    float: left;
     color: white;
 }
 

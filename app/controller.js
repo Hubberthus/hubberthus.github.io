@@ -11,20 +11,9 @@ define([
 		    async: false
 		});
 		
-		$scope.cores = cores.loadCores();
 		$scope.modules = modules.loadModules();
-
-		$scope.pin_map = new Array($scope.modules[0].pins.length);
+		$scope.active_module = $scope.modules[0]; 
 		
-		var i = 1;
-		
-		$scope.modules[0].pins.forEach(function( pin ) {
-			
-			if (pin.number) {
-				$scope.pin_map[pin.number] = i;
-			}
-		
-			i++;
-		});
+		$scope.core = cores.loadCore($scope.active_module.core);
 	});
 });
