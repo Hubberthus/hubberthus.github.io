@@ -37,7 +37,7 @@
 	},
 	{
 		"name": "HS1",
-		"description": "SDIO host interface. Can be used to control SD/MMC cards.",
+		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit, 4-bit and 8-bit (eMMC) modes.",
 		"pins": {"HS1_CMD": [30], "HS1_CLK": [31], "HS1_DATA0": [32], "HS1_DATA1": [33],
 			"HS1_DATA4": [null, 25], "HS1_DATA5": [null, 27], "HS1_DATA2": [null, 28],
 			"HS1_DATA3": [null, 29], "HS1_DATA6": [null, 34], "HS1_DATA7": [null, 35],
@@ -47,7 +47,7 @@
 	},
 	{
 		"name": "HS2",
-		"description": "SDIO host interface. Can be used to control SD/MMC cards.",
+		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit and 4-bit modes.",
 		"pins": {"HS2_CLK": [17], "HS2_CMD": [21], "HS2_DATA0": [22], "HS2_DATA1": [24],
 			"HS2_DATA2": [null, 18], "HS2_DATA3": [null, 20]},
 		"color": "green",
