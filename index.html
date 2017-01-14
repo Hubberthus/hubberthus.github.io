@@ -32,6 +32,14 @@
 									<div>
 										{{peripheral.description}}
 									</div>
+									<div>
+										<span class="mode-name">
+											Mode
+										</span>
+										<select ng-model="peripheral.active_mode" class="mode-selector">
+											<option ng-repeat="(modename, modepins) in peripheral.modes" value="{{modename}}">{{modename}}</option>
+										</select>
+									</div>
 									
 									<div ng-repeat="(pinname, pinnums) in peripheral.pins" style="background: {{($even ? 'white' : 'lightgrey')}};">
 										<div ng-if="pinnums.length > 1">
@@ -67,8 +75,8 @@
 						
 						<div ng-if="!pin.name"> 
 							<div ng-repeat="peripheral in core.peripherals" style="display:inline-block;">
-								<div ng-repeat="(peripinname,peripin) in peripheral.active_pins">
-									<span ng-if="(peripin == pin.number) && (peripheral.enabled)" class="label" style="background: {{peripheral.color}};">
+								<div ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]">
+									<span ng-if="(peripheral.active_pins[peripinname] == pin.number) && (peripheral.enabled)" class="label" style="background: {{peripheral.color}};">
 										{{peripinname}}
 									</span>
 								</div>

@@ -3,15 +3,25 @@
 	width: 70%;
 }
 
+.pin-selector {
+	display: inline-block;
+	width: 20%;
+}
+
+.mode-name {
+	display: inline-block;
+	width: 50%;
+}
+
+.mode-selector {
+	display: inline-block;
+	width: 40%;
+}
+
 .module-image {
 	width: 50%;
 	margin: auto;
 	display: block;
-}
-
-.selector {
-	display: inline-block;
-	width: 20%;
 }
 
 .label {

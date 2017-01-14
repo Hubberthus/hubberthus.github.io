@@ -20,9 +20,21 @@ define([
 			
 			peripheral.active_pins = {};
 			
+			if( ! peripheral.modes) {
+				
+				peripheral.modes = {default: []};
+			}
+
+			peripheral.active_mode = Object.keys(peripheral.modes)[0];
+
 			for (var name in peripheral.pins) {
 
 				peripheral.active_pins[name] = peripheral.pins[name][0];
+
+				if(peripheral.modes.default) {
+				
+					peripheral.modes.default.push(name);
+				}
 			};
 		});
 	});

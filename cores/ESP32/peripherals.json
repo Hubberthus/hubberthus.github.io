@@ -22,6 +22,10 @@
 	{
 		"name": "SDIO1",
 		"description": "SDIO slave interface. The MCU can be controlled via this interface.",
+		"modes": {
+			"1-bit": ["SD_CMD", "SD_CLK", "SD_DATA0"],
+			"4-bit": ["SD_CMD", "SD_CLK", "SD_DATA0", "SD_DATA1", "SD_DATA2", "SD_DATA3"]
+			},
 		"pins": {"SD_DATA2": [28], "SD_DATA3": [29], "SD_CMD": [30], "SD_CLK": [31], "SD_DATA0": [32],
 			"SD_DATA1": [33]},
 		"color": "lightgreen",
@@ -30,6 +34,10 @@
 	{
 		"name": "SDIO2",
 		"description": "SDIO slave interface. The MCU can be controlled via this interface.",
+		"modes": {
+			"1-bit": ["SD_CMD", "SD_CLK", "SD_DATA0"],
+			"4-bit": ["SD_CMD", "SD_CLK", "SD_DATA0", "SD_DATA1", "SD_DATA2", "SD_DATA3"]
+			},
 		"pins": {"SD_CLK": [17], "SD_DATA2": [18], "SD_DATA3": [20], "SD_CMD": [21], "SD_DATA0": [22],
 			"SD_DATA1": [24]},
 		"color": "lime",
@@ -38,66 +46,96 @@
 	{
 		"name": "HS1",
 		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit, 4-bit and 8-bit (eMMC) modes.",
+		"modes": {
+			"1-bit": ["HS1_CMD", "HS1_CLK", "HS1_DATA0"],
+			"4-bit": ["HS1_CMD", "HS1_CLK", "HS1_DATA0", "HS1_DATA1", "HS1_DATA2", "HS1_DATA3"],
+			"8-bit": ["HS1_CMD", "HS1_CLK", "HS1_DATA0", "HS1_DATA1", "HS1_DATA2", "HS1_DATA3",
+				"HS1_DATA4", "HS1_DATA5", "HS1_DATA6", "HS1_DATA7", "HS1_STROBE"]
+			},
 		"pins": {"HS1_CMD": [30], "HS1_CLK": [31], "HS1_DATA0": [32], "HS1_DATA1": [33],
-			"HS1_DATA4": [null, 25], "HS1_DATA5": [null, 27], "HS1_DATA2": [null, 28],
-			"HS1_DATA3": [null, 29], "HS1_DATA6": [null, 34], "HS1_DATA7": [null, 35],
-			"HS1_STROBE": [null, 36]},
+			"HS1_DATA4": [25], "HS1_DATA5": [27], "HS1_DATA2": [28], "HS1_DATA3": [29],
+			"HS1_DATA6": [34], "HS1_DATA7": [35], "HS1_STROBE": [36]},
 		"color": "limegreen",
 		"enabled": false
 	},
 	{
 		"name": "HS2",
 		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit and 4-bit modes.",
+		"modes": {
+			"1-bit": ["HS2_CMD", "HS2_CLK", "HS2_DATA0"],
+			"4-bit": ["HS2_CMD", "HS2_CLK", "HS2_DATA0", "HS2_DATA1", "HS2_DATA2", "HS2_DATA3"]
+			},
 		"pins": {"HS2_CLK": [17], "HS2_CMD": [21], "HS2_DATA0": [22], "HS2_DATA1": [24],
-			"HS2_DATA2": [null, 18], "HS2_DATA3": [null, 20]},
+			"HS2_DATA2": [18], "HS2_DATA3": [20]},
 		"color": "green",
 		"enabled": false
 	},
 	{
 		"name": "UART0",
 		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
-		"pins": {"U0RXD": [40], "U0TXD": [41],
-			"U0CTS": [null, 38], "U0RTS": [null, 39]},
+		"modes": {
+			"Two wire": ["U0RXD", "U0TXD"],
+			"Use CTS/RTS": ["U0RXD", "U0TXD", "U0CTS", "U0RTS"]
+			},
+		"pins": {"U0RXD": [40], "U0TXD": [41], "U0CTS": [38], "U0RTS": [39]},
 		"color": "blue",
 		"enabled": true
 	},
 	{
 		"name": "UART1",
 		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
-		"pins": {"U1RXD": [28], "U1TXD": [29],
-			"U1RTS": [null, 30], "U1CTS": [null, 31]},
+		"modes": {
+			"Two wire": ["U1RXD", "U1TXD"],
+			"Use CTS/RTS": ["U1RXD", "U1TXD", "U1CTS", "U1RTS"]
+			},
+		"pins": {"U1RXD": [28], "U1TXD": [29], "U1RTS": [30], "U1CTS": [31]},
 		"color": "royalblue",
 		"enabled": false
 	},
 	{
 		"name": "UART2",
 		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
-		"pins": {"U2RXD": [25], "U2TXD": [27],
-			"U2RTS": [null, 32], "U2CTS": [null, 33]},
+		"modes": {
+			"Two wire": ["U2RXD", "U2TXD"],
+			"Use CTS/RTS": ["U2RXD", "U2TXD", "U2CTS", "U2RTS"]
+			},
+		"pins": {"U2RXD": [25], "U2TXD": [27], "U2RTS": [32], "U2CTS": [33]},
 		"color": "deepskyblue",
 		"enabled": false
 	},
 	{
 		"name": "SPI1",
-		"description": "Generic master/slave SPI interface, optionally can handle dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
-		"pins": {"SPIHD": [28], "SPIWP": [29], "SPICS0": [30], "SPICLK": [31],
-			"SPIQ": [null, 32], "SPID": [null, 33]},
+		"description": "Generic master/slave SPI interface. Supports single, dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"modes": {
+			"Single": ["SPICLK", "SPIHD", "SPIWP", "SPICS0"],
+			"Dual": ["SPICLK", "SPIHD", "SPIWP", "SPID", "SPICS0"],
+			"Quad": ["SPICLK", "SPIHD", "SPIWP", "SPID", "SPIQ", "SPICS0"]
+			},
+		"pins": {"SPIHD": [28], "SPIWP": [29], "SPICS0": [30], "SPICLK": [31], "SPIQ": [32], "SPID": [33]},
 		"color": "purple",
 		"enabled": false
 	},
 	{
 		"name": "SPI2",
-		"description": "Generic master/slave SPI interface, optionally can handle dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
-		"pins": {"HSPICLK": [17], "HSPICS0": [21], "HSPIWP": [22], "HSPIHD": [24],
-			"HSPIQ": [null, 18], "HSPID": [null, 20]},
+		"description": "Generic master/slave SPI interface. Supports single, dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"modes": {
+			"Single": ["HSPICLK", "HSPIHD", "HSPIWP", "HSPICS0"],
+			"Dual": ["HSPICLK", "HSPIHD", "HSPIWP", "HSPID", "HSPICS0"],
+			"Quad": ["HSPICLK", "HSPIHD", "HSPIWP", "HSPID", "HSPIQ", "HSPICS0"]
+			},
+		"pins": {"HSPICLK": [17], "HSPICS0": [21], "HSPIWP": [22], "HSPIHD": [24], "HSPIQ": [18], "HSPID": [20]},
 		"color": "magenta",
 		"enabled": false
 	},
 	{
 		"name": "SPI3",
-		"description": "Generic master/slave SPI interface, optionally can handle dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
-		"pins": {"VSPICS0": [34], "VSPICLK": [35], "VSPIWP": [39], "VSPIHD": [42],
-			"VSPID": [null, 36], "VSPIQ": [null, 38]},
+		"description": "Generic master/slave SPI interface. Supports single, dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"modes": {
+			"Single": ["VSPICLK", "VSPIHD", "VSPIWP", "VSPICS0"],
+			"Dual": ["VSPICLK", "VSPIHD", "VSPIWP", "VSPID", "VSPICS0"],
+			"Quad": ["VSPICLK", "VSPIHD", "VSPIWP", "VSPID", "VSPIQ", "VSPICS0"]
+			},
+		"pins": {"VSPICS0": [34], "VSPICLK": [35], "VSPIWP": [39], "VSPIHD": [42], "VSPID": [36], "VSPIQ": [38]},
 		"color": "orangered",
 		"enabled": false
 	}
