@@ -15,7 +15,10 @@
 
 .mode-selector {
 	display: inline-block;
+	float: right;
 	width: 40%;
+	color: black;
+	font-size: 0.6em;
 }
 
 .module-image {

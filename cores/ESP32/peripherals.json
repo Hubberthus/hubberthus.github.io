@@ -10,14 +10,14 @@
 			"GPIO27": [16], "GPIO32": [12], "GPIO33": [13], "GPIO34": [10], "GPIO35": [11],
 			"GPIO36": [5], "GPIO37": [6], "GPIO38": [7], "GPIO39": [8]},
 		"color": "grey",
-		"enabled": true
+		"active_mode": "ON"
 	},
 	{
 		"name": "JTAG",
 		"description": "JTAG interface for debugging.",
 		"pins": {"MTMS": [17], "MTDI": [18], "MTCK": [20], "MTDO": [21]},
 		"color": "lightblue",
-		"enabled": true
+		"active_mode": "ON"
 	},
 	{
 		"name": "SDIO1",
@@ -29,7 +29,7 @@
 		"pins": {"SD_DATA2": [28], "SD_DATA3": [29], "SD_CMD": [30], "SD_CLK": [31], "SD_DATA0": [32],
 			"SD_DATA1": [33]},
 		"color": "lightgreen",
-		"enabled": true
+		"active_mode": "4-bit"
 	},
 	{
 		"name": "SDIO2",
@@ -41,34 +41,42 @@
 		"pins": {"SD_CLK": [17], "SD_DATA2": [18], "SD_DATA3": [20], "SD_CMD": [21], "SD_DATA0": [22],
 			"SD_DATA1": [24]},
 		"color": "lime",
-		"enabled": false
+		"active_mode": "OFF"
 	},
 	{
 		"name": "HS1",
-		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit, 4-bit and 8-bit (eMMC) modes.",
+		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit, 4-bit and 8-bit (eMMC) modes. Optional 'card detect' and 'write protect' pins are available.",
 		"modes": {
-			"1-bit": ["HS1_CMD", "HS1_CLK", "HS1_DATA0"],
-			"4-bit": ["HS1_CMD", "HS1_CLK", "HS1_DATA0", "HS1_DATA1", "HS1_DATA2", "HS1_DATA3"],
+			"1-bit": ["HS1_CMD", "HS1_CLK", "HS1_DATA0", "HS1_CD", "HS1_WP"],
+			"4-bit": ["HS1_CMD", "HS1_CLK", "HS1_DATA0", "HS1_DATA1", "HS1_DATA2", "HS1_DATA3", "HS1_CD", "HS1_WP"],
 			"8-bit": ["HS1_CMD", "HS1_CLK", "HS1_DATA0", "HS1_DATA1", "HS1_DATA2", "HS1_DATA3",
-				"HS1_DATA4", "HS1_DATA5", "HS1_DATA6", "HS1_DATA7", "HS1_STROBE"]
+				"HS1_DATA4", "HS1_DATA5", "HS1_DATA6", "HS1_DATA7", "HS1_STROBE", "HS1_CD", "HS1_WP"]
 			},
 		"pins": {"HS1_CMD": [30], "HS1_CLK": [31], "HS1_DATA0": [32], "HS1_DATA1": [33],
 			"HS1_DATA4": [25], "HS1_DATA5": [27], "HS1_DATA2": [28], "HS1_DATA3": [29],
-			"HS1_DATA6": [34], "HS1_DATA7": [35], "HS1_STROBE": [36]},
+			"HS1_DATA6": [34], "HS1_DATA7": [35], "HS1_STROBE": [36],
+			"HS1_CD": [null, 23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
+				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8],
+			"HS1_WP": [null, 23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
+				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8]},
 		"color": "limegreen",
-		"enabled": false
+		"active_mode": "OFF"
 	},
 	{
 		"name": "HS2",
-		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit and 4-bit modes.",
+		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit and 4-bit modes. Optional 'card detect' and 'write protect' pins are available.",
 		"modes": {
-			"1-bit": ["HS2_CMD", "HS2_CLK", "HS2_DATA0"],
-			"4-bit": ["HS2_CMD", "HS2_CLK", "HS2_DATA0", "HS2_DATA1", "HS2_DATA2", "HS2_DATA3"]
+			"1-bit": ["HS2_CMD", "HS2_CLK", "HS2_DATA0", "HS2_CD", "HS2_WP"],
+			"4-bit": ["HS2_CMD", "HS2_CLK", "HS2_DATA0", "HS2_DATA1", "HS2_DATA2", "HS2_DATA3", "HS2_CD", "HS2_WP"]
 			},
 		"pins": {"HS2_CLK": [17], "HS2_CMD": [21], "HS2_DATA0": [22], "HS2_DATA1": [24],
-			"HS2_DATA2": [18], "HS2_DATA3": [20]},
+			"HS2_DATA2": [18], "HS2_DATA3": [20],
+			"HS2_CD": [null, 23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
+				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8],
+			"HS2_WP": [null, 23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
+				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8]},
 		"color": "green",
-		"enabled": false
+		"active_mode": "OFF"
 	},
 	{
 		"name": "UART0",
@@ -79,7 +87,7 @@
 			},
 		"pins": {"U0RXD": [40], "U0TXD": [41], "U0CTS": [38], "U0RTS": [39]},
 		"color": "blue",
-		"enabled": true
+		"active_mode": "Two wire"
 	},
 	{
 		"name": "UART1",
@@ -90,7 +98,7 @@
 			},
 		"pins": {"U1RXD": [28], "U1TXD": [29], "U1RTS": [30], "U1CTS": [31]},
 		"color": "royalblue",
-		"enabled": false
+		"active_mode": "OFF"
 	},
 	{
 		"name": "UART2",
@@ -101,7 +109,7 @@
 			},
 		"pins": {"U2RXD": [25], "U2TXD": [27], "U2RTS": [32], "U2CTS": [33]},
 		"color": "deepskyblue",
-		"enabled": false
+		"active_mode": "OFF"
 	},
 	{
 		"name": "SPI1",
@@ -113,7 +121,7 @@
 			},
 		"pins": {"SPIHD": [28], "SPIWP": [29], "SPICS0": [30], "SPICLK": [31], "SPIQ": [32], "SPID": [33]},
 		"color": "purple",
-		"enabled": false
+		"active_mode": "OFF"
 	},
 	{
 		"name": "SPI2",
@@ -125,7 +133,7 @@
 			},
 		"pins": {"HSPICLK": [17], "HSPICS0": [21], "HSPIWP": [22], "HSPIHD": [24], "HSPIQ": [18], "HSPID": [20]},
 		"color": "magenta",
-		"enabled": false
+		"active_mode": "OFF"
 	},
 	{
 		"name": "SPI3",
@@ -137,6 +145,6 @@
 			},
 		"pins": {"VSPICS0": [34], "VSPICLK": [35], "VSPIWP": [39], "VSPIHD": [42], "VSPID": [36], "VSPIQ": [38]},
 		"color": "orangered",
-		"enabled": false
+		"active_mode": "OFF"
 	}
 ]

@@ -22,23 +22,19 @@
 
 							<div ng-repeat="peripheral in core.peripherals" class="panel">
 
-								<div class="panel-heading" style="background: {{peripheral.color}};">
-									<h5 class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}">
-										{{peripheral.name}}
-										<span class="glyphicon {{(peripheral.enabled ? 'glyphicon-ok' : 'glyphicon-remove')}}"></span>
-									</h5>
-								</div>
-								<div class="panel-collapse collapse" id="collapse{{peripheral.name}}">
-									<div>
-										{{peripheral.description}}
-									</div>
-									<div>
-										<span class="mode-name">
-											Mode
+								<div class="panel-heading" style="padding: 0.5em; background: {{peripheral.color}};">
+									<div class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}">
+										<span>
+											{{peripheral.name}}
 										</span>
-										<select ng-model="peripheral.active_mode" class="mode-selector">
+										<select ng-if="peripheral.name != 'GPIO'" ng-model="peripheral.active_mode" class="mode-selector">
 											<option ng-repeat="(modename, modepins) in peripheral.modes" value="{{modename}}">{{modename}}</option>
 										</select>
+									</div>
+								</div>
+								<div ng-if="peripheral.active_mode != 'OFF'" class="panel-collapse collapse" id="collapse{{peripheral.name}}">
+									<div>
+										{{peripheral.description}}
 									</div>
 									
 									<div ng-repeat="(pinname, pinnums) in peripheral.pins" style="background: {{($even ? 'white' : 'lightgrey')}};">
@@ -54,10 +50,6 @@
 											</select>
 										</div>
 									</div>
-									
-									<button ng-click="peripheral.enabled = ! peripheral.enabled" class="btn btn-default" style="{{(peripheral.name == 'GPIO' ? 'display: none;' : '')}};">
-										{{(peripheral.enabled ? "disable" : "enable")}}
-									</button>
 								</div>
 							</div>
 							
@@ -76,7 +68,7 @@
 						<div ng-if="!pin.name"> 
 							<div ng-repeat="peripheral in core.peripherals" style="display:inline-block;">
 								<div ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]">
-									<span ng-if="(peripheral.active_pins[peripinname] == pin.number) && (peripheral.enabled)" class="label" style="background: {{peripheral.color}};">
+									<span ng-if="(peripheral.active_pins[peripinname] == pin.number) && (peripheral.active_mode != 'OFF')" class="label" style="background: {{peripheral.color}};">
 										{{peripinname}}
 									</span>
 								</div>
