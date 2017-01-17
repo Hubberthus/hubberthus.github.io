@@ -12,11 +12,8 @@ define([
 		});
 		
 		$scope.modules = modules.loadModules();
-		$scope.active_module = $scope.modules[0];
 		
-		$scope.core = cores.loadCore($scope.active_module.core);
-		
-		$scope.selectModule = function( new_module ) {
+		setActiveModule = function( new_module ) {
 			
 			if ((new_module == $scope.active_module)) {
 				return;
@@ -27,8 +24,38 @@ define([
 				if (new_module == module) {
 					$scope.active_module = module;
 					$scope.core = cores.loadCore($scope.active_module.core);
+					
+					$scope.core.peripherals.forEach(function( peripheral ) {
+						
+						if (peripheral.name != "GPIO") {
+						
+							for(var mode in peripheral.modes) {
+								
+								peripheral.modes[mode].forEach(function( modePin ) {
+									
+									var active_pin = peripheral.active_pins[modePin];
+									
+									if((active_pin != null) && (module.pin_map[active_pin] == undefined)) {
+
+										if (peripheral.active_mode == mode) {
+											peripheral.active_mode = "OFF";
+										}
+										
+										delete peripheral.modes[mode];
+									}
+								});
+							}
+						}
+					});
 				}
 			});
+		}
+		
+		setActiveModule($scope.modules[0]);
+		
+		$scope.selectModule = function( new_module ) {
+			
+			setActiveModule(new_module);
 		}
 	});
 });
