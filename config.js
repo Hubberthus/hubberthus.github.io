@@ -1,4 +1,5 @@
 requirejs.config({
+	urlArgs: "bust=" + (new Date()).getTime(),
 	baseUrl: 'lib',
     paths: {
     	'jquery': 'jquery-3.1.1.min',

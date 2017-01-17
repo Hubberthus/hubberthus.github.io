@@ -5,16 +5,12 @@ define(function (require) {
 	generatePinMap = function ( module ) {
 		
 		module.pin_map = new Array(module.pins.length);
-
-		var i = 1;
 		
 		module.pins.forEach(function( pin ) {
 
 			if (pin.number) {
-				module.pin_map[pin.number] = i;
+				module.pin_map[pin.number] = pin.name;
 			}
-		
-			i++;
 		});
 	}
 	

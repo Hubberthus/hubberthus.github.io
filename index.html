@@ -58,21 +58,24 @@
 				</div>
 				<div class="col-sm-9" id="module">
 				
-					<img src="{{active_module.image}}" class="module-image"></img>
+					<img src="{{active_module.image}}" class="module-image" style="width: {{active_module.width}}%;"></img>
 					
-					<div ng-repeat="pin in active_module.pins" class="label-pin-{{pin.side}}" style="top: {{pin.position}}%;">
-						<div ng-if="pin.name" class="label" style="background: {{pin.color}};">
+					<div ng-repeat="pin in active_module.pins" class="label-pin-{{pin.side}}" style="top: {{pin.position}}%; left: {{(pin.side == 'left' ? 0 : (100 - ((100 - active_module.width) / 2)))}}%; width: {{((100 - active_module.width) / 2)}}%;">
+					
+						<div ng-if="pin.side == 'right'" class="badge" style="background-color: {{pin.color}};">
 							{{pin.name}}
 						</div>
 						
-						<div ng-if="!pin.name"> 
-							<div ng-repeat="peripheral in core.peripherals" style="display:inline-block;">
-								<div ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]">
-									<span ng-if="(peripheral.active_pins[peripinname] == pin.number) && (peripheral.active_mode != 'OFF')" class="label" style="background: {{peripheral.color}};">
-										{{peripinname}}
-									</span>
-								</div>
+						<div ng-repeat="peripheral in core.peripherals" style="display:inline-block;">
+							<div ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]">
+								<span ng-if="(peripheral.active_pins[peripinname] == pin.number) && (peripheral.active_mode != 'OFF')" class="label" style="background: {{peripheral.color}};">
+									{{peripinname}}
+								</span>
 							</div>
+						</div>
+						
+						<div ng-if="pin.side == 'left'" class="badge" style="background-color: {{pin.color}};">
+							{{pin.name}}
 						</div>
 					</div>
 				

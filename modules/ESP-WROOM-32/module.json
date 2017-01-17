@@ -1,5 +1,6 @@
 {
 "core": "ESP32",
+"width": 35,
 "pins": [
 	{
 	"name": "GND",
@@ -9,70 +10,81 @@
 	"side": "left"
 	},
 	{
-	"name": "VCC",
+	"name": "3.3V",
 	"description": "3V3 power input",
 	"color": "red",
 	"position": 28,
 	"side": "left"
 	},
 	{
-	"name": "CHIP_PU",
+	"name": "EN",
 	"number": 9,
 	"color": "orange",
 	"position": 31.5,
 	"side": "left"
 	},
 	{
+	"name": "5",
 	"number": 5,
 	"position": 35,
 	"side": "left"
 	},
 	{
+	"name": "8",
 	"number": 8,
 	"position": 38.5,
 	"side": "left"
 	},
 	{
+	"name": "10",
 	"number": 10,
 	"position": 42,
 	"side": "left"
 	},
 	{
+	"name": "11",
 	"number": 11,
 	"position": 45.5,
 	"side": "left"
 	},
 	{
+	"name": "12",
 	"number": 12,
 	"position": 49,
 	"side": "left"
 	},
 	{
+	"name": "13",
 	"number": 13,
 	"position": 52.5,
 	"side": "left"
 	},
 	{
+	"name": "14",
 	"number": 14,
 	"position": 56,
 	"side": "left"
 	},
 	{
+	"name": "15",
 	"number": 15,
 	"position": 59.5,
 	"side": "left"
 	},
 	{
+	"name": "16",
 	"number": 16,
 	"position": 63,
 	"side": "left"
 	},
 	{
+	"name": "17",
 	"number": 17,
 	"position": 66.5,
 	"side": "left"
 	},
 	{
+	"name": "18",
 	"number": 18,
 	"position": 70,
 	"side": "left"
@@ -85,81 +97,97 @@
 	"side": "left"
 	},
 	{
+	"name": "20",
 	"number": 20,
 	"position": 81.5,
 	"side": "left"
 	},
 	{
+	"name": "28",
 	"number": 28,
 	"position": 85,
 	"side": "left"
 	},
 	{
+	"name": "29",
 	"number": 29,
 	"position": 88.5,
 	"side": "left"
 	},
 	{
+	"name": "30",
 	"number": 30,
 	"position": 92,
 	"side": "left"
 	},
 	{
+	"name": "31",
 	"number": 31,
 	"position": 92,
 	"side": "right"
 	},
 	{
+	"name": "32",
 	"number": 32,
 	"position": 88.5,
 	"side": "right"
 	},
 	{
+	"name": "33",
 	"number": 33,
 	"position": 85,
 	"side": "right"
 	},
 	{
+	"name": "21",
 	"number": 21,
 	"position": 81.5,
 	"side": "right"
 	},
 	{
+	"name": "22",
 	"number": 22,
 	"position": 78,
 	"side": "right"
 	},
 	{
+	"name": "23",
 	"number": 23,
 	"position": 70,
 	"side": "right"
 	},
 	{
+	"name": "24",
 	"number": 24,
 	"position": 66.5,
 	"side": "right"
 	},
 	{
+	"name": "25",
 	"number": 25,
 	"position": 63,
 	"side": "right"
 	},
 	{
+	"name": "27",
 	"number": 27,
 	"position": 59.5,
 	"side": "right"
 	},
 	{
+	"name": "34",
 	"number": 34,
 	"position": 56,
 	"side": "right"
 	},
 	{
+	"name": "35",
 	"number": 35,
 	"position": 52.5,
 	"side": "right"
 	},
 	{
+	"name": "38",
 	"number": 38,
 	"position": 49,
 	"side": "right"
@@ -172,26 +200,31 @@
 	"side": "right"
 	},
 	{
+	"name": "42",
 	"number": 42,
 	"position": 42,
 	"side": "right"
 	},
 	{
+	"name": "40",
 	"number": 40,
 	"position": 38.5,
 	"side": "right"
 	},
 	{
+	"name": "41",
 	"number": 41,
 	"position": 35,
 	"side": "right"
 	},
 	{
+	"name": "39",
 	"number": 39,
 	"position": 31.5,
 	"side": "right"
 	},
 	{
+	"name": "36",
 	"number": 36,
 	"position": 28,
 	"side": "right"
