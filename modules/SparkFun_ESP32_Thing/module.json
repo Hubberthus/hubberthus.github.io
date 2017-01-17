@@ -1,7 +1,7 @@
 {
-"name": "ESP-WROOM-32",
+"name": "SparkFun ESP32 Thing",
 "core": "ESP32",
-"width": 35,
+"width": 25,
 "pins": [
 	{
 	"name": "GND",

@@ -16,31 +16,21 @@ define([
 		
 		$scope.core = cores.loadCore($scope.active_module.core);
 		
-		$scope.core.peripherals.forEach(function( peripheral ) {
+		$scope.selectModule = function( new_module ) {
 			
-			peripheral.active_pins = {};
-			
-			if( ! peripheral.modes) {
-				
-				peripheral.modes = {ON: []};
+			if ((new_module == $scope.active_module)) {
+				return;
 			}
-
-			peripheral.modes.OFF = [];
 			
-			if( ! peripheral.active_mode) {
+			$scope.modules.forEach(function( module ) {
 				
-				peripheral.active_mode = "OFF";
-			}
+				if (new_module == module) {
+					$scope.active_module = module;
+					$scope.core = cores.loadCore($scope.active_module.core);
 
-			for (var name in peripheral.pins) {
-
-				peripheral.active_pins[name] = peripheral.pins[name][0];
-
-				if(peripheral.modes.ON) {
-				
-					peripheral.modes.ON.push(name);
+					//$scope.apply();
 				}
-			};
-		});
+			});
+		}
 	});
 });

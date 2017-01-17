@@ -1,6 +1,6 @@
 define(function (require) {
 	
-	var module_names = ["ESP-WROOM-32"];
+	var module_names = ["ESP-WROOM-32", "SparkFun_ESP32_Thing"];
 	
 	generatePinMap = function ( module ) {
 		
