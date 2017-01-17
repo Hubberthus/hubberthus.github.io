@@ -68,7 +68,7 @@
 												{{(peripheral.active_pins[pinname] ? "ON" : "OFF")}}
 											</button>
 											<select ng-if="pinnums.length > 2" ng-model="peripheral.active_pins[pinname]" class="selector">
-												<option ng-repeat="num in pinnums" value="{{num}}">{{(num ? active_module.pin_map[num] : "---")}}</option>
+												<option ng-repeat="num in pinnums" ng-if="(num == null) || (active_module.pin_map[num] != null)" value="{{num}}">{{(num ? active_module.pin_map[num] : "---")}}</option>
 											</select>
 										</div>
 									</div>
@@ -88,7 +88,7 @@
 							{{pin.name}}
 						</div>
 						
-						<div ng-repeat="peripheral in core.peripherals" style="display:inline-block;">
+						<div ng-if="pin.number != null" ng-repeat="peripheral in core.peripherals" style="display:inline-block;">
 							<div ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]">
 								<span ng-if="(peripheral.active_pins[peripinname] == pin.number) && (peripheral.active_mode != 'OFF')" class="label" style="background: {{peripheral.color}};">
 									{{peripinname}}
