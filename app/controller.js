@@ -27,8 +27,6 @@ define([
 				if (new_module == module) {
 					$scope.active_module = module;
 					$scope.core = cores.loadCore($scope.active_module.core);
-
-					//$scope.apply();
 				}
 			});
 		}

@@ -4,237 +4,255 @@
 "width": 25,
 "pins": [
 	{
-	"name": "GND",
-	"number": 49,
-	"color": "black",
-	"position": 24.5,
-	"side": "left"
-	},
-	{
-	"name": "3.3V",
-	"description": "3V3 power input",
-	"color": "red",
-	"position": 28,
-	"side": "left"
-	},
-	{
-	"name": "EN",
-	"number": 9,
-	"color": "orange",
-	"position": 31.5,
-	"side": "left"
-	},
-	{
-	"name": "5",
+	"name": "36",
 	"number": 5,
+	"position": 14,
+	"side": "left"
+	},
+	{
+	"name": "37",
+	"number": 6,
+	"position": 18.2,
+	"side": "left"
+	},
+	{
+	"name": "38",
+	"number": 7,
+	"position": 22.4,
+	"side": "left"
+	},
+	{
+	"name": "39",
+	"number": 8,
+	"position": 26.6,
+	"side": "left"
+	},
+	{
+	"name": "32",
+	"number": 12,
+	"position": 30.8,
+	"side": "left"
+	},
+	{
+	"name": "33",
+	"number": 13,
 	"position": 35,
 	"side": "left"
 	},
 	{
-	"name": "8",
-	"number": 8,
-	"position": 38.5,
-	"side": "left"
-	},
-	{
-	"name": "10",
+	"name": "34",
 	"number": 10,
-	"position": 42,
+	"position": 39.2,
 	"side": "left"
 	},
 	{
-	"name": "11",
+	"name": "35",
 	"number": 11,
-	"position": 45.5,
+	"position": 43.4,
 	"side": "left"
 	},
 	{
-	"name": "12",
-	"number": 12,
-	"position": 49,
+	"name": "25",
+	"number": 14,
+	"position": 47.6,
 	"side": "left"
 	},
 	{
-	"name": "13",
-	"number": 13,
-	"position": 52.5,
+	"name": "26",
+	"number": 15,
+	"position": 51.8,
+	"side": "left"
+	},
+	{
+	"name": "27",
+	"number": 16,
+	"position": 56,
 	"side": "left"
 	},
 	{
 	"name": "14",
-	"number": 14,
-	"position": 56,
+	"number": 25,
+	"position": 60.2,
 	"side": "left"
 	},
 	{
-	"name": "15",
-	"number": 15,
-	"position": 59.5,
-	"side": "left"
-	},
-	{
-	"name": "16",
-	"number": 16,
-	"position": 63,
-	"side": "left"
-	},
-	{
-	"name": "17",
-	"number": 17,
-	"position": 66.5,
-	"side": "left"
-	},
-	{
-	"name": "18",
+	"name": "12",
 	"number": 18,
-	"position": 70,
+	"position": 64.4,
+	"side": "left"
+	},
+	{
+	"name": "13",
+	"number": 20,
+	"position": 68.6,
+	"side": "left"
+	},
+	{
+	"name": "/RST",
+	"description": "Pull down to GND to reset the CPU.",
+	"color": "yellow",
+	"position": 72.8,
+	"side": "left"
+	},
+	{
+	"name": "3V3",
+	"description": "3V3 output from the onboard regulator.",
+	"color": "red",
+	"position": 77,
 	"side": "left"
 	},
 	{
 	"name": "GND",
 	"number": 49,
 	"color": "black",
-	"position": 78,
+	"position": 81.2,
 	"side": "left"
 	},
 	{
-	"name": "20",
-	"number": 20,
-	"position": 81.5,
+	"name": "VBAT",
+	"description": "Power input to battery and charger.",
+	"color": "red",
+	"position": 85.4,
 	"side": "left"
 	},
 	{
-	"name": "28",
-	"number": 28,
-	"position": 85,
+	"name": "VUSB",
+	"description": "Power input to USB. (5V)",
+	"color": "red",
+	"position": 89.6,
 	"side": "left"
 	},
 	{
-	"name": "29",
-	"number": 29,
-	"position": 88.5,
+	"name": "GND",
+	"number": 49,
+	"color": "black",
+	"position": 93.8,
 	"side": "left"
 	},
 	{
-	"name": "30",
-	"number": 30,
-	"position": 92,
-	"side": "left"
-	},
-	{
-	"name": "31",
-	"number": 31,
-	"position": 92,
+	"name": "GND",
+	"number": 49,
+	"color": "black",
+	"position": 93.8,
 	"side": "right"
 	},
 	{
-	"name": "32",
-	"number": 32,
-	"position": 88.5,
+	"name": "VUSB",
+	"description": "Power input to USB. (5V)",
+	"color": "red",
+	"position": 89.6,
 	"side": "right"
 	},
 	{
-	"name": "33",
-	"number": 33,
-	"position": 85,
+	"name": "VBAT",
+	"description": "Power input to battery and charger.",
+	"color": "red",
+	"position": 85.4,
 	"side": "right"
 	},
 	{
-	"name": "21",
-	"number": 21,
-	"position": 81.5,
+	"name": "GND",
+	"number": 49,
+	"color": "black",
+	"position": 81.2,
 	"side": "right"
 	},
 	{
-	"name": "22",
+	"name": "3V3",
+	"description": "3V3 output from the onboard regulator.",
+	"color": "red",
+	"position": 77,
+	"side": "right"
+	},
+	{
+	"name": "16",
+	"number": 25,
+	"position": 72.8,
+	"side": "right"
+	},
+	{
+	"name": "17",
+	"number": 27,
+	"position": 68.6,
+	"side": "right"
+	},
+	{
+	"name": "4",
+	"number": 24,
+	"position": 64.4,
+	"side": "right"
+	},
+	{
+	"name": "0",
+	"number": 23,
+	"position": 60.2,
+	"side": "right"
+	},
+	{
+	"name": "2",
 	"number": 22,
-	"position": 78,
+	"position": 56,
+	"side": "right"
+	},
+	{
+	"name": "15",
+	"number": 21,
+	"position": 51.8,
+	"side": "right"
+	},
+	{
+	"name": "5",
+	"number": 34,
+	"position": 47.6,
+	"side": "right"
+	},
+	{
+	"name": "18",
+	"number": 35,
+	"position": 43.4,
 	"side": "right"
 	},
 	{
 	"name": "23",
-	"number": 23,
-	"position": 70,
+	"number": 36,
+	"position": 39.2,
 	"side": "right"
 	},
 	{
-	"name": "24",
-	"number": 24,
-	"position": 66.5,
-	"side": "right"
-	},
-	{
-	"name": "25",
-	"number": 25,
-	"position": 63,
-	"side": "right"
-	},
-	{
-	"name": "27",
-	"number": 27,
-	"position": 59.5,
-	"side": "right"
-	},
-	{
-	"name": "34",
-	"number": 34,
-	"position": 56,
-	"side": "right"
-	},
-	{
-	"name": "35",
-	"number": 35,
-	"position": 52.5,
-	"side": "right"
-	},
-	{
-	"name": "38",
+	"name": "19",
 	"number": 38,
-	"position": 49,
-	"side": "right"
-	},
-	{
-	"name": "NC",
-	"description": "Not connected",
-	"color": "lightgrey",
-	"position": 45.5,
-	"side": "right"
-	},
-	{
-	"name": "42",
-	"number": 42,
-	"position": 42,
-	"side": "right"
-	},
-	{
-	"name": "40",
-	"number": 40,
-	"position": 38.5,
-	"side": "right"
-	},
-	{
-	"name": "41",
-	"number": 41,
 	"position": 35,
 	"side": "right"
 	},
 	{
-	"name": "39",
+	"name": "22",
 	"number": 39,
-	"position": 31.5,
+	"position": 30.8,
 	"side": "right"
 	},
 	{
-	"name": "36",
-	"number": 36,
-	"position": 28,
+	"name": "RX",
+	"number": 40,
+	"position": 26.6,
+	"side": "right"
+	},
+	{
+	"name": "TX",
+	"number": 41,
+	"position": 22.4,
+	"side": "right"
+	},
+	{
+	"name": "21",
+	"number": 42,
+	"position": 18.2,
 	"side": "right"
 	},
 	{
 	"name": "GND",
 	"number": 49,
 	"color": "black",
-	"position": 24.5,
+	"position": 14,
 	"side": "right"
 	}
 ]
