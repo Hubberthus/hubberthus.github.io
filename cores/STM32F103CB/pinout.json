@@ -1,0 +1,242 @@
+[
+    {
+        "description": "Power", 
+        "number": "1", 
+        "name": "VBAT"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "2", 
+        "name": "PC13-TAMPER-RTC"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "3", 
+        "name": "PC14-OSC32_IN"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "4", 
+        "name": "PC15-OSC32_OUT"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "5", 
+        "name": "PD0-OSC_IN"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "6", 
+        "name": "PD1-OSC_OUT"
+    }, 
+    {
+        "description": "Reset", 
+        "number": "7", 
+        "name": "NRST"
+    }, 
+    {
+        "description": "Power", 
+        "number": "8", 
+        "name": "VSSA"
+    }, 
+    {
+        "description": "Power", 
+        "number": "9", 
+        "name": "VDDA"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "10", 
+        "name": "PA0-WKUP"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "11", 
+        "name": "PA1"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "12", 
+        "name": "PA2"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "13", 
+        "name": "PA3"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "14", 
+        "name": "PA4"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "15", 
+        "name": "PA5"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "16", 
+        "name": "PA6"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "17", 
+        "name": "PA7"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "18", 
+        "name": "PB0"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "19", 
+        "name": "PB1"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "20", 
+        "name": "PB2"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "21", 
+        "name": "PB10"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "22", 
+        "name": "PB11"
+    }, 
+    {
+        "description": "Power", 
+        "number": "23", 
+        "name": "VSS"
+    }, 
+    {
+        "description": "Power", 
+        "number": "24", 
+        "name": "VDD"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "25", 
+        "name": "PB12"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "26", 
+        "name": "PB13"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "27", 
+        "name": "PB14"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "28", 
+        "name": "PB15"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "29", 
+        "name": "PA8"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "30", 
+        "name": "PA9"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "31", 
+        "name": "PA10"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "32", 
+        "name": "PA11"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "33", 
+        "name": "PA12"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "34", 
+        "name": "PA13"
+    }, 
+    {
+        "description": "Power", 
+        "number": "35", 
+        "name": "VSS"
+    }, 
+    {
+        "description": "Power", 
+        "number": "36", 
+        "name": "VDD"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "37", 
+        "name": "PA14"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "38", 
+        "name": "PA15"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "39", 
+        "name": "PB3"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "40", 
+        "name": "PB4"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "41", 
+        "name": "PB5"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "42", 
+        "name": "PB6"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "43", 
+        "name": "PB7"
+    }, 
+    {
+        "description": "Boot", 
+        "number": "44", 
+        "name": "BOOT0"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "45", 
+        "name": "PB8"
+    }, 
+    {
+        "description": "I/O", 
+        "number": "46", 
+        "name": "PB9"
+    }, 
+    {
+        "description": "Power", 
+        "number": "47", 
+        "name": "VSS"
+    }, 
+    {
+        "description": "Power", 
+        "number": "48", 
+        "name": "VDD"
+    }
+]
