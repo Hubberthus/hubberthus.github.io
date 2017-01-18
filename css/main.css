@@ -50,11 +50,6 @@
     color: white;
 }
 
-.panel-heading .panel-title .glyphicon {
-    color: white;
-    float: right;
-}
-
 .panel-heading .panel-title:after {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
@@ -66,4 +61,16 @@
 .panel-heading .panel-title.collapsed:after {
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+.panel-heading .panel-title-description:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\2212";    /* taken from bootstrap.css */
+    float: left;
+}
+
+.panel-heading .panel-title-description.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\002b";    /* adjust as needed, taken from bootstrap.css */
 }
