@@ -8,7 +8,8 @@
 	  <link href="css/bootstrap.min.css" rel="stylesheet" />
 	  <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
 	  <link href="css/main.css" rel="stylesheet" />
-	  <title>MCU setup</title>
+	  <link rel="shortcut icon" href="logo.png" type="image/png"/>
+	  <title>MCU pin setup</title>
 	</head>
 	
 	<body>
@@ -22,7 +23,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">MCU setup</a>
+				<img class="navbar-brand" style="padding: 2px;" src="logo.png"></img>
 				
 				<div class="collapse navbar-collapse" id="collapse-navbar">
 					<ul class="nav navbar-nav">
@@ -45,31 +46,41 @@
 							<div ng-repeat="peripheral in core.peripherals" class="panel">
 
 								<div class="panel-heading" style="padding: 0.5em; background: {{peripheral.color}};">
+									<select ng-if="(peripheral.name != 'GPIO') && (! peripheral.disabled)" ng-model="peripheral.active_mode" class="mode-selector">
+										<option ng-repeat="(modename, modepins) in peripheral.modes" value="{{modename}}">{{modename}}</option>
+									</select>
 									<div class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}">
 										<span>
 											{{peripheral.name}}
 										</span>
-										<select ng-if="peripheral.name != 'GPIO'" ng-model="peripheral.active_mode" class="mode-selector">
-											<option ng-repeat="(modename, modepins) in peripheral.modes" value="{{modename}}">{{modename}}</option>
-										</select>
 									</div>
 								</div>
-								<div ng-if="peripheral.active_mode != 'OFF'" class="panel-collapse collapse" id="collapse{{peripheral.name}}">
-									<div>
-										{{peripheral.description}}
+								<div class="panel-collapse collapse" id="collapse{{peripheral.name}}">
+									<div class="panel panel-default">
+										<div class="panel-heading">Description</div>
+										<div class="panel-body">{{peripheral.description}}</div>
+									</div>
+									<div ng-if="active_module.peripherals[peripheral.name]" class="panel panel-default">
+										<div class="panel-heading">Module specific description</div>
+										<div class="panel-body">{{active_module.peripherals[peripheral.name].description}}</div>
 									</div>
 									
-									<div ng-repeat="(pinname, pinnums) in peripheral.pins" style="background: {{($even ? 'white' : 'lightgrey')}};">
-										<div ng-if="pinnums.length > 1">
-											<span class="pin-name">
-												{{pinname}}
-											</span>
-											<button ng-if="pinnums.length == 2" ng-click="(peripheral.active_pins[pinname] ? peripheral.active_pins[pinname] = null : peripheral.active_pins[pinname] = pinnums[1])" class="btn label {{(peripheral.active_pins[pinname] ? 'label-success' : 'label-default')}} selector">
-												{{(peripheral.active_pins[pinname] ? "ON" : "OFF")}}
-											</button>
-											<select ng-if="pinnums.length > 2" ng-model="peripheral.active_pins[pinname]" class="selector">
-												<option ng-repeat="num in pinnums" ng-if="(num == null) || (active_module.pin_map[num] != null)" value="{{num}}">{{(num ? active_module.pin_map[num] : "---")}}</option>
-											</select>
+									<div ng-if="(peripheral.name != 'GPIO') && (! peripheral.disabled)" class="panel panel-default">
+										<div class="panel-heading">Optional pins</div>
+										<div class="panel-body">
+											<div ng-repeat="(pinname, pinnums) in peripheral.pins" style="background: {{($even ? 'white' : 'lightgrey')}};">
+												<div ng-if="pinnums.length > 1">
+													<span class="pin-name">
+														{{pinname}}
+													</span>
+													<button ng-if="pinnums.length == 2" ng-click="(peripheral.active_pins[pinname] ? peripheral.active_pins[pinname] = null : peripheral.active_pins[pinname] = pinnums[1])" class="btn label {{(peripheral.active_pins[pinname] ? 'label-success' : 'label-default')}} selector">
+														{{(peripheral.active_pins[pinname] ? "ON" : "OFF")}}
+													</button>
+													<select ng-if="pinnums.length > 2" ng-model="peripheral.active_pins[pinname]" class="selector">
+														<option ng-repeat="num in pinnums" ng-if="(num == null) || (active_module.pin_map[num] != null)" value="{{num}}">{{(num ? active_module.pin_map[num] : "---")}}</option>
+													</select>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>

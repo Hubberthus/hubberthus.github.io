@@ -2,6 +2,11 @@
 "name": "ESP-WROOM-32",
 "core": "ESP32",
 "width": 35,
+"peripherals": {
+	"SPI1": {
+		"description": "Onboard QSPI flash chip is connected to it."
+		}
+	},
 "pins": [
 	{
 	"name": "GND",

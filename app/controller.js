@@ -45,6 +45,11 @@ define([
 									}
 								});
 							}
+							
+							if (Object.keys(peripheral.modes).length == 1) {
+								
+								peripheral.disabled = true;
+							}	
 						}
 					});
 				}

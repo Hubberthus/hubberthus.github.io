@@ -2,6 +2,20 @@
 "name": "SparkFun ESP32 Thing",
 "core": "ESP32",
 "width": 25,
+"peripherals": {
+	"SDIO1": {
+		"description": "Unavailable due to usage of its pins for onboard QSPI flash chip."
+		},
+	"HS1": {
+		"description": "Unavailable due to usage of its pins for onboard QSPI flash chip."
+		},
+	"SPI1": {
+		"description": "Onboard QSPI flash chip is connected to it. Pins are not routed out."
+		},
+	"UART0": {
+		"description": "TX and RX are connected to the onboard FTDI chip for USB serial functionality."
+		}
+	},
 "pins": [
 	{
 	"name": "36",
