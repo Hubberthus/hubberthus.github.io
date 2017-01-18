@@ -3,7 +3,7 @@
 "core": "ESP32",
 "width": 35,
 "peripherals": {
-	"SPI1": {
+	"SPI": {
 		"description": "Onboard QSPI flash chip is connected to it."
 		}
 	},

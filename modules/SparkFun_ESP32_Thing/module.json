@@ -9,11 +9,14 @@
 	"HS1": {
 		"description": "Unavailable due to usage of its pins for onboard QSPI flash chip."
 		},
-	"SPI1": {
+	"SPI": {
 		"description": "Onboard QSPI flash chip is connected to it. Pins are not routed out."
 		},
 	"UART0": {
 		"description": "TX and RX are connected to the onboard FTDI chip for USB serial functionality."
+		},
+	"UART2": {
+		"description": "CTS and RTS pins are not routed out. They are used by the onboard QSPI flash."
 		}
 	},
 "pins": [

@@ -82,10 +82,10 @@
 		"name": "UART0",
 		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
 		"modes": {
-			"Two wire": ["U0RXD", "U0TXD"],
-			"Use CTS/RTS": ["U0RXD", "U0TXD", "U0CTS", "U0RTS"]
+			"Two wire": ["RX0", "TX0"],
+			"Use CTS/RTS": ["RX0", "TX0", "CTS0", "RTS0"]
 			},
-		"pins": {"U0RXD": [40], "U0TXD": [41], "U0CTS": [38], "U0RTS": [39]},
+		"pins": {"RX0": [40], "TX0": [41], "CTS0": [38], "RTS0": [39]},
 		"color": "blue",
 		"active_mode": "Two wire"
 	},
@@ -93,10 +93,10 @@
 		"name": "UART1",
 		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
 		"modes": {
-			"Two wire": ["U1RXD", "U1TXD"],
-			"Use CTS/RTS": ["U1RXD", "U1TXD", "U1CTS", "U1RTS"]
+			"Two wire": ["RX1", "TX1"],
+			"Use CTS/RTS": ["RX1", "TX1", "CTS1", "RTS1"]
 			},
-		"pins": {"U1RXD": [28], "U1TXD": [29], "U1RTS": [30], "U1CTS": [31]},
+		"pins": {"RX1": [28], "TX1": [29], "RTS1": [30], "CTS1": [31]},
 		"color": "royalblue",
 		"active_mode": "OFF"
 	},
@@ -104,46 +104,49 @@
 		"name": "UART2",
 		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
 		"modes": {
-			"Two wire": ["U2RXD", "U2TXD"],
-			"Use CTS/RTS": ["U2RXD", "U2TXD", "U2CTS", "U2RTS"]
+			"Two wire": ["RX2", "TX2"],
+			"Use CTS/RTS": ["RX2", "TX2", "CTS2", "RTS2"]
 			},
-		"pins": {"U2RXD": [25], "U2TXD": [27], "U2RTS": [32], "U2CTS": [33]},
+		"pins": {"RX2": [25], "TX2": [27], "CTS2": [32], "RTS2": [33]},
 		"color": "deepskyblue",
 		"active_mode": "OFF"
 	},
 	{
-		"name": "SPI1",
-		"description": "Generic master/slave SPI interface. Supports single, dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"name": "SPI",
+		"description": "Generic master/slave SPI interface. Supports standard and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"modes": {
-			"Single": ["SPICLK", "SPIHD", "SPIWP", "SPICS0"],
-			"Dual": ["SPICLK", "SPIHD", "SPIWP", "SPID", "SPICS0"],
-			"Quad": ["SPICLK", "SPIHD", "SPIWP", "SPID", "SPIQ", "SPICS0"]
+			"Standard": ["SPI_CLK", "SPI_MISO", "SPI_MOSI", "SPI_CS0"],
+			"3-wire": ["SPI_CLK", "SPI_MISO", "SPI_CS0"],
+			"Quad": ["SPI_CLK", "SPI_MISO", "SPI_MOSI", "SPI_HD", "SPI_WP", "SPI_CS0"]
 			},
-		"pins": {"SPIHD": [28], "SPIWP": [29], "SPICS0": [30], "SPICLK": [31], "SPIQ": [32], "SPID": [33]},
+		"pins": {"SPI_HD": [28], "SPI_WP": [29], "SPI_CS0": [30], "SPI_CLK": [31], "SPI_Q": [32], "SPI_D": [33],
+			"SPI_MOSI": [33], "SPI_MISO": [32]},
 		"color": "purple",
 		"active_mode": "OFF"
 	},
 	{
-		"name": "SPI2",
-		"description": "Generic master/slave SPI interface. Supports single, dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"name": "HSPI",
+		"description": "Generic master/slave SPI interface. Supports standard and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"modes": {
-			"Single": ["HSPICLK", "HSPIHD", "HSPIWP", "HSPICS0"],
-			"Dual": ["HSPICLK", "HSPIHD", "HSPIWP", "HSPID", "HSPICS0"],
-			"Quad": ["HSPICLK", "HSPIHD", "HSPIWP", "HSPID", "HSPIQ", "HSPICS0"]
+			"Standard": ["HSPI_CLK", "HSPI_MISO", "HSPI_MOSI", "HSPI_CS0"],
+			"3-wire": ["HSPI_CLK", "HSPI_MISO", "HSPI_CS0"],
+			"Quad": ["HSPI_CLK", "HSPI_MISO", "HSPI_MOSI", "HSPI_HD", "HSPI_WP", "HSPI_CS0"]
 			},
-		"pins": {"HSPICLK": [17], "HSPICS0": [21], "HSPIWP": [22], "HSPIHD": [24], "HSPIQ": [18], "HSPID": [20]},
+		"pins": {"HSPI_CLK": [17], "HSPI_CS0": [21], "HSPI_WP": [22], "HSPI_HD": [24], "HSPI_Q": [18], "HSPI_D": [20],
+			"HSPI_MOSI": [20], "HSPI_MISO": [18]},
 		"color": "magenta",
 		"active_mode": "OFF"
 	},
 	{
-		"name": "SPI3",
-		"description": "Generic master/slave SPI interface. Supports single, dual and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"name": "VSPI",
+		"description": "Generic master/slave SPI interface. Supports standard and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"modes": {
-			"Single": ["VSPICLK", "VSPIHD", "VSPIWP", "VSPICS0"],
-			"Dual": ["VSPICLK", "VSPIHD", "VSPIWP", "VSPID", "VSPICS0"],
-			"Quad": ["VSPICLK", "VSPIHD", "VSPIWP", "VSPID", "VSPIQ", "VSPICS0"]
+			"Standard": ["VSPI_CLK", "VSPI_MISO", "VSPI_MOSI", "VSPI_CS0"],
+			"3-wire": ["VSPI_CLK", "VSPI_MISO", "VSPI_CS0"],
+			"Quad": ["VSPI_CLK", "VSPI_MISO", "VSPI_MOSI", "VSPI_HD", "VSPI_WP", "VSPI_CS0"]
 			},
-		"pins": {"VSPICS0": [34], "VSPICLK": [35], "VSPIWP": [39], "VSPIHD": [42], "VSPID": [36], "VSPIQ": [38]},
+		"pins": {"VSPI_CS0": [34], "VSPI_CLK": [35], "VSPI_WP": [39], "VSPI_HD": [42], "VSPI_D": [36], "VSPI_Q": [38],
+			"VSPI_MOSI": [36], "VSPI_MISO": [38]},
 		"color": "orangered",
 		"active_mode": "OFF"
 	}
