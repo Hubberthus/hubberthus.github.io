@@ -1,7 +1,7 @@
 [
 	{
 		"name": "GPIO",
-		"description": "General purpose input/output pins.",
+		"description": "General purpose input/output pins. Most of them are both I/O, can have pullup/pulldown resistors, and can be set to high impedance. The following are input-only: GPIO34, GPIO35, GPIO36, GPIO37, GPIO38, GPIO39.",
 		"pins": {"GPIO0": [23], "GPIO1": [41], "GPIO2": [22], "GPIO3": [40], "GPIO4": [24],
 			"GPIO5": [34], "GPIO6": [31], "GPIO7": [32], "GPIO8": [33], "GPIO9": [28],
 			"GPIO10": [29], "GPIO11": [30], "GPIO12": [18], "GPIO13": [20], "GPIO14": [17],
@@ -11,6 +11,65 @@
 			"GPIO36": [5], "GPIO37": [6], "GPIO38": [7], "GPIO39": [8]},
 		"color": "grey",
 		"active_mode": "ON"
+	},
+	{
+		"name": "RTC_GPIO",
+		"description": "?????",
+		"pins": {"RTC_GPIO0": [null, 5], "RTC_GPIO1": [null, 6], "RTC_GPIO2": [null, 7], "RTC_GPIO3": [null, 8]
+			, "RTC_GPIO4": [null, 10], "RTC_GPIO5": [null, 11], "RTC_GPIO6": [null, 14], "RTC_GPIO7": [null, 15],
+			"RTC_GPIO8": [null, 13], "RTC_GPIO9": [null, 12], "RTC_GPIO10": [null, 24], "RTC_GPIO11": [null, 23],
+			"RTC_GPIO12": [null, 22], "RTC_GPIO13": [null, 21], "RTC_GPIO14": [null, 20], "RTC_GPIO15": [null, 18],
+			"RTC_GPIO16": [null, 17], "RTC_GPIO17": [null, 16]},
+		"color": "goldenrod",
+		"active_mode": "OFF"
+	},
+	{
+		"name": "CLK_OUT",
+		"description": "?????",
+		"pins": {"CLK_OUT1": [null, 23], "CLK_OUT2": [null, 40], "CLK_OUT3": [null, 41]},
+		"color": "orangered",
+		"active_mode": "OFF"
+	},
+	{
+		"name": "XTAL_32K",
+		"description": "External 32 kHz crystal oscillator for RTC with calibration.",
+		"pins": {"XTAL_32K_P": [12], "XTAL_32K_N": [13]},
+		"color": "orange",
+		"active_mode": "OFF"
+	},
+	{
+		"name": "ADC",
+		"description": "12-bit SAR analog-to-digital converters with up to 18 channels.",
+		"pins": {"ADC1_CH0": [null, 5], "ADC1_CH1": [null, 6], "ADC1_CH2": [null, 7], "ADC1_CH3": [null, 8],
+			"ADC1_CH4": [null, 12], "ADC1_CH5": [null, 13], "ADC1_CH6": [null, 10], "ADC1_CH7": [null, 11],
+			"ADC2_CH0": [null, 24], "ADC2_CH1": [null, 23], "ADC2_CH2": [null, 22], "ADC2_CH3": [null, 21],
+			"ADC2_CH4": [null, 20], "ADC2_CH5": [null, 18], "ADC2_CH6": [null, 17], "ADC2_CH7": [null, 16],
+			"ADC2_CH8": [null, 14], "ADC2_CH9": [null, 15]},
+		"color": "chocolate",
+		"active_mode": "OFF"
+	},
+	{
+		"name": "ADC_H",
+		"description": "Ultra low power analog pre-amplifier. (???)",
+		"pins": {"ADC_H": [5, 6, 7, 8]},
+		"color": "coral",
+		"active_mode": "OFF"
+	},
+	{
+		"name": "DAC",
+		"description": "Two 8-bit digital-to-analog converters.",
+		"pins": {"DAC_1": [null, 14], "DAC_2": [null, 15]},
+		"color": "indigo",
+		"active_mode": "OFF"
+	},
+	{
+		"name": "Touch",
+		"description": "10 touch sensors.",
+		"pins": {"TOUCH0": [null, 24], "TOUCH1": [null, 23], "TOUCH2": [null, 22], "TOUCH3": [null, 21],
+			"TOUCH4": [null, 20], "TOUCH5": [null, 18], "TOUCH6": [null, 17], "TOUCH7": [null, 16],
+			"TOUCH8": [null, 13], "TOUCH9": [null, 12]},
+		"color": "purple",
+		"active_mode": "OFF"
 	},
 	{
 		"name": "JTAG",
@@ -113,7 +172,7 @@
 	},
 	{
 		"name": "SPI",
-		"description": "Generic master/slave SPI interface. Supports standard and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"description": "Generic master/slave SPI interface. Supports standard, 3-wire and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"modes": {
 			"Standard": ["SPI_CLK", "SPI_MISO", "SPI_MOSI", "SPI_CS0"],
 			"3-wire": ["SPI_CLK", "SPI_MISO", "SPI_CS0"],
@@ -126,7 +185,7 @@
 	},
 	{
 		"name": "HSPI",
-		"description": "Generic master/slave SPI interface. Supports standard and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"description": "Generic master/slave SPI interface. Supports standard, 3-wire and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"modes": {
 			"Standard": ["HSPI_CLK", "HSPI_MISO", "HSPI_MOSI", "HSPI_CS0"],
 			"3-wire": ["HSPI_CLK", "HSPI_MISO", "HSPI_CS0"],
@@ -139,7 +198,7 @@
 	},
 	{
 		"name": "VSPI",
-		"description": "Generic master/slave SPI interface. Supports standard and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
+		"description": "Generic master/slave SPI interface. Supports standard, 3-wire and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"modes": {
 			"Standard": ["VSPI_CLK", "VSPI_MISO", "VSPI_MOSI", "VSPI_CS0"],
 			"3-wire": ["VSPI_CLK", "VSPI_MISO", "VSPI_CS0"],

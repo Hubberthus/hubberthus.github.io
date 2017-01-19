@@ -3,6 +3,12 @@
 "core": "ESP32",
 "width": 35,
 "peripherals": {
+	"ADC": {
+		"description": "Channel 1 and 2 of ADC1 are not routed out."
+		},
+	"RTC_GPIO": {
+		"description": "RTC_GPIO1 and RTC_GPIO2 are not routed out."
+		},
 	"SPI": {
 		"description": "Onboard QSPI flash chip is connected to it."
 		}

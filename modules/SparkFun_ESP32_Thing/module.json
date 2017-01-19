@@ -3,6 +3,10 @@
 "core": "ESP32",
 "width": 25,
 "peripherals": {
+	"XTAL_32K": {
+		"description": "The crystal with capacitors are already on the board, next to the pins '32' and '33'.",
+		"disabled": true
+		},
 	"SDIO1": {
 		"description": "Unavailable due to usage of its pins for onboard QSPI flash chip."
 		},
@@ -10,13 +14,14 @@
 		"description": "Unavailable due to usage of its pins for onboard QSPI flash chip."
 		},
 	"SPI": {
-		"description": "Onboard QSPI flash chip is connected to it. Pins are not routed out."
+		"description": "Onboard QSPI flash chip is connected to it. Pins are not routed out.",
+		"disabled": true
 		},
 	"UART0": {
 		"description": "TX and RX are connected to the onboard FTDI chip for USB serial functionality."
 		},
 	"UART2": {
-		"description": "CTS and RTS pins are not routed out. They are used by the onboard QSPI flash."
+		"description": "Primary CTS/RTS pins (from IO_MUX) are not routed out, they are used by the onboard QSPI flash."
 		}
 	},
 "pins": [
