@@ -13,8 +13,13 @@
 	</head>
 	
 	<body>
-	
 		<div ng-controller="mcuSetupController" class="container-fluid">
+		
+			<div class="loading" style="{{(active_module ? 'display: none;' : '')}}">
+				<h1 style="margin: 2em;">
+					Loading page...
+				</h1>
+			</div>
 		
 			<nav class="navbar navbar-default">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar">
