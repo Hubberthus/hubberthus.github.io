@@ -11,6 +11,8 @@ define([
 		    async: false
 		});
 		
+		$scope.height = $(window).height() - 150;
+		
 		$scope.modules = modules.loadModules();
 		
 		setActiveModule = function( new_module ) {
