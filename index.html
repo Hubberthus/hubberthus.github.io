@@ -87,14 +87,17 @@
 									<div ng-if="(peripheral.name != 'GPIO') && (! peripheral.disabled)" class="panel panel-default">
 										<div class="panel-body">
 											<div ng-repeat="(pinname, pinnums) in peripheral.pins" style="background: {{($even ? 'white' : 'lightgrey')}};">
-												<div ng-if="pinnums.length > 1">
+												<div ng-if="peripheral.modes[peripheral.active_mode].indexOf(pinname) >= 0">
 													<span class="pin-name">
 														{{pinname}}
+													</span>
+													<span ng-if="pinnums.length == 1">
+														{{(pinnums[0] ? active_module.pin_map[pinnums[0]] : "---")}}
 													</span>
 													<button ng-if="(pinnums.length == 2) && (pinnums[0] == null)" ng-click="(peripheral.active_pins[pinname] ? peripheral.active_pins[pinname] = null : peripheral.active_pins[pinname] = pinnums[1])" ng-disabled="peripheral.active_mode == 'OFF'" class="btn label {{(peripheral.active_pins[pinname] ? 'label-success' : 'label-default')}} selector">
 														{{(peripheral.active_pins[pinname] ? "ON" : "OFF")}}
 													</button>
-													<select ng-if="((pinnums.length == 2) && (pinnums[0] != null)) || (pinnums.length > 2)" ng-model="peripheral.active_pins[pinname]" ng-disabled="peripheral.active_mode == 'OFF'" class="selector">
+													<select ng-if="((pinnums.length == 2) && (pinnums[0] != null)) || (pinnums.length > 2)" ng-model="peripheral.active_pins[pinname]" convert-to-number ng-disabled="peripheral.active_mode == 'OFF'" class="selector">
 														<option ng-repeat="num in pinnums" ng-if="(num == null) || (active_module.pin_map[num] != null)" value="{{num}}">{{(num ? active_module.pin_map[num] : "---")}}</option>
 													</select>
 												</div>

@@ -34,7 +34,7 @@ define([
 							for(var mode in peripheral.modes) {
 								
 								peripheral.modes[mode].forEach(function( modePin ) {
-									
+
 									var active_pin = peripheral.active_pins[modePin];
 									
 									if((active_pin != null) && (module.pin_map[active_pin] == undefined)) {
@@ -64,5 +64,18 @@ define([
 			
 			setActiveModule(new_module);
 		}
+	})
+	.directive('convertToNumber', function() {
+	  return {
+	    require: 'ngModel',
+	    link: function(scope, element, attrs, ngModel) {
+	      ngModel.$parsers.push(function(val) {
+	        return val != null ? parseInt(val, 10) : null;
+	      });
+	      ngModel.$formatters.push(function(val) {
+	        return val != null ? '' + val : null;
+	      });
+	    }
+	  };
 	});
 });
