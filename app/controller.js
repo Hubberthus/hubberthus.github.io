@@ -31,14 +31,32 @@ define([
 						
 						if (peripheral.name != "GPIO") {
 						
-							for(var mode in peripheral.modes) {
+							for (var mode in peripheral.modes) {
 								
 								peripheral.modes[mode].forEach(function( modePin ) {
 
-									var active_pin = peripheral.active_pins[modePin];
+									/*var active_pin = peripheral.active_pins[modePin];
 									
 									if((active_pin != null) && (module.pin_map[active_pin] == undefined)) {
 
+										if (peripheral.active_mode == mode) {
+											peripheral.active_mode = "OFF";
+										}
+										
+										delete peripheral.modes[mode];
+									}*/
+									var hasPin = false;
+									
+									peripheral.pins[modePin].forEach(function( pin ) {
+										
+										if ((pin == null) || (module.pin_map[pin] != undefined)) {
+
+											hasPin = true;
+										}
+									});
+									
+									if (!hasPin) {
+										
 										if (peripheral.active_mode == mode) {
 											peripheral.active_mode = "OFF";
 										}
