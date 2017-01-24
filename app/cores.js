@@ -35,6 +35,11 @@ define(function (require) {
 
 				for (var name in peripheral.pins) {
 
+					if (peripheral.pins[peripheral.pins[name][0]]) {
+						
+						peripheral.pins[name] = peripheral.pins[peripheral.pins[name][0]];
+					}
+
 					peripheral.active_pins[name] = peripheral.pins[name][0];
 
 					if(peripheral.modes.ON) {
