@@ -40,64 +40,102 @@
 			<div class="row container">
 				<h3>About me</h3>
 				<p>
-					My name is Norbert Fekete.
+					My name is Norbert Fekete (Hubberthus).
 				</p>
 				<p>
-					I'm just a computer programmer who happens to like playing with microcontrollers. I'm in no way connected to Espressif and those creating modules for the ESP32 SoC.
+					I'm a programmer who happens to like playing with microcontrollers. I'm not connected to anyone developing the microcontrollers and boards for them. This page is just one of my hobby projects.
+				</p>
+				<hr>
+				<h3>About the website</h3>
+				<p>
+					I started to do all this for myself, but decided to share it with the community. Maybe it can help out others as well.
+					With the help of this website, hopefully the managing of pinout for boards will be easier:
 				</p>
 				<p>
-					I work as a developer at an international company, and this page is just one of my hobby projects.
+					You can choose which functionalities/interfaces you would like to have, set up modes, pin positions where applicabe, and the result will be shown in a WYSIWYG mode.
+					Conflicting pin settings can be visually avoided, and you can see exactly which pin will be used for which functionality.
 				</p>
-				<p>
-					I started to do all this for myself, but decided to share with the community. Maybe it can help out others as well.
-				</p>
-				<p>
-					It is completely free and open-source. Feel free to copy, but please put my name somewhere if you put your version somewhere. 
-				</p>
-				<h3>Why?</h3>
+				<hr>
+				<h4>Why?</h4>
 				<p>
 					Before I bought my first ESP32 module, I looked deep into the documentation, and a bit into the source of the ESP-IDF. 
 				</p>
 				<p>
 					At first I was completely blown away by its rich contents. Then I realized that setting up a project for this chip will be a challenge.
-					It has so many peripherals with overlapping pins, and then there is the GPIO matrix which is a powerful tool, and moves complicated to a whole new level. 
+					It has so many interfaces with overlapping pins, and then there is the GPIO matrix which is a powerful tool, and moves complicated to a whole new level. 
 				</p>
 				<p>
 					For ESP8266 I've been using the Arduino core, but it was clear for me that the ESP32 will be a lot harder to do as an Arduino.
 					It's not impossible, just not the best idea. Sure, there are many libraries for the Arduino, and those who prefer that I understand.
-					But if we want its full potential, then the ESP-IDF is the good choice.
+					But to be able to reach its full potential, the ESP-IDF is my choice.
 				</p>
 				<p>
 					And after choosing the ESP-IDF over Arduino I was scratching my head, how to choose the right pinout settings for my projects?
-					What if I would like to change somethig a bit and that needed changing the whole setup? And I need to be aware of the input-only pins.
+					What if I would like to change somethig a bit and that needed changing the whole setup? Also, I need to be aware of the input-only pins, and any conflicts I can cause.
 				</p>
 				<p>
-					This is when I saw my brother use the STM32Cube, and that was the spark for this all. Love at fist sight, that what what I needed. I won't deny it, this is a kind-of copy with some modifications. And made as a website, rather than a program.
+					This is when I saw my brother use the STM32Cube, and that was the spark for this all. I won't deny it, this is a kind-of copy of the idea with some modifications. And made as a website.
 				</p>
-				<h3>Why a website?</h3>
+				<hr>
+				<h4>Why a website?</h4>
 				<p>
 					It is kind of cross-platform and you don't need to download anything. Just have a recent browser, select your module, and start playing with pin settings. 
 				</p>
-				<h3>The functionality .... is missing/wrong!</h3>
+				<hr>
+				<h4>The functionality .... is missing/wrong!</h4>
 				<p>
 					I try to do my best, according to the documentation and my knowledge of things. There are many holes and messed up stuff. I hope I'll get some help to get this as accurate as it can be.
 				</p>
-				<h3>I can do an invalid setup!</h3>
-				<p>
-					Sanity check is on the TODO list.
-				</p>
-				<h3>The module ... is missing!</h3>
+				<hr>
+				<h4>The module ... is missing!</h4>
 				<p>
 					Same as the above. Trying to do my best in adding more and more modules so everybody can setup according to what they have.
 				</p>
-				<h3>I would like to save what I've done. Why is it resetting always?</h3>
+				<hr>
+				<h4>I can do an invalid setup!</h4>
 				<p>
-					Save/load functionality is on the TODO list.
+					Sanity check is on the TODO list. I will try to do it as fast as I can.
 				</p>
-				<h3>Do you plan on implementing automatic code generation?</h3>
+				<hr>
+				<h4>I would like to save what I've done. Why is it resetting always?</h4>
+				<p>
+					Save/load functionality is also on the TODO list.
+				</p>
+				<hr>
+				<h4>Do you plan on implementing automatic code generation?</h4>
 				<p>
 					Oh yes! It's just it will be hard to do. But with generated code it can create a virtual layer, and when the pinout changes I won't need to change a single line in my application code.
 				</p>
+				<hr>
+				<h4>Is there a documentation about this if I wanted to add e.g. a board or an MCU core?</h4>
+				<p>
+					For now the code is the documentation. :)
+				</p>
+				<p>
+					I've started is as a project for myself, so didn't really bother documenting it, but I'll do that.
+				</p>
+				<hr>
+				<div style="text-align: center; width: 50%;">
+					<p>
+						Copyright (C) 2016-2017  Norbert Fekete
+					</p>
+					<p>
+					    This program is free software: you can redistribute it and/or modify
+					    it under the terms of the GNU General Public License as published by
+					    the Free Software Foundation, either version 3 of the License, or
+					    (at your option) any later version.
+					</p>
+					<p>
+					    This program is distributed in the hope that it will be useful,
+					    but WITHOUT ANY WARRANTY; without even the implied warranty of
+					    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+					    GNU General Public License for more details.
+					</p>
+					<p>
+					    You should have received a copy of the GNU General Public License
+					    along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>. 
+					</p>
+				</div>
 			</div>
 		
 		</div>
