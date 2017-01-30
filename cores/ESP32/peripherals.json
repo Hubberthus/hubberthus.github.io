@@ -462,7 +462,7 @@
 		"active_mode": "OFF"
 	},
 	{
-		"name": "SIGDEL",
+		"name": "GPIO_SD",
 		"description": "Sigma-delta output modulation driver to generate modulated output on a GPIO.",
 		"pins": {"GPIO_SD0": [null, 23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13],

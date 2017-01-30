@@ -112,13 +112,39 @@
 				</div>
 				<div class="col-sm-9" id="module">
 				
+					<div class="panel panel-default" ng-show="selected_pin" style="width: {{active_module.width}}%; left: {{((100 - active_module.width) / 2)}}%; top: 100px; position: absolute;">
+						<div class="panel-heading" ng-click="selectPin(null);">
+							{{selected_pin.name}}
+						</div>
+						<div class="panel-body">
+							<span ng-if="selected_pin.number">
+								<h5>Core name: {{core.pinout[selected_pin.number - 1].name}}</h5>
+								<p>
+									{{core.pinout[selected_pin.number - 1].description}}
+								</p>
+								<p>
+									Input: {{core.pinout[selected_pin.number - 1].input}}
+								</p>
+								<p>
+									Output: {{core.pinout[selected_pin.number - 1].output}}
+								</p>
+								<p>
+									PWM: {{core.pinout[selected_pin.number - 1].pwm}}
+								</p>
+							</span>
+							<p ng-if="selected_pin.description">
+								{{selected_pin.description}}
+							</p>
+						</div>
+					</div>
+					
 					<img src="{{active_module.image}}" class="module-image" style="width: {{active_module.width}}%;"></img>
 					
 					<div ng-repeat="pin in active_module.pins" class="label-pin-{{pin.side}}" style="top: {{pin.position}}%; left: {{(pin.side == 'left' ? 0 : (100 - ((100 - active_module.width) / 2)))}}%; width: {{((100 - active_module.width) / 2)}}%;">
 					
-						<div ng-if="pin.side == 'right'" class="badge" style="background-color: {{pin.color}};">
+						<button ng-if="pin.side == 'right'" ng-click="selectPin(pin);" class="badge btn" style="background-color: {{pin.color}};">
 							{{pin.name}}
-						</div>
+						</button>
 						
 						<div ng-if="pin.number != null" ng-repeat="peripheral in core.peripherals" style="display:inline-block;">
 							<div ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]">
@@ -128,7 +154,7 @@
 							</div>
 						</div>
 						
-						<div ng-if="pin.side == 'left'" class="badge" style="background-color: {{pin.color}};">
+						<div ng-if="pin.side == 'left'" ng-click="selectPin(pin);" class="badge btn" style="background-color: {{pin.color}};">
 							{{pin.name}}
 						</div>
 					</div>
