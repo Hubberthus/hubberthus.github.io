@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link href="css/bootstrap.min.css" rel="stylesheet" />
+	  <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+	  <link href="css/main.css" rel="stylesheet" />
+	  <link rel="shortcut icon" href="logo.png" type="image/png"/>
+	  <title>MCU pin setup - usage</title>
+	</head>
+	
+	<body>
+	
+		<div class="container-fluid">
+		
+			<nav class="navbar navbar-default">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="/index.html">
+					<img class="btn navbar-brand" style="padding: 2px;" src="logo.png"></img>
+					<h4 class="navbar-text">Home</h4>
+				</a>
+				
+				<div class="collapse navbar-collapse" id="collapse-navbar">
+					<ul class="nav navbar-right">
+						<li style="display: inline-block;">
+							<a href="/usage.html" class="navbar-link">Usage</a>
+						</li>
+						<li style="display: inline-block;">
+							<a href="/about.html" class="navbar-link">About</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		
+			<div class="row container">
+				<h3>Usage</h3>
+				<p>
+					This webpage was designed to be a quick and easy-to-use tool.
+				</p>
+				<p>
+					Of course if something is easy for me doesn't necessarily means that it's easy for others as well. 
+				</p>
+				<hr>
+				<h3>Home page overview</h3>
+				<p>
+					If you start up the home page, after the loading screen you can see three main sections:
+				</p>
+				<h4>- Navigation bar</h4>
+				<p>
+					On the top there are the main navigational and functional buttons and inputs. 
+				</p>
+				<p>
+					For now, there is only one functional input: The module selector drop-down menu. This shows the current module, and of course by clicking on it the drop-down menu allows you to select from the list.
+				</p>
+				<h4>- Peripherals list</h4>
+				<p>
+					On the left, there is a list of available peripherals, defined by the MCU chip on the module. 
+				</p>
+				<p>
+					By clicking on a peripheral, you can extend its details: a description panel, and a pin list.
+				</p>
+				<p>
+					The description panel is also extensible, because some of them can be long. You don't need to see it always, and is closed by default.
+				</p>
+				<p>
+					The pin list is only visible if the peripheral is turned on. For each pin you can see a:
+				</p>
+				<ul>
+					<li>
+						Number, if the pin's position is fixed. 
+					</li>
+					<li>
+						On/Off button, if the pin's position is fixed, but it is optional.
+					</li>
+					<li>
+						Drop-down menu, if you can select from different positions. "---" there means that it is also optional, and by selecting that it is turned off.
+					</li>
+				</ul>
+				<p>
+					Peripherals can be turned on and off with the drop-down menu to the right of the their name. Sometimes there is no menu there, for example if the pins are not routed out, or the peripheral is already included on the board.
+				</p>
+				<p>
+					If multiple modes can be selected for a peripheral, then instead of an "ON" option, there are a list of modes from which you can choose.
+				</p>
+				<h4>- Module view</h4>
+				<p>
+					 Most of the screen is filled with the WYSIWYG view of the module pin settings. It consists of an image of the module, and the list of pins at its sides, each pin showing the assigned function to it.
+				</p>
+				<p>
+					 With the help of the image, you can see exactly where to attach the wires of given peripherals.
+				</p>
+				<p>
+					 The round labels next to the image are the pin names. These are also buttons. Click on any of them, and over the image you will see some detailed information about that particular pin. What is the official description for it, is there anything attached to it on the board (LED, resistor, capacitor...), and if it is directly routed out from the MCU, there are details if it is input/output/PWM capable, etc.
+				</p>
+			</div>
+		
+		</div>
+		
+		<script data-main="config" src="lib/require.js"></script>
+	
+	</body>
+</html>
+

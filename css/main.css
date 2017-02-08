@@ -10,13 +10,6 @@
 	text-align: center;
 }
 
-.navbar-center {
-	position: absolute;
-	float: left;
-	width: 100%;
-	text-align: center;
-}
-
 .pin-name {
 	display: inline-block;
 	width: 70%;
