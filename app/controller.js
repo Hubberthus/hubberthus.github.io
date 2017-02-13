@@ -76,7 +76,11 @@ define([
 		
 		$scope.selectPin = function( pin ) {
 			
-			$scope.selected_pin = pin;
+			if ($scope.selected_pin == pin) {
+				$scope.selected_pin = null;
+			} else {
+				$scope.selected_pin = pin;
+			}
 		}
 	})
 	.directive('convertToNumber', function() {

@@ -27,36 +27,42 @@
 "pins": [
 	{
 	"name": "36",
+	"description": "Connected to pin '37' (SENSOR_CAPP) through a 270pF capacitor.",
 	"number": 5,
 	"position": 14,
 	"side": "left"
 	},
 	{
 	"name": "37",
+	"description": "Connected to pin '36' (SENSOR_VP) through a 270pF capacitor.",
 	"number": 6,
 	"position": 18.2,
 	"side": "left"
 	},
 	{
 	"name": "38",
+	"description": "Connected to pin '39' (SENSOR_VN) through a 270pF capacitor.",
 	"number": 7,
 	"position": 22.4,
 	"side": "left"
 	},
 	{
 	"name": "39",
+	"description": "Connected to pin '38' (SENSOR_CAPN) through a 270pF capacitor.",
 	"number": 8,
 	"position": 26.6,
 	"side": "left"
 	},
 	{
 	"name": "32",
+	"description": "Connected to pin '33' through a 32.768kHz crystal.",
 	"number": 12,
 	"position": 30.8,
 	"side": "left"
 	},
 	{
 	"name": "33",
+	"description": "Connected to pin '32' through a 32.768kHz crystal.",
 	"number": 13,
 	"position": 35,
 	"side": "left"
@@ -111,14 +117,14 @@
 	},
 	{
 	"name": "/RST",
-	"description": "Pull down to GND to reset the CPU.",
+	"description": "Connected to the CHIP_PU pin on the MCU. Pulled up with an onboard 10k resistor. Connect to GND to reset the CPU. Onboard 'RST' button connects it to GND. The auto-reset mechanism also controls it for flash programming.",
 	"color": "yellow",
 	"position": 72.8,
 	"side": "left"
 	},
 	{
 	"name": "3V3",
-	"description": "3V3 output from the onboard regulator.",
+	"description": "3V3 output from the onboard regulator. Connects to different power inputs of the MCU with multiple decoupling capacitors.",
 	"color": "red",
 	"position": 77,
 	"side": "left"
@@ -132,14 +138,14 @@
 	},
 	{
 	"name": "VBAT",
-	"description": "Power input to battery and charger.",
+	"description": "Battery power. Connected directly to the LiPo battery and the charger.",
 	"color": "red",
 	"position": 85.4,
 	"side": "left"
 	},
 	{
 	"name": "VUSB",
-	"description": "Power input to USB. (5V)",
+	"description": "Connected to the USB power input. Can be used to directly power the board instead of the USB, or if the board is powered by USB this pin provides 5V.",
 	"color": "red",
 	"position": 89.6,
 	"side": "left"
@@ -160,14 +166,14 @@
 	},
 	{
 	"name": "VUSB",
-	"description": "Power input to USB. (5V)",
+	"description": "Connected to the USB power input. Can be used to directly power the board instead of the USB, or if the board is powered by USB this pin provides 5V.",
 	"color": "red",
 	"position": 89.6,
 	"side": "right"
 	},
 	{
 	"name": "VBAT",
-	"description": "Power input to battery and charger.",
+	"description": "Battery power. Connected directly to the LiPo battery and the charger.",
 	"color": "red",
 	"position": 85.4,
 	"side": "right"
@@ -181,7 +187,7 @@
 	},
 	{
 	"name": "3V3",
-	"description": "3V3 output from the onboard regulator.",
+	"description": "3V3 output from the onboard regulator. Connects to different power inputs of the MCU with multiple decoupling capacitors.",
 	"color": "red",
 	"position": 77,
 	"side": "right"
@@ -206,6 +212,7 @@
 	},
 	{
 	"name": "0",
+	"description": "Pulled up with a 10k resistor. Connect to GND at startup to enter flash programming mode. Onboard '0' button connects it to GND. The auto-reset mechanism also controls it for flash programming.",
 	"number": 23,
 	"position": 60.2,
 	"side": "right"
@@ -224,6 +231,7 @@
 	},
 	{
 	"name": "5",
+	"description": "Connected to the LED next to the pin.",
 	"number": 34,
 	"position": 47.6,
 	"side": "right"
@@ -254,12 +262,14 @@
 	},
 	{
 	"name": "RX",
+	"description": "Connected to the onboard FTDI chip's 'TX' pin.",
 	"number": 40,
 	"position": 26.6,
 	"side": "right"
 	},
 	{
 	"name": "TX",
+	"description": "Connected to the onboard FTDI chip's 'RX' pin.",
 	"number": 41,
 	"position": 22.4,
 	"side": "right"

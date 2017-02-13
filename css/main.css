@@ -33,6 +33,14 @@
 	font-size: 0.6em;
 }
 
+.glyphicon-ok-circle {
+	color: green;
+}
+
+.glyphicon-remove-circle {
+	color: red;
+}
+
 .module-image {
 	margin: auto;
 	display: block;

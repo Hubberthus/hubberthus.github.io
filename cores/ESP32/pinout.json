@@ -34,7 +34,7 @@
   {
     "number": 5,
     "name": "SENSOR_VP",
-    "description": "GPIO36, ADC_PRE_AMP, ADC1_CH0, RTC_GPIO0<br>Note: Connects 270 pF capacitor from SENSOR_VP to<br>SENSOR_CAPP when used as ADC_PRE_AMP.",
+    "description": "GPIO36, ADC_PRE_AMP, ADC1_CH0, RTC_GPIO0. Note: Connects 270 pF capacitor from SENSOR_VP to SENSOR_CAPP when used as ADC_PRE_AMP.",
     "pwm": true,
     "input": true,
     "output": false
@@ -42,7 +42,7 @@
   {
     "number": 6,
     "name": "SENSOR_CAPP",
-    "description": "GPIO37, ADC_PRE_AMP, ADC1_CH1, RTC_GPIO1<br>Note: Connects 270 pF capacitor from SENSOR_VP to<br>SENSOR_CAPP when used as ADC_PRE_AMP.",
+    "description": "GPIO37, ADC_PRE_AMP, ADC1_CH1, RTC_GPIO1. Note: Connects 270 pF capacitor from SENSOR_VP to SENSOR_CAPP when used as ADC_PRE_AMP.",
     "pwm": true,
     "input": true,
     "output": false
@@ -50,7 +50,7 @@
   {
     "number": 7,
     "name": "SENSOR_CAPN",
-    "description": "GPIO38, ADC1_CH2, ADC_PRE_AMP, RTC_GPIO2<br>Note: Connects 270 pF capacitor from SENSOR_VN to<br>SENSOR_CAPN when used as ADC_PRE_AMP.",
+    "description": "GPIO38, ADC1_CH2, ADC_PRE_AMP, RTC_GPIO2. Note: Connects 270 pF capacitor from SENSOR_VN to SENSOR_CAPN when used as ADC_PRE_AMP.",
     "pwm": true,
     "input": true,
     "output": false
@@ -58,7 +58,7 @@
   {
     "number": 8,
     "name": "SENSOR_VN",
-    "description": "GPIO39, ADC1_CH3, ADC_PRE_AMP, RTC_GPIO3<br>Note: Connects 270 pF capacitor from SENSOR_VN to<br>SENSOR_CAPN when used as ADC_PRE_AMP.",
+    "description": "GPIO39, ADC1_CH3, ADC_PRE_AMP, RTC_GPIO3. Note: Connects 270 pF capacitor from SENSOR_VN to SENSOR_CAPN when used as ADC_PRE_AMP.",
     "pwm": true,
     "input": true,
     "output": false
@@ -66,7 +66,7 @@
   {
     "number": 9,
     "name": "CHIP_PU",
-    "description": "Chip Enable (Active High)<br>High: On, chip works properly<br>Low: Off, chip works at the minimum power<br>Note: Do not leave CHIP_PU pin floating",
+    "description": "Chip Enable (Active High). High: On, chip works properly. Low: Off, chip works at the minimum power. Note: Do not leave CHIP_PU pin floating",
     "pwm": false,
     "input": true,
     "output": false
@@ -90,7 +90,7 @@
   {
     "number": 12,
     "name": "32K_XP",
-    "description": "GPIO32,<br>32K_XP (32.768 kHz crystal oscillator input),<br>ADC1_CH4, TOUCH9, RTC_GPIO9",
+    "description": "GPIO32, 32K_XP (32.768 kHz crystal oscillator input), ADC1_CH4, TOUCH9, RTC_GPIO9",
     "pwm": true,
     "input": true,
     "output": true
@@ -98,7 +98,7 @@
   {
     "number": 13,
     "name": "32K_XN",
-    "description": "GPIO33, 32K_XN (32.768 kHz crystal oscillator output),<br>ADC1_CH5, TOUCH8, RTC_GPIO8",
+    "description": "GPIO33, 32K_XN (32.768 kHz crystal oscillator output), ADC1_CH5, TOUCH8, RTC_GPIO8",
     "pwm": true,
     "input": true,
     "output": true
@@ -130,7 +130,7 @@
   {
     "number": 17,
     "name": "MTMS",
-    "description": "GPIO14, ADC2_CH6, TOUCH6, RTC_GPIO16, MTMS,<br>HSPICLK, HS2_CLK, SD_CLK, EMAC_TXD2",
+    "description": "GPIO14, ADC2_CH6, TOUCH6, RTC_GPIO16, MTMS, HSPICLK, HS2_CLK, SD_CLK, EMAC_TXD2",
     "pwm": true,
     "input": true,
     "output": true
@@ -138,7 +138,7 @@
   {
     "number": 18,
     "name": "MTDI",
-    "description": "GPIO12, ADC2_CH5, TOUCH5, RTC_GPIO15, MTDI, HSPIQ,<br>HS2_DATA2, SD_DATA2, EMAC_TXD3",
+    "description": "GPIO12, ADC2_CH5, TOUCH5, RTC_GPIO15, MTDI, HSPIQ, HS2_DATA2, SD_DATA2, EMAC_TXD3",
     "pwm": true,
     "input": true,
     "output": true
@@ -154,7 +154,7 @@
   {
     "number": 20,
     "name": "MTCK",
-    "description": "GPIO13, ADC2_CH4, TOUCH4, RTC_GPIO14, MTCK, HSPID,<br>HS2_DATA3, SD_DATA3, EMAC_RX_ER",
+    "description": "GPIO13, ADC2_CH4, TOUCH4, RTC_GPIO14, MTCK, HSPID, HS2_DATA3, SD_DATA3, EMAC_RX_ER",
     "pwm": true,
     "input": true,
     "output": true
@@ -162,7 +162,7 @@
   {
     "number": 21,
     "name": "MTDO",
-    "description": "GPIO15, ADC2_CH3, TOUCH3, RTC_GPIO13, MTDO,<br>HSPICS0, HS2_CMD, SD_CMD, EMAC_RXD3",
+    "description": "GPIO15, ADC2_CH3, TOUCH3, RTC_GPIO13, MTDO, HSPICS0, HS2_CMD, SD_CMD, EMAC_RXD3",
     "pwm": true,
     "input": true,
     "output": true
@@ -170,7 +170,7 @@
   {
     "number": 22,
     "name": "GPIO2",
-    "description": "GPIO2, ADC2_CH2, TOUCH2, RTC_GPIO12, HSPIWP,<br>HS2_DATA0, SD_DATA0",
+    "description": "GPIO2, ADC2_CH2, TOUCH2, RTC_GPIO12, HSPIWP, HS2_DATA0, SD_DATA0",
     "pwm": true,
     "input": true,
     "output": true
@@ -178,7 +178,7 @@
   {
     "number": 23,
     "name": "GPIO0",
-    "description": "GPIO0, ADC2_CH1, TOUCH1, RTC_GPIO11, CLK_OUT1,<br>EMAC_TX_CLK",
+    "description": "GPIO0, ADC2_CH1, TOUCH1, RTC_GPIO11, CLK_OUT1, EMAC_TX_CLK",
     "pwm": true,
     "input": true,
     "output": true
@@ -186,7 +186,7 @@
   {
     "number": 24,
     "name": "GPIO4",
-    "description": "GPIO4, ADC2_CH0, TOUCH0, RTC_GPIO10, HSPIHD,<br>HS2_DATA1, SD_DATA1, EMAC_TX_ER",
+    "description": "GPIO4, ADC2_CH0, TOUCH0, RTC_GPIO10, HSPIHD, HS2_DATA1, SD_DATA1, EMAC_TX_ER",
     "pwm": true,
     "input": true,
     "output": true

@@ -23,7 +23,7 @@
 	},
 	{
 	"name": "3.3V",
-	"description": "3V3 power input",
+	"description": "3V3 power input. Connects to different power inputs of the MCU with multiple decoupling capacitors. Also has a TVS diode connected to GND for ESD protection.",
 	"color": "red",
 	"position": 28,
 	"side": "left"
@@ -37,12 +37,14 @@
 	},
 	{
 	"name": "5",
+	"description": "Connected to SENSOR_CAPP through a 270pF capacitor.",
 	"number": 5,
 	"position": 35,
 	"side": "left"
 	},
 	{
 	"name": "8",
+	"description": "Connected to SENSOR_CAPN through a 270pF capacitor.",
 	"number": 8,
 	"position": 38.5,
 	"side": "left"
@@ -116,36 +118,42 @@
 	},
 	{
 	"name": "28",
+	"description": "Connects to the '/HOLD' pin of the onboard flash chip.",
 	"number": 28,
 	"position": 85,
 	"side": "left"
 	},
 	{
 	"name": "29",
+	"description": "Connects to the '/WP' pin of the onboard flash chip.",
 	"number": 29,
 	"position": 88.5,
 	"side": "left"
 	},
 	{
 	"name": "30",
+	"description": "Connects to the '/CS' pin of the onboard flash chip.",
 	"number": 30,
 	"position": 92,
 	"side": "left"
 	},
 	{
 	"name": "31",
+	"description": "Connects to the 'CLK' pin of the onboard flash chip.",
 	"number": 31,
 	"position": 92,
 	"side": "right"
 	},
 	{
 	"name": "32",
+	"description": "Connects to the 'DO' pin of the onboard flash chip.",
 	"number": 32,
 	"position": 88.5,
 	"side": "right"
 	},
 	{
 	"name": "33",
+	"description": "Connects to the 'DI' pin of the onboard flash chip.",
 	"number": 33,
 	"position": 85,
 	"side": "right"
