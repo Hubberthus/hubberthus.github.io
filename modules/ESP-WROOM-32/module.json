@@ -24,7 +24,7 @@
 	"side": "left"
 	},
 	{
-	"name": "3.3V",
+	"name": "3V3",
 	"description": "3V3 power input. Connects to different power inputs of the MCU with multiple decoupling capacitors. Also has a TVS diode connected to GND for ESD protection.",
 	"color": "red",
 	"position": 28,
@@ -38,69 +38,69 @@
 	"side": "left"
 	},
 	{
-	"name": "5",
+	"name": "S_VP",
 	"description": "Connected to SENSOR_CAPP through a 270pF capacitor.",
 	"number": 5,
 	"position": 35,
 	"side": "left"
 	},
 	{
-	"name": "8",
+	"name": "S_VN",
 	"description": "Connected to SENSOR_CAPN through a 270pF capacitor.",
 	"number": 8,
 	"position": 38.5,
 	"side": "left"
 	},
 	{
-	"name": "10",
+	"name": "IO34",
 	"number": 10,
 	"position": 42,
 	"side": "left"
 	},
 	{
-	"name": "11",
+	"name": "IO35",
 	"number": 11,
 	"position": 45.5,
 	"side": "left"
 	},
 	{
-	"name": "12",
+	"name": "IO32",
 	"number": 12,
 	"position": 49,
 	"side": "left"
 	},
 	{
-	"name": "13",
+	"name": "IO33",
 	"number": 13,
 	"position": 52.5,
 	"side": "left"
 	},
 	{
-	"name": "14",
+	"name": "IO25",
 	"number": 14,
 	"position": 56,
 	"side": "left"
 	},
 	{
-	"name": "15",
+	"name": "IO26",
 	"number": 15,
 	"position": 59.5,
 	"side": "left"
 	},
 	{
-	"name": "16",
+	"name": "IO27",
 	"number": 16,
 	"position": 63,
 	"side": "left"
 	},
 	{
-	"name": "17",
+	"name": "IO14",
 	"number": 17,
 	"position": 66.5,
 	"side": "left"
 	},
 	{
-	"name": "18",
+	"name": "IO12",
 	"number": 18,
 	"position": 70,
 	"side": "left"
@@ -113,103 +113,103 @@
 	"side": "left"
 	},
 	{
-	"name": "20",
+	"name": "IO13",
 	"number": 20,
 	"position": 81.5,
 	"side": "left"
 	},
 	{
-	"name": "28",
+	"name": "SD2",
 	"description": "Connects to the '/HOLD' pin of the onboard flash chip.",
 	"number": 28,
 	"position": 85,
 	"side": "left"
 	},
 	{
-	"name": "29",
+	"name": "SD3",
 	"description": "Connects to the '/WP' pin of the onboard flash chip.",
 	"number": 29,
 	"position": 88.5,
 	"side": "left"
 	},
 	{
-	"name": "30",
+	"name": "CMD",
 	"description": "Connects to the '/CS' pin of the onboard flash chip.",
 	"number": 30,
 	"position": 92,
 	"side": "left"
 	},
 	{
-	"name": "31",
+	"name": "CLK",
 	"description": "Connects to the 'CLK' pin of the onboard flash chip.",
 	"number": 31,
 	"position": 92,
 	"side": "right"
 	},
 	{
-	"name": "32",
+	"name": "SD0",
 	"description": "Connects to the 'DO' pin of the onboard flash chip.",
 	"number": 32,
 	"position": 88.5,
 	"side": "right"
 	},
 	{
-	"name": "33",
+	"name": "SD1",
 	"description": "Connects to the 'DI' pin of the onboard flash chip.",
 	"number": 33,
 	"position": 85,
 	"side": "right"
 	},
 	{
-	"name": "21",
+	"name": "IO15",
 	"number": 21,
 	"position": 81.5,
 	"side": "right"
 	},
 	{
-	"name": "22",
+	"name": "IO2",
 	"number": 22,
 	"position": 78,
 	"side": "right"
 	},
 	{
-	"name": "23",
+	"name": "IO0",
 	"number": 23,
 	"position": 70,
 	"side": "right"
 	},
 	{
-	"name": "24",
+	"name": "IO4",
 	"number": 24,
 	"position": 66.5,
 	"side": "right"
 	},
 	{
-	"name": "25",
+	"name": "IO16",
 	"number": 25,
 	"position": 63,
 	"side": "right"
 	},
 	{
-	"name": "27",
+	"name": "IO17",
 	"number": 27,
 	"position": 59.5,
 	"side": "right"
 	},
 	{
-	"name": "34",
+	"name": "IO5",
 	"number": 34,
 	"position": 56,
 	"side": "right"
 	},
 	{
-	"name": "35",
+	"name": "IO18",
 	"number": 35,
 	"position": 52.5,
 	"side": "right"
 	},
 	{
-	"name": "38",
+	"name": "IO19",
 	"number": 38,
 	"position": 49,
 	"side": "right"
@@ -222,31 +222,31 @@
 	"side": "right"
 	},
 	{
-	"name": "42",
+	"name": "IO21",
 	"number": 42,
 	"position": 42,
 	"side": "right"
 	},
 	{
-	"name": "40",
+	"name": "RXD0",
 	"number": 40,
 	"position": 38.5,
 	"side": "right"
 	},
 	{
-	"name": "41",
+	"name": "TXD0",
 	"number": 41,
 	"position": 35,
 	"side": "right"
 	},
 	{
-	"name": "39",
+	"name": "IO22",
 	"number": 39,
 	"position": 31.5,
 	"side": "right"
 	},
 	{
-	"name": "36",
+	"name": "IO23",
 	"number": 36,
 	"position": 28,
 	"side": "right"
