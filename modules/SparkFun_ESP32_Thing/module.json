@@ -1,5 +1,7 @@
 {
 "name": "SparkFun ESP32 Thing",
+"owner": "SparkFun Electronics",
+"link": "https://www.sparkfun.com/",
 "core": "ESP32",
 "width": 25,
 "peripherals": {

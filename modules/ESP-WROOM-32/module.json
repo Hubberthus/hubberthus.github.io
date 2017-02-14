@@ -1,5 +1,7 @@
 {
 "name": "ESP-WROOM-32",
+"owner": "Espressif Inc.",
+"link": "https://espressif.com/",
 "core": "ESP32",
 "width": 35,
 "peripherals": {

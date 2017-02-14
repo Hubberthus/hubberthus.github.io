@@ -49,6 +49,23 @@
 					</ul>
 				</div>
 			</nav>
+			
+			<nav class="navbar navbar-default navbar-fixed-bottom">
+				<ul class="nav navbar-nav">
+					<li class="navbar-text" style="font-style: italic;">
+						All rights of the images and information used belong to their respective owners:
+					</li>
+					<li>
+						<a class="btn btn-link" href="{{active_module.link}}" target="_blank" style="color: blue;">Module "{{active_module.name}}" by {{active_module.owner}}</a>
+					</li>
+					<li class="navbar-text">
+						-
+					</li>
+					<li>
+						<a class="btn btn-link" href="{{core.info.link}}" target="_blank" style="color: blue;">Core "{{active_module.core}}" by {{core.info.owner}}</a>
+					</li>
+				</ul>
+			</nav>
 		
 			<div class="row">
 				<div class="col-sm-3 panel-group pre-scrollable" style="max-height: {{(height)}}px;">

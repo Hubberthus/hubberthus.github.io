@@ -4,6 +4,12 @@ define(function (require) {
     	loadCore: function ( name ) {
     		
     		core = {};
+    		
+    		$.getJSON("/cores/" + name + "/info.json")
+			.done(function( info ) {
+				
+				core.info = info;
+			});
 			
 			$.getJSON("/cores/" + name + "/pinout.json")
 			.done(function( pinout ) {
