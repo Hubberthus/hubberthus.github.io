@@ -3,7 +3,7 @@
 "owner": "Espressif Inc.",
 "link": "https://espressif.com/",
 "core": "ESP32",
-"width": 35,
+"width": 30,
 "peripherals": {
 	"ADC": {
 		"description": "Channel 1 and 2 of ADC1 are not routed out."
@@ -20,89 +20,89 @@
 	"name": "GND",
 	"number": 49,
 	"color": "black",
-	"position": 24.5,
+	"position": 20,
 	"side": "left"
 	},
 	{
 	"name": "3V3",
 	"description": "3V3 power input. Connects to different power inputs of the MCU with multiple decoupling capacitors. Also has a TVS diode connected to GND for ESD protection.",
 	"color": "red",
-	"position": 28,
+	"position": 23.7,
 	"side": "left"
 	},
 	{
 	"name": "EN",
 	"number": 9,
 	"color": "orange",
-	"position": 31.5,
+	"position": 27.4,
 	"side": "left"
 	},
 	{
 	"name": "S_VP",
 	"description": "Connected to SENSOR_CAPP through a 270pF capacitor.",
 	"number": 5,
-	"position": 35,
+	"position": 31.1,
 	"side": "left"
 	},
 	{
 	"name": "S_VN",
 	"description": "Connected to SENSOR_CAPN through a 270pF capacitor.",
 	"number": 8,
-	"position": 38.5,
+	"position": 34.8,
 	"side": "left"
 	},
 	{
 	"name": "IO34",
 	"number": 10,
-	"position": 42,
+	"position": 38.5,
 	"side": "left"
 	},
 	{
 	"name": "IO35",
 	"number": 11,
-	"position": 45.5,
+	"position": 42.2,
 	"side": "left"
 	},
 	{
 	"name": "IO32",
 	"number": 12,
-	"position": 49,
+	"position": 45.9,
 	"side": "left"
 	},
 	{
 	"name": "IO33",
 	"number": 13,
-	"position": 52.5,
+	"position": 49.6,
 	"side": "left"
 	},
 	{
 	"name": "IO25",
 	"number": 14,
-	"position": 56,
+	"position": 53.3,
 	"side": "left"
 	},
 	{
 	"name": "IO26",
 	"number": 15,
-	"position": 59.5,
+	"position": 57,
 	"side": "left"
 	},
 	{
 	"name": "IO27",
 	"number": 16,
-	"position": 63,
+	"position": 60.7,
 	"side": "left"
 	},
 	{
 	"name": "IO14",
 	"number": 17,
-	"position": 66.5,
+	"position": 64.4,
 	"side": "left"
 	},
 	{
 	"name": "IO12",
 	"number": 18,
-	"position": 70,
+	"position": 68.1,
 	"side": "left"
 	},
 	{
@@ -175,87 +175,87 @@
 	{
 	"name": "IO0",
 	"number": 23,
-	"position": 70,
+	"position": 68.1,
 	"side": "right"
 	},
 	{
 	"name": "IO4",
 	"number": 24,
-	"position": 66.5,
+	"position": 64.4,
 	"side": "right"
 	},
 	{
 	"name": "IO16",
 	"number": 25,
-	"position": 63,
+	"position": 60.7,
 	"side": "right"
 	},
 	{
 	"name": "IO17",
 	"number": 27,
-	"position": 59.5,
+	"position": 57,
 	"side": "right"
 	},
 	{
 	"name": "IO5",
 	"number": 34,
-	"position": 56,
+	"position": 53.3,
 	"side": "right"
 	},
 	{
 	"name": "IO18",
 	"number": 35,
-	"position": 52.5,
+	"position": 49.6,
 	"side": "right"
 	},
 	{
 	"name": "IO19",
 	"number": 38,
-	"position": 49,
+	"position": 45.9,
 	"side": "right"
 	},
 	{
 	"name": "NC",
 	"description": "Not connected",
 	"color": "lightgrey",
-	"position": 45.5,
+	"position": 42.2,
 	"side": "right"
 	},
 	{
 	"name": "IO21",
 	"number": 42,
-	"position": 42,
+	"position": 38.5,
 	"side": "right"
 	},
 	{
 	"name": "RXD0",
 	"number": 40,
-	"position": 38.5,
+	"position": 34.8,
 	"side": "right"
 	},
 	{
 	"name": "TXD0",
 	"number": 41,
-	"position": 35,
+	"position": 31.1,
 	"side": "right"
 	},
 	{
 	"name": "IO22",
 	"number": 39,
-	"position": 31.5,
+	"position": 27.4,
 	"side": "right"
 	},
 	{
 	"name": "IO23",
 	"number": 36,
-	"position": 28,
+	"position": 23.7,
 	"side": "right"
 	},
 	{
 	"name": "GND",
 	"number": 49,
 	"color": "black",
-	"position": 24.5,
+	"position": 20,
 	"side": "right"
 	}
 ]
