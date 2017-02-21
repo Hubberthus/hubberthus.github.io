@@ -31,36 +31,63 @@ define([
 					$scope.core.peripherals.forEach(function( peripheral ) {
 						
 						if (peripheral.name != "GPIO") {
-						
-							for (var mode in peripheral.modes) {
+							
+							var override = false;
+							
+							if (module.peripherals[peripheral.name]) {
 								
-								peripheral.modes[mode].forEach(function( modePin ) {
+								if (module.peripherals[peripheral.name].modes) {
+									peripheral.modes = module.peripherals[peripheral.name].modes;
+									override = true;
+								}
+								
+								if (module.peripherals[peripheral.name].pins) {
+									for (var mode in peripheral.modes) {
+										peripheral.modes[mode].forEach(function( modePin ) {
+											if (module.peripherals[peripheral.name].pins[modePin]) {
+												peripheral.pins[modePin] = module.peripherals[peripheral.name].pins[modePin];
+											}
+										});
+									}
+								}
+								
+								if (module.peripherals[peripheral.name].active_mode) {
+									peripheral.active_mode = module.peripherals[peripheral.name].active_mode;
+								}
+							}
+						
+							if ( ! override) {
+								
+								for (var mode in peripheral.modes) {
 									
-									var hasPin = false;
-									
-									peripheral.pins[modePin].forEach(function( pin ) {
+									peripheral.modes[mode].forEach(function( modePin ) {
 										
-										if ((pin == null) || (module.pin_map[pin] != undefined)) {
-
-											hasPin = true;
+										var hasPin = false;
+										
+										peripheral.pins[modePin].forEach(function( pin ) {
+											
+											if ((pin == null) || (module.pin_map[pin] != undefined)) {
+	
+												hasPin = true;
+											}
+										});
+										
+										if (!hasPin) {
+											
+											if (peripheral.active_mode == mode) {
+												peripheral.active_mode = "OFF";
+											}
+											
+											delete peripheral.modes[mode];
 										}
 									});
-									
-									if (!hasPin) {
-										
-										if (peripheral.active_mode == mode) {
-											peripheral.active_mode = "OFF";
-										}
-										
-										delete peripheral.modes[mode];
-									}
-								});
+								}
 							}
 							
 							if (Object.keys(peripheral.modes).length == 1) {
 								
 								peripheral.disabled = true;
-							}	
+							}
 						}
 					});
 				}

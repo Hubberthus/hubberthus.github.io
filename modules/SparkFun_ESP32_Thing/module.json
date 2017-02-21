@@ -7,7 +7,11 @@
 "peripherals": {
 	"XTAL_32K": {
 		"description": "The crystal with capacitors are already on the board, next to the pins '32' and '33'.",
-		"disabled": true
+		"modes": {
+			"ON": ["XTAL_32K_P", "XTAL_32K_N"]
+			},
+		"active_mode": "ON",
+		"builtin": true
 		},
 	"SDIO1": {
 		"description": "Not routed out, the pins are used for onboard QSPI flash chip."
@@ -17,7 +21,19 @@
 		},
 	"SPI": {
 		"description": "Onboard QSPI flash chip is connected to it. Primary pins are not routed out.",
-		"disabled": true
+		"modes": {
+			"Quad": ["SPI_CLK", "SPI_MISO", "SPI_MOSI", "SPI_HD", "SPI_WP", "SPI_CS0", "SPI_CS1", "SPI_CS2"]
+			},
+		"pins": {
+			"SPI_CLK": [31],
+			"SPI_MISO": [32],
+			"SPI_MOSI": [33],
+			"SPI_HD": [28],
+			"SPI_WP": [29],
+			"SPI_CS0": [30]
+			},
+		"active_mode": "Quad",
+		"builtin": true
 		},
 	"UART0": {
 		"description": "Primary TX and RX pins are connected to the onboard FTDI chip for USB serial functionality."

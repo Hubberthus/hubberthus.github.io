@@ -20,6 +20,12 @@
 	width: 20%;
 }
 
+.pin-integrated {
+	display: inline-block;
+	float: right;
+	color: white;
+}
+
 .mode-name {
 	display: inline-block;
 	width: 50%;
@@ -31,6 +37,13 @@
 	width: 40%;
 	color: black;
 	font-size: 0.6em;
+}
+
+.mode-badge {
+	display: inline-block;
+	float: right;
+	width: 40%;
+	background-color: white;
 }
 
 .glyphicon-ok-circle {

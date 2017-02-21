@@ -53,7 +53,7 @@
 			<nav class="navbar navbar-default navbar-fixed-bottom">
 				<ul class="nav navbar-nav">
 					<li class="navbar-text" style="font-style: italic;">
-						All rights of the images and information used belong to their respective owners:
+						All rights of resources used belong to their respective owners:
 					</li>
 					<li>
 						<a class="btn btn-link" href="{{active_module.link}}" target="_blank" style="text-decoration: underline;">Module "{{active_module.name}}" by {{active_module.owner}}</a>
@@ -75,9 +75,13 @@
 							<div ng-repeat="peripheral in core.peripherals" class="panel">
 
 								<div class="panel-heading" style="padding: 0.5em; background: {{peripheral.color}};">
-									<select ng-if="(peripheral.name != 'GPIO') && (! peripheral.disabled) && (! active_module.peripherals[peripheral.name].disabled)" ng-model="peripheral.active_mode" class="mode-selector">
+									<select ng-if="(peripheral.name != 'GPIO') && (! peripheral.disabled)" ng-model="peripheral.active_mode" class="mode-selector">
 										<option ng-repeat="(modename, modepins) in peripheral.modes" value="{{modename}}">{{modename}}</option>
 									</select>
+									<span ng-if="peripheral.disabled" class="badge mode-badge" style="color: {{peripheral.color}}">
+										{{peripheral.active_mode}}
+									</span>
+									<span class="glyphicon glyphicon-wrench pin-integrated" ng-show="active_module.peripherals[peripheral.name].builtin"></span>
 									<div class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}">
 										<span>
 											{{peripheral.name}}
@@ -101,7 +105,7 @@
 										</div>
 									</div>
 									
-									<div ng-if="(peripheral.name != 'GPIO') && (! peripheral.disabled)" class="panel panel-default">
+									<div ng-if="(peripheral.name != 'GPIO') && (peripheral.active_mode != 'OFF')" class="panel panel-default">
 										<div class="panel-body">
 											<div ng-repeat="(pinname, pinnums) in peripheral.pins" style="background: {{($even ? 'white' : 'lightgrey')}};">
 												<div ng-if="peripheral.modes[peripheral.active_mode].indexOf(pinname) >= 0">
