@@ -75,8 +75,22 @@
 	cursor: default;
 }
 
+.panel-info {
+	padding: 0px;
+	border: 0px;
+}
+
+.panel-group {
+	padding: 0px;
+}
+
+.panel-body {
+	padding: 0px;
+}
+
 .panel-heading {
 	cursor: pointer;
+	padding: 0.2em;
 }
 
 .panel-heading .panel-title {

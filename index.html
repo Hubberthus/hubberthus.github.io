@@ -72,13 +72,13 @@
 					<div class="panel panel-info">
 						<div class="panel-body" id="peripherals">
 
-							<div ng-repeat="peripheral in core.peripherals" class="panel">
+							<div ng-repeat="peripheral in core.peripherals" class="panel" style="margin: 0px;">
 
-								<div class="panel-heading" style="padding: 0.5em; background: {{peripheral.color}};">
+								<div class="panel-heading" style="background: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}};">
 									<select ng-if="(peripheral.name != 'GPIO') && (! peripheral.disabled)" ng-model="peripheral.active_mode" class="mode-selector">
 										<option ng-repeat="(modename, modepins) in peripheral.modes" value="{{modename}}">{{modename}}</option>
 									</select>
-									<span ng-if="peripheral.disabled" class="badge mode-badge" style="color: {{peripheral.color}}">
+									<span ng-if="peripheral.disabled" class="badge mode-badge" style="color: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}}">
 										{{peripheral.active_mode}}
 									</span>
 									<span class="glyphicon glyphicon-wrench pin-integrated" ng-show="active_module.peripherals[peripheral.name].builtin"></span>
