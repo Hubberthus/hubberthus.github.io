@@ -30,7 +30,16 @@ define([
 					
 					$scope.core.peripherals.forEach(function( peripheral ) {
 						
-						if (peripheral.name != "GPIO") {
+						if (peripheral.name == "GPIO") {
+							
+							peripheral.modes = {"SHOW" : [], "HIDE" : []};
+							peripheral.active_mode = "SHOW";
+							
+							for (var pin in peripheral.pins) {
+								peripheral.modes["SHOW"].push(pin);
+							}
+						
+						} else {
 							
 							var override = false;
 							
@@ -88,6 +97,12 @@ define([
 								
 								peripheral.disabled = true;
 							}
+						}
+						
+						peripheral.modenames = [];
+						
+						for (var modename in peripheral.modes) {
+							peripheral.modenames.push(modename);
 						}
 					});
 				}

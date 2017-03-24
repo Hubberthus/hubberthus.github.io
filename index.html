@@ -75,10 +75,13 @@
 							<div ng-repeat="peripheral in core.peripherals" class="panel" style="margin: 0px;">
 
 								<div class="panel-heading" style="background: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}};">
-									<select ng-if="(peripheral.name != 'GPIO') && (! peripheral.disabled)" ng-model="peripheral.active_mode" class="mode-selector">
-										<option ng-repeat="(modename, modepins) in peripheral.modes" value="{{modename}}">{{modename}}</option>
+									<select ng-if="(! peripheral.disabled) && (peripheral.modenames.length > 2)" ng-model="peripheral.active_mode" class="mode-selector">
+										<option ng-repeat="modename in peripheral.modenames" value="{{modename}}">{{modename}}</option>
 									</select>
-									<span ng-if="peripheral.disabled" class="badge mode-badge" style="color: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}}">
+									<span ng-if="(! peripheral.disabled) && (peripheral.modenames.length == 2)" ng-click="peripheral.active_mode = (peripheral.active_mode == peripheral.modenames[0] ? peripheral.modenames[1] : peripheral.modenames[0]);" class="badge mode-badge" style="color: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}}">
+										{{peripheral.active_mode}}
+									</span>
+									<span ng-if="peripheral.disabled" class="badge mode-badge" style="background: none;">
 										{{peripheral.active_mode}}
 									</span>
 									<span class="glyphicon glyphicon-wrench pin-integrated" ng-show="active_module.peripherals[peripheral.name].builtin"></span>

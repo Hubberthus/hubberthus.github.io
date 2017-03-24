@@ -9,8 +9,7 @@
 			"GPIO21": [42], "GPIO22": [39], "GPIO23": [36], "GPIO25": [14], "GPIO26": [15],
 			"GPIO27": [16], "GPIO32": [12], "GPIO33": [13], "GPIO34": [10], "GPIO35": [11],
 			"GPIO36": [5], "GPIO37": [6], "GPIO38": [7], "GPIO39": [8]},
-		"color": "grey",
-		"active_mode": "ON"
+		"color": "grey"
 	},
 	{
 		"name": "RTC_GPIO",
