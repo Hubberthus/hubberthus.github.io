@@ -28,7 +28,7 @@ define(function (require) {
 			// For empty input create the mode dictionary, initialize with the "ON" mode
 			if( ! peripheral.modes) {
 				
-				peripheral.modes = {"ON": []};
+				peripheral.modes = {ON: []};
 			}
 
 			// Add the empty "OFF" mode if not already present

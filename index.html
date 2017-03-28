@@ -38,6 +38,9 @@
 								<li ng-repeat="module in modules"><a ng-click="selectModule(module);" href="#">{{module.name}}</a></li>
 							</ul>
 						</li>
+						<li class="navbar-button">
+							<button ng-click="generateCode()">Generate</button>
+						</li>
 					</ul>
 					<ul class="nav navbar-right">
 						<li style="display: inline-block;">

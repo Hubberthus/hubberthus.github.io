@@ -19,8 +19,9 @@ define([
         'app/main',
         'app/cores',
         'app/modules',
+        'app/generator',
         'jquery', 
-        'bootstrap'], function(app, cores, modules, $, bootstrap){
+        'bootstrap'], function(app, cores, modules, generator, $, bootstrap){
 	
 	// Main controller function for the AngularJS application
 	app.controller('mcuSetupController',function($scope){
@@ -140,13 +141,15 @@ define([
 		// Initial module is the first one
 		setActiveModule($scope.modules[0]);
 		
-		// Export the "selectModule" function for AngularJS access
+		/* Exporting functions for AngularJS access */
+		
+		// Set new active module
 		$scope.selectModule = function( new_module ) {
 			
 			setActiveModule(new_module);
 		}
 		
-		// Export the "selectPin" function for AngularJS access
+		// Set active selected pin. If the same then discard selection.
 		$scope.selectPin = function( pin ) {
 			
 			if ($scope.selected_pin == pin) {
@@ -154,6 +157,12 @@ define([
 			} else {
 				$scope.selected_pin = pin;
 			}
+		}
+		
+		// Generate the code, and give back as a compressed file
+		$scope.generateCode = function() {
+			
+			generator.generateCode($scope.core);
 		}
 	})
 	// String to integer conversion directive needed by pin selecting dropdown lists

@@ -23,6 +23,8 @@ requirejs.config({
     	'jquery': 'jquery-3.1.1.min',
     	'angular': 'angular.min',
     	'bootstrap': 'bootstrap.min',
+    	'jszip': 'jszip.min',
+    	'FileSaver': 'FileSaver.min',
     	'app': '../app'
     },
     
