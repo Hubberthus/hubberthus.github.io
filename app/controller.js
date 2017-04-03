@@ -99,7 +99,7 @@ define([
 							peripheral.modes[mode].forEach(function( modePin ) {
 								
 								var hasPin = false;
-								
+
 								// Check pins for the mode
 								peripheral.pins[modePin].forEach(function( pin ) {
 									

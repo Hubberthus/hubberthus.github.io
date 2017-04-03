@@ -18,7 +18,7 @@
 define(function (require) {
 	
 	// List of the selectable modules. If a new one is added, it must be in this list
-	var module_names = ["ESP-WROOM-32", "SparkFun_ESP32_Thing"];
+	var module_names = ["Arduino_Pro_Mini", "ESP-WROOM-32", "SparkFun_ESP32_Thing"];
 	
 	// Generate a pin number to pin name array for quick lookup
 	generatePinMap = function ( module ) {
@@ -47,6 +47,11 @@ define(function (require) {
 					module.image = "/modules/" + name + "/module.png";
 					
 					generatePinMap(module);
+					
+					// Create empty peripheral override list if not set
+					if (! module.peripherals) {
+						module.peripherals = [];
+					}
 					
 					module_list.push(module);
 				});

@@ -42,10 +42,9 @@ define(function (require) {
 
 			// Set default active pins
 			for (var name in peripheral.pins) {
-
+				
 				// If the pin name is an alias, set its value to the aliased pin
 				if (peripheral.pins[peripheral.pins[name][0]]) {
-					
 					peripheral.pins[name] = peripheral.pins[peripheral.pins[name][0]];
 				}
 

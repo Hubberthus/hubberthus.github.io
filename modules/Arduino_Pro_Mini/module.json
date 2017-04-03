@@ -1,0 +1,207 @@
+{
+"name": "Arduino Pro Mini",
+"owner": "Arduino AG",
+"link": "https://www.arduino.cc/",
+"core": "ATmega328",
+"width": 25,
+"pins": [
+	{
+	"name": "BLK",
+	"number": 33,
+	"color": "black",
+	"position": 5,
+	"side": "left"
+	},
+	{
+	"name": "TXO",
+	"number": 31,
+	"position": 13,
+	"side": "left"
+	},
+	{
+	"name": "RXI",
+	"number": 30,
+	"position": 20,
+	"side": "left"
+	},
+	{
+	"name": "RST",
+	"number": 29,
+	"color": "orange",
+	"position": 27,
+	"side": "left"
+	},
+	{
+	"name": "GND",
+	"number": 33,
+	"color": "black",
+	"position": 34,
+	"side": "left"
+	},
+	{
+	"name": "2",
+	"number": 32,
+	"position": 41,
+	"side": "left"
+	},
+	{
+	"name": "3",
+	"number": 1,
+	"position": 48,
+	"side": "left"
+	},
+	{
+	"name": "4",
+	"number": 2,
+	"position": 55,
+	"side": "left"
+	},
+	{
+	"name": "5",
+	"number": 9,
+	"position": 62,
+	"side": "left"
+	},
+	{
+	"name": "6",
+	"number": 10,
+	"position": 69,
+	"side": "left"
+	},
+	{
+	"name": "7",
+	"number": 11,
+	"position": 76,
+	"side": "left"
+	},
+	{
+	"name": "8",
+	"number": 12,
+	"position": 83,
+	"side": "left"
+	},
+	{
+	"name": "9",
+	"number": 9,
+	"position": 90,
+	"side": "left"
+	},
+	{
+	"name": "10",
+	"number": 14,
+	"position": 90,
+	"side": "right"
+	},
+	{
+	"name": "11",
+	"number": 15,
+	"position": 83,
+	"side": "right"
+	},
+	{
+	"name": "12",
+	"number": 16,
+	"position": 76,
+	"side": "right"
+	},
+	{
+	"name": "A6",
+	"description": "Routed out to off-grid breakout header.",
+	"number": 19,
+	"color": "lightgrey",
+	"position": 72.5,
+	"side": "right"
+	},
+	{
+	"name": "13",
+	"description": "Connected to on-board LED.",
+	"number": 17,
+	"position": 69,
+	"side": "right"
+	},
+	{
+	"name": "A7",
+	"description": "Routed out to off-grid breakout header.",
+	"number": 22,
+	"color": "lightgrey",
+	"position": 65.5,
+	"side": "right"
+	},
+	{
+	"name": "A0",
+	"number": 23,
+	"position": 62,
+	"side": "right"
+	},
+	{
+	"name": "A1",
+	"number": 24,
+	"position": 55,
+	"side": "right"
+	},
+	{
+	"name": "A2",
+	"number": 25,
+	"position": 48,
+	"side": "right"
+	},
+	{
+	"name": "A4",
+	"description": "Routed out to off-grid breakout header.",
+	"number": 27,
+	"color": "lightgrey",
+	"position": 44.5,
+	"side": "right"
+	},
+	{
+	"name": "A3",
+	"number": 26,
+	"position": 41,
+	"side": "right"
+	},
+	{
+	"name": "A5",
+	"description": "Routed out to off-grid breakout header.",
+	"number": 28,
+	"color": "lightgrey",
+	"position": 37.5,
+	"side": "right"
+	},
+	{
+	"name": "VCC",
+	"number": 4,
+	"color": "red",
+	"position": 34,
+	"side": "right"
+	},
+	{
+	"name": "RST",
+	"number": 29,
+	"color": "orange",
+	"position": 27,
+	"side": "right"
+	},
+	{
+	"name": "GND",
+	"number": 33,
+	"color": "black",
+	"position": 20,
+	"side": "right"
+	},
+	{
+	"name": "RAW",
+	"description": "Raw power input directed to on-board voltage regulator.",
+	"color": "red",
+	"position": 13,
+	"side": "right"
+	},
+	{
+	"name": "GRN",
+	"description": "Connected to PC6/RESET pin through a capacitor.",
+	"number": 29,
+	"color": "orange",
+	"position": 5,
+	"side": "right"
+	}
+]
+}
