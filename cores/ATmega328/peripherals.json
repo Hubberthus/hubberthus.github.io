@@ -18,7 +18,7 @@
 	},
 	{
 		"name": "ADC",
-		"description": "12-bit SAR analog-to-digital converters with up to 18 channels. Internal HALL sensor uses channel 0 and 3 of ADC1.",
+		"description": "10-bit analog-to-digital converters.",
 		"pins": {"ADC0": [null, 23], "ADC1": [null, 24], "ADC2": [null, 25], "ADC3": [null, 26],
 			"ADC4": [null, 27], "ADC5": [null, 28], "ADC6": [19], "ADC7": [22]},
 		"color": "chocolate",
