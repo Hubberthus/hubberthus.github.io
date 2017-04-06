@@ -55,7 +55,8 @@
 		"description": "Generic master/slave I2C (TWI) interface with up to 400kHz data transfer speed.",
 		"pins": {"SDA": [27], "SCL": [28]},
 		"color": "lawngreen",
-		"active_mode": "OFF"
+		"active_mode": "OFF",
+		"files": ["I2C.h", "I2C.cpp"]
 	},
 	{
 		"name": "dWIRE",

@@ -17,21 +17,10 @@
 
 var IF_REGEX = /([^%]*)%if%([^%]*)%([^%]*)%endif%([^%]*)/mg;
 
-var HEADER_CODE = "/* Auto-generated code by MCU pin setup tool */\n\n" +
-		"#ifndef __MPS_H__\n" +
-		"#define __MPS_H__\n\n" +
-		"/* GPIO */\n\n" +
-		"void pinMode(uint8_t pin, uint8_t mode);\n" +
-		"void digitalWrite(uint8_t pin, uint8_t val);\n" +
-		"int digitalRead(uint8_t pin);\n\n" +
-		"%if%(getPeripheral('ADC').active_mode == 'ON')%/* ADC */\n\n" +
-		"int analogRead(uint8_t pin);\n\n" +
-		"%endif%" +
-		"#endif /* __MPS_H__ */\n";
-
 define(['jszip', 'FileSaver'], function (JSZip, FileSaver) {
 	
 	var core = null;
+	var file_list = [];
 	
 	// Returns the peripheral dictionary for given name
 	getPeripheral = function (name) {
@@ -49,22 +38,28 @@ define(['jszip', 'FileSaver'], function (JSZip, FileSaver) {
 	processCode = function (code) {
 		
 		var match = IF_REGEX.exec(code);
+		
+		if (match == null) {
+			return code;
+		}
+		
+		var out_code = "";
 
 		while (match != null) {
-
-			code = match[1];
+			
+			out_code += match[1];
 			
 			if (eval(match[2])) {
 				
-				code += match[3];
+				out_code += match[3];
 			}
 			
-			code += match[4];
+			out_code += match[4];
 			
 			match = IF_REGEX.exec(code);
 		}
 		
-		return code;
+		return out_code;
 	}
 	
 	return {
@@ -73,14 +68,26 @@ define(['jszip', 'FileSaver'], function (JSZip, FileSaver) {
     		
     		core = in_core;
     		
-    		var zip = new JSZip();
+    		file_list = [{name: "mps.h", code: processCode(core.source_files[0].code)}];
     		
-    		file_list = [{name: "mps.h", code: HEADER_CODE}];
+    		// Process the input files
+    		for(var n in core.source_files) {
+    			if (core.source_files[n].peripheral && core.source_files[n].peripheral.active_mode != 'OFF') {
+    				file_list.push({name: core.source_files[n].name, code: processCode(core.source_files[n].code)});
+    			}
+    		}
+    		
+    		return file_list;
+        },
+        // Give back the code to the user as a compressed 'zip' file
+        downloadCode: function () {
+        	
+            var zip = new JSZip();
     		
     		// Add all sources to the file list
     		for(var n in file_list) {
     			
-    			zip.file(file_list[n].name, processCode(file_list[n].code));
+    			zip.file(file_list[n].name, file_list[n].code);
     		}
     		
     		// Compress and give back 'zip' file

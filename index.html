@@ -33,13 +33,20 @@
 				<div class="collapse navbar-collapse" id="collapse-navbar">
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">{{active_module.name}}<span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Module: {{active_module.name}}<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li ng-repeat="module in modules"><a ng-click="selectModule(module);" href="#">{{module.name}}</a></li>
 							</ul>
 						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">View: {{active_view}}<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a ng-click="active_view = 'Layout'" href="#">Layout</a></li>
+								<li><a ng-click="active_view = 'Code'" href="#">Code</a></li>
+							</ul>
+						</li>
 						<li class="navbar-button">
-							<button ng-click="generateCode()">Generate</button>
+							<button ng-click="downloadCode()">Download "mps.zip"</button>
 						</li>
 					</ul>
 					<ul class="nav navbar-right">
@@ -79,9 +86,9 @@
 
 								<div class="panel-heading" style="background: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}};">
 									<select ng-if="(! peripheral.disabled) && (peripheral.modenames.length > 2)" ng-model="peripheral.active_mode" class="mode-selector">
-										<option ng-repeat="modename in peripheral.modenames" value="{{modename}}">{{modename}}</option>
+										<option ng-repeat="modename in peripheral.modenames" ng-click="updateCode();" value="{{modename}}">{{modename}}</option>
 									</select>
-									<span ng-if="(! peripheral.disabled) && (peripheral.modenames.length == 2)" ng-click="peripheral.active_mode = (peripheral.active_mode == peripheral.modenames[0] ? peripheral.modenames[1] : peripheral.modenames[0]);" class="badge mode-badge" style="color: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}}">
+									<span ng-if="(! peripheral.disabled) && (peripheral.modenames.length == 2)" ng-click="peripheral.active_mode = (peripheral.active_mode == peripheral.modenames[0] ? peripheral.modenames[1] : peripheral.modenames[0]); updateCode();" class="badge mode-badge" style="color: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}}">
 										{{peripheral.active_mode}}
 									</span>
 									<span ng-if="peripheral.disabled" class="badge mode-badge" style="background: none;">
@@ -150,8 +157,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-9" id="module">
 				
+				<div ng-if="active_view == 'Layout'" class="col-sm-9" id="module">		
 					<div class="panel panel-default" ng-show="selected_pin" style="width: {{active_module.width}}%; left: {{((100 - active_module.width) / 2)}}%; top: 100px; position: absolute;">
 						<div class="panel-heading" ng-click="selectPin(null);">
 							Pin name: {{selected_pin.name}}
@@ -204,10 +211,19 @@
 							{{pin.name}}
 						</div>
 					</div>
-				
 				</div>
+				
+				<div ng-if="active_view == 'Code'" class="col-sm-9" id="module">
+					<ul class="nav nav-tabs">
+						<li ng-repeat="file in file_list"><a href="#" ng-click="setActiveFile(file);">{{file.name}}</a></li>
+					</ul>
+					
+					<div>
+						<pre>{{active_file.code}}</pre>
+					</div>
+				</div>
+				
 			</div>
-		
 		</div>
 		
 		<script data-main="config" src="lib/require.js"></script>

@@ -84,6 +84,27 @@ define(function (require) {
 				core.peripherals = peripherals;
 			});
 			
+			// Load files needed for code generation
+			file_list = [{name: "mps.h", peripheral: null}];
+			
+			for(var n in core.peripherals) {
+				if (core.peripherals[n].files) {
+					for(var m in core.peripherals[n].files) {
+						file_list.push({name: core.peripherals[n].files[m], peripheral: core.peripherals[n]});
+					}
+				}
+			}
+			
+			core.source_files = [];
+			
+			for(var n in file_list) {
+				$.get("/cores/" + name + "/AFRTOS-flavor/" + file_list[n].name)
+				.done(function( file_content ) {
+					
+					core.source_files.push({name: file_list[n].name, code: file_content, peripheral: file_list[n].peripheral});
+				});
+			}
+			
 			setupDefaultPeripheralModes(core);
     		
     		return core;

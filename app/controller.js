@@ -33,6 +33,7 @@ define([
 		
 		$scope.height = $(window).height() - 150; // Needed for scroll panel height 
 		$scope.selected_pin = null;               // Used for pin info popup
+		$scope.active_view = "Layout";            // Sets active view to show
 		
 		// Load the list of modules. The loading screen is displayed until this completes
 		$scope.modules = modules.loadModules(); 
@@ -136,6 +137,10 @@ define([
 					peripheral.modenames.push(modename);
 				}
 			});
+			
+			// Initial code generation
+			$scope.file_list = generator.generateCode($scope.core);
+			$scope.active_file = $scope.file_list[0];
 		}
 		
 		// Initial module is the first one
@@ -159,10 +164,23 @@ define([
 			}
 		}
 		
-		// Generate the code, and give back as a compressed file
-		$scope.generateCode = function() {
+		// Update the generated code
+		$scope.updateCode = function() {
 			
-			generator.generateCode($scope.core);
+			$scope.file_list = generator.generateCode($scope.core);
+			$scope.active_file = $scope.file_list[0];
+		}
+		
+		// Set the active file
+		$scope.setActiveFile = function( file ) {
+			
+			$scope.active_file = file;
+		}
+		
+		// Give back the generated code as a compressed file
+		$scope.downloadCode = function() {
+			
+			generator.downloadCode();
 		}
 	})
 	// String to integer conversion directive needed by pin selecting dropdown lists
