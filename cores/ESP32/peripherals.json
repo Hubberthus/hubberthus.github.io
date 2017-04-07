@@ -164,7 +164,8 @@
 				"U0_DTR": [23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13]},
 		"color": "blue",
-		"active_mode": "Two wire"
+		"active_mode": "Two wire",
+		"files": ["UART.h", "UART.cpp"]
 	},
 	{
 		"name": "UART1",

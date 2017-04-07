@@ -10,6 +10,13 @@
 		"color": "grey"
 	},
 	{
+		"name": "RESET",
+		"description": "If set in fuse, the PC6 pin acts as RESET input.",
+		"pins": {"RST": [29]},
+		"color": "orangered",
+		"active_mode": "ON"
+	},
+	{
 		"name": "XTAL",
 		"description": "Low power oscillator, with reduced voltage swing on the XTAL2 output. It gives the lowest power consumption, but is not capable of driving other clock inputs, and may be more susceptible to noise in noisy environments.",
 		"pins": {"XTAL1": [7], "XTAL2": [8]},
@@ -25,7 +32,7 @@
 		"active_mode": "OFF"
 	},
 	{
-		"name": "ACSR",
+		"name": "ACMP",
 		"description": "The Analog Comparator compares the input values on the positive pin AIN0 and negative pin AIN1. When the voltage on the positive pin AIN0 is higher than the voltage on the negative pin AIN1, the Analog Comparator output, ACO bit is set.",
 		"pins": {"AIN0": [10], "AIN1": [11]},
 		"color": "coral",

@@ -1,7 +1,7 @@
 /* Auto-generated code by MCU pin setup tool */
 
-#ifndef __MPS_H__
-#define __MPS_H__
+#ifndef __I2C_H__
+#define __I2C_H__
 
 class I2CClass {
 	public:
@@ -10,6 +10,6 @@ class I2CClass {
 	void end();
 };
 
-I2CClass I2C;
+extern I2CClass I2C;
 
-#endif /* __MPS_H__ */
+#endif /* __I2C_H__ */

@@ -8,6 +8,10 @@
 #include "I2C.h"
 %endif%
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define PRIORITY_LOWEST  (0)
 #define PRIORITY_LOW     ((UBaseType_t)(configMAX_PRIORITIES / 4))
 #define PRIORITY_NORMAL  ((UBaseType_t)(configMAX_PRIORITIES / 3))
@@ -29,5 +33,9 @@ void initializeMPS()
 	I2C.begin();
 	%endif%
 }
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __MPS_H__ */

@@ -4,6 +4,13 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/gpio.h"
+%if%(getPeripheral('UART0').active_mode != 'OFF')%
+#include "UART.h"
+%endif%
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define PRIORITY_LOWEST  (0)
 #define PRIORITY_LOW     ((UBaseType_t)(configMAX_PRIORITIES / 4))
@@ -20,18 +27,21 @@
 void setup();
 void loop();
 
-void app_main()
+extern "C" void app_main()
 {
   setup();
 }
 
-void vApplicationIdleHook()
+extern "C" void vApplicationIdleHook()
 {
   loop();
 }
 
 void initializeMPS()
 {
+	%if%(getPeripheral('UART0').active_mode != 'OFF')%
+	Serial.begin();
+	%endif%
 }
 
 /* GPIO */
@@ -48,17 +58,17 @@ void initializeMPS()
 void pinMode(uint8_t pin, uint8_t mode)
 {
   gpio_config_t io_conf;
-  io_conf.intr_type = GPIO_PIN_INTR_DISABLE;
-  io_conf.mode = mode;
+  io_conf.intr_type = (gpio_int_type_t)GPIO_PIN_INTR_DISABLE;
+  io_conf.mode = (gpio_mode_t)mode;
   io_conf.pin_bit_mask = (1 << pin);
-  io_conf.pull_down_en = 0;
-  io_conf.pull_up_en = 0;
+  io_conf.pull_down_en = (gpio_pulldown_t)0;
+  io_conf.pull_up_en = (gpio_pullup_t)0;
   gpio_config(&io_conf);
 }
 
 void digitalWrite(uint8_t pin, uint8_t val)
 {
-  gpio_set_level(pin, val);
+  gpio_set_level((gpio_num_t)pin, val);
 }
 
 %if%(getPeripheral('ADC').active_mode == 'ON')%
@@ -66,9 +76,13 @@ void digitalWrite(uint8_t pin, uint8_t val)
 
 int analogRead(uint8_t pin)
 {
-	// TODO: Code something
+	return 0;
 }
 
 %endif%
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __MPS_H__ */
