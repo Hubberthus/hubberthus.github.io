@@ -1,3 +1,4 @@
+%peripheral%UART0%
 /* Auto-generated code by MCU pin setup tool */
 
 #ifndef __UART_H__

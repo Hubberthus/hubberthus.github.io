@@ -1,5 +1,7 @@
 {
   "owner": "Espressif Inc.",
   "link": "https://espressif.com/",
-  "flavors": ["Arduino_FreeRTOS"]
+  "flavors": {
+  	"Arduino_FreeRTOS": ["mps.h", "UART.h", "UART.cpp"]
+  }
 }

@@ -71,6 +71,8 @@ define(function (require) {
 				
 				core.info = info;
 			});
+    		
+    		core.active_flavor = null;
 			
 			$.getJSON("/cores/" + name + "/pinout.json")
 			.done(function( pinout ) {
@@ -85,24 +87,17 @@ define(function (require) {
 			});
 			
 			// Load files needed for code generation
-			file_list = [{name: "mps.h", peripheral: null}];
-			
-			for(var n in core.peripherals) {
-				if (core.peripherals[n].files) {
-					for(var m in core.peripherals[n].files) {
-						file_list.push({name: core.peripherals[n].files[m], peripheral: core.peripherals[n]});
-					}
+			core.source_files = {};
+
+			for(var flavor in core.info.flavors) {
+				core.source_files[flavor] = [];
+				for(var n in core.info.flavors[flavor]) {
+					$.get("/cores/" + name + "/" + flavor + "-flavor/" + core.info.flavors[flavor][n])
+					.done(function( file_content ) {
+						
+						core.source_files[flavor].push({name: core.info.flavors[flavor][n], code: file_content});
+					});
 				}
-			}
-			
-			core.source_files = [];
-			
-			for(var n in file_list) {
-				$.get("/cores/" + name + "/Arduino_FreeRTOS-flavor/" + file_list[n].name)
-				.done(function( file_content ) {
-					
-					core.source_files.push({name: file_list[n].name, code: file_content, peripheral: file_list[n].peripheral});
-				});
 			}
 			
 			setupDefaultPeripheralModes(core);

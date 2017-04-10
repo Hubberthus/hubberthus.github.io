@@ -1,3 +1,4 @@
+%peripheral%I2C%
 /* Auto-generated code by MCU pin setup tool */
 
 #include "I2C.h"

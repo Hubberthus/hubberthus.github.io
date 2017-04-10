@@ -15,6 +15,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+var PERIPHERAL_REGEX = /%peripheral%([^%]*)%([^%]*)/mg;
 var IF_REGEX = /([^%]*)%if%([^%]*)%([^%]*)%endif%([^%]*)/mg;
 
 define(['jszip', 'FileSaver'], function (JSZip, FileSaver) {
@@ -37,7 +38,24 @@ define(['jszip', 'FileSaver'], function (JSZip, FileSaver) {
 	// Preprocess the code
 	processCode = function (code) {
 		
-		var match = IF_REGEX.exec(code);
+		PERIPHERAL_REGEX.lastIndex = 0;
+		
+		var out_code = "";
+		var peripheral = PERIPHERAL_REGEX.exec(code);
+		
+		if (peripheral) {
+			if (getPeripheral(peripheral[1]).active_mode != "OFF") {
+				out_code = peripheral[2];
+			} else {
+				return null;
+			}
+		} else {
+			out_code = code;
+		}
+		
+		IF_REGEX.lastIndex = 0;
+		
+		var match = IF_REGEX.exec(out_code);
 		
 		if (match == null) {
 			return code;
@@ -68,12 +86,15 @@ define(['jszip', 'FileSaver'], function (JSZip, FileSaver) {
     		
     		core = in_core;
     		
-    		file_list = [{name: "mps.h", code: processCode(core.source_files[0].code)}];
-    		
+    		file_list = [];
+
     		// Process the input files
-    		for(var n in core.source_files) {
-    			if (core.source_files[n].peripheral && core.source_files[n].peripheral.active_mode != 'OFF') {
-    				file_list.push({name: core.source_files[n].name, code: processCode(core.source_files[n].code)});
+    		for(var n in core.source_files[core.active_flavor]) {
+    			
+    			var gen_code = processCode(core.source_files[core.active_flavor][n].code);
+    			
+    			if (gen_code) {
+    				file_list.push({name: core.source_files[core.active_flavor][n].name, code: gen_code});
     			}
     		}
     		
