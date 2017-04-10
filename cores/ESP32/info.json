@@ -1,4 +1,5 @@
 {
   "owner": "Espressif Inc.",
-  "link": "https://espressif.com/"
+  "link": "https://espressif.com/",
+  "flavors": ["Arduino_FreeRTOS"]
 }

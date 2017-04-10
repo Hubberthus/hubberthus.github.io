@@ -98,7 +98,7 @@ define(function (require) {
 			core.source_files = [];
 			
 			for(var n in file_list) {
-				$.get("/cores/" + name + "/AFRTOS-flavor/" + file_list[n].name)
+				$.get("/cores/" + name + "/Arduino_FreeRTOS-flavor/" + file_list[n].name)
 				.done(function( file_content ) {
 					
 					core.source_files.push({name: file_list[n].name, code: file_content, peripheral: file_list[n].peripheral});

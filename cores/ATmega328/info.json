@@ -1,4 +1,5 @@
 {
   "owner": "Arduino AG",
-  "link": "https://www.arduino.cc/"
+  "link": "https://www.arduino.cc/",
+  "flavors": ["Arduino", "Arduino_FreeRTOS"]
 }
