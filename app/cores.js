@@ -66,7 +66,7 @@ define(function (require) {
     		
     		core = {};
     		
-    		$.getJSON("/cores/" + name + "/info.json")
+    		$.getJSON("cores/" + name + "/info.json")
 			.done(function( info ) {
 				
 				core.info = info;
@@ -92,7 +92,7 @@ define(function (require) {
 			for(var flavor in core.info.flavors) {
 				core.source_files[flavor] = [];
 				for(var n in core.info.flavors[flavor]) {
-					$.get("/cores/" + name + "/" + flavor + "-flavor/" + core.info.flavors[flavor][n])
+					$.get("cores/" + name + "/" + flavor + "-flavor/" + core.info.flavors[flavor][n])
 					.done(function( file_content ) {
 						
 						core.source_files[flavor].push({name: core.info.flavors[flavor][n], code: file_content});

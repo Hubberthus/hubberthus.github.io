@@ -18,8 +18,7 @@
 define(function (require) {
 	
 	// List of the selectable modules. If a new one is added, it must be in this list
-	var module_names = ["Arduino_Pro_Mini", "ESP-WROOM-32", "SparkFun_ESP32_Thing"];
-	var module_names = ["ESP-WROOM-32", "SparkFun_ESP32_Thing", "STM32-Maple_Mini", "STM32-Blue_Pill"];
+	var module_names = ["Arduino_Pro_Mini", "ESP-WROOM-32", "SparkFun_ESP32_Thing", "STM32-Maple_Mini", "STM32-Blue_Pill"];
 	
 	// Generate a pin number to pin name array for quick lookup
 	generatePinMap = function ( module ) {
@@ -45,7 +44,7 @@ define(function (require) {
 				$.getJSON("modules/" + name + "/module.json")
 				.done(function( module ) {
 
-					module.image = "/modules/" + name + "/module.png";
+					module.image = "modules/" + name + "/module.png";
 					
 					generatePinMap(module);
 					

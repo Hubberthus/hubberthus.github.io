@@ -1,3 +1,9 @@
+hr {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border-top: 1px dashed #aaa;
+}
+
 .loading {
 	background: url(/loading.gif) center no-repeat #fff;
 	width: 100%;
@@ -13,6 +19,7 @@
 .pin-name {
 	display: inline-block;
 	width: 70%;
+    padding: 0 3px;
 }
 
 .pin-selector {
@@ -95,19 +102,26 @@
 
 .panel-heading .panel-title {
     color: white;
+    border: 1px solid #777;
+    border-left: 0;
+    border-radius: 5px;
 }
 
-.panel-heading .panel-title:after {
+.panel-heading .panel-title:before {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    content: "\e114";    /* taken from bootstrap.css */
+    content: "\2212";    /* taken from bootstrap.css */
     float: left;
+    width:2em;
+    text-align: center;
     color: white;
+    border-left: #777 1px solid;
+    border-radius: 3px 0 0 3px;
 }
 
-.panel-heading .panel-title.collapsed:after {
+.panel-heading .panel-title.collapsed:before {
     /* symbol for "collapsed" panels */
-    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+    content: "\002b";    /* adjust as needed, taken from bootstrap.css */
 }
 
 .panel-heading .panel-title-description:after {
