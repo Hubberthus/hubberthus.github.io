@@ -1,0 +1,271 @@
+{
+"name": "STM32 BluePill",
+"owner": "Generic STM32 module",
+"link": "http://wiki.stm32duino.com/index.php?title=Blue_Pill",
+"core": "STM32F103CB",
+"width": 25,
+"pins": [
+	{
+	"name": "PB12",
+	"number": 25,
+	"position": 4,
+	"side": "left"
+	},
+	{
+	"name": "PB13",
+	"number": 26,
+	"description": "",
+	"position": 8,
+	"side": "left"
+	},
+	{
+	"name": "PB14",
+	"number": 27,
+	"position": 12.5,
+	"side": "left"
+	},
+	{
+	"name": "PB15",
+	"number": 28,
+	"position": 16.5,
+	"side": "left"
+	},
+	{
+	"name": "PA8",
+	"number": 29,
+	"position": 21,
+	"side": "left"
+	},
+	{
+	"name": "PA9",
+	"number": 30,
+	"position": 25.5,
+	"side": "left"
+	},
+	{
+	"name": "PA10",
+	"number": 31,
+	"position": 29.5,
+	"side": "left"
+	},
+	{
+	"name": "PA11",
+	"number": 32,
+	"position": 34.5,
+	"side": "left"
+	},
+	{
+	"name": "PA12",
+	"number": 33,
+	"position": 38.5,
+	"side": "left"
+	},
+	{
+	"name": "PA15",
+	"number": 38,
+	"position": 43,
+	"side": "left"
+	},
+	{
+	"name": "PB3",
+	"number": 39,
+	"position": 47,
+	"side": "left"
+	},
+	{
+	"name": "PB4",
+	"number": 40,
+	"position": 51.5,
+	"side": "left"
+	},
+	{
+	"name": "PB5",
+	"number": 41,
+	"position": 56,
+	"side": "left"
+	},
+	{
+	"name": "PB6",
+	"number": 42,
+	"position": 60,
+	"side": "left"
+	},
+	{
+	"name": "PB7",
+	"number": 43,
+	"position": 64.5,
+	"side": "left"
+	},
+	{
+	"name": "PB8",
+	"number": 45,
+	"position": 69,
+	"side": "left"
+	},
+	{
+	"name": "PB9",
+	"number": 46,
+	"position": 73,
+	"side": "left"
+	},
+	{
+	"name": "5V",
+	"color": "red",
+	"position": 77,
+	"side": "left"
+	},
+	{
+	"name": "GND",
+	"color": "black",
+	"number": 47,
+	"position": 81,
+	"side": "left"
+	},
+	{
+	"name": "3.3V",
+	"color": "red",
+	"number": 48,
+	"position": 85,
+	"side": "left"
+	},
+	{
+	"name": "PA13",
+	"number": 34,
+	"position": 94,
+	"side": "left"
+	},
+    {
+	"name": "GND",
+	"color": "black",
+	"number": 47,
+	"color": "black",
+	"position": 4,
+	"side": "right"
+	},
+	{
+	"name": "GND",
+	"number": 47,
+	"description": "",
+	"color": "black",
+	"position": 8,
+	"side": "right"
+	},
+	{
+	"name": "3.3V",
+	"number": 48,
+	"color": "red",
+	"position": 12.5,
+	"side": "right"
+	},
+	{
+	"name": "RESET",
+	"number": 7,
+	"color": "orange",
+	"position": 16.5,
+	"side": "right"
+	},
+	{
+	"name": "PB11",
+	"number": 22,
+	"position": 21,
+	"side": "right"
+	},
+	{
+	"name": "PB10",
+	"number": 21,
+	"position": 25.5,
+	"side": "right"
+	},
+	{
+	"name": "PB1",
+	"number": 19,
+	"position": 29.5,
+	"side": "right"
+	},
+	{
+	"name": "PB0",
+	"number": 18,
+	"position": 34.5,
+	"side": "right"
+	},
+	{
+	"name": "PA7",
+	"number": 17,
+	"position": 38.5,
+	"side": "right"
+	},
+	{
+	"name": "PA6",
+	"number": 16,
+	"position": 43,
+	"side": "right"
+	},
+	{
+	"name": "PA5",
+	"number": 15,
+	"position": 47,
+	"side": "right"
+	},
+	{
+	"name": "PA4",
+	"number": 14,
+	"position": 51.5,
+	"side": "right"
+	},
+	{
+	"name": "PA3",
+	"number": 13,
+	"position": 56,
+	"side": "right"
+	},
+	{
+	"name": "PA2",
+	"number": 12,
+	"position": 60,
+	"side": "right"
+	},
+	{
+	"name": "PA1",
+	"number": 11,
+	"position": 64.5,
+	"side": "right"
+	},
+	{
+	"name": "PA0",
+	"number": 10,
+	"position": 69,
+	"side": "right"
+	},
+	{
+	"name": "PC15",
+	"number": 4,
+	"position": 73,
+	"side": "right"
+	},
+	{
+	"name": "PC14",
+	"number": 3,
+	"position": 77,
+	"side": "right"
+	},
+	{
+	"name": "PC13",
+	"number": 2,
+	"position": 81,
+	"side": "right"
+	},
+	{
+	"name": "VBAT",
+	"color": "red",
+	"number": 1,
+	"position": 85,
+	"side": "right"
+	},
+	{
+	"name": "PA14",
+	"number": 37,
+	"position": 94,
+	"side": "right"
+	}
+]
+}

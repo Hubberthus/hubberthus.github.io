@@ -1,0 +1,300 @@
+[
+    {
+        "pins": {
+            "IN0": [
+                null, 
+                10
+            ], 
+            "IN1": [
+                null, 
+                11
+            ], 
+            "IN2": [
+                null, 
+                12
+            ], 
+            "IN3": [
+                null, 
+                13
+            ], 
+            "IN4": [
+                null, 
+                14
+            ], 
+            "IN5": [
+                null, 
+                15
+            ], 
+            "IN6": [
+                null, 
+                16
+            ], 
+            "IN7": [
+                null, 
+                17
+            ], 
+            "IN8": [
+                null, 
+                18
+            ], 
+            "IN9": [
+                null, 
+                19
+            ]
+        }, 
+        "color": "purple", 
+        "active_mode": "OFF", 
+        "name": "ADC1", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "SDA": [
+                43, 
+                46
+            ], 
+            "SCL": [
+                42, 
+                45
+            ]
+        }, 
+        "color": "blue", 
+        "active_mode": "OFF", 
+        "name": "I2C1", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "SDA": [
+                22
+            ], 
+            "SCL": [
+                21
+            ]
+        }, 
+        "color": "blue", 
+        "active_mode": "OFF", 
+        "name": "I2C2", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "MOSI": [
+                17, 
+                41
+            ], 
+            "MISO": [
+                16, 
+                40
+            ], 
+            "SCK": [
+                15, 
+                39
+            ]
+        }, 
+        "color": "green", 
+        "active_mode": "OFF", 
+        "name": "SPI1", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "MOSI": [
+                28
+            ], 
+            "MISO": [
+                27
+            ], 
+            "SCK": [
+                26
+            ]
+        }, 
+        "color": "green", 
+        "active_mode": "OFF", 
+        "name": "SPI2", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "JTDI": [
+                38
+            ], 
+            "JTCK-SWCLK": [
+                37
+            ], 
+            "JTMS-SWDIO": [
+                34
+            ], 
+            "NJTRST": [
+                40
+            ], 
+            "JTDO-TRACESWO": [
+                39
+            ]
+        }, 
+        "color": "red", 
+        "active_mode": "ON", 
+        "name": "SYS", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "CH1": [
+                null, 
+                29
+            ], 
+            "CH2": [
+                null, 
+                30
+            ], 
+            "CH3": [
+                null, 
+                31
+            ], 
+            "CH4": [
+                null, 
+                32
+            ]
+        }, 
+        "color": "magenta", 
+        "active_mode": "OFF", 
+        "name": "TIM1", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "CH1": [
+                null, 
+                10, 
+                38
+            ], 
+            "CH2": [
+                null, 
+                11, 
+                39
+            ], 
+            "CH3": [
+                null, 
+                12, 
+                21
+            ], 
+            "CH4": [
+                null, 
+                13, 
+                22
+            ]
+        }, 
+        "color": "magenta", 
+        "active_mode": "OFF", 
+        "name": "TIM2", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "CH1": [
+                null, 
+                16, 
+                40
+            ], 
+            "CH2": [
+                null, 
+                17, 
+                41
+            ], 
+            "CH3": [
+                null, 
+                18
+            ], 
+            "CH4": [
+                null, 
+                19
+            ]
+        }, 
+        "color": "magenta", 
+        "active_mode": "OFF", 
+        "name": "TIM3", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "CH1": [
+                null, 
+                42
+            ], 
+            "CH2": [
+                null, 
+                43
+            ], 
+            "CH3": [
+                null, 
+                45
+            ], 
+            "CH4": [
+                null, 
+                46
+            ]
+        }, 
+        "color": "magenta", 
+        "active_mode": "OFF", 
+        "name": "TIM4", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "RX": [
+                31, 
+                43
+            ], 
+            "TX": [
+                30, 
+                42
+            ]
+        }, 
+        "color": "brown", 
+        "active_mode": "OFF", 
+        "name": "USART1", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "RX": [
+                13
+            ], 
+            "TX": [
+                12
+            ]
+        }, 
+        "color": "brown", 
+        "active_mode": "OFF", 
+        "name": "USART2", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "RX": [
+                22
+            ], 
+            "TX": [
+                21
+            ]
+        }, 
+        "color": "brown", 
+        "active_mode": "OFF", 
+        "name": "USART3", 
+        "description": ""
+    }, 
+    {
+        "pins": {
+            "DP": [
+                33
+            ], 
+            "DM": [
+                32
+            ]
+        }, 
+        "color": "lime", 
+        "active_mode": "ON", 
+        "name": "USB", 
+        "description": ""
+    }
+]

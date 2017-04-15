@@ -21,7 +21,7 @@
 				</h1>
 			</div>
 		
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default" style="border-color: #aaa; border-radius: 0px;">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
@@ -84,30 +84,44 @@
 			</nav>
 		
 			<div class="row">
-				<div class="col-sm-3 panel-group pre-scrollable" style="max-height: {{(height)}}px;">
+				<div class="col-sm-3 panel-group pre-scrollable" style="overflow-y: auto; overflow-x: hidden; max-height: {{(height)}}px;">
 					<div class="panel panel-info">
 						<div class="panel-body" id="peripherals">
 
 							<div ng-repeat="peripheral in core.peripherals" class="panel" style="margin: 0px;">
 
-								<div class="panel-heading" style="background: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}};">
-									<select ng-if="(! peripheral.disabled) && (peripheral.modenames.length > 2)" ng-model="peripheral.active_mode" class="mode-selector">
-										<option ng-repeat="modename in peripheral.modenames" ng-click="updateCode();" value="{{modename}}">{{modename}}</option>
-									</select>
-									<span ng-if="(! peripheral.disabled) && (peripheral.modenames.length == 2)" ng-click="peripheral.active_mode = (peripheral.active_mode == peripheral.modenames[0] ? peripheral.modenames[1] : peripheral.modenames[0]); updateCode();" class="badge mode-badge" style="color: {{(peripheral.active_mode == 'OFF' ? 'grey' : peripheral.color)}}">
-										{{peripheral.active_mode}}
-									</span>
-									<span ng-if="peripheral.disabled" class="badge mode-badge" style="background: none;">
-										{{peripheral.active_mode}}
-									</span>
-									<span class="glyphicon glyphicon-wrench pin-integrated" ng-show="active_module.peripherals[peripheral.name].builtin"></span>
-									<div class="panel-title collapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}">
-										<span>
-											{{peripheral.name}}
-										</span>
-									</div>
-								</div>
-								<div class="panel-collapse collapse" id="collapse{{peripheral.name}}">
+                                <div style="cursor: pointer; border: 1px solid {{(peripheral.active_mode == 'OFF' ? '#aaa' : peripheral.color)}}; height: 30px;line-height: 29px; vertical-align:center; ">
+                                    <div class="row">
+                                        <div class="col-xs-8 panel-title" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed" data-toggle="collapse" href="#collapse{{peripheral.name}}">
+                                            <span style="text-align: center; background-color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : peripheral.color)}}; display: inline-block; width:2.3em; ">
+                                                <span class="glyphicon glyphicon-{{isCollapsed ? 'plus' : 'minus'}}" style="color: white;"></span>
+                                            </span>
+                                            <span style="color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : '#222')}};">
+                                                {{peripheral.name}}
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="dropdown" style="color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : peripheral.color)}}" ng-if="(! peripheral.disabled) && (peripheral.modenames.length > 2)">
+                                                <button class="btn dropdown-toggle" style="padding: 0; background: none;" type="button" data-toggle="dropdown">
+                                                    {{peripheral.active_mode}}
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="left: -100%;">
+                                                    <li ng-repeat="modename in peripheral.modenames"><a href="#" ng-click="peripheral.active_mode = modename; updateCode();">{{modename}}</a></li>
+                                                </ul>
+                                            </div>
+                                            <label ng-if="(! peripheral.disabled) && (peripheral.modenames.length == 2)" ng-init="checked = (peripheral.active_mode != 'OFF')" style="font-weight: 100; margin:0; color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : '#222')}}">
+                                                <input type="checkbox" ng-model="checked" ng-change="peripheral.active_mode = (peripheral.active_mode == peripheral.modenames[0] ? peripheral.modenames[1] : peripheral.modenames[0]); updateCode();"></input>
+                                                {{peripheral.active_mode}}
+                                            </label>
+                                            <span ng-if="peripheral.disabled" style="vertical-align: middle; background: none;">
+                                                {{peripheral.active_mode}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+								<div style="margin-left: 2em; padding:3px;" class="panel-collapse collapse" id="collapse{{peripheral.name}}">
 									<div ng-if="(peripheral.description) || (active_module.peripherals[peripheral.name])" class="panel panel-default">
 										<div class="panel-heading">
 											<div class="panel-title-description collapsed" data-toggle="collapse" href="#collapse-description{{peripheral.name}}">
@@ -164,38 +178,43 @@
 					</div>
 				</div>
 				
-				<div ng-if="active_view == 'Layout'" class="col-sm-9" id="module">		
-					<div class="panel panel-default" ng-show="selected_pin" style="width: {{active_module.width}}%; left: {{((100 - active_module.width) / 2)}}%; top: 100px; position: absolute;">
-						<div class="panel-heading" ng-click="selectPin(null);">
-							Pin name: {{selected_pin.name}}
-						</div>
-						<div class="panel-body">
-							<span ng-if="selected_pin.number">
-								<h5>Core name: {{core.pinout[selected_pin.number - 1].name}}</h5>
-								<hr>
-								<p>
-									{{core.pinout[selected_pin.number - 1].description}}
-								</p>
-								<hr>
-								<p>
-									<span>Input:</span>
-									<span class="glyphicon glyphicon-{{(core.pinout[selected_pin.number - 1].input ? 'ok-circle' : 'remove-circle')}}"></span> 
-								</p>
-								<p>
-									<span>Output:</span>
-									<span class="glyphicon glyphicon-{{(core.pinout[selected_pin.number - 1].output ? 'ok-circle' : 'remove-circle')}}"></span>
-								</p>
-								<p>
-									<span>PWM:</span>
-									<span class="glyphicon glyphicon-{{(core.pinout[selected_pin.number - 1].pwm ? 'ok-circle' : 'remove-circle')}}"></span>
-								</p>
-							</span>
-							<hr>
-							<p ng-if="selected_pin.description">
-								Board notes: {{selected_pin.description}}
-							</p>
-						</div>
-					</div>
+				<div ng-if="active_view == 'Layout'" class="col-sm-9" id="module">
+                    <div ng-show="selected_pin" style="padding: 1em; width: {{active_module.width}}%; left: {{((100 - active_module.width) / 2)}}%; top: 1em; position: absolute;">
+                        <div class="panel panel-default" style="border-color: #222;">
+                            <div class="panel-heading" ng-click="selectPin(null);">
+                                <div style="width: 100%; text-align: center; display: inline-block;">
+                                    Pin name: {{selected_pin.name}}
+                                    <span class="glyphicon glyphicon-remove" style="float: right;"></span>
+                                </div>
+                            </div>
+                            <div class="panel-body" style="padding: 0 1em;">
+                                <span ng-if="selected_pin.number">
+                                    <h5>Core name: {{core.pinout[selected_pin.number - 1].name}}</h5>
+                                    <hr>
+                                    <p>
+                                        {{core.pinout[selected_pin.number - 1].description}}
+                                    </p>
+                                    <hr>
+                                    <p>
+                                        <span>Input:</span>
+                                        <span class="glyphicon glyphicon-{{(core.pinout[selected_pin.number - 1].input ? 'ok-circle' : 'remove-circle')}}"></span> 
+                                    </p>
+                                    <p>
+                                        <span>Output:</span>
+                                        <span class="glyphicon glyphicon-{{(core.pinout[selected_pin.number - 1].output ? 'ok-circle' : 'remove-circle')}}"></span>
+                                    </p>
+                                    <p>
+                                        <span>PWM:</span>
+                                        <span class="glyphicon glyphicon-{{(core.pinout[selected_pin.number - 1].pwm ? 'ok-circle' : 'remove-circle')}}"></span>
+                                    </p>
+                                </span>
+                                <hr>
+                                <p ng-if="selected_pin.description">
+                                    Board notes: {{selected_pin.description}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 					
 					<img src="{{active_module.image}}" class="module-image" style="width: {{active_module.width}}%;"></img>
 					
