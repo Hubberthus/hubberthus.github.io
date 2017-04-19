@@ -2,7 +2,7 @@
   "owner": "Arduino AG",
   "link": "https://www.arduino.cc/",
   "flavors": {
-  	"Arduino": ["mps.h"],
-  	"Arduino_FreeRTOS": ["mps.h", "I2C.h", "I2C.cpp"]
+  	"Arduino": ["main.ino", "mps.h"],
+  	"Arduino_FreeRTOS": ["main.cpp", "mps.h"]
   }
 }

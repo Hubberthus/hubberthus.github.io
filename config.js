@@ -25,6 +25,7 @@ requirejs.config({
     	'bootstrap': 'bootstrap.min',
     	'jszip': 'jszip.min',
     	'FileSaver': 'FileSaver.min',
+    	'mustache': 'mustache.min',
     	'app': '../app'
     },
     
@@ -34,7 +35,7 @@ requirejs.config({
         },
     
     	'bootstrap': {
-    		deps: ['jquery'],
+    		deps: ['jquery']
     	}
     }
 });

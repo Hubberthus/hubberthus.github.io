@@ -1,6 +1,5 @@
-[
-	{
-		"name": "GPIO",
+{
+	"GPIO": {
 		"description": "General purpose input/output pins with internal pull-up resistors selectable. They are tri-stated when a reset condition becomes active, even if the clock is not running. If the RSTDISBL Fuse is unprogrammed, PC6 is used as a Reset input.",
 		"pins": {"PB0": [12], "PB1": [13], "PB2": [14], "PB3": [15], "PB4": [16],
 			"PB5": [17], "PB6": [7], "PB7": [8], "PC0": [23], "PC1": [24],
@@ -9,37 +8,32 @@
 			"PD5": [9], "PD6": [10], "PD7": [11]},
 		"color": "grey"
 	},
-	{
-		"name": "RESET",
+	"RESET": {
 		"description": "If set in fuse, the PC6 pin acts as RESET input.",
 		"pins": {"RST": [29]},
 		"color": "orangered",
 		"active_mode": "ON"
 	},
-	{
-		"name": "XTAL",
+	"XTAL": {
 		"description": "Low power oscillator, with reduced voltage swing on the XTAL2 output. It gives the lowest power consumption, but is not capable of driving other clock inputs, and may be more susceptible to noise in noisy environments.",
 		"pins": {"XTAL1": [7], "XTAL2": [8]},
 		"color": "orange",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "ADC",
+	"ADC": {
 		"description": "10-bit analog-to-digital converters.",
 		"pins": {"ADC0": [null, 23], "ADC1": [null, 24], "ADC2": [null, 25], "ADC3": [null, 26],
 			"ADC4": [null, 27], "ADC5": [null, 28], "ADC6": [19], "ADC7": [22]},
 		"color": "chocolate",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "ACMP",
+	"ACMP": {
 		"description": "The Analog Comparator compares the input values on the positive pin AIN0 and negative pin AIN1. When the voltage on the positive pin AIN0 is higher than the voltage on the negative pin AIN1, the Analog Comparator output, ACO bit is set.",
 		"pins": {"AIN0": [10], "AIN1": [11]},
 		"color": "coral",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "USART",
+	"USART": {
 		"description": "Highly flexible serial communication device. Can also be used in Master SPI mode. Hardware managed SS/CS pin is not supported.",
 		"modes": {
 			"Serial": ["TXD", "RXD"],
@@ -47,28 +41,57 @@
 			},
 		"pins": {"TXD": [30], "RXD": [31],
 				"MISO": ["RXD"], "MOSI": ["TXD"], "SCK": [2]},
+		"options": {
+			"baud": {
+				"name": "Baud rate",
+				"type": "integer",
+				"value": 115200,
+				"dependencies": [
+					"core.peripherals.USART.active_mode=='Serial'"
+				]
+			}
+		},
 		"color": "blue",
 		"active_mode": "Serial"
 	},
-	{
-		"name": "SPI",
+	"SPI": {
 		"description": "Generic master/slave SPI interface. Supports standard, 3-wire and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"pins": {"MISO": [16], "MOSI": [15], "SCK": [17], "SS": [14]},
+		"options": {
+			"master": {
+				"name": "Master",
+				"type": "boolean",
+				"value": true
+			}
+		},
 		"color": "purple",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "I2C",
+	"I2C": {
 		"description": "Generic master/slave I2C (TWI) interface with up to 400kHz data transfer speed.",
 		"pins": {"SDA": [27], "SCL": [28]},
+		"options": {
+			"master": {
+				"name": "Master",
+				"type": "boolean",
+				"value": true
+			},
+			"address": {
+				"name": "Slave address",
+				"type": "integer",
+				"value": 8,
+				"dependencies": [
+					"core.peripherals.I2C.options.master.value==false"
+				]
+			}
+		},
 		"color": "lawngreen",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "dWIRE",
+	"dWIRE": {
 		"description": "The debugWIRE On-chip debug system uses a One-wire, bi-directional interface to control the program flow, execute AVR instructions in the CPU and to program the different non-volatile memories.",
 		"pins": {"dW": [29]},
 		"color": "lightblue",
 		"active_mode": "OFF"
 	}
-]
+}

@@ -15,10 +15,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-var PERIPHERAL_REGEX = /%peripheral%([^%]*)%([^%]*)/mg;
-var IF_REGEX = /([^%]*)%if%([^%]*)%([^%]*)%endif%([^%]*)/mg;
-
-define(['jszip', 'FileSaver'], function (JSZip, FileSaver) {
+define(['mustache', 'jszip', 'FileSaver'], function (Mustache, JSZip, FileSaver) {
 	
 	var core = null;
 	var file_list = [];
@@ -83,7 +80,7 @@ define(['jszip', 'FileSaver'], function (JSZip, FileSaver) {
 	return {
     	// Generate the code for core with settings and give back to the user as a compressed 'zip' file
     	generateCode: function (in_core) {
-    		
+
     		core = in_core;
     		
     		file_list = [];
@@ -91,9 +88,9 @@ define(['jszip', 'FileSaver'], function (JSZip, FileSaver) {
     		// Process the input files
     		for(var n in core.source_files[core.active_flavor]) {
     			
-    			var gen_code = processCode(core.source_files[core.active_flavor][n].code);
+    			var gen_code = Mustache.render(core.source_files[core.active_flavor][n].code, core);
     			
-    			if (gen_code) {
+    			if (gen_code.length > 0) {
     				file_list.push({name: core.source_files[core.active_flavor][n].name, code: gen_code});
     			}
     		}

@@ -1,5 +1,5 @@
-[
-    {
+{
+    "ADC1": {
         "pins": {
             "IN0": [
                 null, 
@@ -44,10 +44,9 @@
         }, 
         "color": "purple", 
         "active_mode": "OFF", 
-        "name": "ADC1", 
         "description": ""
     }, 
-    {
+    "I2C1": {
         "pins": {
             "SDA": [
                 43, 
@@ -60,10 +59,9 @@
         }, 
         "color": "blue", 
         "active_mode": "OFF", 
-        "name": "I2C1", 
         "description": ""
     }, 
-    {
+    "I2C2": {
         "pins": {
             "SDA": [
                 22
@@ -74,10 +72,9 @@
         }, 
         "color": "blue", 
         "active_mode": "OFF", 
-        "name": "I2C2", 
         "description": ""
     }, 
-    {
+    "SPI1": {
         "pins": {
             "MOSI": [
                 17, 
@@ -94,10 +91,9 @@
         }, 
         "color": "green", 
         "active_mode": "OFF", 
-        "name": "SPI1", 
         "description": ""
     }, 
-    {
+    "SPI2": {
         "pins": {
             "MOSI": [
                 28
@@ -111,10 +107,9 @@
         }, 
         "color": "green", 
         "active_mode": "OFF", 
-        "name": "SPI2", 
         "description": ""
     }, 
-    {
+    "SYS": {
         "pins": {
             "JTDI": [
                 38
@@ -134,10 +129,9 @@
         }, 
         "color": "red", 
         "active_mode": "ON", 
-        "name": "SYS", 
         "description": ""
     }, 
-    {
+    "TIM1": {
         "pins": {
             "CH1": [
                 null, 
@@ -158,10 +152,9 @@
         }, 
         "color": "magenta", 
         "active_mode": "OFF", 
-        "name": "TIM1", 
         "description": ""
     }, 
-    {
+    "TIM2": {
         "pins": {
             "CH1": [
                 null, 
@@ -185,11 +178,10 @@
             ]
         }, 
         "color": "magenta", 
-        "active_mode": "OFF", 
-        "name": "TIM2", 
+        "active_mode": "OFF",
         "description": ""
     }, 
-    {
+    "TIM3": {
         "pins": {
             "CH1": [
                 null, 
@@ -212,10 +204,9 @@
         }, 
         "color": "magenta", 
         "active_mode": "OFF", 
-        "name": "TIM3", 
         "description": ""
     }, 
-    {
+    "TIM4": {
         "pins": {
             "CH1": [
                 null, 
@@ -236,10 +227,9 @@
         }, 
         "color": "magenta", 
         "active_mode": "OFF", 
-        "name": "TIM4", 
         "description": ""
     }, 
-    {
+    "USART1": {
         "pins": {
             "RX": [
                 31, 
@@ -252,10 +242,9 @@
         }, 
         "color": "brown", 
         "active_mode": "OFF", 
-        "name": "USART1", 
         "description": ""
     }, 
-    {
+    "USART2": {
         "pins": {
             "RX": [
                 13
@@ -265,11 +254,10 @@
             ]
         }, 
         "color": "brown", 
-        "active_mode": "OFF", 
-        "name": "USART2", 
+        "active_mode": "OFF",
         "description": ""
     }, 
-    {
+    "USART3": {
         "pins": {
             "RX": [
                 22
@@ -280,10 +268,9 @@
         }, 
         "color": "brown", 
         "active_mode": "OFF", 
-        "name": "USART3", 
         "description": ""
     }, 
-    {
+    "USB": {
         "pins": {
             "DP": [
                 33
@@ -294,7 +281,6 @@
         }, 
         "color": "lime", 
         "active_mode": "ON", 
-        "name": "USB", 
         "description": ""
     }
-]
+}

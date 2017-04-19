@@ -4,9 +4,9 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/gpio.h"
-%if%(getPeripheral('UART0').active_mode != 'OFF')%
+{{#peripherals.UART0.active}}
 #include "UART.h"
-%endif%
+{{/peripherals.UART0.active}}
 
 #ifdef __cplusplus
 extern "C" {
@@ -39,9 +39,10 @@ extern "C" void vApplicationIdleHook()
 
 void initializeMPS()
 {
-	%if%(getPeripheral('UART0').active_mode != 'OFF')%
-	Serial.begin();
-	%endif%
+	{{#peripherals.UART0.active}}
+	Serial.begin({{peripherals.UART0.options.baud.value}});
+
+	{{/peripherals.UART0.active}}
 }
 
 /* GPIO */
@@ -71,7 +72,7 @@ void digitalWrite(uint8_t pin, uint8_t val)
   gpio_set_level((gpio_num_t)pin, val);
 }
 
-%if%(getPeripheral('ADC').active_mode == 'ON')%
+{{#peripherals.ADC.active}}
 /* ADC */
 
 int analogRead(uint8_t pin)
@@ -79,8 +80,7 @@ int analogRead(uint8_t pin)
 	return 0;
 }
 
-%endif%
-
+{{/peripherals.ADC.active}}
 #ifdef __cplusplus
 }
 #endif

@@ -33,10 +33,54 @@ define([
 		
 		$scope.height = $(window).height() - 150; // Needed for scroll panel height 
 		$scope.selected_pin = null;               // Used for pin info popup
-		$scope.active_view = "Layout";            // Sets active view to show
 		
 		// Load the list of modules. The loading screen is displayed until this completes
 		$scope.modules = modules.loadModules(); 
+		
+		// Enable/disable given peripheral and its options
+		updatePeripheral = function( peripheral ) {
+			
+			var core = $scope.core;
+			var module = $scope.active_module;
+			
+			peripheral.active = (peripheral.active_mode != "OFF");
+			
+			// Enable/disable options 
+			for (name in peripheral.options) {
+				
+				var option = peripheral.options[name];
+				
+				option.active = true;
+				
+				if (option.dependencies) {
+					
+					option.dependencies.forEach(function ( dependency ) {
+						
+						if (! eval(dependency)) {
+							
+							option.active = false;
+						}
+					});
+				}
+			}
+		}
+		// Update the generated code
+		updateCode = function() {
+			
+			$scope.file_list = generator.generateCode($scope.core);
+			
+			// Go to the layout tab if the active file is not in the newly generated code
+			if ($scope.active_file) {
+				for(n in $scope.file_list) {
+					if ($scope.file_list[n].name == $scope.active_file.name) {
+						$scope.active_file = $scope.file_list[n];
+						return;
+					}
+				}
+			}
+			
+			$scope.active_file = null;
+		}
 		
 		// Change the module to a new one
 		setActiveModule = function( new_module ) {
@@ -52,10 +96,12 @@ define([
 			$scope.core = cores.loadCore(new_module.core);
 			
 			// Update pin availability according to the actual module
-			$scope.core.peripherals.forEach(function( peripheral ) {
+			for(name in $scope.core.peripherals) {
+				
+				peripheral = $scope.core.peripherals[name];
 				
 				// For GPIO add the show/hide functionality
-				if (peripheral.name == "GPIO") {
+				if (name == "GPIO") {
 					
 					peripheral.modes = {"SHOW" : [], "HIDE" : []};
 					peripheral.active_mode = "SHOW";
@@ -70,25 +116,25 @@ define([
 					var override = false;
 					
 					// Override peripheral information if provided for the module
-					if (new_module.peripherals[peripheral.name]) {
+					if (new_module.peripherals[name]) {
 						
-						if (new_module.peripherals[peripheral.name].modes) {
-							peripheral.modes = new_module.peripherals[peripheral.name].modes;
+						if (new_module.peripherals[name].modes) {
+							peripheral.modes = new_module.peripherals[name].modes;
 							override = true;
 						}
 						
-						if (new_module.peripherals[peripheral.name].pins) {
+						if (new_module.peripherals[name].pins) {
 							for (var mode in peripheral.modes) {
 								peripheral.modes[mode].forEach(function( modePin ) {
-									if (new_module.peripherals[peripheral.name].pins[modePin]) {
-										peripheral.pins[modePin] = new_module.peripherals[peripheral.name].pins[modePin];
+									if (new_module.peripherals[name].pins[modePin]) {
+										peripheral.pins[modePin] = new_module.peripherals[name].pins[modePin];
 									}
 								});
 							}
 						}
 						
-						if (new_module.peripherals[peripheral.name].active_mode) {
-							peripheral.active_mode = new_module.peripherals[peripheral.name].active_mode;
+						if (new_module.peripherals[name].active_mode) {
+							peripheral.active_mode = new_module.peripherals[name].active_mode;
 						}
 					}
 				
@@ -123,6 +169,8 @@ define([
 						}
 					}
 					
+					updatePeripheral(peripheral);
+					
 					// If only one mode is left for the peripheral, disable it
 					if (Object.keys(peripheral.modes).length == 1) {
 						
@@ -136,7 +184,7 @@ define([
 				for (var modename in peripheral.modes) {
 					peripheral.modenames.push(modename);
 				}
-			});
+			}
 			
 			// Initial code generation
 			$scope.file_list = generator.generateCode($scope.core);
@@ -154,6 +202,13 @@ define([
 			setActiveModule(new_module);
 		}
 		
+		// Enable/disable given peripheral and its options
+		$scope.updatePeripheral = function( peripheral ) {
+			
+			updatePeripheral(peripheral);
+			updateCode();
+		}
+		
 		// Set active selected pin. If the same then discard selection.
 		$scope.selectPin = function( pin ) {
 			
@@ -167,8 +222,7 @@ define([
 		// Update the generated code
 		$scope.updateCode = function() {
 			
-			$scope.file_list = generator.generateCode($scope.core);
-			$scope.active_file = $scope.file_list[0];
+			updateCode();
 		}
 		
 		// Set the active file

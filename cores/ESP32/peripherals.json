@@ -1,6 +1,5 @@
-[
-	{
-		"name": "GPIO",
+{
+	"GPIO": {
 		"description": "General purpose input/output pins. Most of them are both I/O, can have pullup/pulldown resistors, and can be set to high impedance. The following are input-only: GPIO34, GPIO35, GPIO36, GPIO37, GPIO38, GPIO39.",
 		"pins": {"GPIO0": [23], "GPIO1": [41], "GPIO2": [22], "GPIO3": [40], "GPIO4": [24],
 			"GPIO5": [34], "GPIO6": [31], "GPIO7": [32], "GPIO8": [33], "GPIO9": [28],
@@ -11,8 +10,7 @@
 			"GPIO36": [5], "GPIO37": [6], "GPIO38": [7], "GPIO39": [8]},
 		"color": "grey"
 	},
-	{
-		"name": "RTC_GPIO",
+	"RTC_GPIO": {
 		"description": "?????",
 		"pins": {"RTC_GPIO0": [null, 5], "RTC_GPIO1": [null, 6], "RTC_GPIO2": [null, 7], "RTC_GPIO3": [null, 8]
 			, "RTC_GPIO4": [null, 10], "RTC_GPIO5": [null, 11], "RTC_GPIO6": [null, 14], "RTC_GPIO7": [null, 15],
@@ -22,22 +20,19 @@
 		"color": "goldenrod",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "CLK_OUT",
+	"CLK_OUT": {
 		"description": "?????",
 		"pins": {"CLK_OUT1": [null, 23], "CLK_OUT2": [null, 40], "CLK_OUT3": [null, 41]},
 		"color": "orangered",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "XTAL_32K",
+	"XTAL_32K": {
 		"description": "External 32 kHz crystal oscillator for RTC with calibration.",
 		"pins": {"XTAL_32K_P": [12], "XTAL_32K_N": [13]},
 		"color": "orange",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "ADC",
+	"ADC": {
 		"description": "12-bit SAR analog-to-digital converters with up to 18 channels. Internal HALL sensor uses channel 0 and 3 of ADC1.",
 		"pins": {"ADC1_CH0": [null, 5], "ADC1_CH1": [null, 6], "ADC1_CH2": [null, 7], "ADC1_CH3": [null, 8],
 			"ADC1_CH4": [null, 12], "ADC1_CH5": [null, 13], "ADC1_CH6": [null, 10], "ADC1_CH7": [null, 11],
@@ -46,30 +41,27 @@
 			"ADC2_CH8": [null, 14], "ADC2_CH9": [null, 15]},
 		"color": "chocolate",
 		"active_mode": "OFF",
-		"options": [
-			{
+		"options": {
+			"HALL": {
 				"name": "HALL sensor",
 				"type": "boolean",
 				"value": false
 			}
-		]
+		}
 	},
-	{
-		"name": "ADC_H",
+	"ADC_H": {
 		"description": "Ultra low power analog pre-amplifier. (???)",
 		"pins": {"ADC_H": [5, 6, 7, 8]},
 		"color": "coral",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "DAC",
+	"DAC": {
 		"description": "Two 8-bit digital-to-analog converters.",
 		"pins": {"DAC_1": [null, 14], "DAC_2": [null, 15]},
 		"color": "indigo",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "Touch",
+	"Touch": {
 		"description": "10 touch sensors.",
 		"pins": {"TOUCH0": [null, 24], "TOUCH1": [null, 23], "TOUCH2": [null, 22], "TOUCH3": [null, 21],
 			"TOUCH4": [null, 20], "TOUCH5": [null, 18], "TOUCH6": [null, 17], "TOUCH7": [null, 16],
@@ -77,15 +69,13 @@
 		"color": "purple",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "JTAG",
+	"JTAG": {
 		"description": "JTAG interface for debugging.",
 		"pins": {"MTMS": [17], "MTDI": [18], "MTCK": [20], "MTDO": [21]},
 		"color": "lightblue",
 		"active_mode": "ON"
 	},
-	{
-		"name": "SDIO1",
+	"SDIO1": {
 		"description": "SDIO slave interface. The MCU can be controlled via this interface.",
 		"modes": {
 			"1-bit": ["SD_CMD", "SD_CLK", "SD_DATA0"],
@@ -96,8 +86,7 @@
 		"color": "lightgreen",
 		"active_mode": "4-bit"
 	},
-	{
-		"name": "SDIO2",
+	"SDIO2": {
 		"description": "SDIO slave interface. The MCU can be controlled via this interface.",
 		"modes": {
 			"1-bit": ["SD_CMD", "SD_CLK", "SD_DATA0"],
@@ -108,8 +97,7 @@
 		"color": "lime",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "HS1",
+	"HS1": {
 		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit, 4-bit and 8-bit (eMMC) modes. Optional 'card detect' and 'write protect' pins are available.",
 		"modes": {
 			"1-bit": ["HS1_CMD", "HS1_CLK", "HS1_DATA0", "HS1_CD", "HS1_WP"],
@@ -127,8 +115,7 @@
 		"color": "limegreen",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "HS2",
+	"HS2": {
 		"description": "SDIO host interface. Can be used to control SD/MMC cards. Supports 1-bit and 4-bit modes. Optional 'card detect' and 'write protect' pins are available.",
 		"modes": {
 			"1-bit": ["HS2_CMD", "HS2_CLK", "HS2_DATA0", "HS2_CD", "HS2_WP"],
@@ -143,8 +130,7 @@
 		"color": "green",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "UART0",
+	"UART0": {
 		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS or DSR/DTR.",
 		"modes": {
 			"Two wire": ["U0_RX", "U0_TX"],
@@ -163,11 +149,17 @@
 				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8],
 				"U0_DTR": [23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13]},
+		"options": {
+			"baud": {
+				"name": "Baud rate",
+				"type": "integer",
+				"value": 115200
+			}
+		},
 		"color": "blue",
 		"active_mode": "Two wire"
 	},
-	{
-		"name": "UART1",
+	"UART1": {
 		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
 		"modes": {
 			"Two wire": ["U1_RX", "U1_TX"],
@@ -181,11 +173,17 @@
 				42, 39, 36, 14, 15, 16, 12, 13],
 				"U1_CTS": [31, 23, 41, 22, 40, 24, 34, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8]},
+		"options": {
+			"baud": {
+				"name": "Baud rate",
+				"type": "integer",
+				"value": 115200
+			}
+		},
 		"color": "royalblue",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "UART2",
+	"UART2": {
 		"description": "UART serial communication interface with optional hardware handshake with CTS/RTS.",
 		"modes": {
 			"Two wire": ["U2_RX", "U2_TX"],
@@ -199,11 +197,17 @@
 				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8],
 				"U2_RTS": [33, 23, 41, 22, 40, 24, 34, 31, 32, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13]},
+		"options": {
+			"baud": {
+				"name": "Baud rate",
+				"type": "integer",
+				"value": 9600
+			}
+		},
 		"color": "deepskyblue",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "SPI",
+	"SPI": {
 		"description": "Generic master/slave SPI interface. Supports standard, 3-wire and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"modes": {
 			"Standard": ["SPI_CLK", "SPI_MISO", "SPI_MOSI", "SPI_CS0", "SPI_CS1",  "SPI_CS2"],
@@ -228,11 +232,17 @@
 				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8],
 				"SPI_MOSI": ["SPI_D"],
 				"SPI_MISO": ["SPI_Q"]},
+		"options": {
+			"master": {
+				"name": "Master",
+				"type": "boolean",
+				"value": true
+			}
+		},
 		"color": "purple",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "HSPI",
+	"HSPI": {
 		"description": "Generic master/slave SPI interface. Supports standard, 3-wire and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"modes": {
 			"Standard": ["HSPI_CLK", "HSPI_MISO", "HSPI_MOSI", "HSPI_CS0", "HSPI_CS1", "HSPI_CS2"],
@@ -257,11 +267,17 @@
 				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8],
 				"HSPI_MOSI": ["HSPI_D"],
 				"HSPI_MISO": ["HSPI_Q"]},
+		"options": {
+			"master": {
+				"name": "Master",
+				"type": "boolean",
+				"value": true
+			}
+		},
 		"color": "magenta",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "VSPI",
+	"VSPI": {
 		"description": "Generic master/slave SPI interface. Supports standard, 3-wire and quad SPI modes. Up to 3 hardware managed CS pins can be assigned to it.",
 		"modes": {
 			"Standard": ["VSPI_CLK", "VSPI_MISO", "VSPI_MOSI", "VSPI_CS0", "VSPI_CS1", "VSPI_CS2"],
@@ -286,11 +302,17 @@
 				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8],
 				"VSPI_MOSI": ["VSPI_D"],
 				"VSPI_MISO": ["VSPI_Q"]},
+		"options": {
+			"master": {
+				"name": "Master",
+				"type": "boolean",
+				"value": true
+			}
+		},
 		"color": "orangered",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "I2C0",
+	"I2C0": {
 		"description": "Generic master/slave I2C interface.",
 		"pins": {"I2C0_SCL": [23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13],
@@ -299,8 +321,7 @@
 		"color": "lawngreen",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "I2C1",
+	"I2C1": {
 		"description": "Generic master/slave I2C interface.",
 		"pins": {"I2C1_SCL": [23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13],
@@ -309,8 +330,7 @@
 		"color": "seagreen",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "I2S0",
+	"I2S0": {
 		"description": "Generic master/slave I2S interface. Can be operated in full duplex and half-duplex communication modes, and can be configured to operate with an 8-/16-/32-/40-/48-bit resolution as input or output channels.",
 		"pins": {"I2S0_BCK": [23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13],
@@ -323,8 +343,7 @@
 		"color": "peru",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "I2S1",
+	"I2S1": {
 		"description": "Generic master/slave I2S interface. Can be operated in full duplex and half-duplex communication modes, and can be configured to operate with an 8-/16-/32-/40-/48-bit resolution as input or output channels.",
 		"pins": {"I2S1_BCK": [23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13],
@@ -337,8 +356,7 @@
 		"color": "sienna",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "PCNT",
+	"PCNT": {
 		"description": "Captures pulse and counts pulse edges through seven modes. Each unit captures four signals at a time. The four input signals include two pulse signals and two control signals. When the counter reaches a defined threshold, an interrupt is generated.",
 		"pins": {"PCNT0_CH0_SIG": [null, 23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8],
@@ -407,8 +425,7 @@
 		"color": "yellowgreen",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "LEDC",
+	"LEDC": {
 		"description": "LED PWM controller, can generate 16 independent channels of digital waveforms with the configurable periods and configurable duties. The 16 channels of digital waveforms operate at 80 MHz APB clock. 8 channels (LS) have the option of using the 8 MHz oscillator clock.",
 		"pins": {"LEDC_HS_0": [null, 23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13],
@@ -445,8 +462,7 @@
 		"color": "indianred",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "RMT",
+	"RMT": {
 		"description": "Infrared remote controller interface, supports eight channels of infrared remote transmission and receiving.",
 		"pins": {"RMT_SIG0": [null, 23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13, 10, 11, 5, 6, 7, 8],
@@ -467,8 +483,7 @@
 		"color": "darkred",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "GPIO_SD",
+	"GPIO_SD": {
 		"description": "Sigma-delta output modulation driver to generate modulated output on a GPIO.",
 		"pins": {"GPIO_SD0": [null, 23, 41, 22, 40, 24, 34, 31, 32, 33, 28, 29, 30, 18, 20, 17, 21, 25, 27, 35, 38,
 				42, 39, 36, 14, 15, 16, 12, 13],
@@ -489,15 +504,13 @@
 		"color": "rosybrown",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "PWM",
+	"PWM": {
 		"description": "The Pulse Width Modulation (PWM) controller can be used for driving digital motors and smart lights. The controller consists of PWM timers, the PWM operator and a dedicated capture sub-module. Each timer provides timing in synchronus or independent form, and each PWM operator generates the waveform for one PWM channel. The dedicated capture sub-module can accurately capture external timing events.",
 		"pins": {"": []},
 		"color": "olivedrab",
 		"active_mode": "OFF"
 	},
-	{
-		"name": "ETHERNET",
+	"ETHERNET": {
 		"description": "Ethernet MAC interface with dedicated DMA and IEEE 1588 support. Supports MII and RMII interfaces and supports both internal PLL clock and the external clock source.",
 		"modes": {
 			"MII (int_osc)": ["TX_CLK", "RX_CLK", "TX_EN", "TXD0", "TXD1", "TXD2", "TXD3", "RX_ER", "RX_DV",
@@ -524,4 +537,4 @@
 		"color": "turquoise",
 		"active_mode": "OFF"
 	}
-]
+}

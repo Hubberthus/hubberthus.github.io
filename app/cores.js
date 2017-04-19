@@ -21,7 +21,9 @@ define(function (require) {
 	// and set the default pins for every mode on every peripheral
 	setupDefaultPeripheralModes = function ( core ) {
 		
-		core.peripherals.forEach(function( peripheral ) {
+		for(name in core.peripherals) {
+			
+			peripheral = core.peripherals[name];
 			
 			peripheral.active_pins = {};
 			
@@ -56,8 +58,8 @@ define(function (require) {
 				
 					peripheral.modes.ON.push(name);
 				}
-			};
-		});
+			}
+		}
 	}
 	
     return {

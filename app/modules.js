@@ -50,7 +50,7 @@ define(function (require) {
 					
 					// Create empty peripheral override list if not set
 					if (! module.peripherals) {
-						module.peripherals = [];
+						module.peripherals = {};
 					}
 					
 					module_list.push(module);
