@@ -10,6 +10,17 @@
 	  <link href="css/main.css" rel="stylesheet" />
 	  <link rel="shortcut icon" href="logo.png" type="image/png"/>
 	  <title>MCU pin setup - about</title>
+	  
+	  <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-97571421-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
 	</head>
 	
 	<body>
@@ -66,6 +77,12 @@
 					You can choose which functionalities/interfaces you would like to have, set up modes, pin positions where applicabe, and the result will be shown in a WYSIWYG mode.
 					Conflicting pin settings can be visually avoided, and you can see exactly which pin will be used for which functionality.
 				</p>
+				<p>
+					There is a project page for this at: <a href="https://hackaday.io/project/20562-mcu-pin-setup">Hackaday.io</a>
+				</p>
+				<p>
+					The source code can be browsed here: <a href="https://github.com/Hubberthus/hubberthus.github.io">https://github.com/Hubberthus/hubberthus.github.io</a>
+				</p>
 				<hr>
 				<h4>Why?</h4>
 				<p>
@@ -105,12 +122,12 @@
 				<hr>
 				<h4>I would like to save what I've done. Why is it resetting always?</h4>
 				<p>
-					Save/load functionality is also on the TODO list.
+					Save/load functionality is also on the TODO list. A simple cookie-based quicksave/quickload could be done, also the active project JSON could be downloaded/uploaded.
 				</p>
 				<hr>
-				<h4>Do you plan on implementing automatic code generation?</h4>
+				<h4>What is the idea about the "code flavor" stuff?</h4>
 				<p>
-					Oh yes! It's just it will be hard to do. But with generated code it can create a virtual layer, and when the pinout changes I won't need to change a single line in my application code.
+					Based on the setup, the tool can create a virtual layer, a generated code. It has many potential in it. One of them is the "code flavor" when you can select a coding style you prefer.
 				</p>
 				<hr>
 				<h4>Is there a documentation about this if I wanted to add e.g. a board or an MCU core?</h4>
@@ -118,7 +135,7 @@
 					For now the code is the documentation. :)
 				</p>
 				<p>
-					I strongly advise the usage of original documentation of the MCUs and modules, because of possible faults in this tool.
+					I strongly advise the usage of original documentation of the MCUs and modules, because of possible faults in this tool. Possibly many faults.
 				</p>
 				<p>
 					I've started this as a project for myself, so didn't really bother documenting it, but I'll do that.
