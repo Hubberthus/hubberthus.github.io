@@ -15,7 +15,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define(['mustache', 'jszip', 'FileSaver'], function (Mustache, JSZip, FileSaver) {
+define(['handlebars', 'jszip', 'FileSaver'], function (Handlebars, JSZip, FileSaver) {
 	
 	var core = null;
 	var file_list = [];
@@ -88,7 +88,7 @@ define(['mustache', 'jszip', 'FileSaver'], function (Mustache, JSZip, FileSaver)
     		// Process the input files
     		for(var n in core.source_files[core.active_flavor]) {
     			
-    			var gen_code = Mustache.render(core.source_files[core.active_flavor][n].code, core);
+    			var gen_code = Handlebars.compile(core.source_files[core.active_flavor][n].code)(core);
     			
     			if (gen_code.length > 0) {
     				file_list.push({name: core.source_files[core.active_flavor][n].name, code: gen_code});

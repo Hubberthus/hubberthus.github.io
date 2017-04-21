@@ -25,7 +25,7 @@ requirejs.config({
     	'bootstrap': 'bootstrap.min',
     	'jszip': 'jszip.min',
     	'FileSaver': 'FileSaver.min',
-    	'mustache': 'mustache.min',
+    	'handlebars': 'handlebars-v4.0.5',
     	'app': '../app'
     },
     
