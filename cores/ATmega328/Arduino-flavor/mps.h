@@ -3,45 +3,52 @@
 #ifndef __MPS_H__
 #define __MPS_H__
 
-{{#peripherals.SPI.active}}
+{{#with peripherals.SPI}}
+{{#active}}
 #include <SPI.h>
-{{^peripherals.SPI.options.master.value}}
+{{^options.master.value}}
 #include "pins_arduino.h"
-{{/peripherals.SPI.options.master.value}}
-{{/peripherals.SPI.active}}
-{{#peripherals.I2C.active}}
+{{/options.master.value}}
+{{/active}}
+{{/with}}
+{{#with peripherals.I2C}}
+{{#active}}
 #include <Wire.h>
-{{/peripherals.I2C.active}}
+{{/active}}
+{{/with}}
 
 void initializeMPS()
 {
-	{{#peripherals.USART.options.baud.active}}
-	Serial.begin({{peripherals.USART.options.baud.value}});
+	{{#with peripherals.USART}}
+	{{#if options.baud.active}}
+	Serial.begin({{options.baud.value}});
 
-	{{/peripherals.USART.options.baud.active}}
-	{{#peripherals.SPI.active}}
-	{{#peripherals.SPI.options.master.value}}
+	{{/if}}
+	{{/with}}
+	{{#with peripherals.SPI}}
+	{{#active}}
+	{{#if options.master.value}}
 	SPI.begin();
-	{{/peripherals.SPI.options.master.value}}
-	{{^peripherals.SPI.options.master.value}}
+	{{else}}
 	// SPI slave startup
 	pinMode(MISO, OUTPUT); // set MISO pin as output
 	SPCR |= _BV(SPE);      // turn on SPI in slave mode
 	SPCR |= _BV(SPIE);     // turn on interrupts
-	{{/peripherals.SPI.options.master.value}}
-
-	{{/peripherals.SPI.active}}
-	{{#peripherals.I2C.active}}
-	{{#peripherals.I2C.options.master.value}}
+	{{/if}}
+	{{/active}}
+	{{/with}}
+	{{#with peripherals.I2C}}
+	{{#active}}
+	{{#if options.master.value}}
 	Wire.begin();
-	{{/peripherals.I2C.options.master.value}}
-	{{#peripherals.I2C.options.address.active}}
-	Wire.begin({{peripherals.I2C.options.address.value}});
+	{{else}}
+	Wire.begin({{options.address.value}});
 	Wire.onRequest(i2cRequest);
 	Wire.onReceive(i2cReceive);
-	{{/peripherals.I2C.options.address.active}}
+	{{/if}}
 
-	{{/peripherals.I2C.active}}
+	{{/active}}
+	{{/with}}
 }
 
 #endif /* __MPS_H__ */
