@@ -122,6 +122,7 @@
                                             <span ng-if="peripheral.disabled" style="vertical-align: middle; background: none;">
                                                 {{peripheral.active_mode}}
                                             </span>
+                                            <span class="glyphicon glyphicon-alert" ng-hide="peripheral.valid" style="color: red;"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -170,12 +171,24 @@
 												<span class="pin-name">
 													{{option.name}}
 												</span>
-												<button ng-if="option.type == 'boolean'" ng-click="option.value = ! option.value; updatePeripheral(peripheral);" class="btn label {{(option.value ? 'label-success' : 'label-default')}} selector">
-													{{(option.value == true ? "ON" : "OFF")}}
-												</button>
-												<span ng-if="option.type == 'integer'" class="label label-default">
-													{{option.value}}
+												<span ng-if="option.type == 'boolean'" class="pin-selector">
+													<button ng-click="option.value = ! option.value; updatePeripheral(peripheral);" class="btn label {{(option.value ? 'label-success' : 'label-default')}}">
+														{{(option.value == true ? "ON" : "OFF")}}
+													</button>
 												</span>
+												<span ng-if="option.type == 'integer'" class="pin-selector">
+													<input type="text" class="form-control" ng-change="updatePeripheral(peripheral);" ng-model="option.value" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+												</span>
+												<div ng-if="option.type == 'selector'" class="pin-selector dropdown">
+	                                                <button class="btn dropdown-toggle" style="padding: 0; background: none;" type="button" data-toggle="dropdown">
+	                                                    {{option.value}}
+	                                                    <span class="caret"></span>
+	                                                </button>
+	                                                <ul class="dropdown-menu" style="left: -100%;">
+	                                                    <li ng-repeat="choice in option.choices"><a href="#" ng-click="option.value = choice; updatePeripheral(peripheral);">{{choice}}</a></li>
+	                                                </ul>
+	                                            </div>
+												<span class="glyphicon glyphicon-alert" ng-hide="option.valid" style="color: red;"></span>
 											</div>
 										</div>
 									</div>

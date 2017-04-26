@@ -45,22 +45,33 @@ define([
 			
 			peripheral.active = (peripheral.active_mode != "OFF");
 			
+			peripheral.valid = true;
+			
 			// Enable/disable options 
 			for (name in peripheral.options) {
 				
 				var option = peripheral.options[name];
+				var value = option.value;
 				
 				option.active = true;
 				
 				if (option.dependencies) {
-					
 					option.dependencies.forEach(function ( dependency ) {
-						
 						if (! eval(dependency)) {
 							
 							option.active = false;
 						}
 					});
+				}
+				
+				option.valid = true;
+				
+				if (option.validator) {
+					if (! eval(option.validator)) {
+						
+						option.valid = false;
+						peripheral.valid = false;
+					}
 				}
 			}
 		}
@@ -105,6 +116,7 @@ define([
 					
 					peripheral.modes = {"SHOW" : [], "HIDE" : []};
 					peripheral.active_mode = "SHOW";
+					peripheral.valid = true;
 					
 					for (var pin in peripheral.pins) {
 						peripheral.modes["SHOW"].push(pin);

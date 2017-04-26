@@ -44,8 +44,9 @@
 		"options": {
 			"baud": {
 				"name": "Baud rate",
-				"type": "integer",
+				"type": "selector",
 				"value": 115200,
+				"choices": [300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, 115200],
 				"dependencies": [
 					"core.peripherals.USART.active_mode=='Serial'"
 				]
@@ -77,11 +78,12 @@
 				"value": true
 			},
 			"address": {
-				"name": "Slave address",
+				"name": "Slave address (7-bit)",
 				"type": "integer",
 				"value": 8,
+				"validator": "((value > 7) && (value < 128) && ((value & 0x78) != 0x78) && ((value & 0x7C) != 0x7C))",
 				"dependencies": [
-					"core.peripherals.I2C.options.master.value==false"
+					"core.peripherals.I2C.options.master.value == false"
 				]
 			}
 		},

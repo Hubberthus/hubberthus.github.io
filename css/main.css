@@ -27,12 +27,6 @@ hr {
 	width: 20%;
 }
 
-.pin-integrated {
-	display: inline-block;
-	float: right;
-	color: white;
-}
-
 .mode-name {
 	display: inline-block;
 	width: 50%;
