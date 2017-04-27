@@ -16,7 +16,7 @@
 */
 
 // Create the AngularJS application
-define(['angular'], function (angular) {
+define(['angular', 'ngSanitize'], function (angular) {
 	
-	return angular.module('app', []);
+	return angular.module('app', ['ngSanitize']);
 });

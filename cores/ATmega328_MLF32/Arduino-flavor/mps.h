@@ -15,7 +15,26 @@
 {{#active}}
 #include <Wire.h>
 {{/active}}
+
 {{/with}}
+/* GPIO */
+{{#each peripherals.GPIO.active_pins}}
+{{#if this}}
+#define {{@key}} ({{this}})
+{{/if}}
+{{/each}}
+
+int digitalRead(uint8_t pin);
+void digitalWrite(uint8_t pin, uint8_t val);
+
+/* ADC */
+{{#each peripherals.ADC.active_pins}}
+{{#if this}}
+#define {{@key}} ({{this}})
+{{/if}}
+{{/each}}
+
+int analogRead(uint8_t pin);
 
 void initializeMPS()
 {
@@ -49,6 +68,12 @@ void initializeMPS()
 
 	{{/active}}
 	{{/with}}
+
+	{{#each peripherals.GPIO.options}}
+	{{#if active}}
+	pinMode({{@key}}, {{value}});
+	{{/if}}
+	{{/each}}
 }
 
 #endif /* __MPS_H__ */

@@ -2,10 +2,15 @@
 "name": "Arduino Pro Mini",
 "owner": "Arduino AG",
 "link": "https://www.arduino.cc/",
-"core": "ATmega328",
+"core": "ATmega328_MLF32",
 "width": 25,
 "peripherals": {
 	"GPIO": {
+		"pins": {"PB0": [12], "PB1": [13], "PB2": [14], "PB3": [15], "PB4": [16],
+			"PB5": [17], "PC0": [23], "PC1": [24],
+			"PC2": [25], "PC3": [26], "PC4": [27], "PC5": [28], "PC6": [29],
+			"PD0": [30], "PD1": [31], "PD2": [32], "PD3": [1], "PD4": [2],
+			"PD5": [9], "PD6": [10], "PD7": [11]},
 		"description": "PB6..7 are not routed out. These are connected to the on-board crystal. PC4..5 are routed out to off grid header, not available on either side of the board."
 	},
 	"XTAL": {
@@ -105,7 +110,7 @@
 	},
 	{
 	"name": "9",
-	"number": 9,
+	"number": 13,
 	"position": 90,
 	"side": "left"
 	},

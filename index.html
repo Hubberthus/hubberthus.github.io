@@ -7,6 +7,7 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link href="css/bootstrap.min.css" rel="stylesheet" />
 	  <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+	  <link href="css/androidstudio.css" rel="stylesheet" >
 	  <link href="css/main.css" rel="stylesheet" />
 	  <link rel="shortcut icon" href="logo.png" type="image/png"/>
 	  <title>MCU pin setup</title>
@@ -23,7 +24,7 @@
 		</script>
 	  
 	</head>
-	
+
 	<body>
 		<div ng-controller="mcuSetupController" class="container-fluid">
 		
@@ -112,11 +113,11 @@
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu" style="left: -100%;">
-                                                    <li ng-repeat="modename in peripheral.modenames"><a href="#" ng-click="peripheral.active_mode = modename; updatePeripheral(peripheral);">{{modename}}</a></li>
+                                                    <li ng-repeat="modename in peripheral.modenames"><a href="#" ng-click="peripheral.active_mode = modename; updatePeripherals();">{{modename}}</a></li>
                                                 </ul>
                                             </div>
                                             <label ng-if="(! peripheral.disabled) && (peripheral.modenames.length == 2)" ng-init="checked = (peripheral.active_mode != 'OFF')" style="font-weight: 100; margin:0; color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : '#222')}}">
-                                                <input type="checkbox" ng-model="checked" ng-change="peripheral.active_mode = (peripheral.active_mode == peripheral.modenames[0] ? peripheral.modenames[1] : peripheral.modenames[0]); updatePeripheral(peripheral);"></input>
+                                                <input type="checkbox" ng-model="checked" ng-change="peripheral.active_mode = (peripheral.active_mode == peripheral.modenames[0] ? peripheral.modenames[1] : peripheral.modenames[0]); updatePeripherals();"></input>
                                                 {{peripheral.active_mode}}
                                             </label>
                                             <span ng-if="peripheral.disabled" style="vertical-align: middle; background: none;">
@@ -154,10 +155,10 @@
 													<span ng-if="pinnums.length == 1">
 														{{(pinnums[0] ? active_module.pin_map[pinnums[0]] : "---")}}
 													</span>
-													<button ng-if="(pinnums.length == 2) && (pinnums[0] == null)" ng-click="(peripheral.active_pins[pinname] ? peripheral.active_pins[pinname] = null : peripheral.active_pins[pinname] = pinnums[1])" ng-disabled="peripheral.active_mode == 'OFF'" class="btn label {{(peripheral.active_pins[pinname] ? 'label-success' : 'label-default')}} selector">
+													<button ng-if="(pinnums.length == 2) && (pinnums[0] == null)" ng-click="(peripheral.active_pins[pinname] ? peripheral.active_pins[pinname] = null : peripheral.active_pins[pinname] = pinnums[1]); updatePeripherals();" ng-disabled="peripheral.active_mode == 'OFF'" class="btn label {{(peripheral.active_pins[pinname] ? 'label-success' : 'label-default')}} selector">
 														{{(peripheral.active_pins[pinname] ? "ON" : "OFF")}}
 													</button>
-													<select ng-if="((pinnums.length == 2) && (pinnums[0] != null)) || (pinnums.length > 2)" ng-model="peripheral.active_pins[pinname]" convert-to-number class="selector">
+													<select ng-if="((pinnums.length == 2) && (pinnums[0] != null)) || (pinnums.length > 2)" ng-model="peripheral.active_pins[pinname]" ng-change="updatePeripherals();" convert-to-number class="selector">
 														<option ng-repeat="num in pinnums" ng-if="(num == null) || (active_module.pin_map[num] != null)" value="{{num}}">{{(num ? active_module.pin_map[num] : "---")}}</option>
 													</select>
 												</div>
@@ -172,12 +173,12 @@
 													{{option.name}}
 												</span>
 												<span ng-if="option.type == 'boolean'" class="pin-selector">
-													<button ng-click="option.value = ! option.value; updatePeripheral(peripheral);" class="btn label {{(option.value ? 'label-success' : 'label-default')}}">
+													<button ng-click="option.value = ! option.value; updatePeripherals();" class="btn label {{(option.value ? 'label-success' : 'label-default')}}">
 														{{(option.value == true ? "ON" : "OFF")}}
 													</button>
 												</span>
 												<span ng-if="option.type == 'integer'" class="pin-selector">
-													<input type="text" class="form-control" ng-change="updatePeripheral(peripheral);" ng-model="option.value" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+													<input type="text" class="form-control" ng-change="updatePeripherals();" ng-model="option.value" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
 												</span>
 												<div ng-if="option.type == 'selector'" class="pin-selector dropdown">
 	                                                <button class="btn dropdown-toggle" style="padding: 0; background: none;" type="button" data-toggle="dropdown">
@@ -185,10 +186,13 @@
 	                                                    <span class="caret"></span>
 	                                                </button>
 	                                                <ul class="dropdown-menu" style="left: -100%;">
-	                                                    <li ng-repeat="choice in option.choices"><a href="#" ng-click="option.value = choice; updatePeripheral(peripheral);">{{choice}}</a></li>
+	                                                    <li ng-repeat="choice in option.choices"><a href="#" ng-click="option.value = choice; updatePeripherals();">{{choice}}</a></li>
 	                                                </ul>
 	                                            </div>
-												<span class="glyphicon glyphicon-alert" ng-hide="option.valid" style="color: red;"></span>
+												<div ng-hide="option.valid" style="padding: 4px 12px; color: white; background-color: {{(option.severity == 'error' ? 'red' : 'orange')}};">
+													<span class="glyphicon glyphicon-alert"></span>
+													<span>{{option.message}}</span>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -206,9 +210,10 @@
 					</ul>
 					
 					<div ng-if="active_file">
-						<pre>{{active_file.code}}</pre>
+						<pre style="padding: 0; background: none; border: none;">
+							<code class="cpp hljs" ng-bind-html="active_file.code"></code>
+						</pre>
 					</div>
-					<div id="result" style="display: none;"></div>
 					
 					<div ng-if="! active_file" style="position: relative;">
 						<div ng-show="selected_pin" style="padding: 1em; width: {{active_module.width}}%; left: {{((100 - active_module.width) / 2)}}%; top: 1em; position: absolute;">

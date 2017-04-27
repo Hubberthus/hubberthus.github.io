@@ -21,7 +21,8 @@ define([
         'app/modules',
         'app/generator',
         'jquery', 
-        'bootstrap'], function(app, cores, modules, generator, $, bootstrap){
+        'bootstrap',
+        'highlight'], function(app, cores, modules, generator, $, bootstrap, hljs){
 	
 	// Main controller function for the AngularJS application
 	app.controller('mcuSetupController',function($scope){
@@ -37,7 +38,7 @@ define([
 		// Load the list of modules. The loading screen is displayed until this completes
 		$scope.modules = modules.loadModules(); 
 		
-		// Enable/disable given peripheral and its options
+		// Enable/disable/validate given peripheral and its options
 		updatePeripheral = function( peripheral ) {
 			
 			var core = $scope.core;
@@ -66,19 +67,37 @@ define([
 				
 				option.valid = true;
 				
-				if (option.validator) {
-					if (! eval(option.validator)) {
+				if (option.validators) {
+					for(validator_name in option.validators) {
+						validator = option.validators[validator_name];
 						
-						option.valid = false;
-						peripheral.valid = false;
+						if (! eval(validator.check)) {
+							
+							option.valid = false;
+							option.severity = validator.severity;
+							option.message = validator.message;
+							peripheral.valid = false;
+							break;
+						}
 					}
+				}
+				
+				// Special for options with same name as pins (for GPIO)
+				// Enable/disable pins according to options active
+				if (peripheral.pins[name]) {
+					peripheral.active_pins[name] = (option.active ? peripheral.pins[name][0] : null);
 				}
 			}
 		}
+		
 		// Update the generated code
 		updateCode = function() {
 			
 			$scope.file_list = generator.generateCode($scope.core);
+			
+			for(n in $scope.file_list) {
+				$scope.file_list[n].code = hljs.highlightAuto($scope.file_list[n].code).value;
+			}
 			
 			// Go to the layout tab if the active file is not in the newly generated code
 			if ($scope.active_file) {
@@ -116,72 +135,70 @@ define([
 					
 					peripheral.modes = {"SHOW" : [], "HIDE" : []};
 					peripheral.active_mode = "SHOW";
-					peripheral.valid = true;
 					
 					for (var pin in peripheral.pins) {
 						peripheral.modes["SHOW"].push(pin);
 					}
+				}
 				
 				// For every peripheral check the pin availability
-				} else {
 					
-					var override = false;
-					
-					// Override peripheral information if provided for the module
-					if (new_module.peripherals[name]) {
-						
-						if (new_module.peripherals[name].modes) {
-							peripheral.modes = new_module.peripherals[name].modes;
-							override = true;
-						}
-						
-						if (new_module.peripherals[name].pins) {
-							for (var mode in peripheral.modes) {
-								peripheral.modes[mode].forEach(function( modePin ) {
-									if (new_module.peripherals[name].pins[modePin]) {
-										peripheral.pins[modePin] = new_module.peripherals[name].pins[modePin];
-									}
-								});
-							}
-						}
-						
-						if (new_module.peripherals[name].active_mode) {
-							peripheral.active_mode = new_module.peripherals[name].active_mode;
-						}
-					}
+				var override = false;
 				
-					// For non-overrided peripherals, check if the pins are routed out
-					if ( ! override) {
-						
+				// Override peripheral information if provided for the module
+				if (new_module.peripherals[name]) {
+					
+					if (new_module.peripherals[name].modes) {
+						peripheral.modes = new_module.peripherals[name].modes;
+						override = true;
+					}
+					
+					if (new_module.peripherals[name].pins) {
 						for (var mode in peripheral.modes) {
-							
 							peripheral.modes[mode].forEach(function( modePin ) {
-								
-								var hasPin = false;
-
-								// Check pins for the mode
-								peripheral.pins[modePin].forEach(function( pin ) {
-									
-									if ((pin == null) || (new_module.pin_map[pin] != undefined)) {
-
-										hasPin = true;
-									}
-								});
-								
-								// If no pin is available delete the mode
-								if (!hasPin) {
-									
-									if (peripheral.active_mode == mode) {
-										peripheral.active_mode = "OFF";
-									}
-									
-									delete peripheral.modes[mode];
+								if (new_module.peripherals[name].pins[modePin]) {
+									peripheral.pins[modePin] = new_module.peripherals[name].pins[modePin];
+								} else {
+									delete peripheral.pins[modePin];
 								}
 							});
 						}
 					}
 					
-					updatePeripheral(peripheral);
+					if (new_module.peripherals[name].active_mode) {
+						peripheral.active_mode = new_module.peripherals[name].active_mode;
+					}
+				}
+			
+				// For non-overrided peripherals, check if the pins are routed out
+				if ((name != "GPIO") && ( ! override)) {
+					
+					for (var mode in peripheral.modes) {
+						
+						peripheral.modes[mode].forEach(function( modePin ) {
+							
+							var hasPin = false;
+
+							// Check pins for the mode
+							peripheral.pins[modePin].forEach(function( pin ) {
+								
+								if ((pin == null) || (new_module.pin_map[pin] != undefined)) {
+
+									hasPin = true;
+								}
+							});
+							
+							// If no pin is available delete the mode
+							if (!hasPin) {
+								
+								if (peripheral.active_mode == mode) {
+									peripheral.active_mode = "OFF";
+								}
+								
+								delete peripheral.modes[mode];
+							}
+						});
+					}
 					
 					// If only one mode is left for the peripheral, disable it
 					if (Object.keys(peripheral.modes).length == 1) {
@@ -196,6 +213,12 @@ define([
 				for (var modename in peripheral.modes) {
 					peripheral.modenames.push(modename);
 				}
+			}
+			
+			// Revalidate all peripherals
+			for(name in $scope.core.peripherals) {
+				
+				updatePeripheral($scope.core.peripherals[name]);
 			}
 			
 			// Initial code generation
@@ -214,10 +237,14 @@ define([
 			setActiveModule(new_module);
 		}
 		
-		// Enable/disable given peripheral and its options
-		$scope.updatePeripheral = function( peripheral ) {
+		// Enable/disable/validate given peripheral and its options
+		$scope.updatePeripherals = function() {
 			
-			updatePeripheral(peripheral);
+			// Revalidate all peripherals
+			for(name in $scope.core.peripherals) {
+			
+				updatePeripheral($scope.core.peripherals[name]);
+			}
 			updateCode();
 		}
 		
@@ -247,6 +274,16 @@ define([
 		$scope.downloadCode = function() {
 			
 			generator.downloadCode();
+		}
+		
+		// Update code highlight for all files
+		$scope.highlightCode = function() {
+			
+			alert(hljs.highlightAuto("int i;").value);
+			
+			$('pre code').each(function(i, block) {
+				hljs.highlightBlock(block);
+			});
 		}
 	})
 	// String to integer conversion directive needed by pin selecting dropdown lists

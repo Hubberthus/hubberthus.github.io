@@ -26,6 +26,8 @@ requirejs.config({
     	'jszip': 'jszip.min',
     	'FileSaver': 'FileSaver.min',
     	'handlebars': 'handlebars-v4.0.5',
+    	'highlight': 'highlight.pack',
+    	'ngSanitize': 'angular-sanitize',
     	'app': '../app'
     },
     
@@ -33,14 +35,22 @@ requirejs.config({
         'angular': {
             exports: 'angular'
         },
+        
+        'ngSanitize': {
+        	deps: ['angular']
+        },
     
     	'bootstrap': {
     		deps: ['jquery']
     	}
-    }
+    },
+    
+    priority: [
+       'angular'
+   ]
 });
 
 // Start up AngularJS application using RequireJS
 require(['angular', 'app/main', 'app/controller'], function(angular) {
-  angular.bootstrap(document, ['app']);
+	angular.bootstrap(document, ['app']);
 });
