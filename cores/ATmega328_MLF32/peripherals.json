@@ -11,13 +11,19 @@
 				"name": "PB0",
 				"type": "selector",
 				"value": "INPUT",
-				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"]
+				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB0"
+				]
 			},
 			"PB1": {
 				"name": "PB1",
 				"type": "selector",
 				"value": "INPUT",
-				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"]
+				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB1"
+				]
 			},
 			"PB2": {
 				"name": "PB2",
@@ -25,7 +31,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.SPI.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PB2"
 				]
 			},
 			"PB3": {
@@ -34,7 +40,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.SPI.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PB3"
 				]
 			},
 			"PB4": {
@@ -43,7 +49,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.SPI.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PB4"
 				]
 			},
 			"PB5": {
@@ -52,7 +58,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.SPI.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PB5"
 				]
 			},
 			"PB6": {
@@ -61,7 +67,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.XTAL.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PB6"
 				]
 			},
 			"PB7": {
@@ -70,7 +76,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.XTAL.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PB7"
 				]
 			},
 			"PC0": {
@@ -79,7 +85,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"(core.peripherals.ADC.active_mode == 'OFF') || (core.peripherals.ADC.active_pins.ADC0 == null)"
+					"core.peripherals.GPIO.active_pins.PC0"
 				]
 			},
 			"PC1": {
@@ -88,7 +94,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"(core.peripherals.ADC.active_mode == 'OFF') || (core.peripherals.ADC.active_pins.ADC1 == null)"
+					"core.peripherals.GPIO.active_pins.PC1"
 				]
 			},
 			"PC2": {
@@ -97,7 +103,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"(core.peripherals.ADC.active_mode == 'OFF') || (core.peripherals.ADC.active_pins.ADC2 == null)"
+					"core.peripherals.GPIO.active_pins.PC2"
 				]
 			},
 			"PC3": {
@@ -106,7 +112,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"(core.peripherals.ADC.active_mode == 'OFF') || (core.peripherals.ADC.active_pins.ADC3 == null)"
+					"core.peripherals.GPIO.active_pins.PC3"
 				]
 			},
 			"PC4": {
@@ -115,7 +121,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"(core.peripherals.ADC.active_mode == 'OFF') || (core.peripherals.ADC.active_pins.ADC4 == null)"
+					"core.peripherals.GPIO.active_pins.PC4"
 				]
 			},
 			"PC5": {
@@ -124,7 +130,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"(core.peripherals.ADC.active_mode == 'OFF') || (core.peripherals.ADC.active_pins.ADC5 == null)"
+					"core.peripherals.GPIO.active_pins.PC5"
 				]
 			},
 			"PC6": {
@@ -133,7 +139,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.RESET.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PC6"
 				]
 			},
 			"PD0": {
@@ -142,7 +148,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.USART.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PD0"
 				]
 			},
 			"PD1": {
@@ -151,20 +157,26 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.USART.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PD1"
 				]
 			},
 			"PD2": {
 				"name": "PD2",
 				"type": "selector",
 				"value": "INPUT",
-				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"]
+				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD2"
+				]
 			},
 			"PD3": {
 				"name": "PD3",
 				"type": "selector",
 				"value": "INPUT",
-				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"]
+				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD3"
+				]
 			},
 			"PD4": {
 				"name": "PD4",
@@ -172,14 +184,17 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.USART.active_mode != 'SPI'"
+					"core.peripherals.GPIO.active_pins.PD4"
 				]
 			},
 			"PD5": {
 				"name": "PD5",
 				"type": "selector",
 				"value": "INPUT",
-				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"]
+				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD5"
+				]
 			},
 			"PD6": {
 				"name": "PD6",
@@ -187,7 +202,7 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.ACMP.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PD6"
 				]
 			},
 			"PD7": {
@@ -196,15 +211,58 @@
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
 				"dependencies": [
-					"core.peripherals.ACMP.active_mode == 'OFF'"
+					"core.peripherals.GPIO.active_pins.PD7"
 				]
 			}
 		},
 		"color": "grey"
 	},
+	"INT": {
+		"description": "External (INT0..1) or pin change (PCI0..2) interrupt requests. The external interrupts can be triggered by a falling or rising edge or a low level. PCI0 will trigger if any enabled PCINT[0:7] pin toggles, PCI1 will trigger if any enabled PCINT[8:14] pin toggles, and PCI2 will trigger if any enabled PCINT[16:23] pin toggles. The interrupts will trigger even for pins configured as outputs.",
+		"pins": {"INT0": [null, 32], "INT1": [null, 1],
+			"PCINT0": [null, 12], "PCINT1": [null, 13], "PCINT2": [null, 14], "PCINT3": [null, 15], "PCINT4": [null, 16],
+			"PCINT5": [null, 17], "PCINT6": [null, 7], "PCINT7": [null, 8], "PCINT8": [null, 23], "PCINT9": [null, 24],
+			"PCINT10": [null, 25], "PCINT11": [null, 26], "PCINT12": [null, 27], "PCINT13": [null, 28], "PCINT14": [null, 29],
+			"PCINT16": [null, 30], "PCINT17": [null, 31], "PCINT18": [null, 32], "PCINT19": [null, 1], "PCINT20": [null, 2],
+			"PCINT21": [null, 9], "PCINT22": [null, 10], "PCINT23": [null, 11]},
+		"options": {
+			"int0": {
+				"name": "INT0 interrupt mode",
+				"type": "selector",
+				"value": "LOW",
+				"choices": ["LOW", "CHANGE", "RISING", "FALLING"],
+				"dependencies": [
+					"core.peripherals.INT.active_pins.INT0"
+				]
+			},
+			"int1": {
+				"name": "INT1 interrupt mode",
+				"type": "selector",
+				"value": "LOW",
+				"choices": ["LOW", "CHANGE", "RISING", "FALLING"],
+				"dependencies": [
+					"core.peripherals.INT.active_pins.INT1"
+				]
+			}
+		},
+		"color": "lightskyblue",
+		"active_mode": "OFF"
+	},
 	"RESET": {
-		"description": "If set in fuse, the PC6 pin acts as RESET input.",
+		"description": "The PC6 pin can act as Reset input. A low level on this pin for longer than the minimum pulse length will generate a Reset, even if the clock is not running.",
 		"pins": {"RST": [29]},
+		"validators": {
+			"fuse-off": {
+				"check": "core.peripherals.RESET.active_mode == 'OFF'",
+				"severity": "INFO",
+				"message": "RSTDISBL Fuse needs to be UNprogrammed for the pin to work as Reset"
+			},
+			"fuse-on": {
+				"check": "core.peripherals.RESET.active_mode == 'ON'",
+				"severity": "INFO",
+				"message": "RSTDISBL Fuse needs to be programmed for the pin to work as PC6"
+			}
+		},
 		"color": "orangered",
 		"active_mode": "ON"
 	},
@@ -278,12 +336,12 @@
 				"validators": {
 					"range": {
 						"check": "((value >= 0) && (value < 128))",
-						"severity": "error",
+						"severity": "ERROR",
 						"message": "The address must be a 7-bit integer [0..127]"
 					},
 					"reserved": {
 						"check": "((value > 7) && ((value & 0x78) != 0x78) && ((value & 0x7C) != 0x7C))",
-						"severity": "error",
+						"severity": "ERROR",
 						"message": "The selected address is reserved, check I2C documentation about special addresses"
 					}
 				},

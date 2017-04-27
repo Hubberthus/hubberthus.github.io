@@ -32,6 +32,10 @@ define([
 		    async: false
 		});
 		
+		$scope.INFO    = INFO;
+		$scope.WARNING = WARNING;
+		$scope.ERROR   = ERROR;
+		
 		$scope.height = $(window).height() - 150; // Needed for scroll panel height 
 		$scope.selected_pin = null;               // Used for pin info popup
 		
@@ -47,6 +51,20 @@ define([
 			peripheral.active = (peripheral.active_mode != "OFF");
 			
 			peripheral.valid = true;
+			peripheral.message = null;
+			
+			// Check peripheral validity
+			for(validator_name in peripheral.validators) {
+				validator = peripheral.validators[validator_name];
+				
+				if (! eval(validator.check)) {
+					
+					peripheral.valid = false;
+					peripheral.severity = validator.severity;
+					peripheral.message = validator.message;
+					break;
+				}
+			}
 			
 			// Enable/disable options 
 			for (name in peripheral.options) {
@@ -66,6 +84,7 @@ define([
 				}
 				
 				option.valid = true;
+				option.message = null;
 				
 				if (option.validators) {
 					for(validator_name in option.validators) {
@@ -76,7 +95,13 @@ define([
 							option.valid = false;
 							option.severity = validator.severity;
 							option.message = validator.message;
-							peripheral.valid = false;
+							
+							// Override peripheral validator severity if needed
+							if (peripheral.valid || (peripheral.severity < option.severity)) {
+								peripheral.valid = false;
+								peripheral.severity = validator.severity;
+								peripheral.message = null;
+							}
 							break;
 						}
 					}
@@ -90,12 +115,44 @@ define([
 			}
 		}
 		
+		// Enable/disable/validate all peripherals
+		updatePeripherals = function() {
+			
+			// Revalidate all peripherals
+			for (name in $scope.core.peripherals) {
+				updatePeripheral($scope.core.peripherals[name]);
+			}
+			
+			// Remove GPIO pins used by other peripherals
+			for (pin_name in $scope.core.peripherals["GPIO"].pins) {
+				
+				$scope.core.peripherals["GPIO"].active_pins[pin_name] = $scope.core.peripherals["GPIO"].pins[pin_name][0];
+				
+				for (name in $scope.core.peripherals) {
+					if (name != "GPIO") {
+						var active_mode = $scope.core.peripherals[name].active_mode;
+
+						$scope.core.peripherals[name].modes[active_mode].forEach( function( mode_pin_name ) {
+							if ($scope.core.peripherals[name].active_pins[mode_pin_name] == $scope.core.peripherals["GPIO"].active_pins[pin_name]) {
+								$scope.core.peripherals["GPIO"].active_pins[pin_name] = null;
+							}
+						});
+						if ($scope.core.peripherals["GPIO"].active_pins[pin_name] == null) {
+							break
+						}
+					}
+				}
+			}
+			
+			updateCode();
+		}
+		
 		// Update the generated code
 		updateCode = function() {
 			
 			$scope.file_list = generator.generateCode($scope.core);
 			
-			for(n in $scope.file_list) {
+			for (n in $scope.file_list) {
 				$scope.file_list[n].code = hljs.highlightAuto($scope.file_list[n].code).value;
 			}
 			
@@ -126,7 +183,7 @@ define([
 			$scope.core = cores.loadCore(new_module.core);
 			
 			// Update pin availability according to the actual module
-			for(name in $scope.core.peripherals) {
+			for (name in $scope.core.peripherals) {
 				
 				peripheral = $scope.core.peripherals[name];
 				
@@ -216,10 +273,7 @@ define([
 			}
 			
 			// Revalidate all peripherals
-			for(name in $scope.core.peripherals) {
-				
-				updatePeripheral($scope.core.peripherals[name]);
-			}
+			updatePeripherals();
 			
 			// Initial code generation
 			$scope.file_list = generator.generateCode($scope.core);
@@ -240,11 +294,7 @@ define([
 		// Enable/disable/validate given peripheral and its options
 		$scope.updatePeripherals = function() {
 			
-			// Revalidate all peripherals
-			for(name in $scope.core.peripherals) {
-			
-				updatePeripheral($scope.core.peripherals[name]);
-			}
+			updatePeripherals();
 			updateCode();
 		}
 		
@@ -274,16 +324,6 @@ define([
 		$scope.downloadCode = function() {
 			
 			generator.downloadCode();
-		}
-		
-		// Update code highlight for all files
-		$scope.highlightCode = function() {
-			
-			alert(hljs.highlightAuto("int i;").value);
-			
-			$('pre code').each(function(i, block) {
-				hljs.highlightBlock(block);
-			});
 		}
 	})
 	// String to integer conversion directive needed by pin selecting dropdown lists

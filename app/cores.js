@@ -59,6 +59,39 @@ define(function (require) {
 					peripheral.modes.ON.push(name);
 				}
 			}
+			
+			// Replace severity string with value
+			if (peripheral.validators) {
+				for (var name in peripheral.validators) {
+					var validator = peripheral.validators[name];
+					if (validator.severity == "INFO") {
+						validator.severity = INFO;
+					} else if (validator.severity == "WARNING") {
+						validator.severity = WARNING;
+					} else {
+						validator.severity = ERROR;
+					}
+				}
+			}
+			
+			if (peripheral.options) {
+				for (var name in peripheral.options) {
+					var option = peripheral.options[name];
+					
+					if (option.validators) {
+						for (var validator_name in option.validators) {
+							var validator = option.validators[validator_name];
+							if (validator.severity == "INFO") {
+								validator.severity = INFO;
+							} else if (validator.severity == "WARNING") {
+								validator.severity = WARNING;
+							} else {
+								validator.severity = ERROR;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	

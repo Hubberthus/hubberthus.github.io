@@ -123,7 +123,7 @@
                                             <span ng-if="peripheral.disabled" style="vertical-align: middle; background: none;">
                                                 {{peripheral.active_mode}}
                                             </span>
-                                            <span class="glyphicon glyphicon-alert" ng-hide="peripheral.valid" style="color: red;"></span>
+                                            <span class="glyphicon glyphicon-alert" ng-hide="peripheral.valid" style="color: {{(peripheral.severity == ERROR ? 'red' : (peripheral.severity == WARNING ? 'orange' : 'lightblue'))}}"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -189,11 +189,18 @@
 	                                                    <li ng-repeat="choice in option.choices"><a href="#" ng-click="option.value = choice; updatePeripherals();">{{choice}}</a></li>
 	                                                </ul>
 	                                            </div>
-												<div ng-hide="option.valid" style="padding: 4px 12px; color: white; background-color: {{(option.severity == 'error' ? 'red' : 'orange')}};">
+												<div ng-hide="option.valid" style="padding: 4px 12px; color: white; background-color: {{(option.severity == ERROR ? 'red' : (option.severity == WARNING ? 'orange' : 'lightblue'))}};">
 													<span class="glyphicon glyphicon-alert"></span>
 													<span>{{option.message}}</span>
 												</div>
 											</div>
+										</div>
+									</div>
+									
+									<div ng-hide="peripheral.valid || (peripheral.message == null)" class="panel panel-default">
+										<div class="panel-body" style="padding: 4px 12px; color: white; background-color: {{(peripheral.severity == ERROR ? 'red' : (peripheral.severity == WARNING ? 'orange' : 'lightblue'))}};">
+											<span class="glyphicon glyphicon-alert"></span>
+											<span>{{peripheral.message}}</span>
 										</div>
 									</div>
 								</div>

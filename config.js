@@ -15,6 +15,10 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+const INFO    = 0;
+const WARNING = 1;
+const ERROR   = 2;
+
 // Setup included libraries and application directory with RequireJS
 requirejs.config({
 	urlArgs: "bust=" + (new Date()).getTime(), // Avoid caching JavaScript for development

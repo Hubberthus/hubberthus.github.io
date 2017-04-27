@@ -210,7 +210,7 @@
   {
     "number": 27,
     "name": "PC4",
-    "description": "ADC4, SDA, PCINT1",
+    "description": "ADC4, SDA, PCINT12",
     "pwm": false,
     "input": true,
     "output": true
