@@ -1,6 +1,6 @@
 {
 	"GPIO": {
-		"description": "General purpose input/output pins with internal pull-up resistors selectable. They are tri-stated when a reset condition becomes active, even if the clock is not running. If the RSTDISBL Fuse is unprogrammed, PC6 is used as a Reset input.",
+		"description": "General purpose input/output pins with internal pull-up resistors selectable. They are tri-stated when a reset condition becomes active, even if the clock is not running. External (INT0..1) and pin change (PCI0..2) interrupt requests. The external interrupts can be triggered by a falling or rising edge or a low level. PCI0 will trigger if any enabled PCINT[0:7] pin toggles, PCI1 will trigger if any enabled PCINT[8:14] pin toggles, and PCI2 will trigger if any enabled PCINT[16:23] pin toggles. The interrupts will trigger even for pins configured as outputs.",
 		"pins": {"PB0": [12], "PB1": [13], "PB2": [14], "PB3": [15], "PB4": [16],
 			"PB5": [17], "PB6": [7], "PB7": [8], "PC0": [23], "PC1": [24],
 			"PC2": [25], "PC3": [26], "PC4": [27], "PC5": [28], "PC6": [29],
@@ -16,11 +16,27 @@
 					"core.peripherals.GPIO.active_pins.PB0"
 				]
 			},
+			"PCINT0": {
+				"name": "PCINT0",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB0"
+				]
+			},
 			"PB1": {
 				"name": "PB1",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB1"
+				]
+			},
+			"PCINT1": {
+				"name": "PCINT1",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PB1"
 				]
@@ -34,11 +50,27 @@
 					"core.peripherals.GPIO.active_pins.PB2"
 				]
 			},
+			"PCINT2": {
+				"name": "PCINT2",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB2"
+				]
+			},
 			"PB3": {
 				"name": "PB3",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB3"
+				]
+			},
+			"PCINT3": {
+				"name": "PCINT3",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PB3"
 				]
@@ -52,11 +84,27 @@
 					"core.peripherals.GPIO.active_pins.PB4"
 				]
 			},
+			"PCINT4": {
+				"name": "PCINT4",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB4"
+				]
+			},
 			"PB5": {
 				"name": "PB5",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB5"
+				]
+			},
+			"PCINT5": {
+				"name": "PCINT5",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PB5"
 				]
@@ -70,11 +118,27 @@
 					"core.peripherals.GPIO.active_pins.PB6"
 				]
 			},
+			"PCINT6": {
+				"name": "PCINT6",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB6"
+				]
+			},
 			"PB7": {
 				"name": "PB7",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PB7"
+				]
+			},
+			"PCINT7": {
+				"name": "PCINT7",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PB7"
 				]
@@ -88,11 +152,27 @@
 					"core.peripherals.GPIO.active_pins.PC0"
 				]
 			},
+			"PCINT8": {
+				"name": "PCINT8",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PC0"
+				]
+			},
 			"PC1": {
 				"name": "PC1",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PC1"
+				]
+			},
+			"PCINT9": {
+				"name": "PCINT9",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PC1"
 				]
@@ -106,11 +186,27 @@
 					"core.peripherals.GPIO.active_pins.PC2"
 				]
 			},
+			"PCINT10": {
+				"name": "PCINT10",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PC2"
+				]
+			},
 			"PC3": {
 				"name": "PC3",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PC3"
+				]
+			},
+			"PCINT11": {
+				"name": "PCINT11",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PC3"
 				]
@@ -124,11 +220,27 @@
 					"core.peripherals.GPIO.active_pins.PC4"
 				]
 			},
+			"PCINT12": {
+				"name": "PCINT12",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PC4"
+				]
+			},
 			"PC5": {
 				"name": "PC5",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PC5"
+				]
+			},
+			"PCINT13": {
+				"name": "PCINT13",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PC5"
 				]
@@ -142,11 +254,27 @@
 					"core.peripherals.GPIO.active_pins.PC6"
 				]
 			},
+			"PCINT14": {
+				"name": "PCINT14",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PC6"
+				]
+			},
 			"PD0": {
 				"name": "PD0",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD0"
+				]
+			},
+			"PCINT16": {
+				"name": "PCINT16",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PD0"
 				]
@@ -160,11 +288,36 @@
 					"core.peripherals.GPIO.active_pins.PD1"
 				]
 			},
+			"PCINT17": {
+				"name": "PCINT17",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD1"
+				]
+			},
 			"PD2": {
 				"name": "PD2",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD2"
+				]
+			},
+			"INT0": {
+				"name": "INT0",
+				"type": "selector",
+				"value": "OFF",
+				"choices": ["OFF", "LOW", "CHANGE", "RISING", "FALLING"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD2"
+				]
+			},
+			"PCINT18": {
+				"name": "PCINT18",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PD2"
 				]
@@ -178,11 +331,36 @@
 					"core.peripherals.GPIO.active_pins.PD3"
 				]
 			},
+			"INT1": {
+				"name": "INT1",
+				"type": "selector",
+				"value": "OFF",
+				"choices": ["OFF", "LOW", "CHANGE", "RISING", "FALLING"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD3"
+				]
+			},
+			"PCINT19": {
+				"name": "PCINT19",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD3"
+				]
+			},
 			"PD4": {
 				"name": "PD4",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD4"
+				]
+			},
+			"PCINT20": {
+				"name": "PCINT20",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PD4"
 				]
@@ -196,11 +374,27 @@
 					"core.peripherals.GPIO.active_pins.PD5"
 				]
 			},
+			"PCINT21": {
+				"name": "PCINT21",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD5"
+				]
+			},
 			"PD6": {
 				"name": "PD6",
 				"type": "selector",
 				"value": "INPUT",
 				"choices": ["INPUT", "INPUT_PULLUP", "OUTPUT"],
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD6"
+				]
+			},
+			"PCINT22": {
+				"name": "PCINT22",
+				"type": "boolean",
+				"value": false,
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PD6"
 				]
@@ -213,40 +407,17 @@
 				"dependencies": [
 					"core.peripherals.GPIO.active_pins.PD7"
 				]
+			},
+			"PCINT23": {
+				"name": "PCINT23",
+				"type": "boolean",
+				"value": false,
+				"dependencies": [
+					"core.peripherals.GPIO.active_pins.PD7"
+				]
 			}
 		},
 		"color": "grey"
-	},
-	"INT": {
-		"description": "External (INT0..1) or pin change (PCI0..2) interrupt requests. The external interrupts can be triggered by a falling or rising edge or a low level. PCI0 will trigger if any enabled PCINT[0:7] pin toggles, PCI1 will trigger if any enabled PCINT[8:14] pin toggles, and PCI2 will trigger if any enabled PCINT[16:23] pin toggles. The interrupts will trigger even for pins configured as outputs.",
-		"pins": {"INT0": [null, 32], "INT1": [null, 1],
-			"PCINT0": [null, 12], "PCINT1": [null, 13], "PCINT2": [null, 14], "PCINT3": [null, 15], "PCINT4": [null, 16],
-			"PCINT5": [null, 17], "PCINT6": [null, 7], "PCINT7": [null, 8], "PCINT8": [null, 23], "PCINT9": [null, 24],
-			"PCINT10": [null, 25], "PCINT11": [null, 26], "PCINT12": [null, 27], "PCINT13": [null, 28], "PCINT14": [null, 29],
-			"PCINT16": [null, 30], "PCINT17": [null, 31], "PCINT18": [null, 32], "PCINT19": [null, 1], "PCINT20": [null, 2],
-			"PCINT21": [null, 9], "PCINT22": [null, 10], "PCINT23": [null, 11]},
-		"options": {
-			"int0": {
-				"name": "INT0 interrupt mode",
-				"type": "selector",
-				"value": "LOW",
-				"choices": ["LOW", "CHANGE", "RISING", "FALLING"],
-				"dependencies": [
-					"core.peripherals.INT.active_pins.INT0"
-				]
-			},
-			"int1": {
-				"name": "INT1 interrupt mode",
-				"type": "selector",
-				"value": "LOW",
-				"choices": ["LOW", "CHANGE", "RISING", "FALLING"],
-				"dependencies": [
-					"core.peripherals.INT.active_pins.INT1"
-				]
-			}
-		},
-		"color": "lightskyblue",
-		"active_mode": "OFF"
 	},
 	"RESET": {
 		"description": "The PC6 pin can act as Reset input. A low level on this pin for longer than the minimum pulse length will generate a Reset, even if the clock is not running.",
