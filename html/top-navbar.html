@@ -9,10 +9,11 @@
 <div class="collapse navbar-collapse" id="collapse-navbar">
 	<ul class="nav navbar-nav">
 		<li ng-if="active_page == 'layout'" class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Module: {{active_module.name}}<span class="caret"></span></a>
+			<a href="#" ng-click="selectModule(null);" class="navbar-button" role="button">Module: {{active_module.name}} - (Click to select other)</a>
+			<!-- TODO: Dropdown changed to selection view -- a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Module: {{active_module.name}}<span class="caret"></span></a>
 			<ul class="dropdown-menu">
 				<li ng-repeat="module in modules"><a ng-click="selectModule(module);" href="#">{{module.name}}</a></li>
-			</ul>
+			</ul -->
 		</li>
 		<!-- TODO: Automatic code generation temorarly removed -- li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Code flavor: {{(core.active_flavor ? core.active_flavor : "---")}}<span class="caret"></span></a>

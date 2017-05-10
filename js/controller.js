@@ -33,12 +33,14 @@ define([
 				$scope.active_page = 'about';
 			} else if ($location.path()  == "/usage") {
 				$scope.active_page = 'usage';
-			} else {
+			} else if ($scope.active_module) {
 				$scope.active_page = 'layout';
+			} else {
+				$scope.active_page = 'select';
 			}
 		});
 		
-		$scope.active_page = 'layout';
+		$scope.active_page = 'select';
 		
 		// Disable asyncron AJAX calls so everything can be loaded in order 
 		$.ajaxSetup({
@@ -294,14 +296,21 @@ define([
 		}
 		
 		// Initial module is the first one
-		setActiveModule($scope.modules[0]);
+		// TODO: disabled auto-select at start
+		//setActiveModule($scope.modules[0]);
 		
 		/* Exporting functions for AngularJS access */
 		
 		// Set new active module
 		$scope.selectModule = function( new_module ) {
 			
-			setActiveModule(new_module);
+			if (new_module) {
+				setActiveModule(new_module);
+				$scope.active_page = 'layout';
+			} else {
+				$scope.active_module = null;
+				$scope.active_page = 'select';
+			}
 		}
 		
 		// Enable/disable/validate given peripheral and its options
@@ -376,6 +385,11 @@ define([
 	.directive('usage', function() {
 	  return {
 		  templateUrl: 'html/usage/usage.html'
+	  };
+	})
+	.directive('select', function() {
+	  return {
+		  templateUrl: 'html/select/select.html'
 	  };
 	})
 	.directive('layout', function() {
