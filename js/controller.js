@@ -370,17 +370,52 @@ define([
 	})
 	.directive('about', function() {
 	  return {
-		  templateUrl: 'html/about.html'
+		  templateUrl: 'html/about/about.html'
 	  };
 	})
 	.directive('usage', function() {
 	  return {
-		  templateUrl: 'html/usage.html'
+		  templateUrl: 'html/usage/usage.html'
 	  };
 	})
 	.directive('layout', function() {
 	  return {
 		  templateUrl: 'html/layout/layout.html'
+	  };
+	})
+	.directive('layoutPeripheral', function() {
+	  return {
+		  templateUrl: 'html/layout/peripheral.html'
+	  };
+	})
+	.directive('layoutPeripheralHeader', function() {
+	  return {
+		  templateUrl: 'html/layout/peripheral-header.html'
+	  };
+	})
+	.directive('layoutPeripheralDescription', function() {
+	  return {
+		  templateUrl: 'html/layout/peripheral-description.html'
+	  };
+	})
+	.directive('layoutPeripheralPins', function() {
+	  return {
+		  templateUrl: 'html/layout/peripheral-pins.html'
+	  };
+	})
+	.directive('layoutPeripheralOptions', function() {
+	  return {
+		  templateUrl: 'html/layout/peripheral-options.html'
+	  };
+	})
+	.directive('layoutInfoPopup', function() {
+	  return {
+		  templateUrl: 'html/layout/info-popup.html'
+	  };
+	})
+	.directive('layoutPins', function() {
+	  return {
+		  templateUrl: 'html/layout/pins.html'
 	  };
 	});
 });

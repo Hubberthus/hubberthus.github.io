@@ -1,0 +1,17 @@
+<div layout-peripheral-header style="cursor: pointer; border: 1px solid {{(peripheral.active_mode == 'OFF' ? '#aaa' : peripheral.color)}}; height: 30px;line-height: 29px; vertical-align:center; "></div>
+
+<div style="margin-left: 2em; padding:3px;" class="panel-collapse collapse" id="collapse{{name}}">
+
+	<div layout-peripheral-description></div>
+	
+	<div layout-peripheral-pins></div>
+	
+	<div layout-peripheral-options></div>
+	
+	<div ng-hide="peripheral.valid || (peripheral.message == null)" class="panel panel-default">
+		<div class="panel-body" style="padding: 4px 12px; color: white; background-color: {{(peripheral.severity == ERROR ? 'red' : (peripheral.severity == WARNING ? 'orange' : 'lightblue'))}};">
+			<span class="glyphicon glyphicon-alert"></span>
+			<span>{{peripheral.message}}</span>
+		</div>
+	</div>
+</div>

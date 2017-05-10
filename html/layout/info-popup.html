@@ -1,0 +1,36 @@
+<div ng-show="selected_pin" style="padding: 1em; width: {{active_module.width}}%; left: {{((100 - active_module.width) / 2)}}%; top: 1em; position: absolute;">
+    <div class="panel panel-default" style="border-color: #222;">
+        <div class="panel-heading" ng-click="selectPin(null);">
+            <div style="width: 100%; text-align: center; display: inline-block;">
+                Pin name: {{selected_pin.name}}
+                <span class="glyphicon glyphicon-remove" style="float: right;"></span>
+            </div>
+        </div>
+        <div class="panel-body" style="padding: 0 1em;">
+            <span ng-if="selected_pin.number">
+                <h5>Core name: {{core.pinout[selected_pin.number - 1].name}}</h5>
+                <hr>
+                <p>
+                    {{core.pinout[selected_pin.number - 1].description}}
+                </p>
+                <hr>
+                <p>
+                    <span>Input:</span>
+                    <span class="glyphicon glyphicon-{{(core.pinout[selected_pin.number - 1].input ? 'ok-circle' : 'remove-circle')}}"></span> 
+                </p>
+                <p>
+                    <span>Output:</span>
+                    <span class="glyphicon glyphicon-{{(core.pinout[selected_pin.number - 1].output ? 'ok-circle' : 'remove-circle')}}"></span>
+                </p>
+                <p>
+                    <span>PWM:</span>
+                    <span class="glyphicon glyphicon-{{(core.pinout[selected_pin.number - 1].pwm ? 'ok-circle' : 'remove-circle')}}"></span>
+                </p>
+            </span>
+            <hr>
+            <p ng-if="selected_pin.description">
+                Board notes: {{selected_pin.description}}
+            </p>
+        </div>
+    </div>
+</div>

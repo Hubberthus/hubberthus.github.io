@@ -1,0 +1,15 @@
+<div ng-if="(peripheral.description) || (active_module.peripherals[name])" class="panel panel-default">
+	<div class="panel-heading">
+		<div class="panel-title-description collapsed" data-toggle="collapse" href="#collapse-description{{name}}">
+			Description
+		</div>
+	</div>
+	<div class="panel-collapse collapse" id="collapse-description{{name}}">
+		<p>
+			{{peripheral.description}}
+		</p>
+		<p ng-if="active_module.peripherals[name]">
+			{{active_module.peripherals[name].description}}
+		</p>
+	</div>
+</div>

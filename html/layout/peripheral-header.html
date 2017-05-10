@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-xs-8 panel-title" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed" data-toggle="collapse" href="#collapse{{name}}">
+        <span style="text-align: center; background-color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : peripheral.color)}}; display: inline-block; width:2.3em; ">
+            <span class="glyphicon glyphicon-{{isCollapsed ? 'plus' : 'minus'}}" style="color: white;"></span>
+        </span>
+        <span style="color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : '#222')}};">
+            {{name}}
+        </span>
+    </div>
+    <div class="col-xs-4">
+        <div class="dropdown" style="color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : peripheral.color)}}" ng-if="(! peripheral.disabled) && (peripheral.modenames.length > 2)">
+            <button class="btn dropdown-toggle" style="padding: 0; background: none;" type="button" data-toggle="dropdown">
+                {{peripheral.active_mode}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" style="left: -100%;">
+                <li ng-repeat="modename in peripheral.modenames"><a href="#" ng-click="peripheral.active_mode = modename; updatePeripherals();">{{modename}}</a></li>
+            </ul>
+        </div>
+        <label ng-if="(! peripheral.disabled) && (peripheral.modenames.length == 2)" ng-init="checked = (peripheral.active_mode != 'OFF')" style="font-weight: 100; margin:0; color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : '#222')}}">
+            <input type="checkbox" ng-model="checked" ng-change="peripheral.active_mode = (peripheral.active_mode == peripheral.modenames[0] ? peripheral.modenames[1] : peripheral.modenames[0]); updatePeripherals();"></input>
+            {{peripheral.active_mode}}
+        </label>
+        <span ng-if="peripheral.disabled" style="vertical-align: middle; background: none;">
+            {{peripheral.active_mode}}
+        </span>
+        <span class="glyphicon glyphicon-alert" ng-hide="peripheral.valid" style="color: {{(peripheral.severity == ERROR ? 'red' : (peripheral.severity == WARNING ? 'orange' : 'lightblue'))}}"></span>
+    </div>
+</div>

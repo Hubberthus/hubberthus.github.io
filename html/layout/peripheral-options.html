@@ -1,0 +1,30 @@
+<div ng-if="(peripheral.active_mode != 'OFF') && (peripheral.options)" class="panel panel-default">
+	<div class="panel-body">
+		<div ng-repeat="option in peripheral.options" ng-if="option.active" style="background: {{($even ? 'white' : 'lightgrey')}};">
+			<span class="pin-name">
+				{{option.name}}
+			</span>
+			<span ng-if="option.type == 'boolean'" class="pin-selector">
+				<button ng-click="option.value = ! option.value; updatePeripherals();" class="btn label {{(option.value ? 'label-success' : 'label-default')}}">
+					{{(option.value == true ? "ON" : "OFF")}}
+				</button>
+			</span>
+			<span ng-if="option.type == 'integer'" class="pin-selector">
+				<input type="text" class="form-control" ng-change="updatePeripherals();" ng-model="option.value" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+			</span>
+			<div ng-if="option.type == 'selector'" class="pin-selector dropdown">
+                                        <button class="btn dropdown-toggle" style="padding: 0; background: none;" type="button" data-toggle="dropdown">
+                                            {{option.value}}
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" style="left: -100%;">
+                                            <li ng-repeat="choice in option.choices"><a href="#" ng-click="option.value = choice; updatePeripherals();">{{choice}}</a></li>
+                                        </ul>
+                                    </div>
+			<div ng-hide="option.valid" style="padding: 4px 12px; color: white; background-color: {{(option.severity == ERROR ? 'red' : (option.severity == WARNING ? 'orange' : 'lightblue'))}};">
+				<span class="glyphicon glyphicon-alert"></span>
+				<span>{{option.message}}</span>
+			</div>
+		</div>
+	</div>
+</div>
