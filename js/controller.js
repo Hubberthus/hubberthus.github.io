@@ -22,10 +22,23 @@ define([
         'app/generator',
         'jquery', 
         'bootstrap',
-        'highlight'], function(app, cores, modules, generator, $, bootstrap, hljs){
+        'highlight'], function(app, cores, modules, generator, $, bootstrap, hljs) {
 	
-	// Main controller function for the AngularJS application
-	app.controller('mcuSetupController',function($scope){
+	// Main controller function for the AngularJS application	
+	app.controller('mcuSetupController',function($scope, $location) {
+		
+		// Set active page according to URL
+		$scope.$on("$locationChangeStart",function(event, next, current) {
+			if ($location.path() == "/about") {
+				$scope.active_page = 'about';
+			} else if ($location.path()  == "/usage") {
+				$scope.active_page = 'usage';
+			} else {
+				$scope.active_page = 'layout';
+			}
+		});
+		
+		$scope.active_page = 'layout';
 		
 		// Disable asyncron AJAX calls so everything can be loaded in order 
 		$.ajaxSetup({
@@ -338,6 +351,36 @@ define([
 	        return val != null ? '' + val : null;
 	      });
 	    }
+	  };
+	})
+	.directive('main', function() {
+	  return {
+		  templateUrl: 'html/main.html'
+	  };
+	})
+	.directive('topNavbar', function() {
+	  return {
+		  templateUrl: 'html/top-navbar.html'
+	  };
+	})
+	.directive('bottomNavbar', function() {
+	  return {
+		  templateUrl: 'html/bottom-navbar.html'
+	  };
+	})
+	.directive('about', function() {
+	  return {
+		  templateUrl: 'html/about.html'
+	  };
+	})
+	.directive('usage', function() {
+	  return {
+		  templateUrl: 'html/usage.html'
+	  };
+	})
+	.directive('layout', function() {
+	  return {
+		  templateUrl: 'html/layout/layout.html'
 	  };
 	});
 });

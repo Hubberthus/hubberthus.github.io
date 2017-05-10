@@ -31,8 +31,8 @@ requirejs.config({
     	'FileSaver': 'FileSaver.min',
     	'handlebars': 'handlebars-v4.0.5',
     	'highlight': 'highlight.pack',
-    	'ngSanitize': 'angular-sanitize',
-    	'app': '../app'
+    	'ngSanitize': 'angular-sanitize.min',
+    	'app': '../js'
     },
     
     shim: {
