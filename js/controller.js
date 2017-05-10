@@ -51,7 +51,6 @@ define([
 		$scope.WARNING = WARNING;
 		$scope.ERROR   = ERROR;
 		
-		$scope.height = $(window).height() - 150; // Needed for scroll panel height 
 		$scope.selected_pin = null;               // Used for pin info popup
 		
 		// Load the list of modules. The loading screen is displayed until this completes
