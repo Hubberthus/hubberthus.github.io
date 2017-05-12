@@ -1,0 +1,8 @@
+{
+  "owner": "Arduino AG",
+  "link": "https://www.arduino.cc/",
+  "flavors": {
+  	"Arduino": ["main.ino", "mps.h"],
+  	"Arduino_FreeRTOS": ["main.cpp", "mps.h"]
+  }
+}

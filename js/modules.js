@@ -25,12 +25,14 @@ define(function (require) {
 		
 		module.pin_map = new Array(module.pins.length);
 		
-		module.pins.forEach(function( pin ) {
+		for(var name in module.pins) {
 
-			if (pin.number) {
-				module.pin_map[pin.number] = pin.name;
+			var number = module.pins[name].number;
+			
+			if (number) {
+				module.pin_map[number] = name;
 			}
-		});
+		}
 	}
 	
     return {

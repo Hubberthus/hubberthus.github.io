@@ -4,12 +4,12 @@
 	<span class="icon-bar"></span>
 	<span class="icon-bar"></span>
 </button>
-<a href="/"><img class="btn navbar-brand" style="padding: 2px;" src="logo.png"></img></a>
+<a href="#/"><img class="btn navbar-brand" style="padding: 2px;" src="logo.png"></img></a>
 
 <div class="collapse navbar-collapse" id="collapse-navbar">
 	<ul class="nav navbar-nav">
-		<li ng-if="active_page == 'layout'" class="dropdown">
-			<a href="#" ng-click="selectModule(null);" class="navbar-button" role="button">Module: {{active_module.name}} - (Click to select other)</a>
+		<li ng-if="active_page == 'layout'" class="navbar-link">
+			<a href="#/" ng-click="selectModule(null);">Module: {{active_module.name}} - (Click to select other)</a>
 			<!-- TODO: Dropdown changed to selection view -- a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Module: {{active_module.name}}<span class="caret"></span></a>
 			<ul class="dropdown-menu">
 				<li ng-repeat="module in modules"><a ng-click="selectModule(module);" href="#">{{module.name}}</a></li>

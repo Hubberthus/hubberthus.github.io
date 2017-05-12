@@ -1,9 +1,9 @@
 <div ng-repeat="module in modules">
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
-		<a href="#" class="thumbnail" ng-click="selectModule(module);">
-			<img src="{{module.image}}" alt="MCU: {{module.core}}"></img>
-			<div class="caption" style="text-align: center;">
-				<p>{{module.name}}</p>
+		<a href="#/layout" class="thumbnail" ng-click="selectModule(module);">
+			<img src="{{module.image}}" alt="{{module.name}}" style="height: 25vh;"></img>
+			<div class="caption" style="text-align: center; height: 5vh;">
+				<p style="font-family: monospace; font-size: {{15.0 / module.name.length}}em;">{{module.name}}</p>
 			</div>
 		</a>
 		<div class="clearfix visible-lg" ng-if="($index + 1) % 6 == 0"></div>

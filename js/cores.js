@@ -97,7 +97,7 @@ define(function (require) {
 	
     return {
     	// Returns an initialized core dictionary for the given name
-    	loadCore: function ( name ) {
+    	loadCore: function ( name, package ) {
     		
     		core = {};
     		
@@ -109,7 +109,7 @@ define(function (require) {
     		
     		core.active_flavor = null;
 			
-			$.getJSON("cores/" + name + "/pinout.json")
+			$.getJSON("cores/" + name + "/" + package + ".json")
 			.done(function( pinout ) {
 				
 				core.pinout = pinout;

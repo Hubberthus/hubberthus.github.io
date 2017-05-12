@@ -1,4 +1,4 @@
-<div ng-repeat="pin in active_module.pins" class="label-pin-{{pin.side}}" style="top: {{pin.position[1]}}%; left: {{pin.position[0]}}%;">
+<!-- div ng-repeat="pin in active_module.pins" class="label-pin-{{pin.side}}" style="top: {{pin.position[1]}}%; left: {{pin.position[0]}}%;">
 
 	<button ng-if="pin.side == 'right'" ng-click="selectPin(pin);" class="badge btn" style="font-size: 1vw; background-color: {{pin.color}};">
 		{{pin.name}}
@@ -15,5 +15,13 @@
 	<div ng-if="pin.side == 'left'" ng-click="selectPin(pin);" class="badge btn" style="font-size: 1vw; background-color: {{pin.color}};">
 			{{pin.name}}
 		</div>
+	</div>
+</div -->
+
+<div ng-repeat="array in active_module.arrays" style="text-align: {{(array.side == 'right' ? 'left' : 'right')}}; left: {{array.position.x}}%; top: {{array.position.y}}%; position: absolute;">
+	<div ng-repeat="pin in array.pins" style="position: relative; top: {{$index * array.distance}}vh; left: {{(array.side == 'right' ? '0' : '-100%')}};">
+		<span class="label" style="font-size: 1vw; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}};">
+			{{pin}}
+		</span>
 	</div>
 </div>

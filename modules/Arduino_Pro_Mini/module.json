@@ -2,7 +2,10 @@
 "name": "Arduino Pro Mini",
 "owner": "Arduino AG",
 "link": "https://www.arduino.cc/",
-"core": "ATmega328_MLF32",
+"core": {
+	"name": "ATmega328",
+	"package": "MLF32"
+},
 "width": 25,
 "peripherals": {
 	"GPIO": {
@@ -31,207 +34,151 @@
 		"description": "Routed out also at the top (according to the image) for easy connection to an FTDI module."
 	}
 },
-"pins": [
+"arrays": [
 	{
-	"name": "BLK",
+	"position": {
+		"x": 10,
+		"y": 11
+		},
+	"distance": 5.8,
+	"orientation": "vertical",
+	"side": "left",
+	"pins": ["TXO", "RXI", "RST", "GND", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9"]
+	},
+	{
+	"position": {
+		"x": 90,
+		"y": 11
+		},
+	"distance": 6.2,
+	"orientation": "vertical",
+	"side": "right",
+	"pins": ["RAW", "GND", "RST", "VCC", "A3", "A2", "A1", "A0", "D13", "D12", "D11", "D10"]
+	},
+	{
+	"position": {
+		"x": 70,
+		"y": 36
+		},
+	"distance": 5.8,
+	"orientation": "vertical",
+	"side": "left",
+	"pins": ["A5", "A4"]
+	},
+	{
+	"position": {
+		"x": 70,
+		"y": 65
+		},
+	"distance": 5.8,
+	"orientation": "vertical",
+	"side": "left",
+	"pins": ["A7", "A6"]
+	}
+],
+"pins": {
+	"BLK": {
 	"number": 33,
-	"color": "black",
-	"position": 5,
-	"side": "left"
+	"color": "black"
 	},
-	{
-	"name": "TXO",
-	"number": 31,
-	"position": 13,
-	"side": "left"
+	"TXO": {
+	"number": 31
 	},
-	{
+	"RXI": {
 	"name": "RXI",
-	"number": 30,
-	"position": 20,
-	"side": "left"
+	"number": 30
 	},
-	{
-	"name": "RST",
+	"RST": {
 	"description": "Connected to on-board switch, pulled up with a 10k resistor, and connected to GRN output through a capacitor.",
 	"number": 29,
-	"color": "orange",
-	"position": 27,
-	"side": "left"
+	"color": "orange"
 	},
-	{
-	"name": "GND",
+	"GND": {
 	"number": 33,
-	"color": "black",
-	"position": 34,
-	"side": "left"
+	"color": "black"
 	},
-	{
-	"name": "2",
-	"number": 32,
-	"position": 41,
-	"side": "left"
+	"D2": {
+	"number": 32
 	},
-	{
-	"name": "3",
-	"number": 1,
-	"position": 48,
-	"side": "left"
+	"D3": {
+	"number": 1
 	},
-	{
-	"name": "4",
-	"number": 2,
-	"position": 55,
-	"side": "left"
+	"D4": {
+	"number": 2
 	},
-	{
-	"name": "5",
-	"number": 9,
-	"position": 62,
-	"side": "left"
+	"D5": {
+	"number": 9
 	},
-	{
-	"name": "6",
-	"number": 10,
-	"position": 69,
-	"side": "left"
+	"D6": {
+	"number": 10
 	},
-	{
-	"name": "7",
-	"number": 11,
-	"position": 76,
-	"side": "left"
+	"D7": {
+	"number": 11
 	},
-	{
-	"name": "8",
-	"number": 12,
-	"position": 83,
-	"side": "left"
+	"D8": {
+	"number": 12
 	},
-	{
-	"name": "9",
-	"number": 13,
-	"position": 90,
-	"side": "left"
+	"D9": {
+	"number": 13
 	},
-	{
-	"name": "10",
-	"number": 14,
-	"position": 90,
-	"side": "right"
+	"D10": {
+	"number": 14
 	},
-	{
-	"name": "11",
-	"number": 15,
-	"position": 83,
-	"side": "right"
+	"D11": {
+	"number": 15
 	},
-	{
-	"name": "12",
-	"number": 16,
-	"position": 76,
-	"side": "right"
+	"D12": {
+	"number": 16
 	},
-	{
-	"name": "A6",
+	"A6": {
 	"description": "Routed out to off-grid breakout header.",
-	"number": 19,
-	"color": "lightgrey",
-	"position": 72.5,
-	"side": "right"
+	"number": 19
 	},
-	{
-	"name": "13",
+	"D13": {
 	"description": "Connected to on-board LED.",
-	"number": 17,
-	"position": 69,
-	"side": "right"
+	"number": 17
 	},
-	{
-	"name": "A7",
+	"A7": {
 	"description": "Routed out to off-grid breakout header.",
-	"number": 22,
-	"color": "lightgrey",
-	"position": 65.5,
-	"side": "right"
+	"number": 22
 	},
-	{
+	"A0": {
 	"name": "A0",
-	"number": 23,
-	"position": 62,
-	"side": "right"
+	"number": 23
 	},
-	{
+	"A1": {
 	"name": "A1",
-	"number": 24,
-	"position": 55,
-	"side": "right"
+	"number": 24
 	},
-	{
+	"A2": {
 	"name": "A2",
-	"number": 25,
-	"position": 48,
-	"side": "right"
+	"number": 25
 	},
-	{
-	"name": "A4",
+	"A4": {
 	"description": "Routed out to off-grid breakout header.",
-	"number": 27,
-	"color": "lightgrey",
-	"position": 44.5,
-	"side": "right"
+	"number": 27
 	},
-	{
+	"A3": {
 	"name": "A3",
-	"number": 26,
-	"position": 41,
-	"side": "right"
+	"number": 26
 	},
-	{
-	"name": "A5",
+	"A5": {
 	"description": "Routed out to off-grid breakout header.",
-	"number": 28,
-	"color": "lightgrey",
-	"position": 37.5,
-	"side": "right"
+	"number": 28
 	},
-	{
-	"name": "VCC",
+	"VCC": {
 	"description": "Connected to on-board voltage regulator. If input voltage comes from RAW pin, then this is a regulated source. Otherwise this is the 3V3/5V input voltage.",
 	"number": 4,
-	"color": "red",
-	"position": 34,
-	"side": "right"
+	"color": "red"
 	},
-	{
-	"name": "RST",
-	"description": "Connected to on-board switch, pulled up with a 10k resistor, and connected to GRN output through a capacitor.",
-	"number": 29,
-	"color": "orange",
-	"position": 27,
-	"side": "right"
-	},
-	{
-	"name": "GND",
-	"number": 33,
-	"color": "black",
-	"position": 20,
-	"side": "right"
-	},
-	{
-	"name": "RAW",
+	"RAW": {
 	"description": "Raw power input directed to on-board voltage regulator.",
-	"color": "red",
-	"position": 13,
-	"side": "right"
+	"color": "red"
 	},
-	{
-	"name": "GRN",
+	"GRN": {
 	"description": "Connected to RST through a capacitor.",
 	"number": 29,
-	"color": "orange",
-	"position": 5,
-	"side": "right"
+	"color": "orange"
 	}
-]
+}
 }
