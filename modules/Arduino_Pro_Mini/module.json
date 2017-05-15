@@ -38,39 +38,39 @@
 	{
 	"position": {
 		"x": 10,
-		"y": 11
+		"y": 13
 		},
-	"distance": 5.8,
+	"distance": 7.1,
 	"orientation": "vertical",
 	"side": "left",
 	"pins": ["TXO", "RXI", "RST", "GND", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9"]
 	},
 	{
 	"position": {
-		"x": 90,
-		"y": 11
+		"x": 89,
+		"y": 13
 		},
-	"distance": 6.2,
+	"distance": 7.1,
 	"orientation": "vertical",
 	"side": "right",
 	"pins": ["RAW", "GND", "RST", "VCC", "A3", "A2", "A1", "A0", "D13", "D12", "D11", "D10"]
 	},
 	{
 	"position": {
-		"x": 70,
-		"y": 36
+		"x": 73,
+		"y": 37.5
 		},
-	"distance": 5.8,
+	"distance": 7.1,
 	"orientation": "vertical",
 	"side": "left",
 	"pins": ["A5", "A4"]
 	},
 	{
 	"position": {
-		"x": 70,
-		"y": 65
+		"x": 73,
+		"y": 66.5
 		},
-	"distance": 5.8,
+	"distance": 7.1,
 	"orientation": "vertical",
 	"side": "left",
 	"pins": ["A7", "A6"]
