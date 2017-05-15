@@ -1,6 +1,6 @@
 <div ng-repeat="array in active_module.arrays" style="text-align: {{(array.side == 'right' ? 'left' : 'right')}}; left: {{array.position.x}}%; top: {{array.position.y}}%;">
-	<div ng-repeat="pin in array.pins" style="position: absolute; top: {{array.position.y + ($index * array.distance)}}%; left: {{array.position.x}}%; float: left;">
-		<div class="label" style="position: relative; left: {{(array.side == 'right' ? '0%' : '-100%')}}; font-size: 1vw; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}};">
+	<div ng-repeat="pin in array.pins" style="position: absolute; top: {{array.position.y + ($index * array.pitch)}}%; left: {{array.position.x}}%; float: left;">
+		<div class="label" ng-click="setActiveArrayAndPin(array, pin);" style="cursor: pointer; position: relative; left: {{(array.side == 'right' ? '0%' : '-100%')}}; font-size: 1vw; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; color: {{(active_array == array ? 'white' : 'lightgrey')}};">
 			{{pin}}
 		</div>
 	</div>

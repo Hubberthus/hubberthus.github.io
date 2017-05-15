@@ -1,5 +1,30 @@
-<div ng-controller="mcuSetupEditorController" class="col-sm-12">
-	<div style="display: flex; justify-content: center;">
+<div ng-controller="mcuSetupEditorController">
+	<div class="col-sm-3 panel-group pre-scrollable" style="overflow-y: auto; overflow-x: hidden; max-height: 80vh;">
+		<div class="row panel">
+			<div>
+				<span class="col-sm-3">
+					Name
+				</span>
+				<span class="col-sm-7">
+					<input type="text" class="form-control" ng-model="active_module.name" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+				</span>
+			</div>
+			<div>
+				<span class="col-sm-3">
+					Owner
+				</span>
+				<span class="col-sm-7">
+					<input type="text" class="form-control" ng-model="active_module.owner" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+				</span>
+			</div>
+		</div>
+		
+		<editor-options-array></editor-options-array>
+			
+		<editor-options-pin></editor-options-pin>
+	</div>
+
+	<div class="col-sm-7" style="display: flex; justify-content: center;">
 		<div style="position: relative; display: inline-block;">
 			
 			<img src="{{active_module.image}}" class="module-imsage" style="height: 80vh;"></img>

@@ -27,10 +27,55 @@ define([
 	app.controller('mcuSetupEditorController',function($scope) {
 		
 		$scope.active_module = $scope.modules[0];
+		
+		$scope.setActiveArrayAndPin = function( array, pin ) {
+			
+			$scope.active_array = array;
+			$scope.active_pin = pin;
+		}
+		
+		$scope.moveArrayPositionX = function( value ) {
+			
+			$scope.active_array.position.x += value;
+			
+			if ($scope.active_array.position.x < 0) {$scope.active_array.position.x = 0;}
+			if ($scope.active_array.position.x > 100) {$scope.active_array.position.x = 100;}
+		}
+		
+		$scope.moveArrayPositionY = function( value ) {
+			
+			$scope.active_array.position.y += value;
+			
+			if ($scope.active_array.position.y < 0) {$scope.active_array.position.y = 0;}
+			if ($scope.active_array.position.y > 100) {$scope.active_array.position.y = 100;}
+		}
+		
+		$scope.moveArrayPitch = function( value ) {
+			
+			$scope.active_array.pitch += value;
+			
+			if ($scope.active_array.pitch < 0) {$scope.active_array.pitch = 0;}
+			if ($scope.active_array.pitch > 100) {$scope.active_array.pitch = 100;}
+		}
+		
+		$scope.setArraySide = function( value ) {
+			
+			$scope.active_array.side = value;
+		}
 	})
 	.directive('editorPins', function() {
 	  return {
 		  templateUrl: 'html/editor/pins.html'
+	  };
+	})
+	.directive('editorOptionsArray', function() {
+	  return {
+		  templateUrl: 'html/editor/options-array.html'
+	  };
+	})
+	.directive('editorOptionsPin', function() {
+	  return {
+		  templateUrl: 'html/editor/options-pin.html'
 	  };
 	});
 });

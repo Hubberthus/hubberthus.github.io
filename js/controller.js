@@ -29,7 +29,7 @@ define([
 		// Set active page according to URL
 		$scope.$on("$locationChangeStart",function(event, next, current) {
 
-			if ($location.protocol().startsWith("file")) {
+			if ($location.path() == "/editor") {
 				$scope.active_page = 'editor';
 			} else if ($location.path() == "/about") {
 				$scope.active_page = 'about';
