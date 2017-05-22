@@ -62,6 +62,15 @@ define([
 			
 			$scope.active_array.side = value;
 		}
+		
+		$scope.mouseX = -1;
+		$scope.mouseY = -1;
+		
+		$scope.mouseMove = function( event ) {
+			
+			$scope.mouseX = event.offsetX / document.getElementById('module-image').offsetWidth * 100 - 5;
+			$scope.mouseY = event.offsetY / document.getElementById('module-image').offsetHeight * 100 - 5;
+		}
 	})
 	.directive('editorPins', function() {
 	  return {

@@ -23,7 +23,7 @@
 	</ul>
 	<ul class="nav navbar-right">
 		<li style="display: inline-block;">
-			<a href="#/editor" class="btn btn-success" >Editor Mode</a>
+			<a href="#/{{(active_page == 'editor' ? '' : 'editor')}}" style="color: green;" >{{(active_page == 'editor' ? 'Normal Mode' : 'Editor Mode')}}</a>
 		</li>
 		<li style="display: inline-block;">
 			<a href="#/usage" class="navbar-link">Usage</a>
