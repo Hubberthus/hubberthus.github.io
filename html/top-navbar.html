@@ -7,8 +7,9 @@
 <a href="#/"><img class="btn navbar-brand" style="padding: 2px;" src="logo.png"></img></a>
 
 <div class="collapse navbar-collapse" id="collapse-navbar">
+	
 	<ul class="nav navbar-nav">
-		<li ng-if="active_page == 'layout'" class="navbar-link">
+		<li class="navbar-link" ng-if="active_page == 'layout'">
 			<a href="#/" ng-click="selectModule(null);">Module: {{active_module.name}} - (Click to select other)</a>
 		</li>
 		<!-- TODO: Automatic code generation temorarly removed -- li class="dropdown">
@@ -21,6 +22,7 @@
 			<button ng-click="downloadCode()">Download "mps.zip"</button>
 		</li -->
 	</ul>
+	
 	<ul class="nav navbar-right">
 		<li style="display: inline-block;">
 			<a href="#/{{(active_page == 'editor' ? '' : 'editor')}}" style="color: green;" >{{(active_page == 'editor' ? 'Normal Mode' : 'Editor Mode')}}</a>
