@@ -59,8 +59,14 @@
 				Pins
 			</label>
 			<div ng-repeat="pin in active_array.pins">
-				<div class="input-group">
-					<input type="text" class="form-control" ng-model="pin">
+				<div class="dropdown">
+					<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
+						{{pin}}
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li ng-repeat="(name, value) in active_module.pins"><button ng-click="pin = name;">{{name}}</button></li>
+					</ul>
 				</div>
 			</div>
 		</div>
