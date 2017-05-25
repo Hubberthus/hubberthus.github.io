@@ -21,7 +21,8 @@ define([
         'app/modules',
         'app/generator',
         'jquery', 
-        'highlight'], function(app, cores, modules, generator, $, hljs) {
+        'highlight',
+        'bootstrap'], function(app, cores, modules, generator, $, hljs, bootstrap) {
 	
 	// Main controller function for the AngularJS application	
 	app.controller('mcuSetupController',function($scope, $location) {

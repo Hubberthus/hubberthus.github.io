@@ -97,6 +97,11 @@ define([
 			$scope.active_array.side = value;
 		}
 		
+		$scope.setPinInArray = function( index, name ) {
+			
+			$scope.active_array.pins[index] = name;
+		}
+		
 		$scope.mouseDown = function( event ) {
 			
 			if (event.buttons == 1) {

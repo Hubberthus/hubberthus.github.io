@@ -58,14 +58,14 @@
 			<label>
 				Pins
 			</label>
-			<div ng-repeat="pin in active_array.pins">
+			<div ng-repeat="pin in active_array.pins" ng-init="pinIndex = $index">
 				<div class="dropdown">
 					<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
 						{{pin}}
 						<span class="caret"></span>
 					</button>
-					<ul class="dropdown-menu">
-						<li ng-repeat="(name, value) in active_module.pins"><button ng-click="pin = name;">{{name}}</button></li>
+					<ul class="dropdown-menu" >
+						<li ng-repeat="(name, value) in active_module.pins"><button ng-click="setPinInArray(pinIndex, name)">{{name}}</button></li>
 					</ul>
 				</div>
 			</div>
