@@ -2,7 +2,7 @@
 
 	<div ng-mousedown="mouseDown($event); setActiveArrayAndPin(array, null);" ng-mousemove="mouseMove($event, array);" style="cursor: pointer; position: absolute; top: {{array.position.y - 5}}%; left: {{array.position.x - 5}}%; width: 10%; height: {{(array.pins.length * array.pitch + 5)}}%; float: left; border: 2px solid black; border-radius: 10px; {{(active_array == array ? 'background: #fff; opacity: 0.8;' : 'background: #fff; opacity: 0.5;')}};"></div>
 	
-	<div ng-repeat="pin in array.pins" style="position: absolute; top: {{array.position.y + ($index * array.pitch)}}%; left: {{array.position.x}}%; float: left;">
+	<div ng-repeat="pin in array.pins track by $index" style="position: absolute; top: {{array.position.y + ($index * array.pitch)}}%; left: {{array.position.x}}%; float: left;">
 		<div class="label" ng-click="setActiveArrayAndPin(array, pin);" style="cursor: pointer; position: relative; left: {{(array.side == 'right' ? '0%' : '-100%')}}; font-size: 1vw; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; border: {{(active_pin == pin ? '2px black solid' : '0')}};">
 			{{pin}}
 		</div>

@@ -2,7 +2,7 @@
 	<div class="row panel">
 		<div class="col-sm-12">
 			<label>
-				Position.x (%)
+				Position.x (% of module image width)
 			</label>
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPositionX(-0.1);">&lt;</span>
@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-sm-12">
 			<label>
-				Position.y (%)
+				Position.y (% of module image height)
 			</label>
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPositionY(-0.1);">&lt;</span>
@@ -26,7 +26,7 @@
 		</div>
 		<div class="col-sm-12">
 			<label>
-				Pitch (%)
+				Pitch (% of module image {{(active_array.orientation == 'vertical' ? 'height' : 'width')}})
 			</label>
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(-0.1);">&lt;</span>
@@ -55,16 +55,19 @@
 			</div>
 		</div>
 		<div class="col-sm-12">
-			<label>
-				Pins
-			</label>
-			<div ng-repeat="pin in active_array.pins" ng-init="pinIndex = $index">
+			<div>
+				<label>
+					Pins
+				</label>
+			</div>
+			<div ng-repeat="pin in active_array.pins.concat('+') track by $index" ng-init="pinIndex = $index" class="btn" style="display: inline-block;">
 				<div class="dropdown">
 					<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
-						{{pin}}
+						{{($index + 1)}}: {{pin}}
 						<span class="caret"></span>
 					</button>
-					<ul class="dropdown-menu" >
+					<ul class="dropdown-menu">
+						<li ng-if="pin != '+'"><button ng-click="setPinInArray(pinIndex, null)">REMOVE!</button></li>
 						<li ng-repeat="(name, value) in active_module.pins"><button ng-click="setPinInArray(pinIndex, name)">{{name}}</button></li>
 					</ul>
 				</div>

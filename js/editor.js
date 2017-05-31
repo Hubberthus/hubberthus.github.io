@@ -99,7 +99,11 @@ define([
 		
 		$scope.setPinInArray = function( index, name ) {
 			
-			$scope.active_array.pins[index] = name;
+			if (name) {
+				$scope.active_array.pins[index] = name;
+			} else {
+				$scope.active_array.pins.splice(index, 1);
+			}
 		}
 		
 		$scope.mouseDown = function( event ) {
