@@ -18,12 +18,15 @@
 		</pre>
 	</div -->
 	
-	<div ng-if="! active_file" style="position: relative;">
+	<div ng-if="! active_file" style="display: flex; justify-content: center;">
+		<div style="position: relative; display: inline-block;">
 	
-		<div layout-info-popup></div>
-		
-		<img src="{{active_module.image}}" class="module-image" style="height: 80vh;"></img>
-		
-		<div layout-pins></div>
+			<img id="module-image" src="{{active_module.image}}" style="height: 80vh;"></img>
+			
+			<layout-pins></layout-pins>
+			
+			<div layout-info-popup></div>
+			
+		</div>
 	</div>
 </div>

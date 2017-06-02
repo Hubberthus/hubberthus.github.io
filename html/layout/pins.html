@@ -1,19 +1,22 @@
-<div ng-repeat="pin in active_module.pins" class="label-pin-{{pin.side}}" style="top: {{pin.position[1]}}%; left: {{pin.position[0]}}%;">
-
-	<button ng-if="pin.side == 'right'" ng-click="selectPin(pin);" class="badge btn" style="font-size: 1vw; background-color: {{pin.color}};">
-		{{pin.name}}
-	</button>
-	
-	<div ng-if="pin.number != null" ng-repeat="(name, peripheral) in core.peripherals" style="display:inline-block;">
-		<div ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]">
-			<span ng-if="(peripheral.active_pins[peripinname] == pin.number) && (peripheral.active_mode != 'OFF')" class="label" style="font-size: 1vw; background: {{peripheral.color}};">
-				{{peripinname}}
-			</span>
-		</div>
-	</div>
-	
-	<div ng-if="pin.side == 'left'" ng-click="selectPin(pin);" class="badge btn" style="font-size: 1vw; background-color: {{pin.color}};">
-			{{pin.name}}
+<div ng-repeat="array in active_module.arrays" style="text-align: {{(array.side == 'right' ? 'left' : 'right')}}; left: {{array.position.x}}%; top: {{array.position.y}}%;">
+	<div ng-repeat="pin in array.pins track by $index" style="position: absolute; top: {{array.position.y + ($index * array.pitch)}}%; left: {{array.position.x}}%;">
+		<div style="position: relative; left: {{(array.side == 'right' ? '0%' : '-100%')}}; font-size: 1vw;">
+			
+			<div ng-if="array.side == 'right'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
+				{{pin}}
+			</div>
+			
+			<div ng-if="active_module.pins[pin].number != null" ng-repeat="(name, peripheral) in core.peripherals" style="display:inline-block;">
+				<div ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]">
+					<span ng-if="(peripheral.active_pins[peripinname] == active_module.pins[pin].number) && (peripheral.active_mode != 'OFF')" class="label" style="background: {{peripheral.color}};">
+						{{peripinname}}
+					</span>
+				</div>
+			</div>
+			
+			<div ng-if="array.side == 'left'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
+				{{pin}}
+			</div>
 		</div>
 	</div>
 </div>
