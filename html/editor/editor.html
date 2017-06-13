@@ -1,37 +1,14 @@
 <div ng-controller="mcuSetupEditorController">
 	<div class="col-sm-3 panel-group pre-scrollable" style="overflow-y: auto; overflow-x: hidden; max-height: 80vh;">
-		<div class="row panel">
-			<div>
-				<span class="col-sm-3">
-					Name
-				</span>
-				<span class="col-sm-7">
-					<input type="text" class="form-control" ng-model="active_module.name" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
-				</span>
-			</div>
-			<div>
-				<span class="col-sm-3">
-					Owner
-				</span>
-				<span class="col-sm-7">
-					<input type="text" class="form-control" ng-model="active_module.owner" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
-				</span>
-			</div>
-		</div>
-		
-		<div style="padding: 5px; margin: 2px; border: 1px solid blue">
-		<div style="display: inline-block; float: right;">
-			<button class="btn btn-info" ng-click="newArray()" style="padding: 1px;">Add new</button>
-			<button class="btn btn-danger" ng-click="removeArray()" ng-disabled="! active_array" style="padding: 1px;">Remove</button>
-		</div>
-		<h4 style="display: inline;">Pin array options</h4>
-	</div>
-		
-		<editor-options-array></editor-options-array>
+		<div class="panel panel-info">
+			<div editor-options-general class="panel" style="margin: 0px;"></div>
 			
-		<editor-options-pin></editor-options-pin>
+			<div editor-options-pin class="panel" style="margin: 0px;"></div>
+			
+			<div editor-options-array class="panel" style="margin: 0px;"></div>
+		</div>
 	</div>
-
+	
 	<div class="col-sm-7" style="display: flex; justify-content: center;">
 		<div style="position: relative; display: inline-block;">
 			

@@ -1,5 +1,22 @@
-<div ng-if="active_array">
-	<div class="row panel">
+<div style="cursor: pointer; border: 1px solid #588; height: 30px; line-height: 29px; vertical-align:center;">
+	<div class="panel-title" ng-init="isArrayCollapsed = true" ng-click="isArrayCollapsed = !isArrayCollapsed" data-toggle="collapse" href="#collapseArray">
+		<span style="text-align: center; background-color: #588; display: inline-block; width:2.3em; ">
+			<span class="glyphicon glyphicon-{{isArrayCollapsed ? 'plus' : 'minus'}}" style="color: white;"></span>
+		</span>
+		<span style="color: #588;">
+			Pin arrays
+		</span>
+	</div>
+</div>
+
+<div style="margin-left: 2em; padding:3px;" class="panel-collapse collapse" id="collapseArray">
+	<div class="col-sm-12">
+		<div class="input-group">
+			<span class="input-group-addon btn btn-info" ng-click="newArray()">Add new</span>
+			<span class="input-group-addon btn btn-danger" ng-click="removeArray()" ng-disabled="! active_array">Remove selected</span>
+		</div>
+	</div>
+	<div ng-if="active_array" class="row panel">
 		<div class="col-sm-12">
 			<label>
 				Position.x (% of module image width)

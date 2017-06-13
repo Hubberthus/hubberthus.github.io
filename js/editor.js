@@ -32,6 +32,7 @@ define([
 		$scope.mouseOffsetY = -1;
 		
 		$scope.active_module = $scope.modules[0];
+		$scope.core = cores.loadCore($scope.active_module.core.name, $scope.active_module.core.package);
 		
 		if ($scope.active_module.arrays && $scope.active_module.arrays.length > 0) {
 			$scope.active_array = $scope.active_module.arrays[0];
@@ -56,6 +57,10 @@ define([
 		
 		$scope.removeArray = function() {
 			
+			if (! $scope.active_array) {
+				return;
+			}
+			
 			var i = $scope.active_module.arrays.indexOf($scope.active_array);
 			$scope.active_module.arrays.splice(i, 1);
 			$scope.active_array = null;
@@ -66,6 +71,19 @@ define([
 			
 			$scope.active_array = array;
 			$scope.active_pin = pin;
+		}
+		
+		$scope.setPinNumber = function( value ) {
+			
+			if (! $scope.active_pin) {
+				return;
+			}
+			
+			for (pin in $scope.core.pinout) {
+				if (value == $scope.core.pinout[pin].number) {
+					$scope.active_module.pins[$scope.active_pin].number = value;
+				}
+			}
 		}
 		
 		$scope.moveArrayPositionX = function( value ) {
@@ -130,6 +148,11 @@ define([
 	.directive('editorPins', function() {
 	  return {
 		  templateUrl: 'html/editor/pins.html'
+	  };
+	})
+	.directive('editorOptionsGeneral', function() {
+	  return {
+		  templateUrl: 'html/editor/options-general.html'
 	  };
 	})
 	.directive('editorOptionsArray', function() {

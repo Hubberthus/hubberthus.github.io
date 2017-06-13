@@ -85,7 +85,6 @@
 	"number": 31
 	},
 	"RXI": {
-	"name": "RXI",
 	"number": 30
 	},
 	"RST": {
@@ -143,15 +142,12 @@
 	"number": 22
 	},
 	"A0": {
-	"name": "A0",
 	"number": 23
 	},
 	"A1": {
-	"name": "A1",
 	"number": 24
 	},
 	"A2": {
-	"name": "A2",
 	"number": 25
 	},
 	"A4": {
