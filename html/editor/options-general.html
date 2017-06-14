@@ -10,9 +10,8 @@
 </div>
 
 <div style="margin-left: 2em; padding:3px;" class="panel-collapse collapse" id="collapseGeneral">
-
-	<div class="row panel">
-		<div>
+	<div class="panel">
+		<div class="row">
 			<span class="col-sm-3">
 				Name
 			</span>
@@ -20,12 +19,48 @@
 				<input type="text" class="form-control" ng-model="active_module.name" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
 			</span>
 		</div>
-		<div>
+		<div class="row">
 			<span class="col-sm-3">
 				Owner
 			</span>
 			<span class="col-sm-7">
 				<input type="text" class="form-control" ng-model="active_module.owner" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-3">
+				Link
+			</span>
+			<span class="col-sm-7">
+				<input type="text" class="form-control" ng-model="active_module.link" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-5">
+				Core MCU
+			</span>
+			<span class="col-sm-5 dropdown">
+				<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
+					{{active_module.core.name}}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li ng-repeat="(name, packages) in cores"><button ng-click="">{{name}}</button></li>
+				</ul>
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-5">
+				MCU package
+			</span>
+			<span class="col-sm-5 dropdown">
+				<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
+					{{active_module.core.package}}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li ng-repeat="package in cores[active_module.core.name].packages"><button ng-click="">{{package}}</button></li>
+				</ul>
 			</span>
 		</div>
 	</div>

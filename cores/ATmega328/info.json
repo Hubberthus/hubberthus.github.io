@@ -1,6 +1,7 @@
 {
   "owner": "Arduino AG",
   "link": "https://www.arduino.cc/",
+  "packages": ["MLF32"],
   "flavors": {
   	"Arduino": ["main.ino", "mps.h"],
   	"Arduino_FreeRTOS": ["main.cpp", "mps.h"]

@@ -33,6 +33,7 @@ define([
 		
 		$scope.active_module = $scope.modules[0];
 		$scope.core = cores.loadCore($scope.active_module.core.name, $scope.active_module.core.package);
+		$scope.cores = cores.getCores();
 		
 		if ($scope.active_module.arrays && $scope.active_module.arrays.length > 0) {
 			$scope.active_array = $scope.active_module.arrays[0];

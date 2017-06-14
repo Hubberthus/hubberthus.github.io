@@ -10,46 +10,48 @@
 </div>
 
 <div style="margin-left: 2em; padding:3px;" class="panel-collapse collapse" id="collapsePin">
-	<div class="col-sm-12">
-		<label>
-			Selected pin
-		</label>
-		<div class="dropdown">
-			<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
-				{{(active_pin ? active_pin : "---")}}
-				<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu">
-				<li ng-repeat="(name, value) in active_module.pins"><button ng-click="setActiveArrayAndPin(active_array, name)">{{name}}</button></li>
-			</ul>
+	<div class="panel">
+		<div class="row">
+			<span class="col-sm-5">
+				Selected
+			</span>
+			<span class="col-sm-5 dropdown">
+				<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
+					{{(active_pin ? active_pin : "---")}}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li ng-repeat="(name, value) in active_module.pins"><button ng-click="setActiveArrayAndPin(active_array, name)">{{name}}</button></li>
+				</ul>
+			</span>
 		</div>
 	</div>
-	<div ng-if="active_pin" class="row panel">
-		<div class="col-sm-12">
-			<label>
+	<div ng-if="active_pin" class="panel">
+		<div class="row">
+			<span class="col-sm-5">
 				Pin number on MCU
-			</label>
-			<div class="input-group">
+			</span>
+			<span class="col-sm-5 input-group">
 				<span class="input-group-addon btn" ng-click="setPinNumber(active_module.pins[active_pin].number - 1)">&lt;</span>
 				<input type="text" class="form-control" ng-model="active_module.pins[active_pin].number" convert-to-number>
 				<span class="input-group-addon btn" ng-click="setPinNumber(active_module.pins[active_pin].number + 1)">&gt;</span>
-			</div>
+			</span>
 		</div>
-		<div class="col-sm-12">
-			<label>
-				Custom color (leave empty for none)
-			</label>
-			<div class="input-group">
+		<div class="row">
+			<span class="col-sm-5">
+				Custom color
+			</span>
+			<span class="col-sm-5">
 				<input type="text" class="form-control" ng-model="active_module.pins[active_pin].color">
-			</div>
+			</span>
 		</div>
-		<div class="col-sm-12">
-			<label>
-				Description (board-related info)
-			</label>
-			<div class="input-group">
+		<div class="row">
+			<span class="col-sm-5">
+				Description
+			</span>
+			<span class="col-sm-5">
 				<input type="text" class="form-control" ng-model="active_module.pins[active_pin].description">
-			</div>
+			</span>
 		</div>
 	</div>
 </div>

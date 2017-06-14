@@ -17,6 +17,9 @@
 
 define(function (require) {
 
+	// List of the selectable cores. If a new one is added, it must be in this list
+	var core_names = ["ATmega328"];
+
 	// Generate default modes "ON" and "OFF" if needed,
 	// and set the default pins for every mode on every peripheral
 	setupDefaultPeripheralModes = function ( core ) {
@@ -96,6 +99,22 @@ define(function (require) {
 	}
 	
     return {
+		// Returns a dictionarz containing every core with package list
+    	getCores: function () {
+    		
+    		cores = {};
+
+    		core_names.forEach(function( name ) {
+
+				$.getJSON("cores/" + name + "/info.json")
+				.done(function( info ) {
+					
+					cores[name] = {packages: info.packages};
+				});
+			});
+    		
+    		return cores;
+        },
     	// Returns an initialized core dictionary for the given name
     	loadCore: function ( name, package ) {
     		
