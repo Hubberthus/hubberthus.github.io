@@ -254,13 +254,5 @@
     "pwm": false,
     "input": true,
     "output": true
-  },
-  {
-    "number": 33,
-    "name": "GND",
-    "description": "Bottom ground pad",
-    "pwm": false,
-    "input": false,
-    "output": false
   }
 ]

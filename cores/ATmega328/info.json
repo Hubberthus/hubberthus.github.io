@@ -1,7 +1,9 @@
 {
+  "name": "ATmega328/P",
   "owner": "Arduino AG",
   "link": "https://www.arduino.cc/",
-  "packages": ["MLF32"],
+  "description": "The high-performance Microchip 8-bit AVR RISC-based microcontroller combines 32KB ISP flash memory with read-while-write capabilities, 1KB EEPROM, 2KB SRAM, 23 general purpose I/O lines, 32 general purpose working registers, three flexible timer/counters with compare modes, internal and external interrupts,serial programmable USART, a byte-oriented 2-wire serial interface, SPI serial port, 6-channel 10-bit A/D converter (8-channels in TQFP and QFN/MLF packages), programmable watchdog timer with internal oscillator, and five software selectable power saving modes. The device operates between 1.8-5.5 volts.",
+  "packages": ["MLF32", "TQFP32", "MLF28", "PDIP28"],
   "flavors": {
   	"Arduino": ["main.ino", "mps.h"],
   	"Arduino_FreeRTOS": ["main.cpp", "mps.h"]

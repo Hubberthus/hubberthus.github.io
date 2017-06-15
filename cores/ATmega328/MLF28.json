@@ -17,38 +17,21 @@
   },
   {
     "number": 3,
-    "name": "GND",
-    "description": "Ground",
+    "name": "VCC",
+    "description": "Digital supply voltage",
     "pwm": false,
     "input": false,
     "output": false
   },
   {
     "number": 4,
-    "name": "VCC",
-    "description": "Digital supply voltage",
-    "pwm": false,
-    "input": false,
-    "output": false
-  },
-  {
-    "number": 5,
     "name": "GND",
     "description": "Ground",
     "pwm": false,
     "input": false,
     "output": false
   },
-  {
-    "number": 6,
-    "name": "VCC",
-    "description": "Digital supply voltage",
-    "pwm": false,
-    "input": false,
-    "output": false
-  },
-  {
-    "number": 7,
+    "number": 5,
     "name": "PB6",
     "description": "PCINT6, XTAL1, TOSC1",
     "pwm": false,
@@ -56,7 +39,7 @@
     "output": true
   },
   {
-    "number": 8,
+    "number": 6,
     "name": "PB7",
     "description": "PCINT7, XTAL2, TOSC2",
     "pwm": false,
@@ -64,7 +47,7 @@
     "output": true
   },
   {
-    "number": 9,
+    "number": 7,
     "name": "PD5",
     "description": "PCINT21, OC0B, T1",
     "pwm": true,
@@ -72,7 +55,7 @@
     "output": true
   },
   {
-    "number": 10,
+    "number": 8,
     "name": "PD6",
     "description": "PCINT22, OC0A, AIN0",
     "pwm": true,
@@ -80,7 +63,7 @@
     "output": true
   },
   {
-    "number": 11,
+    "number": 9,
     "name": "PD7",
     "description": "PCINT23, AIN1",
     "pwm": false,
@@ -88,7 +71,7 @@
     "output": true
   },
   {
-    "number": 12,
+    "number": 10,
     "name": "PB0",
     "description": "PCINT0, CLKO, ICP1",
     "pwm": false,
@@ -96,7 +79,7 @@
     "output": true
   },
   {
-    "number": 13,
+    "number": 11,
     "name": "PB1",
     "description": "PCINT1, OC1A",
     "pwm": true,
@@ -104,7 +87,7 @@
     "output": true
   },
   {
-    "number": 14,
+    "number": 12,
     "name": "PB2",
     "description": "PCINT2, SS, OC1B",
     "pwm": true,
@@ -112,7 +95,7 @@
     "output": true
   },
   {
-    "number": 15,
+    "number": 13,
     "name": "PB3",
     "description": "PCINT3, OC2A, MOSI",
     "pwm": true,
@@ -120,7 +103,7 @@
     "output": true
   },
   {
-    "number": 16,
+    "number": 14,
     "name": "PB4",
     "description": "PCINT4, MISO",
     "pwm": false,
@@ -128,7 +111,7 @@
     "output": true
   },
   {
-    "number": 17,
+    "number": 15,
     "name": "PB5",
     "description": "SCK, PCINT5",
     "pwm": false,
@@ -136,7 +119,7 @@
     "output": true
   },
   {
-    "number": 18,
+    "number": 16,
     "name": "AVCC",
     "description": "supply voltage pin for the A/D Converter, PC3:0, and ADC7:6. It should be externally connected to VCC, even if the ADC is not used. If the ADC is used, it should be connected to VCC though a low-pass filter. Note that PC6...4 use digital supply voltage, VCC.",
     "pwm": false,
@@ -144,15 +127,7 @@
     "output": false
   },
   {
-    "number": 19,
-    "name": "ADC6",
-    "description": "Analog input to the A/D converter. Powered from the analog supply and serve as 10-bit ADC channel.",
-    "pwm": false,
-    "input": true,
-    "output": false
-  },
-  {
-    "number": 20,
+    "number": 17,
     "name": "AREF",
     "description": "Analog reference pin for the A/D Converter.",
     "pwm": false,
@@ -160,7 +135,7 @@
     "output": false
   },
   {
-    "number": 21,
+    "number": 18,
     "name": "GND",
     "description": "Ground",
     "pwm": false,
@@ -168,15 +143,7 @@
     "output": false
   },
   {
-    "number": 22,
-    "name": "ADC7",
-    "description": "Analog input to the A/D converter. Powered from the analog supply and serve as 10-bit ADC channel.",
-    "pwm": false,
-    "input": true,
-    "output": false
-  },
-  {
-    "number": 23,
+    "number": 19,
     "name": "PC0",
     "description": "ADC0, PCINT8",
     "pwm": false,
@@ -184,7 +151,7 @@
     "output": true
   },
   {
-    "number": 24,
+    "number": 20,
     "name": "PC1",
     "description": "ADC1, PCINT9",
     "pwm": false,
@@ -192,7 +159,7 @@
     "output": true
   },
   {
-    "number": 25,
+    "number": 21,
     "name": "PC2",
     "description": "ADC2, PCINT10",
     "pwm": false,
@@ -200,7 +167,7 @@
     "output": true
   },
   {
-    "number": 26,
+    "number": 22,
     "name": "PC3",
     "description": "ADC3, PCINT11",
     "pwm": false,
@@ -208,7 +175,7 @@
     "output": true
   },
   {
-    "number": 27,
+    "number": 23,
     "name": "PC4",
     "description": "ADC4, SDA, PCINT12",
     "pwm": false,
@@ -216,7 +183,7 @@
     "output": true
   },
   {
-    "number": 28,
+    "number": 24,
     "name": "PC5",
     "description": "ADC5, SCL, PCINT13",
     "pwm": false,
@@ -224,7 +191,7 @@
     "output": true
   },
   {
-    "number": 29,
+    "number": 25,
     "name": "PC6",
     "description": "RESET, PCINT14",
     "pwm": false,
@@ -232,7 +199,7 @@
     "output": true
   },
   {
-    "number": 30,
+    "number": 26,
     "name": "PD0",
     "description": "RXD, PCINT16",
     "pwm": false,
@@ -240,7 +207,7 @@
     "output": true
   },
   {
-    "number": 31,
+    "number": 27,
     "name": "PD1",
     "description": "TXD, PCINT17",
     "pwm": false,
@@ -248,7 +215,7 @@
     "output": true
   },
   {
-    "number": 32,
+    "number": 28,
     "name": "PD2",
     "description": "INT0, PCINT18",
     "pwm": false,
@@ -256,7 +223,7 @@
     "output": true
   },
   {
-    "number": 33,
+    "number": 29,
     "name": "GND",
     "description": "Bottom ground pad",
     "pwm": false,

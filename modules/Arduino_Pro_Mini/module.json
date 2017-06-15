@@ -6,7 +6,6 @@
 	"name": "ATmega328",
 	"package": "MLF32"
 },
-"width": 25,
 "peripherals": {
 	"GPIO": {
 		"pins": {"PB0": [12], "PB1": [13], "PB2": [14], "PB3": [15], "PB4": [16],

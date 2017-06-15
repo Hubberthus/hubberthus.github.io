@@ -109,7 +109,7 @@ define(function (require) {
 				$.getJSON("cores/" + name + "/info.json")
 				.done(function( info ) {
 					
-					cores[name] = {packages: info.packages};
+					cores[name] = {name: info.name, packages: info.packages};
 				});
 			});
     		

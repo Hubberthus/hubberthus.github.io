@@ -29,6 +29,16 @@
 	<div ng-if="active_pin" class="panel">
 		<div class="row">
 			<span class="col-sm-5">
+				Name on MCU
+			</span>
+			<span class="col-sm-5">
+				&lt;
+				<span ng-if="core_pin.number === active_module.pins[active_pin].number" ng-repeat="core_pin in core.pinout">{{core_pin.name}}</span>
+				&gt;
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-5">
 				Pin number on MCU
 			</span>
 			<span class="col-sm-5 input-group">
