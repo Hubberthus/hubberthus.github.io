@@ -19,9 +19,8 @@ define([
         'app/main',
         'app/cores',
         'app/modules',
-        'app/generator',
-        'jquery',
-        'highlight'], function(app, cores, modules, generator, $, hljs) {
+        'app/storage',
+        'jquery'], function(app, cores, modules, storage, $) {
 	
 	// Editor controller function for the AngularJS application	
 	app.controller('mcuSetupEditorController',function($scope) {
@@ -31,7 +30,11 @@ define([
 		$scope.mouseOffsetX = -1;
 		$scope.mouseOffsetY = -1;
 		
-		$scope.active_module = $scope.modules[0];
+		$scope.active_module = storage.restoreModule();		
+		if (! $scope.active_module) {
+			$scope.active_module = $scope.modules[0];
+		}
+		
 		$scope.core = cores.loadCore($scope.active_module.core.name);
 		$scope.cores = cores.getCores();
 		
@@ -54,6 +57,8 @@ define([
 			$scope.active_module.arrays.push(array);
 			$scope.active_array = array;
 			$scope.active_pin = null;
+			
+			storage.storeModule($scope.active_module);
 		}
 		
 		$scope.removeArray = function() {
@@ -66,6 +71,8 @@ define([
 			$scope.active_module.arrays.splice(i, 1);
 			$scope.active_array = null;
 			$scope.active_pin = null;
+			
+			storage.storeModule($scope.active_module);
 		}
 		
 		$scope.setActiveArrayAndPin = function( array, pin ) {
@@ -82,6 +89,8 @@ define([
 			
 			if ((value - 1) in $scope.core.packages[$scope.active_module.core.package]) {
 				$scope.active_module.pins[$scope.active_pin].number = value;
+				
+				storage.storeModule($scope.active_module);
 			}
 		}
 		
@@ -91,6 +100,8 @@ define([
 			
 			if ($scope.active_array.position.x < 0) {$scope.active_array.position.x = 0;}
 			if ($scope.active_array.position.x > 100) {$scope.active_array.position.x = 100;}
+			
+			storage.storeModule($scope.active_module);
 		}
 		
 		$scope.moveArrayPositionY = function( value ) {
@@ -99,6 +110,8 @@ define([
 			
 			if ($scope.active_array.position.y < 0) {$scope.active_array.position.y = 0;}
 			if ($scope.active_array.position.y > 100) {$scope.active_array.position.y = 100;}
+			
+			storage.storeModule($scope.active_module);
 		}
 		
 		$scope.moveArrayPitch = function( value ) {
@@ -107,11 +120,15 @@ define([
 			
 			if ($scope.active_array.pitch < 0) {$scope.active_array.pitch = 0;}
 			if ($scope.active_array.pitch > 100) {$scope.active_array.pitch = 100;}
+			
+			storage.storeModule($scope.active_module);
 		}
 		
 		$scope.setArraySide = function( value ) {
 			
 			$scope.active_array.side = value;
+			
+			storage.storeModule($scope.active_module);
 		}
 		
 		$scope.setPinInArray = function( index, name ) {
@@ -121,6 +138,8 @@ define([
 			} else {
 				$scope.active_array.pins.splice(index, 1);
 			}
+			
+			storage.storeModule($scope.active_module);
 		}
 		
 		$scope.mouseDown = function( event ) {
