@@ -1,0 +1,253 @@
+{
+  "name": "ATmega328/P",
+  "owner": "Arduino AG",
+  "link": "https://www.arduino.cc/",
+  "description": "The high-performance Microchip 8-bit AVR RISC-based microcontroller combines 32KB ISP flash memory with read-while-write capabilities, 1KB EEPROM, 2KB SRAM, 23 general purpose I/O lines, 32 general purpose working registers, three flexible timer/counters with compare modes, internal and external interrupts,serial programmable USART, a byte-oriented 2-wire serial interface, SPI serial port, 6-channel 10-bit A/D converter (8-channels in TQFP and QFN/MLF packages), programmable watchdog timer with internal oscillator, and five software selectable power saving modes. The device operates between 1.8-5.5 volts.",
+  "pins": [
+    {
+		"name": "PD3",
+		"description": "PCINT19, OC2B, INT1",
+		"pwm": true,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PD4",
+		"description": "PCINT20, XCK, T0",
+		"pwm": true,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "GND",
+		"description": "Ground",
+		"pwm": false,
+		"input": false,
+		"output": false
+	},
+	{
+		"name": "VCC",
+		"description": "Digital supply voltage",
+		"pwm": false,
+		"input": false,
+		"output": false
+	},
+	{
+		"name": "GND",
+		"description": "Ground",
+		"pwm": false,
+		"input": false,
+		"output": false
+	},
+	{
+		"name": "VCC",
+		"description": "Digital supply voltage",
+		"pwm": false,
+		"input": false,
+		"output": false
+	},
+	{
+		"name": "PB6",
+		"description": "PCINT6, XTAL1, TOSC1",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PB7",
+		"description": "PCINT7, XTAL2, TOSC2",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PD5",
+		"description": "PCINT21, OC0B, T1",
+		"pwm": true,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PD6",
+		"description": "PCINT22, OC0A, AIN0",
+		"pwm": true,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PD7",
+		"description": "PCINT23, AIN1",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PB0",
+		"description": "PCINT0, CLKO, ICP1",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PB1",
+		"description": "PCINT1, OC1A",
+		"pwm": true,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PB2",
+		"description": "PCINT2, SS, OC1B",
+		"pwm": true,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PB3",
+		"description": "PCINT3, OC2A, MOSI",
+		"pwm": true,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PB4",
+		"description": "PCINT4, MISO",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PB5",
+		"description": "SCK, PCINT5",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "AVCC",
+		"description": "supply voltage pin for the A/D Converter, PC3:0, and ADC7:6. It should be externally connected to VCC, even if the ADC is not used. If the ADC is used, it should be connected to VCC though a low-pass filter. Note that PC6...4 use digital supply voltage, VCC.",
+		"pwm": false,
+		"input": false,
+		"output": false
+	},
+	{
+		"name": "ADC6",
+		"description": "Analog input to the A/D converter. Powered from the analog supply and serve as 10-bit ADC channel.",
+		"pwm": false,
+		"input": true,
+		"output": false
+	},
+	{
+		"name": "AREF",
+		"description": "Analog reference pin for the A/D Converter.",
+		"pwm": false,
+		"input": false,
+		"output": false
+	},
+	{
+		"name": "GND",
+		"description": "Ground",
+		"pwm": false,
+		"input": false,
+		"output": false
+	},
+	{
+		"name": "ADC7",
+		"description": "Analog input to the A/D converter. Powered from the analog supply and serve as 10-bit ADC channel.",
+		"pwm": false,
+		"input": true,
+		"output": false
+	},
+	{
+		"name": "PC0",
+		"description": "ADC0, PCINT8",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PC1",
+		"description": "ADC1, PCINT9",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PC2",
+		"description": "ADC2, PCINT10",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PC3",
+		"description": "ADC3, PCINT11",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PC4",
+		"description": "ADC4, SDA, PCINT12",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PC5",
+		"description": "ADC5, SCL, PCINT13",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PC6",
+		"description": "RESET, PCINT14",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PD0",
+		"description": "RXD, PCINT16",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PD1",
+		"description": "TXD, PCINT17",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "PD2",
+		"description": "INT0, PCINT18",
+		"pwm": false,
+		"input": true,
+		"output": true
+	},
+	{
+		"name": "GND",
+		"description": "Bottom ground pad",
+		"pwm": false,
+		"input": false,
+		"output": false
+	}
+  ],
+  "packages": {
+	"MLF32": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+		10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+		20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+		30, 31, 32],
+	"TQFP32": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+		10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+		20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+		30, 31]
+  },
+  "flavors": {
+  	"Arduino": ["main.ino", "mps.h"],
+  	"Arduino_FreeRTOS": ["main.cpp", "mps.h"]
+  }
+}

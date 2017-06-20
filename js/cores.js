@@ -99,40 +99,23 @@ define(function (require) {
 	}
 	
     return {
-		// Returns a dictionarz containing every core with package list
+		// Returns the list of core names
     	getCores: function () {
     		
-    		cores = {};
-
-    		core_names.forEach(function( name ) {
-
-				$.getJSON("cores/" + name + "/info.json")
-				.done(function( info ) {
-					
-					cores[name] = {name: info.name, packages: info.packages};
-				});
-			});
-    		
-    		return cores;
+    		return core_names;
         },
     	// Returns an initialized core dictionary for the given name
-    	loadCore: function ( name, package ) {
+    	loadCore: function ( name ) {
     		
-    		core = {};
+    		var core = {};
     		
-    		$.getJSON("cores/" + name + "/info.json")
-			.done(function( info ) {
+    		$.getJSON("cores/" + name + "/core.json")
+			.done(function( _core ) {
 				
-				core.info = info;
+				core = _core;
 			});
     		
     		core.active_flavor = null;
-			
-			$.getJSON("cores/" + name + "/" + package + ".json")
-			.done(function( pinout ) {
-				
-				core.pinout = pinout;
-			});
 			
 			$.getJSON("cores/" + name + "/peripherals.json")
 			.done(function( peripherals ) {
@@ -143,16 +126,17 @@ define(function (require) {
 			// Load files needed for code generation
 			core.source_files = {};
 
-			for(var flavor in core.info.flavors) {
+			// TODO: Automatic code generation removed temorarly
+			/*for(var flavor in core.flavors) {
 				core.source_files[flavor] = [];
-				for(var n in core.info.flavors[flavor]) {
-					$.get("cores/" + name + "/" + flavor + "-flavor/" + core.info.flavors[flavor][n])
+				for(var n in core.flavors[flavor]) {
+					$.get("cores/" + name + "/" + flavor + "-flavor/" + core.flavors[flavor][n])
 					.done(function( file_content ) {
 						
-						core.source_files[flavor].push({name: core.info.flavors[flavor][n], code: file_content});
+						core.source_files[flavor].push({name: core.flavors[flavor][n], code: file_content});
 					});
 				}
-			}
+			}*/
 			
 			setupDefaultPeripheralModes(core);
     		

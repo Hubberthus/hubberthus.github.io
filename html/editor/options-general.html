@@ -41,11 +41,11 @@
 			</span>
 			<span class="col-sm-5 dropdown">
 				<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
-					{{core.info.name}}
+					{{active_module.core.name}}
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li ng-repeat="(name, value) in cores"><button ng-click="">{{value.name}}</button></li>
+					<li ng-repeat="name in cores"><button ng-click="">{{name}}</button></li>
 				</ul>
 			</span>
 		</div>
@@ -59,7 +59,7 @@
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li ng-repeat="package in core.info.packages"><button ng-click="">{{package}}</button></li>
+					<li ng-repeat="(package, pins) in core.packages"><button ng-click="">{{package}}</button></li>
 				</ul>
 			</span>
 		</div>

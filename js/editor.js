@@ -32,7 +32,7 @@ define([
 		$scope.mouseOffsetY = -1;
 		
 		$scope.active_module = $scope.modules[0];
-		$scope.core = cores.loadCore($scope.active_module.core.name, $scope.active_module.core.package);
+		$scope.core = cores.loadCore($scope.active_module.core.name);
 		$scope.cores = cores.getCores();
 		
 		if ($scope.active_module.arrays && $scope.active_module.arrays.length > 0) {
@@ -80,10 +80,8 @@ define([
 				return;
 			}
 			
-			for (pin in $scope.core.pinout) {
-				if (value == $scope.core.pinout[pin].number) {
-					$scope.active_module.pins[$scope.active_pin].number = value;
-				}
+			if ((value - 1) in $scope.core.packages[$scope.active_module.core.package]) {
+				$scope.active_module.pins[$scope.active_pin].number = value;
 			}
 		}
 		

@@ -195,7 +195,7 @@ define([
 			$scope.active_module = new_module;
 			
 			// Reload default core dictionary for the module
-			$scope.core = cores.loadCore(new_module.core.name, new_module.core.package);
+			$scope.core = cores.loadCore(new_module.core.name);
 			
 			// Update pin availability according to the actual module
 			for (name in $scope.core.peripherals) {
