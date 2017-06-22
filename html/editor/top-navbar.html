@@ -11,10 +11,10 @@
 
 	<ul class="nav navbar-nav">
 		<li>
-			<button class="navbar-btn btn" ng-click="undo()" ng-disabled="undo_modules.length == 0">Undo</button>
+			<button class="navbar-btn btn" ng-click="undo()" ng-disabled="undo_list.length == 0">Undo</button>
 		</li>
 		<li>
-			<button class="navbar-btn btn" ng-click="redo()" ng-disabled="redo_modules.length == 0">Redo</button>
+			<button class="navbar-btn btn" ng-click="redo()" ng-disabled="redo_list.length == 0">Redo</button>
 		</li>
 		<li>
 			<button class="navbar-btn btn btn-danger" ng-click="reset()">Reset</button>

@@ -30,17 +30,19 @@ define([
 		$scope.mouseOffsetX = -1;
 		$scope.mouseOffsetY = -1;
 		
+		$scope.cores = cores.getCores();
+		
 		$scope.active_module = storage.restoreModule();		
 		if (! $scope.active_module) {
 			$scope.active_module = $scope.modules[0];
 		}
-		
-		$scope.init_module = $scope.modules[0];
-		$scope.undo_modules = [];
-		$scope.redo_modules = [];
-		
 		$scope.core = cores.loadCore($scope.active_module.core.name);
-		$scope.cores = cores.getCores();
+		$scope.active_array = null;
+		$scope.active_pin = null;
+		
+		$scope.init_list = [$scope.modules[0], cores.loadCore($scope.modules[0].core.name), $scope.active_array, $scope.active_pin];
+		$scope.undo_list = [];
+		$scope.redo_list = [];
 		
 		if ($scope.active_module.arrays && $scope.active_module.arrays.length > 0) {
 			$scope.active_array = $scope.active_module.arrays[0];
@@ -104,8 +106,6 @@ define([
 			
 			if ($scope.active_array.position.x < 0) {$scope.active_array.position.x = 0;}
 			if ($scope.active_array.position.x > 100) {$scope.active_array.position.x = 100;}
-			
-			$scope.store();
 		}
 		
 		$scope.moveArrayPositionY = function( value ) {
@@ -114,8 +114,6 @@ define([
 			
 			if ($scope.active_array.position.y < 0) {$scope.active_array.position.y = 0;}
 			if ($scope.active_array.position.y > 100) {$scope.active_array.position.y = 100;}
-			
-			$scope.store();
 		}
 		
 		$scope.moveArrayPitch = function( value ) {
@@ -151,7 +149,19 @@ define([
 			if (event.buttons == 1) {
 				$scope.mouseOffsetX = $scope.mouseX;
 				$scope.mouseOffsetY = $scope.mouseY;
+				$scope.isDragging = false;
 			}
+		}
+		
+		$scope.mouseUp = function( event ) {
+			
+			if (event.buttons == 1) {
+				if ($scope.isDragging) {
+					$scope.store();
+				}
+			}
+			
+			$scope.isDragging = false;
 		}
 		
 		$scope.mouseMove = function( event, array ) {
@@ -163,26 +173,29 @@ define([
 				if ((Math.abs($scope.mouseX - $scope.mouseOffsetX) > 1) || (Math.abs($scope.mouseY - $scope.mouseOffsetY) > 1)) {
 					$scope.moveArrayPositionX($scope.mouseX - $scope.mouseOffsetX);
 					$scope.moveArrayPositionY($scope.mouseY - $scope.mouseOffsetY);
+					$scope.isDragging = true;
 				}
 			}
 		}
 		
 		$scope.store = function() {
 			
-			$scope.undo_modules.push(JSON.parse(JSON.stringify($scope.active_module)));
-			$scope.redo_modules = [];
+			$scope.undo_list.push(JSON.parse(JSON.stringify([$scope.active_module, $scope.core, $scope.active_array, $scope.active_pin])));
+			$scope.redo_list = [];
 			
 			storage.storeModule($scope.active_module);
 		}
 		
 		$scope.undo = function() {
 			
-			module = $scope.undo_modules.pop();
+			item = $scope.undo_list.pop();
 
-			if (module != undefined) {
-				$scope.redo_modules.push(JSON.parse(JSON.stringify(module)));
-				$scope.active_module = module;
-				$scope.core = cores.loadCore($scope.active_module.core.name);
+			if (item != undefined) {
+				$scope.redo_list.push(JSON.parse(JSON.stringify(item)));
+				$scope.active_module = item[0];
+				$scope.core = item[1];
+				$scope.active_array = item[2];
+				$scope.active_pin = item[3];
 				
 				storage.storeModule($scope.active_module);
 			}
@@ -190,12 +203,14 @@ define([
 		
 		$scope.redo = function() {
 			
-			module = $scope.redo_modules.pop();
+			item = $scope.redo_list.pop();
 			
-			if (module != undefined) {
-				$scope.undo_modules.push(JSON.parse(JSON.stringify(module)));
-				$scope.active_module = module;
-				$scope.core = cores.loadCore($scope.active_module.core.name);
+			if (item != undefined) {
+				$scope.undo_list.push(JSON.parse(JSON.stringify(item)));
+				$scope.active_module = item[0];
+				$scope.core = item[1];
+				$scope.active_array = item[2];
+				$scope.active_pin = item[3];
 				
 				storage.storeModule($scope.active_module);
 			}
@@ -203,11 +218,13 @@ define([
 
 		$scope.reset = function() {
 			
-			$scope.undo_modules.push(JSON.parse(JSON.stringify($scope.active_module)));
-			$scope.redo_modules = [];
+			$scope.undo_list.push(JSON.parse(JSON.stringify([$scope.active_module, $scope.core, $scope.active_array, $scope.active_pin])));
+			$scope.redo_list = [];
 			
-			$scope.active_module = $scope.init_module;
-			$scope.core = cores.loadCore($scope.active_module.core.name);
+			$scope.active_module = $scope.init_list[0];
+			$scope.core = $scope.init_list[1];
+			$scope.active_array = $scope.init_list[2];
+			$scope.active_pin = $scope.init_list[3];
 			
 			storage.storeModule($scope.active_module);
 		}

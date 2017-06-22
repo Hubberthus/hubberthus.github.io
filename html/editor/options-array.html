@@ -24,11 +24,11 @@
 				Position.x (% of module image width)
 			</label>
 			<div class="input-group">
-				<span class="input-group-addon btn" ng-click="moveArrayPositionX(-0.1);">&lt;</span>
-				<span class="input-group-addon btn" ng-click="moveArrayPositionX(-1);">&lt;&lt;</span>
-				<input type="text" class="form-control" ng-model="active_array.position.x" convert-to-number>
-				<span class="input-group-addon btn" ng-click="moveArrayPositionX(1);">&gt;&gt;</span>
-				<span class="input-group-addon btn" ng-click="moveArrayPositionX(0.1);">&gt;</span>
+				<span class="input-group-addon btn" ng-click="moveArrayPositionX(-0.1); store();">&lt;</span>
+				<span class="input-group-addon btn" ng-click="moveArrayPositionX(-1); store();">&lt;&lt;</span>
+				<input type="text" class="form-control" ng-model="active_array.position.x" ng-blur="moveArrayPositionX(0); store();" convert-to-number>
+				<span class="input-group-addon btn" ng-click="moveArrayPositionX(1); store();">&gt;&gt;</span>
+				<span class="input-group-addon btn" ng-click="moveArrayPositionX(0.1); store();">&gt;</span>
 			</div>
 		</div>
 		<div class="col-sm-12">
@@ -36,11 +36,11 @@
 				Position.y (% of module image height)
 			</label>
 			<div class="input-group">
-				<span class="input-group-addon btn" ng-click="moveArrayPositionY(-0.1);">&lt;</span>
-				<span class="input-group-addon btn" ng-click="moveArrayPositionY(-1);">&lt;&lt;</span>
-				<input type="text" class="form-control" ng-model="active_array.position.y" convert-to-number>
-				<span class="input-group-addon btn" ng-click="moveArrayPositionY(1);">&gt;&gt;</span>
-				<span class="input-group-addon btn" ng-click="moveArrayPositionY(0.1);">&gt;</span>
+				<span class="input-group-addon btn" ng-click="moveArrayPositionY(-0.1); store();">&lt;</span>
+				<span class="input-group-addon btn" ng-click="moveArrayPositionY(-1); store();">&lt;&lt;</span>
+				<input type="text" class="form-control" ng-model="active_array.position.y" ng-blur="moveArrayPositionY(0); store();" convert-to-number>
+				<span class="input-group-addon btn" ng-click="moveArrayPositionY(1); store();">&gt;&gt;</span>
+				<span class="input-group-addon btn" ng-click="moveArrayPositionY(0.1); store();">&gt;</span>
 			</div>
 		</div>
 		<div class="col-sm-12">
@@ -50,7 +50,7 @@
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(-0.1);">&lt;</span>
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(-1);">&lt;&lt;</span>
-				<input type="text" class="form-control" ng-model="active_array.pitch" convert-to-number>
+				<input type="text" class="form-control" ng-model="active_array.pitch" ng-blur="moveArrayPitch(0);" convert-to-number>
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(1);">&gt;&gt;</span>
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(0.1);">&gt;</span>
 			</div>
