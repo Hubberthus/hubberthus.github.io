@@ -55,6 +55,15 @@
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(0.1);">&gt;</span>
 			</div>
 		</div>
+		<div class="col-sm-12">
+			<label>
+				Label orientation
+			</label>
+			<div class="input-group">
+				<span class="input-group-addon btn {{(active_module.arrays[active_array].orientation == 'horizontal' ? 'btn-info' : '')}}" ng-click="setArrayOrientation('horizontal');">Horizontal</span>
+				<span class="input-group-addon btn {{(active_module.arrays[active_array].orientation == 'vertical' ? 'btn-info' : '')}}" ng-click="setArrayOrientation('vertical');">Vertical</span>
+			</div>
+		</div>
 		<div ng-if="active_module.arrays[active_array].orientation == 'vertical'" class="col-sm-12">
 			<label>
 				Label side

@@ -127,6 +127,19 @@ define([
 			$scope.store();
 		}
 		
+		$scope.setArrayOrientation = function( value ) {
+			
+			$scope.active_module.arrays[$scope.active_array].orientation = value;
+			
+			if (value == "horizontal") {
+				$scope.active_module.arrays[$scope.active_array].side = "top";
+			} else if (value == "vertical") {
+				$scope.active_module.arrays[$scope.active_array].side = "left";
+			}
+			
+			$scope.store();
+		}
+		
 		$scope.setArraySide = function( value ) {
 			
 			$scope.active_module.arrays[$scope.active_array].side = value;
