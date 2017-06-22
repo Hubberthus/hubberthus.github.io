@@ -169,7 +169,7 @@ define([
 		
 		$scope.store = function() {
 			
-			$scope.undo_modules.push($scope.active_module);
+			$scope.undo_modules.push(JSON.parse(JSON.stringify($scope.active_module)));
 			$scope.redo_modules = [];
 			
 			storage.storeModule($scope.active_module);
@@ -178,9 +178,9 @@ define([
 		$scope.undo = function() {
 			
 			module = $scope.undo_modules.pop();
-			
-			if (module) {
-				$scope.redo_modules.push(module);
+
+			if (module != undefined) {
+				$scope.redo_modules.push(JSON.parse(JSON.stringify(module)));
 				$scope.active_module = module;
 				$scope.core = cores.loadCore($scope.active_module.core.name);
 				
@@ -192,8 +192,8 @@ define([
 			
 			module = $scope.redo_modules.pop();
 			
-			if (module) {
-				$scope.undo_modules.push(module);
+			if (module != undefined) {
+				$scope.undo_modules.push(JSON.parse(JSON.stringify(module)));
 				$scope.active_module = module;
 				$scope.core = cores.loadCore($scope.active_module.core.name);
 				
@@ -203,11 +203,13 @@ define([
 
 		$scope.reset = function() {
 			
-			$scope.undo_modules.push($scope.active_module);
+			$scope.undo_modules.push(JSON.parse(JSON.stringify($scope.active_module)));
 			$scope.redo_modules = [];
 			
 			$scope.active_module = $scope.init_module;
 			$scope.core = cores.loadCore($scope.active_module.core.name);
+			
+			storage.storeModule($scope.active_module);
 		}
 	})
 	.directive('editorTopNavbar', function() {
