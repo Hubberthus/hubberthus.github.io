@@ -1,0 +1,32 @@
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar">
+	<span class="sr-only">Toggle navigation</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+</button>
+<a href="#/"><img class="btn navbar-brand" style="padding: 2px;" src="logo.png"></img></a>
+<label class="nav navbar-brand" style="color: red;">ALPHA 0.1</label>
+
+<div class="collapse navbar-collapse" id="collapse-navbar">
+
+	<ul class="nav navbar-nav">
+		<li>
+			<button class="navbar-btn btn" ng-click="undo()" ng-disabled="undo_modules.length == 0">Undo</button>
+		</li>
+		<li>
+			<button class="navbar-btn btn" ng-click="redo()" ng-disabled="redo_modules.length == 0">Redo</button>
+		</li>
+		<li>
+			<button class="navbar-btn btn btn-danger" ng-click="reset()">Reset</button>
+		</li>
+	</ul>
+	
+	<ul class="nav navbar-right">
+		<li style="display: inline-block;">
+			<a href="#/" style="color: green;">Normal Mode</a>
+		</li>
+		<li style="display: inline-block;">
+			<a href="#/about" class="navbar-link">About</a>
+		</li>
+	</ul>
+</div>

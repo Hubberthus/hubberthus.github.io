@@ -35,6 +35,10 @@ define([
 			$scope.active_module = $scope.modules[0];
 		}
 		
+		$scope.init_module = $scope.modules[0];
+		$scope.undo_modules = [];
+		$scope.redo_modules = [];
+		
 		$scope.core = cores.loadCore($scope.active_module.core.name);
 		$scope.cores = cores.getCores();
 		
@@ -58,7 +62,7 @@ define([
 			$scope.active_array = array;
 			$scope.active_pin = null;
 			
-			storage.storeModule($scope.active_module);
+			$scope.store();
 		}
 		
 		$scope.removeArray = function() {
@@ -72,7 +76,7 @@ define([
 			$scope.active_array = null;
 			$scope.active_pin = null;
 			
-			storage.storeModule($scope.active_module);
+			$scope.store();
 		}
 		
 		$scope.setActiveArrayAndPin = function( array, pin ) {
@@ -90,7 +94,7 @@ define([
 			if ((value - 1) in $scope.core.packages[$scope.active_module.core.package]) {
 				$scope.active_module.pins[$scope.active_pin].number = value;
 				
-				storage.storeModule($scope.active_module);
+				$scope.store();
 			}
 		}
 		
@@ -101,7 +105,7 @@ define([
 			if ($scope.active_array.position.x < 0) {$scope.active_array.position.x = 0;}
 			if ($scope.active_array.position.x > 100) {$scope.active_array.position.x = 100;}
 			
-			storage.storeModule($scope.active_module);
+			$scope.store();
 		}
 		
 		$scope.moveArrayPositionY = function( value ) {
@@ -111,7 +115,7 @@ define([
 			if ($scope.active_array.position.y < 0) {$scope.active_array.position.y = 0;}
 			if ($scope.active_array.position.y > 100) {$scope.active_array.position.y = 100;}
 			
-			storage.storeModule($scope.active_module);
+			$scope.store();
 		}
 		
 		$scope.moveArrayPitch = function( value ) {
@@ -121,14 +125,14 @@ define([
 			if ($scope.active_array.pitch < 0) {$scope.active_array.pitch = 0;}
 			if ($scope.active_array.pitch > 100) {$scope.active_array.pitch = 100;}
 			
-			storage.storeModule($scope.active_module);
+			$scope.store();
 		}
 		
 		$scope.setArraySide = function( value ) {
 			
 			$scope.active_array.side = value;
 			
-			storage.storeModule($scope.active_module);
+			$scope.store();
 		}
 		
 		$scope.setPinInArray = function( index, name ) {
@@ -139,7 +143,7 @@ define([
 				$scope.active_array.pins.splice(index, 1);
 			}
 			
-			storage.storeModule($scope.active_module);
+			$scope.store();
 		}
 		
 		$scope.mouseDown = function( event ) {
@@ -162,6 +166,59 @@ define([
 				}
 			}
 		}
+		
+		$scope.store = function() {
+			
+			$scope.undo_modules.push($scope.active_module);
+			$scope.redo_modules = [];
+			
+			storage.storeModule($scope.active_module);
+		}
+		
+		$scope.undo = function() {
+			
+			module = $scope.undo_modules.pop();
+			
+			if (module) {
+				$scope.redo_modules.push(module);
+				$scope.active_module = module;
+				$scope.core = cores.loadCore($scope.active_module.core.name);
+				
+				storage.storeModule($scope.active_module);
+			}
+		}
+		
+		$scope.redo = function() {
+			
+			module = $scope.redo_modules.pop();
+			
+			if (module) {
+				$scope.undo_modules.push(module);
+				$scope.active_module = module;
+				$scope.core = cores.loadCore($scope.active_module.core.name);
+				
+				storage.storeModule($scope.active_module);
+			}
+		}
+
+		$scope.reset = function() {
+			
+			$scope.undo_modules.push($scope.active_module);
+			$scope.redo_modules = [];
+			
+			$scope.active_module = $scope.init_module;
+			$scope.core = cores.loadCore($scope.active_module.core.name);
+		}
+	})
+	.directive('editorTopNavbar', function() {
+	  return {
+		  templateUrl: 'html/editor/top-navbar.html'
+	  };
+	})
+	.directive('editorBottomNavbar', function() {
+	  return {
+		  templateUrl: 'html/editor/bottom-navbar.html'
+	  };
 	})
 	.directive('editorPins', function() {
 	  return {

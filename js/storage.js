@@ -21,7 +21,7 @@ define(function (require) {
 		// Store a modified version of the current module
     	storeModule: function ( module ) {
     		
-    		return localStorage.setItem("active_module", JSON.stringify(module));
+    		localStorage.setItem("active_module", JSON.stringify(module));
         },
         // Restore a module if any
         restoreModule: function ( ) {
