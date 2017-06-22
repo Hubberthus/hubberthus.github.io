@@ -44,10 +44,6 @@ define([
 		$scope.undo_list = [];
 		$scope.redo_list = [];
 		
-		if ($scope.active_module.arrays && $scope.active_module.arrays.length > 0) {
-			$scope.active_array = $scope.active_module.arrays[0];
-		}
-		
 		$scope.newArray = function() {
 			var array = {
 				position: {
@@ -61,7 +57,7 @@ define([
 				};
 			
 			$scope.active_module.arrays.push(array);
-			$scope.active_array = array;
+			$scope.active_array = $scope.active_module.arrays.length - 1;
 			$scope.active_pin = null;
 			
 			$scope.store();
@@ -69,21 +65,20 @@ define([
 		
 		$scope.removeArray = function() {
 			
-			if (! $scope.active_array) {
+			if ($scope.active_array == null) {
 				return;
 			}
 			
-			var i = $scope.active_module.arrays.indexOf($scope.active_array);
-			$scope.active_module.arrays.splice(i, 1);
+			$scope.active_module.arrays.splice($scope.active_array, 1);
 			$scope.active_array = null;
 			$scope.active_pin = null;
 			
 			$scope.store();
 		}
 		
-		$scope.setActiveArrayAndPin = function( array, pin ) {
+		$scope.setActiveArrayAndPin = function( array_num, pin ) {
 			
-			$scope.active_array = array;
+			$scope.active_array = array_num;
 			$scope.active_pin = pin;
 		}
 		
@@ -102,33 +97,39 @@ define([
 		
 		$scope.moveArrayPositionX = function( value ) {
 			
-			$scope.active_array.position.x += value;
+			array = $scope.active_module.arrays[$scope.active_array];
 			
-			if ($scope.active_array.position.x < 0) {$scope.active_array.position.x = 0;}
-			if ($scope.active_array.position.x > 100) {$scope.active_array.position.x = 100;}
+			array.position.x += value;
+			
+			if (array.position.x < 0) {array.position.x = 0;}
+			if (array.position.x > 100) {array.position.x = 100;}
 		}
 		
 		$scope.moveArrayPositionY = function( value ) {
 			
-			$scope.active_array.position.y += value;
+			array = $scope.active_module.arrays[$scope.active_array];
 			
-			if ($scope.active_array.position.y < 0) {$scope.active_array.position.y = 0;}
-			if ($scope.active_array.position.y > 100) {$scope.active_array.position.y = 100;}
+			array.position.y += value;
+			
+			if (array.position.y < 0) {array.position.y = 0;}
+			if (array.position.y > 100) {array.position.y = 100;}
 		}
 		
 		$scope.moveArrayPitch = function( value ) {
 			
-			$scope.active_array.pitch += value;
+			array = $scope.active_module.arrays[$scope.active_array];
 			
-			if ($scope.active_array.pitch < 0) {$scope.active_array.pitch = 0;}
-			if ($scope.active_array.pitch > 100) {$scope.active_array.pitch = 100;}
+			array.pitch += value;
+			
+			if (array.pitch < 0) {array.pitch = 0;}
+			if (array.pitch > 100) {array.pitch = 100;}
 			
 			$scope.store();
 		}
 		
 		$scope.setArraySide = function( value ) {
 			
-			$scope.active_array.side = value;
+			$scope.active_module.arrays[$scope.active_array].side = value;
 			
 			$scope.store();
 		}
@@ -136,9 +137,9 @@ define([
 		$scope.setPinInArray = function( index, name ) {
 			
 			if (name) {
-				$scope.active_array.pins[index] = name;
+				$scope.active_module.arrays[$scope.active_array].pins[index] = name;
 			} else {
-				$scope.active_array.pins.splice(index, 1);
+				$scope.active_module.arrays[$scope.active_array].pins.splice(index, 1);
 			}
 			
 			$scope.store();
@@ -164,12 +165,12 @@ define([
 			$scope.isDragging = false;
 		}
 		
-		$scope.mouseMove = function( event, array ) {
+		$scope.mouseMove = function( event, array_num ) {
 			
 			$scope.mouseX = event.offsetX / document.getElementById('module-image').offsetWidth * 100 - 5;
 			$scope.mouseY = event.offsetY / document.getElementById('module-image').offsetHeight * 100 - 5;
 			
-			if (($scope.active_array == array) && (event.buttons == 1)) {
+			if (($scope.active_array == array_num) && (event.buttons == 1)) {
 				if ((Math.abs($scope.mouseX - $scope.mouseOffsetX) > 1) || (Math.abs($scope.mouseY - $scope.mouseOffsetY) > 1)) {
 					$scope.moveArrayPositionX($scope.mouseX - $scope.mouseOffsetX);
 					$scope.moveArrayPositionY($scope.mouseY - $scope.mouseOffsetY);

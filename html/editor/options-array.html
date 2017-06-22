@@ -14,11 +14,11 @@
 		<div class="col-sm-12">
 			<div class="input-group">
 				<span class="input-group-addon btn btn-info" ng-click="newArray()">Add new</span>
-				<span class="input-group-addon btn btn-danger" ng-click="removeArray()" ng-disabled="! active_array">Remove selected</span>
+				<span class="input-group-addon btn btn-danger" ng-click="removeArray()" ng-disabled="active_array == null">Remove selected</span>
 			</div>
 		</div>
 	</div>
-	<div ng-if="active_array" class="panel">
+	<div ng-if="active_array != null" class="panel">
 		<div class="col-sm-12">
 			<label>
 				Position.x (% of module image width)
@@ -26,7 +26,7 @@
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPositionX(-0.1); store();">&lt;</span>
 				<span class="input-group-addon btn" ng-click="moveArrayPositionX(-1); store();">&lt;&lt;</span>
-				<input type="text" class="form-control" ng-model="active_array.position.x" ng-blur="moveArrayPositionX(0); store();" convert-to-number>
+				<input type="text" class="form-control" ng-model="active_module.arrays[active_array].position.x" ng-blur="moveArrayPositionX(0); store();" convert-to-number>
 				<span class="input-group-addon btn" ng-click="moveArrayPositionX(1); store();">&gt;&gt;</span>
 				<span class="input-group-addon btn" ng-click="moveArrayPositionX(0.1); store();">&gt;</span>
 			</div>
@@ -38,39 +38,39 @@
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPositionY(-0.1); store();">&lt;</span>
 				<span class="input-group-addon btn" ng-click="moveArrayPositionY(-1); store();">&lt;&lt;</span>
-				<input type="text" class="form-control" ng-model="active_array.position.y" ng-blur="moveArrayPositionY(0); store();" convert-to-number>
+				<input type="text" class="form-control" ng-model="active_module.arrays[active_array].position.y" ng-blur="moveArrayPositionY(0); store();" convert-to-number>
 				<span class="input-group-addon btn" ng-click="moveArrayPositionY(1); store();">&gt;&gt;</span>
 				<span class="input-group-addon btn" ng-click="moveArrayPositionY(0.1); store();">&gt;</span>
 			</div>
 		</div>
 		<div class="col-sm-12">
 			<label>
-				Pitch (% of module image {{(active_array.orientation == 'vertical' ? 'height' : 'width')}})
+				Pitch (% of module image {{(active_module.arrays[active_array].orientation == 'vertical' ? 'height' : 'width')}})
 			</label>
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(-0.1);">&lt;</span>
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(-1);">&lt;&lt;</span>
-				<input type="text" class="form-control" ng-model="active_array.pitch" ng-blur="moveArrayPitch(0);" convert-to-number>
+				<input type="text" class="form-control" ng-model="active_module.arrays[active_array].pitch" ng-blur="moveArrayPitch(0);" convert-to-number>
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(1);">&gt;&gt;</span>
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(0.1);">&gt;</span>
 			</div>
 		</div>
-		<div ng-if="active_array.orientation == 'vertical'" class="col-sm-12">
+		<div ng-if="active_module.arrays[active_array].orientation == 'vertical'" class="col-sm-12">
 			<label>
 				Label side
 			</label>
 			<div class="input-group">
-				<span class="input-group-addon btn {{(active_array.side == 'left' ? 'btn-info' : '')}}" ng-click="setArraySide('left');">Left</span>
-				<span class="input-group-addon btn {{(active_array.side == 'right' ? 'btn-info' : '')}}" ng-click="setArraySide('right');">Right</span>
+				<span class="input-group-addon btn {{(active_module.arrays[active_array].side == 'left' ? 'btn-info' : '')}}" ng-click="setArraySide('left');">Left</span>
+				<span class="input-group-addon btn {{(active_module.arrays[active_array].side == 'right' ? 'btn-info' : '')}}" ng-click="setArraySide('right');">Right</span>
 			</div>
 		</div>
-		<div ng-if="active_array.orientation == 'horizontal'" class="col-sm-12">
+		<div ng-if="active_module.arrays[active_array].orientation == 'horizontal'" class="col-sm-12">
 			<label>
 				Label side
 			</label>
 			<div class="input-group">
-				<span class="input-group-addon btn {{(active_array.side == 'top' ? 'btn-info' : '')}}" ng-click="setArraySide('top');">Top</span>
-				<span class="input-group-addon btn {{(active_array.side == 'bottom' ? 'btn-info' : '')}}" ng-click="setArraySide('bottom');">Bottom</span>
+				<span class="input-group-addon btn {{(active_module.arrays[active_array].side == 'top' ? 'btn-info' : '')}}" ng-click="setArraySide('top');">Top</span>
+				<span class="input-group-addon btn {{(active_module.arrays[active_array].side == 'bottom' ? 'btn-info' : '')}}" ng-click="setArraySide('bottom');">Bottom</span>
 			</div>
 		</div>
 		<div class="col-sm-12">
@@ -79,7 +79,7 @@
 					Pins
 				</label>
 			</div>
-			<div ng-repeat="pin in active_array.pins.concat('+') track by $index" ng-init="pinIndex = $index" class="btn" style="display: inline-block;">
+			<div ng-repeat="pin in active_module.arrays[active_array].pins.concat('+') track by $index" ng-init="pinIndex = $index" class="btn" style="display: inline-block;">
 				<div class="dropdown">
 					<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
 						{{($index + 1)}}: {{pin}}
