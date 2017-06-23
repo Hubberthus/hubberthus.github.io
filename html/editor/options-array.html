@@ -21,7 +21,7 @@
 	<div ng-if="active_array != null" class="panel">
 		<div class="col-sm-12">
 			<label>
-				Position.x (% of module image width)
+				X position (% of module image width)
 			</label>
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPositionX(-0.1); store();">&lt;</span>
@@ -33,7 +33,7 @@
 		</div>
 		<div class="col-sm-12">
 			<label>
-				Position.y (% of module image height)
+				Y position (% of module image height)
 			</label>
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPositionY(-0.1); store();">&lt;</span>
@@ -45,7 +45,7 @@
 		</div>
 		<div class="col-sm-12">
 			<label>
-				Pitch (% of module image {{(active_module.arrays[active_array].orientation == 'vertical' ? 'height' : 'width')}})
+				Pin pitch (% of module image {{(active_module.arrays[active_array].orientation == 'vertical' ? 'height' : 'width')}})
 			</label>
 			<div class="input-group">
 				<span class="input-group-addon btn" ng-click="moveArrayPitch(-0.1);">&lt;</span>
@@ -57,7 +57,7 @@
 		</div>
 		<div class="col-sm-12">
 			<label>
-				Label orientation
+				Orientation
 			</label>
 			<div class="input-group">
 				<span class="input-group-addon btn {{(active_module.arrays[active_array].orientation == 'horizontal' ? 'btn-info' : '')}}" ng-click="setArrayOrientation('horizontal');">Horizontal</span>
