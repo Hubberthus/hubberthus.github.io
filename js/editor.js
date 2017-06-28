@@ -20,7 +20,8 @@ define([
         'app/cores',
         'app/modules',
         'app/storage',
-        'jquery'], function(app, cores, modules, storage, $) {
+        'jquery',
+        'FileSaver'], function(app, cores, modules, storage, $, FileSaver) {
 	
 	// Editor controller function for the AngularJS application	
 	app.controller('mcuSetupEditorController',function($scope) {
@@ -241,6 +242,18 @@ define([
 			$scope.active_pin = $scope.init_list[3];
 			
 			storage.storeModule($scope.active_module);
+		}
+		
+		$scope.export = function() {
+			tmp_module = JSON.parse(JSON.stringify($scope.active_module));
+			for (index in tmp_module.arrays) {
+				delete tmp_module.arrays[index]["$$hashKey"];
+			}
+			delete tmp_module.image;
+			delete tmp_module.pin_map;
+			
+			var blob = new Blob([JSON.stringify(tmp_module, null, 2)], {type: "text/plain;charset=utf-8"});
+			saveAs(blob, "module.json");
 		}
 	})
 	.directive('editorTopNavbar', function() {
