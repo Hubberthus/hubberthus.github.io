@@ -19,10 +19,11 @@ define([
         'app/main',
         'app/cores',
         'app/modules',
+        'app/storage',
         'app/generator',
         'jquery', 
         'highlight',
-        'bootstrap'], function(app, cores, modules, generator, $, hljs, bootstrap) {
+        'bootstrap'], function(app, cores, modules, storage, generator, $, hljs, bootstrap) {
 	
 	// Main controller function for the AngularJS application	
 	app.controller('mcuSetupController',function($scope, $location) {
@@ -342,6 +343,11 @@ define([
 		$scope.downloadCode = function() {
 			
 			generator.downloadCode();
+		}
+		
+		$scope.store = function( module ) {
+			
+			storage.storeModule(module);
 		}
 	})
 	// String to integer conversion directive needed by pin selecting dropdown lists

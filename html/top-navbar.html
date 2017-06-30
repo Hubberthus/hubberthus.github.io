@@ -11,7 +11,7 @@
 	
 	<ul class="nav navbar-nav">
 		<li class="navbar-link" ng-if="active_page == 'layout'">
-			<a href="#/" ng-click="selectModule(null);">Module: {{active_module.name}} - (Click to select other)</a>
+			<a href="#/" ng-click="selectModule(null)">Module: {{active_module.name}} - (Click to select other)</a>
 		</li>
 		<!-- TODO: Automatic code generation temorarly removed -- li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Code flavor: {{(core.active_flavor ? core.active_flavor : "---")}}<span class="caret"></span></a>
@@ -26,7 +26,7 @@
 	
 	<ul class="nav navbar-right">
 		<li style="display: inline-block;">
-			<a href="#/editor" style="color: green;">Editor Mode</a>
+			<a href="#/editor" ng-click="store(active_module)" style="color: green;">Editor Mode</a>
 		</li>
 		<li style="display: inline-block;">
 			<a href="#/usage" class="navbar-link">Usage</a>
