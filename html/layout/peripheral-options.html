@@ -18,7 +18,7 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" style="left: -100%;">
-                    <li ng-repeat="choice in option.choices"><a href="#" ng-click="option.value = choice; updatePeripherals();">{{choice}}</a></li>
+                    <li ng-repeat="choice in option.choices"><a href="#/layout" ng-click="option.value = choice; updatePeripherals();">{{choice}}</a></li>
                 </ul>
             </div>
 			<div ng-hide="option.valid" style="padding: 4px 12px; color: white; background-color: {{(option.severity == ERROR ? 'red' : (option.severity == WARNING ? 'orange' : 'lightblue'))}};">

@@ -1,19 +1,42 @@
 <div ng-repeat="array in active_module.arrays" style="text-align: {{(array.side == 'right' ? 'left' : 'right')}}; left: {{array.position.x}}%; top: {{array.position.y}}%;">
-	<div ng-repeat="pin in array.pins track by $index" style="position: absolute; top: {{array.position.y + ($index * array.pitch)}}%; left: {{array.position.x}}%;">
-		<div style="position: relative; left: {{(array.side == 'right' ? '0%' : '-100%')}}; font-size: 1vw; width: 200px;">
-			
-			<div ng-if="array.side == 'right'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
-				{{pin}}
+	<div ng-if="array.orientation == 'vertical'">
+		<div ng-repeat="pin in array.pins track by $index" style="position: absolute; top: {{array.position.y + ($index * array.pitch)}}%; left: {{array.position.x}}%;">
+			<div style="position: relative; left: {{(array.side == 'right' ? '0%' : '-100%')}}; font-size: 1vw; width: 200px;">
+				
+				<div ng-if="array.side == 'right'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
+					{{pin}}
+				</div>
+				
+				<div ng-if="active_module.pins[pin].number != null" ng-repeat="(name, peripheral) in core.peripherals" style="display:inline-block;">
+					<span ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]" ng-if="(peripheral.active_pins[peripinname] == active_module.pins[pin].number) && (peripheral.active_mode != 'OFF')" class="label" style="background: {{peripheral.color}};">
+						{{peripinname}}
+					</span>
+				</div>
+				
+				<div ng-if="array.side == 'left'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
+					{{pin}}
+				</div>
 			</div>
-			
-			<div ng-if="active_module.pins[pin].number != null" ng-repeat="(name, peripheral) in core.peripherals" style="display:inline-block;">
-				<span ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]" ng-if="(peripheral.active_pins[peripinname] == active_module.pins[pin].number) && (peripheral.active_mode != 'OFF')" class="label" style="background: {{peripheral.color}};">
-					{{peripinname}}
-				</span>
-			</div>
-			
-			<div ng-if="array.side == 'left'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
-				{{pin}}
+		</div>
+	</div>
+	
+	<div ng-if="array.orientation == 'horizontal'">
+		<div ng-repeat="pin in array.pins track by $index" style="position: absolute; top: {{array.position.y}}%; left: {{array.position.x + ($index * array.pitch)}}%;">
+			<div style="position: absolute; transform-origin: 0% 50%; transform: translateY(-50%) translateX(50%) rotate({{(array.side == 'top' ? '270' : '90')}}deg); font-size: 1vw;">
+				
+				<div ng-if="array.side == 'top'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
+					{{pin}}
+				</div>
+				
+				<div ng-if="active_module.pins[pin].number != null" ng-repeat="(name, peripheral) in core.peripherals" style="display:inline-block;">
+					<span ng-repeat="peripinname in peripheral.modes[peripheral.active_mode]" ng-if="(peripheral.active_pins[peripinname] == active_module.pins[pin].number) && (peripheral.active_mode != 'OFF')" class="label" style="background: {{peripheral.color}};">
+						{{peripinname}}
+					</span>
+				</div>
+				
+				<div ng-if="array.side == 'bottom'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
+					{{pin}}
+				</div>
 			</div>
 		</div>
 	</div>
