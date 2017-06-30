@@ -1,309 +1,220 @@
-{
-"name": "SparkFun ESP32 Thing",
-"owner": "SparkFun Electronics",
-"link": "https://www.sparkfun.com/",
-"core": "ESP32",
-"width": 25,
-"peripherals": {
-	"XTAL_32K": {
-		"description": "The crystal with capacitors are already on the board, next to the pins '32' and '33'.",
-		"modes": {
-			"ON": ["XTAL_32K_P", "XTAL_32K_N"]
-			},
-		"active_mode": "ON",
-		"builtin": true
-		},
-	"SDIO1": {
-		"description": "Not routed out, the pins are used for onboard QSPI flash chip."
-		},
-	"HS1": {
-		"description": "Not routed out, the pins are used for onboard QSPI flash chip."
-		},
-	"SPI": {
-		"description": "Onboard QSPI flash chip is connected to it. Primary pins are not routed out.",
-		"modes": {
-			"Quad": ["SPI_CLK", "SPI_MISO", "SPI_MOSI", "SPI_HD", "SPI_WP", "SPI_CS0", "SPI_CS1", "SPI_CS2"]
-			},
-		"pins": {
-			"SPI_CLK": [31],
-			"SPI_MISO": [32],
-			"SPI_MOSI": [33],
-			"SPI_HD": [28],
-			"SPI_WP": [29],
-			"SPI_CS0": [30]
-			},
-		"active_mode": "Quad",
-		"builtin": true
-		},
-	"UART0": {
-		"description": "Primary TX and RX pins are connected to the onboard FTDI chip for USB serial functionality."
-		},
-	"UART2": {
-		"description": "Primary CTS/RTS pins are not routed out, they are used by the onboard QSPI flash."
-		}
-	},
-"pins": [
-	{
-	"name": "36",
-	"description": "Connected to pin '37' (SENSOR_CAPP) through a 270pF capacitor.",
-	"number": 5,
-	"position": 14,
-	"side": "left"
-	},
-	{
-	"name": "37",
-	"description": "Connected to pin '36' (SENSOR_VP) through a 270pF capacitor.",
-	"number": 6,
-	"position": 18.2,
-	"side": "left"
-	},
-	{
-	"name": "38",
-	"description": "Connected to pin '39' (SENSOR_VN) through a 270pF capacitor.",
-	"number": 7,
-	"position": 22.4,
-	"side": "left"
-	},
-	{
-	"name": "39",
-	"description": "Connected to pin '38' (SENSOR_CAPN) through a 270pF capacitor.",
-	"number": 8,
-	"position": 26.6,
-	"side": "left"
-	},
-	{
-	"name": "32",
-	"description": "Connected to pin '33' through a 32.768kHz crystal.",
-	"number": 12,
-	"position": 30.8,
-	"side": "left"
-	},
-	{
-	"name": "33",
-	"description": "Connected to pin '32' through a 32.768kHz crystal.",
-	"number": 13,
-	"position": 35,
-	"side": "left"
-	},
-	{
-	"name": "34",
-	"number": 10,
-	"position": 39.2,
-	"side": "left"
-	},
-	{
-	"name": "35",
-	"number": 11,
-	"position": 43.4,
-	"side": "left"
-	},
-	{
-	"name": "25",
-	"number": 14,
-	"position": 47.6,
-	"side": "left"
-	},
-	{
-	"name": "26",
-	"number": 15,
-	"position": 51.8,
-	"side": "left"
-	},
-	{
-	"name": "27",
-	"number": 16,
-	"position": 56,
-	"side": "left"
-	},
-	{
-	"name": "14",
-	"number": 17,
-	"position": 60.2,
-	"side": "left"
-	},
-	{
-	"name": "12",
-	"number": 18,
-	"position": 64.4,
-	"side": "left"
-	},
-	{
-	"name": "13",
-	"number": 20,
-	"position": 68.6,
-	"side": "left"
-	},
-	{
-	"name": "/RST",
-	"description": "Connected to the CHIP_PU pin on the MCU. Pulled up with an onboard 10k resistor. Connect to GND to reset the CPU. Onboard 'RST' button connects it to GND. The auto-reset mechanism also controls it for flash programming.",
-	"color": "yellow",
-	"position": 72.8,
-	"side": "left"
-	},
-	{
-	"name": "3V3",
-	"description": "3V3 output from the onboard regulator. Connects to different power inputs of the MCU with multiple decoupling capacitors.",
-	"color": "red",
-	"position": 77,
-	"side": "left"
-	},
-	{
-	"name": "GND",
-	"number": 49,
-	"color": "black",
-	"position": 81.2,
-	"side": "left"
-	},
-	{
-	"name": "VBAT",
-	"description": "Battery power. Connected directly to the LiPo battery and the charger.",
-	"color": "red",
-	"position": 85.4,
-	"side": "left"
-	},
-	{
-	"name": "VUSB",
-	"description": "Connected to the USB power input. Can be used to directly power the board instead of the USB, or if the board is powered by USB this pin provides 5V.",
-	"color": "red",
-	"position": 89.6,
-	"side": "left"
-	},
-	{
-	"name": "GND",
-	"number": 49,
-	"color": "black",
-	"position": 93.8,
-	"side": "left"
-	},
-	{
-	"name": "GND",
-	"number": 49,
-	"color": "black",
-	"position": 93.8,
-	"side": "right"
-	},
-	{
-	"name": "VUSB",
-	"description": "Connected to the USB power input. Can be used to directly power the board instead of the USB, or if the board is powered by USB this pin provides 5V.",
-	"color": "red",
-	"position": 89.6,
-	"side": "right"
-	},
-	{
-	"name": "VBAT",
-	"description": "Battery power. Connected directly to the LiPo battery and the charger.",
-	"color": "red",
-	"position": 85.4,
-	"side": "right"
-	},
-	{
-	"name": "GND",
-	"number": 49,
-	"color": "black",
-	"position": 81.2,
-	"side": "right"
-	},
-	{
-	"name": "3V3",
-	"description": "3V3 output from the onboard regulator. Connects to different power inputs of the MCU with multiple decoupling capacitors.",
-	"color": "red",
-	"position": 77,
-	"side": "right"
-	},
-	{
-	"name": "16",
-	"number": 25,
-	"position": 72.8,
-	"side": "right"
-	},
-	{
-	"name": "17",
-	"number": 27,
-	"position": 68.6,
-	"side": "right"
-	},
-	{
-	"name": "4",
-	"number": 24,
-	"position": 64.4,
-	"side": "right"
-	},
-	{
-	"name": "0",
-	"description": "Pulled up with a 10k resistor. Connect to GND at startup to enter flash programming mode. Onboard '0' button connects it to GND. The auto-reset mechanism also controls it for flash programming.",
-	"number": 23,
-	"position": 60.2,
-	"side": "right"
-	},
-	{
-	"name": "2",
-	"number": 22,
-	"position": 56,
-	"side": "right"
-	},
-	{
-	"name": "15",
-	"number": 21,
-	"position": 51.8,
-	"side": "right"
-	},
-	{
-	"name": "5",
-	"description": "Connected to the LED next to the pin.",
-	"number": 34,
-	"position": 47.6,
-	"side": "right"
-	},
-	{
-	"name": "18",
-	"number": 35,
-	"position": 43.4,
-	"side": "right"
-	},
-	{
-	"name": "23",
-	"number": 36,
-	"position": 39.2,
-	"side": "right"
-	},
-	{
-	"name": "19",
-	"number": 38,
-	"position": 35,
-	"side": "right"
-	},
-	{
-	"name": "22",
-	"number": 39,
-	"position": 30.8,
-	"side": "right"
-	},
-	{
-	"name": "RX",
-	"description": "Connected to the onboard FTDI chip's 'TX' pin.",
-	"number": 40,
-	"position": 26.6,
-	"side": "right"
-	},
-	{
-	"name": "TX",
-	"description": "Connected to the onboard FTDI chip's 'RX' pin.",
-	"number": 41,
-	"position": 22.4,
-	"side": "right"
-	},
-	{
-	"name": "21",
-	"number": 42,
-	"position": 18.2,
-	"side": "right"
-	},
-	{
-	"name": "GND",
-	"number": 49,
-	"color": "black",
-	"position": 14,
-	"side": "right"
-	}
-]
+﻿{
+  "name": "SparkFun ESP32 Thing",
+  "owner": "SparkFun Electronics",
+  "link": "https://www.sparkfun.com/",
+  "core": {
+    "name": "ESP32",
+    "package": "QFN48"
+  },
+  "peripherals": {
+    "XTAL_32K": {
+      "description": "The crystal with capacitors are already on the board, next to the pins '32' and '33'.",
+      "modes": {
+        "ON": [
+          "XTAL_32K_P",
+          "XTAL_32K_N"
+        ]
+      },
+      "active_mode": "ON",
+      "builtin": true
+    },
+    "SDIO1": {
+      "description": "Not routed out, the pins are used for onboard QSPI flash chip."
+    },
+    "HS1": {
+      "description": "Not routed out, the pins are used for onboard QSPI flash chip."
+    },
+    "SPI": {
+      "description": "Onboard QSPI flash chip is connected to it. Primary pins are not routed out.",
+      "modes": {
+        "Quad": [
+          "SPI_CLK",
+          "SPI_MISO",
+          "SPI_MOSI",
+          "SPI_HD",
+          "SPI_WP",
+          "SPI_CS0",
+          "SPI_CS1",
+          "SPI_CS2"
+        ]
+      },
+      "pins": {
+        "SPI_CLK": [
+          31
+        ],
+        "SPI_MISO": [
+          32
+        ],
+        "SPI_MOSI": [
+          33
+        ],
+        "SPI_HD": [
+          28
+        ],
+        "SPI_WP": [
+          29
+        ],
+        "SPI_CS0": [
+          30
+        ]
+      },
+      "active_mode": "Quad",
+      "builtin": true
+    },
+    "UART0": {
+      "description": "Primary TX and RX pins are connected to the onboard FTDI chip for USB serial functionality."
+    },
+    "UART2": {
+      "description": "Primary CTS/RTS pins are not routed out, they are used by the onboard QSPI flash."
+    }
+  },
+  "arrays": [
+    {
+      "position": {
+        "x": 7,
+        "y": 14
+      },
+      "pitch": 4.2,
+      "orientation": "vertical",
+      "side": "left",
+      "pins": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "32",
+        "33",
+        "34",
+        "35",
+        "25",
+        "26",
+        "27",
+        "14",
+        "12",
+        "13",
+        "/RST",
+        "3V3",
+        "GND",
+        "VBAT",
+        "VUSB",
+        "GND"
+      ]
+    }
+  ],
+  "pins": {
+    "0": {
+      "description": "Pulled up with a 10k resistor. Connect to GND at startup to enter flash programming mode. Onboard '0' button connects it to GND. The auto-reset mechanism also controls it for flash programming.",
+      "number": 23
+    },
+    "2": {
+      "number": 22
+    },
+    "4": {
+      "number": 24
+    },
+    "5": {
+      "description": "Connected to the LED next to the pin.",
+      "number": 34
+    },
+    "12": {
+      "number": 18
+    },
+    "13": {
+      "number": 20
+    },
+    "14": {
+      "number": 17
+    },
+    "15": {
+      "number": 21
+    },
+    "16": {
+      "number": 25
+    },
+    "17": {
+      "number": 27
+    },
+    "18": {
+      "number": 35
+    },
+    "19": {
+      "number": 38
+    },
+    "21": {
+      "number": 42
+    },
+    "22": {
+      "number": 39
+    },
+    "23": {
+      "number": 36
+    },
+    "25": {
+      "number": 14
+    },
+    "26": {
+      "number": 15
+    },
+    "27": {
+      "number": 16
+    },
+    "32": {
+      "description": "Connected to pin '33' through a 32.768kHz crystal.",
+      "number": 12
+    },
+    "33": {
+      "description": "Connected to pin '32' through a 32.768kHz crystal.",
+      "number": 13
+    },
+    "34": {
+      "number": 10
+    },
+    "35": {
+      "number": 11
+    },
+    "36": {
+      "description": "Connected to pin '37' (SENSOR_CAPP) through a 270pF capacitor.",
+      "number": 5
+    },
+    "37": {
+      "description": "Connected to pin '36' (SENSOR_VP) through a 270pF capacitor.",
+      "number": 6
+    },
+    "38": {
+      "description": "Connected to pin '39' (SENSOR_VN) through a 270pF capacitor.",
+      "number": 7
+    },
+    "39": {
+      "description": "Connected to pin '38' (SENSOR_CAPN) through a 270pF capacitor.",
+      "number": 8
+    },
+    "/RST": {
+      "description": "Connected to the CHIP_PU pin on the MCU. Pulled up with an onboard 10k resistor. Connect to GND to reset the CPU. Onboard 'RST' button connects it to GND. The auto-reset mechanism also controls it for flash programming.",
+      "color": "yellow"
+    },
+    "3V3": {
+      "description": "3V3 output from the onboard regulator. Connects to different power inputs of the MCU with multiple decoupling capacitors.",
+      "color": "red"
+    },
+    "GND": {
+      "number": 49,
+      "color": "black"
+    },
+    "VBAT": {
+      "description": "Battery power. Connected directly to the LiPo battery and the charger.",
+      "color": "red"
+    },
+    "VUSB": {
+      "description": "Connected to the USB power input. Can be used to directly power the board instead of the USB, or if the board is powered by USB this pin provides 5V.",
+      "color": "red"
+    },
+    "RX": {
+      "description": "Connected to the onboard FTDI chip's 'TX' pin.",
+      "number": 40
+    },
+    "TX": {
+      "description": "Connected to the onboard FTDI chip's 'RX' pin.",
+      "number": 41
+    }
+  }
 }

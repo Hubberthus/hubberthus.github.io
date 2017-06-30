@@ -1,0 +1,361 @@
+{
+  "owner": "Espressif Inc.",
+  "link": "https://espressif.com/",
+  "description": "Highly-integrated with in-built antenna switches, RF balun, power amplifier, low-noise receive amplifier, filters, and power management modules.",
+  "pins": [
+	  {
+		"name": "VDDA",
+		"description": "Analog power supply (2.3V ~ 3.6V)",
+		"pwm": false,
+		"input": false,
+		"output": false
+	  },
+	  {
+		"name": "LNA_IN",
+		"description": "RF input and output",
+		"pwm": false,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "VDD3P3",
+		"description": "Amplifier power supply (2.3V ~ 3.6V)",
+		"pwm": false,
+		"input": false,
+		"output": false
+	  },
+	  {
+		"name": "VDD3P3",
+		"description": "Amplifier power supply (2.3V ~ 3.6V)",
+		"pwm": false,
+		"input": false,
+		"output": false
+	  },
+	  {
+		"name": "SENSOR_VP",
+		"description": "GPIO36, ADC_PRE_AMP, ADC1_CH0, RTC_GPIO0. Note: Connects 270 pF capacitor from SENSOR_VP to SENSOR_CAPP when used as ADC_PRE_AMP.",
+		"pwm": true,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "SENSOR_CAPP",
+		"description": "GPIO37, ADC_PRE_AMP, ADC1_CH1, RTC_GPIO1. Note: Connects 270 pF capacitor from SENSOR_VP to SENSOR_CAPP when used as ADC_PRE_AMP.",
+		"pwm": true,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "SENSOR_CAPN",
+		"description": "GPIO38, ADC1_CH2, ADC_PRE_AMP, RTC_GPIO2. Note: Connects 270 pF capacitor from SENSOR_VN to SENSOR_CAPN when used as ADC_PRE_AMP.",
+		"pwm": true,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"number": 8,		"name": "SENSOR_VN",
+		"description": "GPIO39, ADC1_CH3, ADC_PRE_AMP, RTC_GPIO3. Note: Connects 270 pF capacitor from SENSOR_VN to SENSOR_CAPN when used as ADC_PRE_AMP.",
+		"pwm": true,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "CHIP_PU",
+		"description": "Chip Enable (Active High). High: On, chip works properly. Low: Off, chip works at the minimum power. Note: Do not leave CHIP_PU pin floating",
+		"pwm": false,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "VDET_1",
+		"description": "GPIO34, ADC1_CH6, RTC_GPIO4",
+		"pwm": true,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "VDET_2",
+		"description": "GPIO35, ADC1_CH7, RTC_GPIO5",
+		"pwm": true,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "32K_XP",
+		"description": "GPIO32, 32K_XP (32.768 kHz crystal oscillator input), ADC1_CH4, TOUCH9, RTC_GPIO9",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "32K_XN",
+		"description": "GPIO33, 32K_XN (32.768 kHz crystal oscillator output), ADC1_CH5, TOUCH8, RTC_GPIO8",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO25",
+		"description": "GPIO25, DAC_1, ADC2_CH8, RTC_GPIO6, EMAC_RXD0",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO26",
+		"description": "GPIO26, DAC_2, ADC2_CH9, RTC_GPIO7, EMAC_RXD1",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO27",
+		"description": "GPIO27, ADC2_CH7, TOUCH7, RTC_GPIO17, EMAC_RX_DV",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "MTMS",
+		"description": "GPIO14, ADC2_CH6, TOUCH6, RTC_GPIO16, MTMS, HSPICLK, HS2_CLK, SD_CLK, EMAC_TXD2",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "MTDI",
+		"description": "GPIO12, ADC2_CH5, TOUCH5, RTC_GPIO15, MTDI, HSPIQ, HS2_DATA2, SD_DATA2, EMAC_TXD3",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "VDD3P3_RTC",
+		"description": "RTC IO power supply input (1.8V - 3.3V)",
+		"pwm": false,
+		"input": false,
+		"output": false
+	  },
+	  {
+		"name": "MTCK",
+		"description": "GPIO13, ADC2_CH4, TOUCH4, RTC_GPIO14, MTCK, HSPID, HS2_DATA3, SD_DATA3, EMAC_RX_ER",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "MTDO",
+		"description": "GPIO15, ADC2_CH3, TOUCH3, RTC_GPIO13, MTDO, HSPICS0, HS2_CMD, SD_CMD, EMAC_RXD3",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO2",
+		"description": "GPIO2, ADC2_CH2, TOUCH2, RTC_GPIO12, HSPIWP, HS2_DATA0, SD_DATA0",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO0",
+		"description": "GPIO0, ADC2_CH1, TOUCH1, RTC_GPIO11, CLK_OUT1, EMAC_TX_CLK",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO4",
+		"description": "GPIO4, ADC2_CH0, TOUCH0, RTC_GPIO10, HSPIHD, HS2_DATA1, SD_DATA1, EMAC_TX_ER",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO16",
+		"description": "GPIO16, HS1_DATA4, U2RXD, EMAC_CLK_OUT",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "VDD_SDIO",
+		"description": "1.8V or 3.3V power supply output",
+		"pwm": false,
+		"input": false,
+		"output": false
+	  },
+	  {
+		"name": "GPIO17",
+		"description": "GPIO17, HS1_DATA5, U2TXD, EMAC_CLK_OUT_180",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "SD_DATA_2",
+		"description": "GPIO9, SD_DATA2, SPIHD, HS1_DATA2, U1RXD",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "SD_DATA_3",
+		"description": "GPIO10, SD_DATA3, SPIWP, HS1_DATA3, U1TXD",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "SD_CMD",
+		"description": "GPIO11, SD_CMD, SPICS0, HS1_CMD, U1RTS",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "SD_CLK",
+		"description": "GPIO6, SD_CLK, SPICLK, HS1_CLK, U1CTS",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "SD_DATA_0",
+		"description": "GPIO7, SD_DATA0, SPIQ, HS1_DATA0, U2RTS",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "SD_DATA_1",
+		"description": "GPIO8, SD_DATA1, SPID, HS1_DATA1, U2CTS",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO5",
+		"description": "GPIO5, VSPICS0, HS1_DATA6, EMAC_RX_CLK",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO18",
+		"description": "GPIO18, VSPICLK, HS1_DATA7",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO23",
+		"description": "GPIO23, VSPID, HS1_STROBE",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "VDD3P3_CPU",
+		"description": "CPU IO power supply input (1.8V - 3.3V)",
+		"pwm": false,
+		"input": false,
+		"output": false
+	  },
+	  {
+		"name": "GPIO19",
+		"description": "GPIO19, VSPIQ, U0CTS, EMAC_TXD0",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO22",
+		"description": "GPIO22, VSPIWP, U0RTS, EMAC_TXD1",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "U0RXD",
+		"description": "GPIO3, U0RXD, CLK_OUT2",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "U0TXD",
+		"description": "GPIO1, U0TXD, CLK_OUT3, EMAC_RXD2",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "GPIO21",
+		"description": "GPIO21, VSPIHD, EMAC_TX_EN",
+		"pwm": true,
+		"input": true,
+		"output": true
+	  },
+	  {
+		"name": "VDDA",
+		"description": "Analog power supply (2.3V - 3.6V)",
+		"pwm": false,
+		"input": false,
+		"output": false
+	  },
+	  {
+		"name": "XTAL_N",
+		"description": "External crystal output",
+		"pwm": false,
+		"input": false,
+		"output": true
+	  },
+	  {
+		"name": "XTAL_P",
+		"description": "External crystal input",
+		"pwm": false,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "VDDA",
+		"description": "Digital power supply for PLL (2.3V - 3.6V)",
+		"pwm": false,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "CAP2",
+		"description": "Connects with a 3nF capacitor and a 20k resistor in parallel to CAP1",
+		"pwm": false,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "CAP1",
+		"description": "Connects with a 10nF series capacitor to ground",
+		"pwm": false,
+		"input": true,
+		"output": false
+	  },
+	  {
+		"name": "GND",
+		"description": "Ground pad",
+		"pwm": false,
+		"input": false,
+		"output": false
+	  }
+  ],
+  ,
+  "packages": {
+	"QFN48": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+		10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+		20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+		30, 31, 32]
+  },
+  "flavors": {
+  	"Arduino": ["main.ino", "mps.h"],
+  	"Arduino_FreeRTOS": ["main.c", "main_app.cpp", "mps.h", "UART.h", "UART.cpp"]
+  }
+}
