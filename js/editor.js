@@ -249,6 +249,7 @@ define([
 			for (index in tmp_module.arrays) {
 				delete tmp_module.arrays[index]["$$hashKey"];
 			}
+			delete tmp_module["$$hashKey"];
 			delete tmp_module.image;
 			delete tmp_module.pin_map;
 			
