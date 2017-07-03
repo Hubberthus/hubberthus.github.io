@@ -1,131 +1,195 @@
-{
-"name": "STM32 Maple Mini",
-"owner": "LeafLabs",
-"link": "https://www.leaflabs.com/maple/",
-"core": {
-	"name": "STM32F103xx",
-	"package": "LQFP48"
-},
-"arrays": [],
-"pins": {
-	"VCC": {
-	"number": 48,
-	"color": "red"
-	},
-	"GND": {
-	"number": 47,
-	"description": "",
-	"color": "black"
-	},
-	"PB8": {
-	"number": 48
-	},
-	"PB7": {
-	"number": 43
-	},
-	"PB6": {
-	"number": 42
-	},
-	"PB5": {
-	"number": 41
-	},
-	"PB4": {
-	"number": 40
-	},
-	"PB3": {
-	"number": 39
-	},
-	"PA15": {
-	"number": 38
-	},
-	"PA14": {
-	"number": 37
-	},
-	"PA13": {
-	"number": 34
-	},
-	"PA12": {
-	"number": 33,
-	},
-	"PA11": {
-	"number": 32
-	},
-	"PA10": {
-	"number": 31
-	},
-	"PA9": {
-	"number": 30
-	},
-	"PA8": {
-	"number": 29
-	},
-	"PB15": {
-	"number": 28
-	},
-	"PB14": {
-	"number": 27
-	},
-	"PB13": {
-	"number": 26
-	},
-	"PB12": {
-	"number": 25
-	},
-	"VBAT": {
-	"number": 1,
-	"color": "orange"
-	},
-	"PC13": {
-	"number": 2
-	},
-	"PC14": {
-	"number": 3
-	},
-	"PC15": {
-	"number": 4
-	},
-	"RESET": {
-	"number": 7,
-	"color": "orange"
-	},
-	"PA0": {
-	"number": 10
-	},
-	"PA1": {
-	"number": 11
-	},
-	"PA2": {
-	"number": 12
-	},
-	"PA3": {
-	"number": 13
-	},
-	"PA4": {
-	"number": 14
-	},
-	"PA5": {
-	"number": 15
-	},
-	"PA6": {
-	"number": 16
-	},
-	"PA7": {
-	"number": 17
-	},
-	"PB0": {
-	"number": 18
-	},
-	"PB2": {
-	"number": 20
-	},
-	"PB10": {
-	"number": 21
-	},
-	"PB11": {
-	"number": 22
-	},
-	"VIN": {
-	"number": 48
-	}
+﻿{
+  "name": "STM32 Maple Mini",
+  "owner": "LeafLabs",
+  "link": "https://www.leaflabs.com/maple/",
+  "core": {
+    "name": "STM32F103xx",
+    "package": "LQFP48"
+  },
+  "arrays": [
+    {
+      "position": {
+        "x": 15,
+        "y": 5
+      },
+      "pitch": 4.6,
+      "orientation": "vertical",
+      "side": "left",
+      "pins": [
+        "VCC",
+        "GND",
+        "BUT",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31"
+      ]
+    },
+    {
+      "position": {
+        "x": 85,
+        "y": 5
+      },
+      "pitch": 4.6,
+      "orientation": "vertical",
+      "side": "right",
+      "pins": [
+        "VCC",
+        "GND",
+        "VBAT",
+        "14",
+        "13",
+        "12",
+        "RESET",
+        "11",
+        "10",
+        "9",
+        "8",
+        "7",
+        "6",
+        "5",
+        "4",
+        "3",
+        "2",
+        "1",
+        "0",
+        "VIN"
+      ]
+    }
+  ],
+  "pins": {
+    "0": {
+      "number": 43
+    },
+    "1": {
+      "number": 42
+    },
+    "2": {
+      "number": 41
+    },
+    "3": {
+      "number": 40
+    },
+    "4": {
+      "number": 39
+    },
+    "5": {
+      "number": 38
+    },
+    "6": {
+      "number": 37
+    },
+    "7": {
+      "number": 34
+    },
+    "8": {
+      "number": 33
+    },
+    "9": {
+      "number": 32
+    },
+    "10": {
+      "number": 31
+    },
+    "11": {
+      "number": 30
+    },
+    "12": {
+      "number": 29
+    },
+    "13": {
+      "number": 28
+    },
+    "14": {
+      "number": 27
+    },
+    "15": {
+      "number": 26
+    },
+    "16": {
+      "number": 25
+    },
+    "17": {
+      "number": 2
+    },
+    "18": {
+      "number": 3
+    },
+    "19": {
+      "number": 4
+    },
+    "20": {
+      "number": 10
+    },
+    "21": {
+      "number": 11
+    },
+    "22": {
+      "number": 12
+    },
+    "23": {
+      "number": 13
+    },
+    "24": {
+      "number": 14
+    },
+    "25": {
+      "number": 15
+    },
+    "26": {
+      "number": 16
+    },
+    "27": {
+      "number": 17
+    },
+    "28": {
+      "number": 18
+    },
+    "29": {
+      "number": 20
+    },
+    "30": {
+      "number": 21
+    },
+    "31": {
+      "number": 22
+    },
+    "VCC": {
+      "number": 48,
+      "color": "red"
+    },
+    "GND": {
+      "number": 47,
+      "description": "",
+      "color": "black"
+    },
+    "BUT": {
+      "number": 48
+    },
+    "VBAT": {
+      "number": 1,
+      "color": "red"
+    },
+    "RESET": {
+      "number": 7,
+      "color": "orange"
+    },
+    "VIN": {
+      "number": 48,
+      "color": "red"
+    }
   }
 }

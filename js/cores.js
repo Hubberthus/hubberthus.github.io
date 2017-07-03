@@ -18,7 +18,7 @@
 define(function (require) {
 
 	// List of the selectable cores. If a new one is added, it must be in this list
-	var core_names = ["ATmega328"];
+	var core_names = ["ATmega328", "STM32F103xx"];
 
 	// Generate default modes "ON" and "OFF" if needed,
 	// and set the default pins for every mode on every peripheral
