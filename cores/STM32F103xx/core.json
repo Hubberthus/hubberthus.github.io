@@ -1,0 +1,905 @@
+{
+  "name": "STM32F103X4/6/8/B/C/D/E",
+  "owner": "STMicroelectronics",
+  "link": "http://www.st.com/",
+  "description": "Mainstream Performance line, ARM Cortex-M3 MCU with 16-512 Kbytes Flash, 72 MHz CPU, motor control, USB and CAN",
+  "pins": [
+    {
+        "name": "PE2",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE3",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE4",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE5",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE6",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VBAT",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PC13",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC14",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC15",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF0",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF1",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF2",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF3",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF4",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF5",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_5",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_5",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PF6",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF7",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF8",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF9",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF10",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "OSC_IN",
+		"pwm": false,
+		"input": true,
+		"output": false
+    },
+    {
+        "name": "OSC_OUT",
+		"pwm": false,
+		"input": false,
+		"output": true
+    },
+    {
+        "name": "NRST",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC0",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC1",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC2",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC3",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSSA",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VREF-",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VREF+",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDDA",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PA0",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA1",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA2",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA3",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_4",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_4",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PA4",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA5",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA6",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA7",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC4",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC5",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB0",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB1",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB2",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF11",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF12",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_6",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_6",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PF13",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF14",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PF15",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG0",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG1",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE7",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE8",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE9",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_7",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_7",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PE10",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE11",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE12",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE13",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE14",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE15",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB10",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB11",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_1",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_1",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PB12",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB13",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB14",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB15",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD8",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD9",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD10",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD11",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD12",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD13",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_8",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_8",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PD14",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD15",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG2",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG3",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG4",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG5",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG6",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG7",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG8",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_9",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_9",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PC6",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC7",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC8",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC9",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA8",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA9",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA10",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA11",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA12",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA13",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "NC",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VSS_2",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_2",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PA14",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC10",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC11",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PC12",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD0",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD1",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD2",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD3",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD4",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD5",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_10",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_10",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PD6",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PD7",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG9",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG10",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG11",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG12",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG13",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PG14",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_11",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_11",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "PG15",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB3",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB4",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB5",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB6",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB7",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "BOOT0",
+		"pwm": false,
+		"input": true,
+		"output": false
+    },
+    {
+        "name": "PB8",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PB9",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE0",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PE1",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "VSS_3",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+    {
+        "name": "VDD_3",
+		"pwm": false,
+		"input": false,
+		"output": false
+    },
+  ],
+  "LQFP144": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+		10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+		20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+		30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+		40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+		50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+		60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+		70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+		80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
+		90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
+		100, 101, 102, 103, 104, 105, 106, 107, 108, 109,
+		110, 111, 112, 113, 114, 115, 116, 117, 118, 119,
+		120, 121, 122, 123, 124, 125, 126, 127, 128, 129,
+		130, 131, 132, 133, 134, 135, 136, 137, 138, 139,
+		140, 141, 142, 143],
+	"LQFP100": [0, 1, 2, 3, 4, 5, 6, 7, 8, 15,
+		16, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+		31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+		41, 42, 43, 44, 45, 46, 47, 57, 58, 59,
+		62, 63, 64, 65, 66, 67, 68, 69, 70, 71,
+		72, 73, 74, 75, 76, 77, 78, 79, 80, 81,
+		84, 85, 95, 96, 97, 98, 99, 100, 101, 102,
+		103, 104, 105, 106, 107, 108, 109, 110, 111, 112,
+		113, 114, 115, 116, 117, 118, 121, 122, 132, 133,
+		134, 135, 136, 137, 138, 139, 140, 141, 142, 143],
+	"LQFP64": [5, 6, 7, 8, 24, 25, 26, 27, 28, 29,
+		32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
+		42, 43, 44, 45, 46, 47, 68, 69, 70, 71,
+		72, 73, 74, 75, 95, 96, 97, 98, 99, 100,
+		101, 102, 103, 104, 106, 107, 108, 109, 110, 111,
+		112, 113, 114, 115, 132, 133, 134, 135, 136, 137,
+		138, 139, 142, 143],
+	"LQFP48": [5, 6, 7, 8, 24, 25, 26, 33, 34, 35,
+		36, 37, 38, 41, 42, 43, 44, 45, 68, 69,
+		70, 71, 72, 73, 74, 75, 95, 96, 101, 107,
+		108, 109, 110, 111, 112, 113, 114, 115, 132, 133,
+		134, 135, 136, 137, 138, 139, 142, 143]
+  },
+  "flavors": {}
+}

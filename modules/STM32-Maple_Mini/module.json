@@ -2,257 +2,130 @@
 "name": "STM32 Maple Mini",
 "owner": "LeafLabs",
 "link": "https://www.leaflabs.com/maple/",
-"core": "STM32F103CB",
-"width": 25,
-"pins": [
-	{
-	"name": "VCC",
+"core": {
+	"name": "STM32F103xx",
+	"package": "LQFP48"
+},
+"arrays": [],
+"pins": {
+	"VCC": {
 	"number": 48,
-	"color": "red",
-	"position": 6,
-	"side": "left"
+	"color": "red"
 	},
-	{
-	"name": "GND",
+	"GND": {
 	"number": 47,
 	"description": "",
-	"color": "black",
-	"position": 10.5,
-	"side": "left"
+	"color": "black"
 	},
-	{
-	"name": "PB8",
-	"number": 48,
-	"position": 15,
-	"side": "left"
+	"PB8": {
+	"number": 48
 	},
-	{
-	"name": "PB7",
-	"number": 43,
-	"position": 19.5,
-	"side": "left"
+	"PB7": {
+	"number": 43
 	},
-	{
-	"name": "PB6",
-	"number": 42,
-	"position": 24,
-	"side": "left"
+	"PB6": {
+	"number": 42
 	},
-	{
-	"name": "PB5",
-	"number": 41,
-	"position": 28.5,
-	"side": "left"
+	"PB5": {
+	"number": 41
 	},
-	{
-	"name": "PB4",
-	"number": 40,
-	"position": 33,
-	"side": "left"
+	"PB4": {
+	"number": 40
 	},
-	{
-	"name": "PB3",
-	"number": 39,
-	"position": 37.5,
-	"side": "left"
+	"PB3": {
+	"number": 39
 	},
-	{
-	"name": "PA15",
-	"number": 38,
-	"position": 42.5,
-	"side": "left"
+	"PA15": {
+	"number": 38
 	},
-	{
-	"name": "PA14",
-	"number": 37,
-	"position": 47,
-	"side": "left"
+	"PA14": {
+	"number": 37
 	},
-	{
-	"name": "PA13",
-	"number": 34,
-	"position": 51.5,
-	"side": "left"
+	"PA13": {
+	"number": 34
 	},
-	{
-	"name": "PA12",
+	"PA12": {
 	"number": 33,
-	"position": 56,
-	"side": "left"
 	},
-	{
-	"name": "PA11",
-	"number": 32,
-	"position": 60.5,
-	"side": "left"
+	"PA11": {
+	"number": 32
 	},
-	{
-	"name": "PA10",
-	"number": 31,
-	"position": 65,
-	"side": "left"
+	"PA10": {
+	"number": 31
 	},
-	{
-	"name": "PA9",
-	"number": 30,
-	"position": 70,
-	"side": "left"
+	"PA9": {
+	"number": 30
 	},
-	{
-	"name": "PA8",
-	"number": 29,
-	"position": 74.5,
-	"side": "left"
+	"PA8": {
+	"number": 29
 	},
-	{
-	"name": "PB15",
-	"number": 28,
-	"position": 79,
-	"side": "left"
+	"PB15": {
+	"number": 28
 	},
-	{
-	"name": "PB14",
-	"number": 27,
-	"position": 83.5,
-	"side": "left"
+	"PB14": {
+	"number": 27
 	},
-	{
-	"name": "PB13",
-	"number": 26,
-	"position": 88,
-	"side": "left"
+	"PB13": {
+	"number": 26
 	},
-	{
-	"name": "PB12",
-	"number": 25,
-	"position": 92.5,
-	"side": "left"
+	"PB12": {
+	"number": 25
 	},
-    {
-	"name": "VCC",
-	"number": 48,
-	"color": "red",
-	"position": 6,
-	"side": "right"
-	},
-	{
-	"name": "GND",
-	"number": 47,
-	"description": "",
-	"color": "black",
-	"position": 10.5,
-	"side": "right"
-	},
-	{
-	"name": "VBAT",
+	"VBAT": {
 	"number": 1,
-	"color": "orange",
-	"position": 15,
-	"side": "right"
+	"color": "orange"
 	},
-	{
-	"name": "PC13",
-	"number": 2,
-	"position": 19.5,
-	"side": "right"
+	"PC13": {
+	"number": 2
 	},
-	{
-	"name": "PC14",
-	"number": 3,
-	"position": 24,
-	"side": "right"
+	"PC14": {
+	"number": 3
 	},
-	{
-	"name": "PC15",
-	"number": 4,
-	"position": 28.5,
-	"side": "right"
+	"PC15": {
+	"number": 4
 	},
-	{
-	"name": "RESET",
+	"RESET": {
 	"number": 7,
-	"color": "orange",
-	"position": 33,
-	"side": "right"
+	"color": "orange"
 	},
-	{
-	"name": "PA0",
-	"number": 10,
-	"position": 37.5,
-	"side": "right"
+	"PA0": {
+	"number": 10
 	},
-	{
-	"name": "PA1",
-	"number": 11,
-	"position": 42.5,
-	"side": "right"
+	"PA1": {
+	"number": 11
 	},
-	{
-	"name": "PA2",
-	"number": 12,
-	"position": 47,
-	"side": "right"
+	"PA2": {
+	"number": 12
 	},
-	{
-	"name": "PA3",
-	"number": 13,
-	"position": 51.5,
-	"side": "right"
+	"PA3": {
+	"number": 13
 	},
-	{
-	"name": "PA4",
-	"number": 14,
-	"position": 56,
-	"side": "right"
+	"PA4": {
+	"number": 14
 	},
-	{
-	"name": "PA5",
-	"number": 15,
-	"position": 60.5,
-	"side": "right"
+	"PA5": {
+	"number": 15
 	},
-	{
-	"name": "PA6",
-	"number": 16,
-	"position": 65,
-	"side": "right"
+	"PA6": {
+	"number": 16
 	},
-	{
-	"name": "PA7",
-	"number": 17,
-	"position": 70,
-	"side": "right"
+	"PA7": {
+	"number": 17
 	},
-	{
-	"name": "PB0",
-	"number": 18,
-	"position": 74.5,
-	"side": "right"
+	"PB0": {
+	"number": 18
 	},
-	{
-	"name": "PB2",
-	"number": 20,
-	"position": 79,
-	"side": "right"
+	"PB2": {
+	"number": 20
 	},
-	{
-	"name": "PB10",
-	"number": 21,
-	"position": 83.5,
-	"side": "right"
+	"PB10": {
+	"number": 21
 	},
-	{
-	"name": "PB11",
-	"number": 22,
-	"position": 88,
-	"side": "right"
+	"PB11": {
+	"number": 22
 	},
-	{
-	"name": "VIN",
-	"number": 48,
-	"color": "red",
-	"position": 92.5,
-	"side": "right"
+	"VIN": {
+	"number": 48
 	}
-]
+  }
 }

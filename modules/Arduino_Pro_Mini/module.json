@@ -4,7 +4,7 @@
   "link": "https://www.arduino.cc/",
   "core": {
     "name": "ATmega328",
-    "package": "MLF32"
+    "package": "QFN32"
   },
   "peripherals": {
     "GPIO": {
