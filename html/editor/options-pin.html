@@ -33,7 +33,7 @@
 			</span>
 			<span class="col-sm-5">
 				&lt;
-				<span>{{core.pins[active_module.pins[active_pin].number - 1].name}}</span>
+				<span>{{core.pins[core.packages[active_module.core.package][active_module.pins[active_pin].number - 1]].name}}</span>
 				&gt;
 			</span>
 		</div>

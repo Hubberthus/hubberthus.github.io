@@ -1,5 +1,5 @@
 {
-  "name": "STM32F103X4/6/8/B/C/D/E",
+  "name": "STM32F103x4/6/8/B/C/D/E",
   "owner": "STMicroelectronics",
   "link": "http://www.st.com/",
   "description": "Mainstream Performance line, ARM Cortex-M3 MCU with 16-512 Kbytes Flash, 72 MHz CPU, motor control, USB and CAN",
@@ -654,6 +654,12 @@
     },
     {
         "name": "PA14",
+		"pwm": false,
+		"input": true,
+		"output": true
+    },
+    {
+        "name": "PA15",
 		"pwm": false,
 		"input": true,
 		"output": true
