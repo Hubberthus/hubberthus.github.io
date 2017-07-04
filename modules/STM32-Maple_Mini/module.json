@@ -72,112 +72,111 @@
   ],
   "pins": {
     "0": {
-      "number": 43
-    },
-    "1": {
-      "number": 42
-    },
-    "2": {
-      "number": 41
-    },
-    "3": {
-      "number": 40
-    },
-    "4": {
-      "number": 39
-    },
-    "5": {
-      "number": 38
-    },
-    "6": {
-      "number": 37
-    },
-    "7": {
-      "number": 34
-    },
-    "8": {
-      "number": 33
-    },
-    "9": {
-      "number": 32
-    },
-    "10": {
-      "number": 31
-    },
-    "11": {
-      "number": 30
-    },
-    "12": {
-      "number": 29
-    },
-    "13": {
-      "number": 28
-    },
-    "14": {
-      "number": 27
-    },
-    "15": {
-      "number": 26
-    },
-    "16": {
-      "number": 25
-    },
-    "17": {
-      "number": 2
-    },
-    "18": {
-      "number": 3
-    },
-    "19": {
-      "number": 4
-    },
-    "20": {
-      "number": 10
-    },
-    "21": {
-      "number": 11
-    },
-    "22": {
-      "number": 12
-    },
-    "23": {
-      "number": 13
-    },
-    "24": {
-      "number": 14
-    },
-    "25": {
-      "number": 15
-    },
-    "26": {
-      "number": 16
-    },
-    "27": {
-      "number": 17
-    },
-    "28": {
-      "number": 18
-    },
-    "29": {
-      "number": 20
-    },
-    "30": {
-      "number": 21
-    },
-    "31": {
       "number": 22
     },
+    "1": {
+      "number": 21
+    },
+    "2": {
+      "number": 20
+    },
+    "3": {
+      "number": 18
+    },
+    "4": {
+      "number": 17
+    },
+    "5": {
+      "number": 16
+    },
+    "6": {
+      "number": 15
+    },
+    "7": {
+      "number": 14
+    },
+    "8": {
+      "number": 13
+    },
+    "9": {
+      "number": 12
+    },
+    "10": {
+      "number": 11
+    },
+    "11": {
+      "number": 10
+    },
+    "12": {
+      "number": 4
+    },
+    "13": {
+      "number": 3
+    },
+    "14": {
+      "number": 2
+    },
+    "15": {
+      "number": 43
+    },
+    "16": {
+      "number": 42
+    },
+    "17": {
+      "number": 41
+    },
+    "18": {
+      "number": 40
+    },
+    "19": {
+      "number": 39
+    },
+    "20": {
+      "number": 38
+    },
+    "21": {
+      "number": 37
+    },
+    "22": {
+      "number": 34
+    },
+    "23": {
+      "number": 33
+    },
+    "24": {
+      "number": 32
+    },
+    "25": {
+      "number": 31
+    },
+    "26": {
+      "number": 30
+    },
+    "27": {
+      "number": 29
+    },
+    "28": {
+      "number": 28
+    },
+    "29": {
+      "number": 27
+    },
+    "30": {
+      "number": 26
+    },
+    "31": {
+      "number": 25
+    },
     "VCC": {
-      "number": 48,
+      "description": "Connected to on-board 3V3 regulator.",
       "color": "red"
     },
     "GND": {
       "number": 47,
-      "description": "",
       "color": "black"
     },
     "BUT": {
-      "number": 48
+      "number": 45
     },
     "VBAT": {
       "number": 1,
@@ -188,6 +187,7 @@
       "color": "orange"
     },
     "VIN": {
+	  "description": "Connected to on-board USB 5V. The board can be powered from this pin if not via the USB port.",
       "number": 48,
       "color": "red"
     }
