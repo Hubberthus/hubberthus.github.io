@@ -1,262 +1,226 @@
-{
-"name": "ESP-WROOM-32",
-"owner": "Espressif Inc.",
-"link": "https://espressif.com/",
-"core": "ESP32",
-"width": 30,
-"peripherals": {
-	"ADC": {
-		"description": "Channel 1 and 2 of ADC1 are not routed out."
-		},
-	"RTC_GPIO": {
-		"description": "RTC_GPIO1 and RTC_GPIO2 are not routed out."
-		},
-	"SPI": {
-		"description": "Onboard QSPI flash chip is connected to it."
-		}
-	},
-"pins": [
-	{
-	"name": "GND",
-	"number": 49,
-	"color": "black",
-	"position": 20,
-	"side": "left"
-	},
-	{
-	"name": "3V3",
-	"description": "3V3 power input. Connects to different power inputs of the MCU with multiple decoupling capacitors. Also has a TVS diode connected to GND for ESD protection.",
-	"color": "red",
-	"position": 23.7,
-	"side": "left"
-	},
-	{
-	"name": "EN",
-	"number": 9,
-	"color": "orange",
-	"position": 27.4,
-	"side": "left"
-	},
-	{
-	"name": "S_VP",
-	"description": "Connected to SENSOR_CAPP through a 270pF capacitor.",
-	"number": 5,
-	"position": 31.1,
-	"side": "left"
-	},
-	{
-	"name": "S_VN",
-	"description": "Connected to SENSOR_CAPN through a 270pF capacitor.",
-	"number": 8,
-	"position": 34.8,
-	"side": "left"
-	},
-	{
-	"name": "IO34",
-	"number": 10,
-	"position": 38.5,
-	"side": "left"
-	},
-	{
-	"name": "IO35",
-	"number": 11,
-	"position": 42.2,
-	"side": "left"
-	},
-	{
-	"name": "IO32",
-	"number": 12,
-	"position": 45.9,
-	"side": "left"
-	},
-	{
-	"name": "IO33",
-	"number": 13,
-	"position": 49.6,
-	"side": "left"
-	},
-	{
-	"name": "IO25",
-	"number": 14,
-	"position": 53.3,
-	"side": "left"
-	},
-	{
-	"name": "IO26",
-	"number": 15,
-	"position": 57,
-	"side": "left"
-	},
-	{
-	"name": "IO27",
-	"number": 16,
-	"position": 60.7,
-	"side": "left"
-	},
-	{
-	"name": "IO14",
-	"number": 17,
-	"position": 64.4,
-	"side": "left"
-	},
-	{
-	"name": "IO12",
-	"number": 18,
-	"position": 68.1,
-	"side": "left"
-	},
-	{
-	"name": "GND",
-	"number": 49,
-	"color": "black",
-	"position": 78,
-	"side": "left"
-	},
-	{
-	"name": "IO13",
-	"number": 20,
-	"position": 81.5,
-	"side": "left"
-	},
-	{
-	"name": "SD2",
-	"description": "Connects to the '/HOLD' pin of the onboard flash chip.",
-	"number": 28,
-	"position": 85,
-	"side": "left"
-	},
-	{
-	"name": "SD3",
-	"description": "Connects to the '/WP' pin of the onboard flash chip.",
-	"number": 29,
-	"position": 88.5,
-	"side": "left"
-	},
-	{
-	"name": "CMD",
-	"description": "Connects to the '/CS' pin of the onboard flash chip.",
-	"number": 30,
-	"position": 92,
-	"side": "left"
-	},
-	{
-	"name": "CLK",
-	"description": "Connects to the 'CLK' pin of the onboard flash chip.",
-	"number": 31,
-	"position": 92,
-	"side": "right"
-	},
-	{
-	"name": "SD0",
-	"description": "Connects to the 'DO' pin of the onboard flash chip.",
-	"number": 32,
-	"position": 88.5,
-	"side": "right"
-	},
-	{
-	"name": "SD1",
-	"description": "Connects to the 'DI' pin of the onboard flash chip.",
-	"number": 33,
-	"position": 85,
-	"side": "right"
-	},
-	{
-	"name": "IO15",
-	"number": 21,
-	"position": 81.5,
-	"side": "right"
-	},
-	{
-	"name": "IO2",
-	"number": 22,
-	"position": 78,
-	"side": "right"
-	},
-	{
-	"name": "IO0",
-	"number": 23,
-	"position": 68.1,
-	"side": "right"
-	},
-	{
-	"name": "IO4",
-	"number": 24,
-	"position": 64.4,
-	"side": "right"
-	},
-	{
-	"name": "IO16",
-	"number": 25,
-	"position": 60.7,
-	"side": "right"
-	},
-	{
-	"name": "IO17",
-	"number": 27,
-	"position": 57,
-	"side": "right"
-	},
-	{
-	"name": "IO5",
-	"number": 34,
-	"position": 53.3,
-	"side": "right"
-	},
-	{
-	"name": "IO18",
-	"number": 35,
-	"position": 49.6,
-	"side": "right"
-	},
-	{
-	"name": "IO19",
-	"number": 38,
-	"position": 45.9,
-	"side": "right"
-	},
-	{
-	"name": "NC",
-	"description": "Not connected",
-	"color": "lightgrey",
-	"position": 42.2,
-	"side": "right"
-	},
-	{
-	"name": "IO21",
-	"number": 42,
-	"position": 38.5,
-	"side": "right"
-	},
-	{
-	"name": "RXD0",
-	"number": 40,
-	"position": 34.8,
-	"side": "right"
-	},
-	{
-	"name": "TXD0",
-	"number": 41,
-	"position": 31.1,
-	"side": "right"
-	},
-	{
-	"name": "IO22",
-	"number": 39,
-	"position": 27.4,
-	"side": "right"
-	},
-	{
-	"name": "IO23",
-	"number": 36,
-	"position": 23.7,
-	"side": "right"
-	},
-	{
-	"name": "GND",
-	"number": 49,
-	"color": "black",
-	"position": 20,
-	"side": "right"
-	}
-]
+﻿{
+  "name": "ESP-WROOM-32",
+  "owner": "Espressif Inc.",
+  "link": "https://espressif.com/",
+  "core": {
+    "name": "ESP32",
+    "package": "QFN48"
+  },
+  "peripherals": {
+    "ADC": {
+      "description": "Channel 1 and 2 of ADC1 are not routed out."
+    },
+    "RTC_GPIO": {
+      "description": "RTC_GPIO1 and RTC_GPIO2 are not routed out."
+    },
+    "SPI": {
+      "description": "Onboard QSPI flash chip is connected to it."
+    }
+  },
+  "arrays": [
+    {
+      "position": {
+        "x": 1,
+        "y": 20
+      },
+      "pitch": 3.7000000000000006,
+      "orientation": "vertical",
+      "side": "left",
+      "pins": [
+        "GND",
+        "3V3",
+        "EN",
+        "S_VP",
+        "S_VN",
+        "IO34",
+        "IO35",
+        "IO32",
+        "IO33",
+        "IO25",
+        "IO26",
+        "IO27",
+        "IO14",
+        "IO12"
+      ]
+    },
+    {
+      "position": {
+        "x": 1,
+        "y": 77.19999999999999
+      },
+      "pitch": 3.6999999999999997,
+      "orientation": "vertical",
+      "side": "left",
+      "pins": [
+        "GND",
+        "IO13",
+        "SD2",
+        "SD3",
+        "CMD"
+      ]
+    },
+    {
+      "position": {
+        "x": 98.69999999999996,
+        "y": 77.19999999999999
+      },
+      "pitch": 3.7000000000000006,
+      "orientation": "vertical",
+      "side": "right",
+      "pins": [
+        "IO2",
+        "IO15",
+        "SD1",
+        "SD0",
+        "CLK"
+      ]
+    },
+    {
+      "position": {
+        "x": 98.69999999999996,
+        "y": 20
+      },
+      "pitch": 3.7000000000000006,
+      "orientation": "vertical",
+      "side": "right",
+      "pins": [
+        "GND",
+        "IO23",
+        "IO22",
+        "TXD0",
+        "RXD0",
+        "IO21",
+        "NC",
+        "IO19",
+        "IO18",
+        "IO5",
+        "IO17",
+        "IO16",
+        "IO4",
+        "IO0"
+      ]
+    }
+  ],
+  "pins": {
+    "GND": {
+      "number": 49,
+      "color": "black"
+    },
+    "3V3": {
+      "description": "3V3 power input. Connects to different power inputs of the MCU with multiple decoupling capacitors. Also has a TVS diode connected to GND for ESD protection.",
+      "color": "red"
+    },
+    "EN": {
+      "number": 9,
+      "color": "orange"
+    },
+    "S_VP": {
+      "description": "Connected to SENSOR_CAPP through a 270pF capacitor.",
+      "number": 5
+    },
+    "S_VN": {
+      "description": "Connected to SENSOR_CAPN through a 270pF capacitor.",
+      "number": 8
+    },
+    "IO34": {
+      "number": 10
+    },
+    "IO35": {
+      "number": 11
+    },
+    "IO32": {
+      "number": 12
+    },
+    "IO33": {
+      "number": 13
+    },
+    "IO25": {
+      "number": 14
+    },
+    "IO26": {
+      "number": 15
+    },
+    "IO27": {
+      "number": 16
+    },
+    "IO14": {
+      "number": 17
+    },
+    "IO12": {
+      "number": 18
+    },
+    "IO13": {
+      "number": 20
+    },
+    "SD2": {
+      "description": "Connects to the '/HOLD' pin of the onboard flash chip.",
+      "number": 28
+    },
+    "SD3": {
+      "description": "Connects to the '/WP' pin of the onboard flash chip.",
+      "number": 29
+    },
+    "CMD": {
+      "description": "Connects to the '/CS' pin of the onboard flash chip.",
+      "number": 30
+    },
+    "CLK": {
+      "description": "Connects to the 'CLK' pin of the onboard flash chip.",
+      "number": 31
+    },
+    "SD0": {
+      "description": "Connects to the 'DO' pin of the onboard flash chip.",
+      "number": 32
+    },
+    "SD1": {
+      "description": "Connects to the 'DI' pin of the onboard flash chip.",
+      "number": 33
+    },
+    "IO15": {
+      "number": 21
+    },
+    "IO2": {
+      "number": 22
+    },
+    "IO0": {
+      "number": 23
+    },
+    "IO4": {
+      "number": 24
+    },
+    "IO16": {
+      "number": 25
+    },
+    "IO17": {
+      "number": 27
+    },
+    "IO5": {
+      "number": 34
+    },
+    "IO18": {
+      "number": 35
+    },
+    "IO19": {
+      "number": 38
+    },
+    "NC": {
+      "description": "Not connected",
+      "color": "lightgrey"
+    },
+    "IO21": {
+      "number": 42
+    },
+    "RXD0": {
+      "number": 40
+    },
+    "TXD0": {
+      "number": 41
+    },
+    "IO22": {
+      "number": 39
+    },
+    "IO23": {
+      "number": 36
+    }
+  }
 }

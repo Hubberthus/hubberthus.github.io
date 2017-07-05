@@ -17,6 +17,9 @@
 
 define(function (require) {
 
+	// List of the selectable cores. If a new one is added, it must be in this list
+	var core_names = ["ATmega328", "STM32F103xx"];
+
 	// Generate default modes "ON" and "OFF" if needed,
 	// and set the default pins for every mode on every peripheral
 	setupDefaultPeripheralModes = function ( core ) {
@@ -96,24 +99,23 @@ define(function (require) {
 	}
 	
     return {
+		// Returns the list of core names
+    	getCores: function () {
+    		
+    		return core_names;
+        },
     	// Returns an initialized core dictionary for the given name
     	loadCore: function ( name ) {
     		
-    		core = {};
+    		var core = {};
     		
-    		$.getJSON("cores/" + name + "/info.json")
-			.done(function( info ) {
+    		$.getJSON("cores/" + name + "/core.json")
+			.done(function( _core ) {
 				
-				core.info = info;
+				core = _core;
 			});
     		
     		core.active_flavor = null;
-			
-			$.getJSON("cores/" + name + "/pinout.json")
-			.done(function( pinout ) {
-				
-				core.pinout = pinout;
-			});
 			
 			$.getJSON("cores/" + name + "/peripherals.json")
 			.done(function( peripherals ) {
@@ -124,16 +126,17 @@ define(function (require) {
 			// Load files needed for code generation
 			core.source_files = {};
 
-			for(var flavor in core.info.flavors) {
+			// TODO: Automatic code generation removed temorarly
+			/*for(var flavor in core.flavors) {
 				core.source_files[flavor] = [];
-				for(var n in core.info.flavors[flavor]) {
-					$.get("cores/" + name + "/" + flavor + "-flavor/" + core.info.flavors[flavor][n])
+				for(var n in core.flavors[flavor]) {
+					$.get("cores/" + name + "/" + flavor + "-flavor/" + core.flavors[flavor][n])
 					.done(function( file_content ) {
 						
-						core.source_files[flavor].push({name: core.info.flavors[flavor][n], code: file_content});
+						core.source_files[flavor].push({name: core.flavors[flavor][n], code: file_content});
 					});
 				}
-			}
+			}*/
 			
 			setupDefaultPeripheralModes(core);
     		

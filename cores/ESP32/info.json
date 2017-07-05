@@ -1,8 +1,0 @@
-{
-  "owner": "Espressif Inc.",
-  "link": "https://espressif.com/",
-  "flavors": {
-  	"Arduino": ["main.ino", "mps.h"],
-  	"Arduino_FreeRTOS": ["main.c", "main_app.cpp", "mps.h", "UART.h", "UART.cpp"]
-  }
-}

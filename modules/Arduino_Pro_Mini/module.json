@@ -1,237 +1,291 @@
-{
-"name": "Arduino Pro Mini",
-"owner": "Arduino AG",
-"link": "https://www.arduino.cc/",
-"core": "ATmega328_MLF32",
-"width": 25,
-"peripherals": {
-	"GPIO": {
-		"pins": {"PB0": [12], "PB1": [13], "PB2": [14], "PB3": [15], "PB4": [16],
-			"PB5": [17], "PC0": [23], "PC1": [24],
-			"PC2": [25], "PC3": [26], "PC4": [27], "PC5": [28], "PC6": [29],
-			"PD0": [30], "PD1": [31], "PD2": [32], "PD3": [1], "PD4": [2],
-			"PD5": [9], "PD6": [10], "PD7": [11]},
-		"description": "PB6..7 are not routed out. These are connected to the on-board crystal. PC4..5 are routed out to off grid header, not available on either side of the board."
-	},
-	"XTAL": {
-		"description": "The crystal (8/16/20MHz) with capacitors are on the board, pins (PB6..7) not routed out.",
-		"modes": {
-			"ON": ["XTAL1", "XTAL2"]
-			},
-		"active_mode": "ON",
-		"builtin": true
-	},
-	"RESET": {
-		"description": "Connected to on-board switch, pulled up with a 10k resistor, and connected to GRN output through a capacitor."
-	},
-	"ADC": {
-		"description": "ADC6..7 are routed out to off grid header, not available on either side of the board."
-	},
-	"USART": {
-		"description": "Routed out also at the top (according to the image) for easy connection to an FTDI module."
-	}
-},
-"pins": [
-	{
-	"name": "BLK",
-	"number": 33,
-	"color": "black",
-	"position": 5,
-	"side": "left"
-	},
-	{
-	"name": "TXO",
-	"number": 31,
-	"position": 13,
-	"side": "left"
-	},
-	{
-	"name": "RXI",
-	"number": 30,
-	"position": 20,
-	"side": "left"
-	},
-	{
-	"name": "RST",
-	"description": "Connected to on-board switch, pulled up with a 10k resistor, and connected to GRN output through a capacitor.",
-	"number": 29,
-	"color": "orange",
-	"position": 27,
-	"side": "left"
-	},
-	{
-	"name": "GND",
-	"number": 33,
-	"color": "black",
-	"position": 34,
-	"side": "left"
-	},
-	{
-	"name": "2",
-	"number": 32,
-	"position": 41,
-	"side": "left"
-	},
-	{
-	"name": "3",
-	"number": 1,
-	"position": 48,
-	"side": "left"
-	},
-	{
-	"name": "4",
-	"number": 2,
-	"position": 55,
-	"side": "left"
-	},
-	{
-	"name": "5",
-	"number": 9,
-	"position": 62,
-	"side": "left"
-	},
-	{
-	"name": "6",
-	"number": 10,
-	"position": 69,
-	"side": "left"
-	},
-	{
-	"name": "7",
-	"number": 11,
-	"position": 76,
-	"side": "left"
-	},
-	{
-	"name": "8",
-	"number": 12,
-	"position": 83,
-	"side": "left"
-	},
-	{
-	"name": "9",
-	"number": 13,
-	"position": 90,
-	"side": "left"
-	},
-	{
-	"name": "10",
-	"number": 14,
-	"position": 90,
-	"side": "right"
-	},
-	{
-	"name": "11",
-	"number": 15,
-	"position": 83,
-	"side": "right"
-	},
-	{
-	"name": "12",
-	"number": 16,
-	"position": 76,
-	"side": "right"
-	},
-	{
-	"name": "A6",
-	"description": "Routed out to off-grid breakout header.",
-	"number": 19,
-	"color": "lightgrey",
-	"position": 72.5,
-	"side": "right"
-	},
-	{
-	"name": "13",
-	"description": "Connected to on-board LED.",
-	"number": 17,
-	"position": 69,
-	"side": "right"
-	},
-	{
-	"name": "A7",
-	"description": "Routed out to off-grid breakout header.",
-	"number": 22,
-	"color": "lightgrey",
-	"position": 65.5,
-	"side": "right"
-	},
-	{
-	"name": "A0",
-	"number": 23,
-	"position": 62,
-	"side": "right"
-	},
-	{
-	"name": "A1",
-	"number": 24,
-	"position": 55,
-	"side": "right"
-	},
-	{
-	"name": "A2",
-	"number": 25,
-	"position": 48,
-	"side": "right"
-	},
-	{
-	"name": "A4",
-	"description": "Routed out to off-grid breakout header.",
-	"number": 27,
-	"color": "lightgrey",
-	"position": 44.5,
-	"side": "right"
-	},
-	{
-	"name": "A3",
-	"number": 26,
-	"position": 41,
-	"side": "right"
-	},
-	{
-	"name": "A5",
-	"description": "Routed out to off-grid breakout header.",
-	"number": 28,
-	"color": "lightgrey",
-	"position": 37.5,
-	"side": "right"
-	},
-	{
-	"name": "VCC",
-	"description": "Connected to on-board voltage regulator. If input voltage comes from RAW pin, then this is a regulated source. Otherwise this is the 3V3/5V input voltage.",
-	"number": 4,
-	"color": "red",
-	"position": 34,
-	"side": "right"
-	},
-	{
-	"name": "RST",
-	"description": "Connected to on-board switch, pulled up with a 10k resistor, and connected to GRN output through a capacitor.",
-	"number": 29,
-	"color": "orange",
-	"position": 27,
-	"side": "right"
-	},
-	{
-	"name": "GND",
-	"number": 33,
-	"color": "black",
-	"position": 20,
-	"side": "right"
-	},
-	{
-	"name": "RAW",
-	"description": "Raw power input directed to on-board voltage regulator.",
-	"color": "red",
-	"position": 13,
-	"side": "right"
-	},
-	{
-	"name": "GRN",
-	"description": "Connected to RST through a capacitor.",
-	"number": 29,
-	"color": "orange",
-	"position": 5,
-	"side": "right"
-	}
-]
+﻿{
+  "name": "Arduino Pro Mini",
+  "owner": "Arduino AG",
+  "link": "https://www.arduino.cc/",
+  "core": {
+    "name": "ATmega328",
+    "package": "QFN32"
+  },
+  "peripherals": {
+    "GPIO": {
+      "pins": {
+        "PB0": [
+          12
+        ],
+        "PB1": [
+          13
+        ],
+        "PB2": [
+          14
+        ],
+        "PB3": [
+          15
+        ],
+        "PB4": [
+          16
+        ],
+        "PB5": [
+          17
+        ],
+        "PC0": [
+          23
+        ],
+        "PC1": [
+          24
+        ],
+        "PC2": [
+          25
+        ],
+        "PC3": [
+          26
+        ],
+        "PC4": [
+          27
+        ],
+        "PC5": [
+          28
+        ],
+        "PC6": [
+          29
+        ],
+        "PD0": [
+          30
+        ],
+        "PD1": [
+          31
+        ],
+        "PD2": [
+          32
+        ],
+        "PD3": [
+          1
+        ],
+        "PD4": [
+          2
+        ],
+        "PD5": [
+          9
+        ],
+        "PD6": [
+          10
+        ],
+        "PD7": [
+          11
+        ]
+      },
+      "description": "PB6..7 are not routed out. These are connected to the on-board crystal. PC4..5 are routed out to off grid header, not available on either side of the board."
+    },
+    "XTAL": {
+      "description": "The crystal (8/16/20MHz) with capacitors are on the board, pins (PB6..7) not routed out.",
+      "modes": {
+        "ON": [
+          "XTAL1",
+          "XTAL2"
+        ]
+      },
+      "active_mode": "ON",
+      "builtin": true
+    },
+    "RESET": {
+      "description": "Connected to on-board switch, pulled up with a 10k resistor, and connected to GRN output through a capacitor."
+    },
+    "ADC": {
+      "description": "ADC6..7 are routed out to off grid header, not available on either side of the board."
+    },
+    "USART": {
+      "description": "Routed out also at the top (according to the image) for easy connection to an FTDI module."
+    }
+  },
+  "arrays": [
+    {
+      "position": {
+        "x": 89,
+        "y": 13
+      },
+      "pitch": 7.1,
+      "orientation": "vertical",
+      "side": "right",
+      "pins": [
+        "RAW",
+        "GND",
+        "RST",
+        "VCC",
+        "A3",
+        "A2",
+        "A1",
+        "A0",
+        "D13",
+        "D12",
+        "D11",
+        "D10"
+      ]
+    },
+    {
+      "position": {
+        "x": 73,
+        "y": 37.5
+      },
+      "pitch": 7.1,
+      "orientation": "vertical",
+      "side": "left",
+      "pins": [
+        "A5",
+        "A4"
+      ]
+    },
+    {
+      "position": {
+        "x": 73,
+        "y": 66.5
+      },
+      "pitch": 7.1,
+      "orientation": "vertical",
+      "side": "left",
+      "pins": [
+        "A7",
+        "A6"
+      ]
+    },
+    {
+      "position": {
+        "x": 10,
+        "y": 13
+      },
+      "pitch": 7.1,
+      "orientation": "vertical",
+      "side": "left",
+      "pins": [
+        "TXO",
+        "RXI",
+        "RST",
+        "GND",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9"
+      ]
+    },
+    {
+      "position": {
+        "x": 14,
+        "y": 8
+      },
+      "pitch": 13,
+      "orientation": "horizontal",
+      "side": "top",
+      "pins": [
+        "BLK",
+        "GND",
+        "VCC",
+        "RXI",
+        "TXO",
+        "GRN"
+      ]
+    }
+  ],
+  "pins": {
+    "BLK": {
+      "number": 33,
+      "color": "black"
+    },
+    "TXO": {
+      "number": 31
+    },
+    "RXI": {
+      "number": 30
+    },
+    "RST": {
+      "description": "Connected to on-board switch, pulled up with a 10k resistor, and connected to GRN output through a capacitor.",
+      "number": 29,
+      "color": "orange"
+    },
+    "GND": {
+      "number": 33,
+      "color": "black"
+    },
+    "D2": {
+      "number": 32
+    },
+    "D3": {
+      "number": 1
+    },
+    "D4": {
+      "number": 2
+    },
+    "D5": {
+      "number": 9
+    },
+    "D6": {
+      "number": 10
+    },
+    "D7": {
+      "number": 11
+    },
+    "D8": {
+      "number": 12
+    },
+    "D9": {
+      "number": 13
+    },
+    "D10": {
+      "number": 14
+    },
+    "D11": {
+      "number": 15
+    },
+    "D12": {
+      "number": 16
+    },
+    "A6": {
+      "description": "Routed out to off-grid breakout header.",
+      "number": 19
+    },
+    "D13": {
+      "description": "Connected to on-board LED.",
+      "number": 17
+    },
+    "A7": {
+      "description": "Routed out to off-grid breakout header.",
+      "number": 22
+    },
+    "A0": {
+      "number": 23
+    },
+    "A1": {
+      "number": 24
+    },
+    "A2": {
+      "number": 25
+    },
+    "A4": {
+      "description": "Routed out to off-grid breakout header.",
+      "number": 27
+    },
+    "A3": {
+      "name": "A3",
+      "number": 26
+    },
+    "A5": {
+      "description": "Routed out to off-grid breakout header.",
+      "number": 28
+    },
+    "VCC": {
+      "description": "Connected to on-board voltage regulator. If input voltage comes from RAW pin, then this is a regulated source. Otherwise this is the 3V3/5V input voltage.",
+      "number": 4,
+      "color": "red"
+    },
+    "RAW": {
+      "description": "Raw power input directed to on-board voltage regulator.",
+      "color": "red"
+    },
+    "GRN": {
+      "description": "Connected to RST through a capacitor.",
+      "number": 29,
+      "color": "green"
+    }
+  }
 }

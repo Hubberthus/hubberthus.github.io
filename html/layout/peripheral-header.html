@@ -14,7 +14,7 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" style="left: -100%;">
-                <li ng-repeat="modename in peripheral.modenames"><a href="#" ng-click="peripheral.active_mode = modename; updatePeripherals();">{{modename}}</a></li>
+                <li ng-repeat="modename in peripheral.modenames"><a href="#/layout" ng-click="peripheral.active_mode = modename; updatePeripherals();">{{modename}}</a></li>
             </ul>
         </div>
         <label ng-if="(! peripheral.disabled) && (peripheral.modenames.length == 2)" ng-init="checked = (peripheral.active_mode != 'OFF')" style="font-weight: 100; margin:0; color: {{(peripheral.active_mode == 'OFF' ? '#aaa' : '#222')}}">

@@ -1,258 +1,195 @@
-{
-"name": "STM32 Maple Mini",
-"owner": "LeafLabs",
-"link": "https://www.leaflabs.com/maple/",
-"core": "STM32F103CB",
-"width": 25,
-"pins": [
-	{
-	"name": "VCC",
-	"number": 48,
-	"color": "red",
-	"position": 6,
-	"side": "left"
-	},
-	{
-	"name": "GND",
-	"number": 47,
-	"description": "",
-	"color": "black",
-	"position": 10.5,
-	"side": "left"
-	},
-	{
-	"name": "PB8",
-	"number": 48,
-	"position": 15,
-	"side": "left"
-	},
-	{
-	"name": "PB7",
-	"number": 43,
-	"position": 19.5,
-	"side": "left"
-	},
-	{
-	"name": "PB6",
-	"number": 42,
-	"position": 24,
-	"side": "left"
-	},
-	{
-	"name": "PB5",
-	"number": 41,
-	"position": 28.5,
-	"side": "left"
-	},
-	{
-	"name": "PB4",
-	"number": 40,
-	"position": 33,
-	"side": "left"
-	},
-	{
-	"name": "PB3",
-	"number": 39,
-	"position": 37.5,
-	"side": "left"
-	},
-	{
-	"name": "PA15",
-	"number": 38,
-	"position": 42.5,
-	"side": "left"
-	},
-	{
-	"name": "PA14",
-	"number": 37,
-	"position": 47,
-	"side": "left"
-	},
-	{
-	"name": "PA13",
-	"number": 34,
-	"position": 51.5,
-	"side": "left"
-	},
-	{
-	"name": "PA12",
-	"number": 33,
-	"position": 56,
-	"side": "left"
-	},
-	{
-	"name": "PA11",
-	"number": 32,
-	"position": 60.5,
-	"side": "left"
-	},
-	{
-	"name": "PA10",
-	"number": 31,
-	"position": 65,
-	"side": "left"
-	},
-	{
-	"name": "PA9",
-	"number": 30,
-	"position": 70,
-	"side": "left"
-	},
-	{
-	"name": "PA8",
-	"number": 29,
-	"position": 74.5,
-	"side": "left"
-	},
-	{
-	"name": "PB15",
-	"number": 28,
-	"position": 79,
-	"side": "left"
-	},
-	{
-	"name": "PB14",
-	"number": 27,
-	"position": 83.5,
-	"side": "left"
-	},
-	{
-	"name": "PB13",
-	"number": 26,
-	"position": 88,
-	"side": "left"
-	},
-	{
-	"name": "PB12",
-	"number": 25,
-	"position": 92.5,
-	"side": "left"
-	},
+﻿{
+  "name": "STM32 Maple Mini",
+  "owner": "LeafLabs",
+  "link": "https://www.leaflabs.com/maple/",
+  "core": {
+    "name": "STM32F103xx",
+    "package": "LQFP48"
+  },
+  "arrays": [
     {
-	"name": "VCC",
-	"number": 48,
-	"color": "red",
-	"position": 6,
-	"side": "right"
-	},
-	{
-	"name": "GND",
-	"number": 47,
-	"description": "",
-	"color": "black",
-	"position": 10.5,
-	"side": "right"
-	},
-	{
-	"name": "VBAT",
-	"number": 1,
-	"color": "orange",
-	"position": 15,
-	"side": "right"
-	},
-	{
-	"name": "PC13",
-	"number": 2,
-	"position": 19.5,
-	"side": "right"
-	},
-	{
-	"name": "PC14",
-	"number": 3,
-	"position": 24,
-	"side": "right"
-	},
-	{
-	"name": "PC15",
-	"number": 4,
-	"position": 28.5,
-	"side": "right"
-	},
-	{
-	"name": "RESET",
-	"number": 7,
-	"color": "orange",
-	"position": 33,
-	"side": "right"
-	},
-	{
-	"name": "PA0",
-	"number": 10,
-	"position": 37.5,
-	"side": "right"
-	},
-	{
-	"name": "PA1",
-	"number": 11,
-	"position": 42.5,
-	"side": "right"
-	},
-	{
-	"name": "PA2",
-	"number": 12,
-	"position": 47,
-	"side": "right"
-	},
-	{
-	"name": "PA3",
-	"number": 13,
-	"position": 51.5,
-	"side": "right"
-	},
-	{
-	"name": "PA4",
-	"number": 14,
-	"position": 56,
-	"side": "right"
-	},
-	{
-	"name": "PA5",
-	"number": 15,
-	"position": 60.5,
-	"side": "right"
-	},
-	{
-	"name": "PA6",
-	"number": 16,
-	"position": 65,
-	"side": "right"
-	},
-	{
-	"name": "PA7",
-	"number": 17,
-	"position": 70,
-	"side": "right"
-	},
-	{
-	"name": "PB0",
-	"number": 18,
-	"position": 74.5,
-	"side": "right"
-	},
-	{
-	"name": "PB2",
-	"number": 20,
-	"position": 79,
-	"side": "right"
-	},
-	{
-	"name": "PB10",
-	"number": 21,
-	"position": 83.5,
-	"side": "right"
-	},
-	{
-	"name": "PB11",
-	"number": 22,
-	"position": 88,
-	"side": "right"
-	},
-	{
-	"name": "VIN",
-	"number": 48,
-	"color": "red",
-	"position": 92.5,
-	"side": "right"
-	}
-]
+      "position": {
+        "x": 15,
+        "y": 5
+      },
+      "pitch": 4.6,
+      "orientation": "vertical",
+      "side": "left",
+      "pins": [
+        "VCC",
+        "GND",
+        "BUT",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31"
+      ]
+    },
+    {
+      "position": {
+        "x": 85,
+        "y": 5
+      },
+      "pitch": 4.6,
+      "orientation": "vertical",
+      "side": "right",
+      "pins": [
+        "VCC",
+        "GND",
+        "VBAT",
+        "14",
+        "13",
+        "12",
+        "RESET",
+        "11",
+        "10",
+        "9",
+        "8",
+        "7",
+        "6",
+        "5",
+        "4",
+        "3",
+        "2",
+        "1",
+        "0",
+        "VIN"
+      ]
+    }
+  ],
+  "pins": {
+    "0": {
+      "number": 22
+    },
+    "1": {
+      "number": 21
+    },
+    "2": {
+      "number": 20
+    },
+    "3": {
+      "number": 18
+    },
+    "4": {
+      "number": 17
+    },
+    "5": {
+      "number": 16
+    },
+    "6": {
+      "number": 15
+    },
+    "7": {
+      "number": 14
+    },
+    "8": {
+      "number": 13
+    },
+    "9": {
+      "number": 12
+    },
+    "10": {
+      "number": 11
+    },
+    "11": {
+      "number": 10
+    },
+    "12": {
+      "number": 4
+    },
+    "13": {
+      "number": 3
+    },
+    "14": {
+      "number": 2
+    },
+    "15": {
+      "number": 43
+    },
+    "16": {
+      "number": 42
+    },
+    "17": {
+      "number": 41
+    },
+    "18": {
+      "number": 40
+    },
+    "19": {
+      "number": 39
+    },
+    "20": {
+      "number": 38
+    },
+    "21": {
+      "number": 37
+    },
+    "22": {
+      "number": 34
+    },
+    "23": {
+      "number": 33
+    },
+    "24": {
+      "number": 32
+    },
+    "25": {
+      "number": 31
+    },
+    "26": {
+      "number": 30
+    },
+    "27": {
+      "number": 29
+    },
+    "28": {
+      "number": 28
+    },
+    "29": {
+      "number": 27
+    },
+    "30": {
+      "number": 26
+    },
+    "31": {
+      "number": 25
+    },
+    "VCC": {
+      "description": "Connected to on-board 3V3 regulator.",
+      "color": "red"
+    },
+    "GND": {
+      "number": 47,
+      "color": "black"
+    },
+    "BUT": {
+      "number": 45
+    },
+    "VBAT": {
+      "number": 1,
+      "color": "red"
+    },
+    "RESET": {
+      "number": 7,
+      "color": "orange"
+    },
+    "VIN": {
+	  "description": "Connected to on-board USB 5V. The board can be powered from this pin if not via the USB port.",
+      "number": 48,
+      "color": "red"
+    }
+  }
 }

@@ -1,0 +1,21 @@
+<div ng-repeat="array in active_module.arrays" ng-init="array_index = $index" style="text-align: {{(array.side == 'right' ? 'left' : 'right')}}; left: {{array.position.x}}%; top: {{array.position.y}}%;">
+	<div ng-if="array.orientation == 'vertical'">
+		<div ng-mousedown="mouseDown($event); setActiveArrayAndPin(array_index, null);" ng-mousemove="mouseMove($event, array_index);" ng-mouseup="mouseUp($event)" style="cursor: pointer; position: absolute; top: {{array.position.y - 5}}%; left: {{array.position.x - 5}}%; width: 10%; height: {{(array.pins.length * array.pitch + 5)}}%; float: left; border: 2px solid black; border-radius: 10px; {{(active_array == array_index ? 'background: #fff; opacity: 0.8;' : 'background: #fff; opacity: 0.5;')}};"></div>
+		
+		<div ng-repeat="pin in array.pins track by $index" style="position: absolute; top: {{array.position.y + ($index * array.pitch)}}%; left: {{array.position.x}}%; float: left;">
+			<div class="label" ng-click="setActiveArrayAndPin(array_index, pin);" style="cursor: pointer; position: relative; left: {{(array.side == 'right' ? '0%' : '-100%')}}; font-size: 1vw; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; border: {{(active_pin == pin ? '2px black solid' : '0')}};">
+				{{pin}}
+			</div>
+		</div>
+	</div>
+	
+	<div ng-if="array.orientation == 'horizontal'">
+		<div ng-mousedown="mouseDown($event); setActiveArrayAndPin(array_index, null);" ng-mousemove="mouseMove($event, array_index);" ng-mouseup="mouseUp($event)" style="cursor: pointer; position: absolute; top: {{array.position.y - 5}}%; left: {{array.position.x - 5}}%; height: 10%; width: {{(array.pins.length * array.pitch + 5)}}%; float: left; border: 2px solid black; border-radius: 10px; {{(active_array == array_index ? 'background: #fff; opacity: 0.8;' : 'background: #fff; opacity: 0.5;')}};"></div>
+		
+		<div ng-repeat="pin in array.pins track by $index" style="position: absolute; top: {{array.position.y}}%; left: {{array.position.x + ($index * array.pitch)}}%;">
+			<div class="label" ng-click="setActiveArrayAndPin(array_index, pin);" style="cursor: pointer; position: absolute; transform-origin: 0% 50%; transform: translateY(-50%) translateX(25%) rotate({{(array.side == 'top' ? '270' : '90')}}deg); font-size: 1vw; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; border: {{(active_pin == pin ? '2px black solid' : '0')}};">
+				{{pin}}
+			</div>
+		</div>
+	</div>
+</div>

@@ -19,28 +19,30 @@ define([
         'app/main',
         'app/cores',
         'app/modules',
+        'app/storage',
         'app/generator',
         'jquery', 
-        'bootstrap',
-        'highlight'], function(app, cores, modules, generator, $, bootstrap, hljs) {
+        'highlight',
+        'bootstrap'], function(app, cores, modules, storage, generator, $, hljs, bootstrap) {
 	
 	// Main controller function for the AngularJS application	
 	app.controller('mcuSetupController',function($scope, $location) {
 		
 		// Set active page according to URL
 		$scope.$on("$locationChangeStart",function(event, next, current) {
-			if ($location.path() == "/about") {
+
+			if ($location.path() == "/editor") {
+				$scope.active_page = 'editor';
+			} else if ($location.path() == "/about") {
 				$scope.active_page = 'about';
 			} else if ($location.path()  == "/usage") {
 				$scope.active_page = 'usage';
-			} else if ($scope.active_module) {
+			} else if ($location.path()  == "/layout") {
 				$scope.active_page = 'layout';
 			} else {
 				$scope.active_page = 'select';
 			}
 		});
-		
-		$scope.active_page = 'select';
 		
 		// Disable asyncron AJAX calls so everything can be loaded in order 
 		$.ajaxSetup({
@@ -194,7 +196,7 @@ define([
 			$scope.active_module = new_module;
 			
 			// Reload default core dictionary for the module
-			$scope.core = cores.loadCore(new_module.core);
+			$scope.core = cores.loadCore(new_module.core.name);
 			
 			// Update pin availability according to the actual module
 			for (name in $scope.core.peripherals) {
@@ -294,10 +296,6 @@ define([
 			$scope.active_file = $scope.file_list[0];
 		}
 		
-		// Initial module is the first one
-		// TODO: disabled auto-select at start
-		//setActiveModule($scope.modules[0]);
-		
 		/* Exporting functions for AngularJS access */
 		
 		// Set new active module
@@ -345,6 +343,11 @@ define([
 		$scope.downloadCode = function() {
 			
 			generator.downloadCode();
+		}
+		
+		$scope.store = function( module ) {
+			
+			storage.storeModule(module);
 		}
 	})
 	// String to integer conversion directive needed by pin selecting dropdown lists
@@ -429,6 +432,11 @@ define([
 	.directive('layoutPins', function() {
 	  return {
 		  templateUrl: 'html/layout/pins.html'
+	  };
+	})
+	.directive('editor', function() {
+	  return {
+		  templateUrl: 'html/editor/editor.html'
 	  };
 	});
 });

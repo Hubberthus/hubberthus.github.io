@@ -4,16 +4,14 @@
 	<span class="icon-bar"></span>
 	<span class="icon-bar"></span>
 </button>
-<a href="/"><img class="btn navbar-brand" style="padding: 2px;" src="logo.png"></img></a>
+<a href="#/"><img class="btn navbar-brand" style="padding: 2px;" src="logo.png"></img></a>
+<label class="nav navbar-brand" style="color: red;">ALPHA 0.1</label>
 
 <div class="collapse navbar-collapse" id="collapse-navbar">
+	
 	<ul class="nav navbar-nav">
-		<li ng-if="active_page == 'layout'" class="dropdown">
-			<a href="#" ng-click="selectModule(null);" class="navbar-button" role="button">Module: {{active_module.name}} - (Click to select other)</a>
-			<!-- TODO: Dropdown changed to selection view -- a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Module: {{active_module.name}}<span class="caret"></span></a>
-			<ul class="dropdown-menu">
-				<li ng-repeat="module in modules"><a ng-click="selectModule(module);" href="#">{{module.name}}</a></li>
-			</ul -->
+		<li class="navbar-link" ng-if="active_page == 'layout'">
+			<a href="#/" ng-click="selectModule(null)">Module: {{active_module.name}} - (Click to select other)</a>
 		</li>
 		<!-- TODO: Automatic code generation temorarly removed -- li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Code flavor: {{(core.active_flavor ? core.active_flavor : "---")}}<span class="caret"></span></a>
@@ -25,12 +23,16 @@
 			<button ng-click="downloadCode()">Download "mps.zip"</button>
 		</li -->
 	</ul>
+	
 	<ul class="nav navbar-right">
 		<li style="display: inline-block;">
-			<a href="/#/usage" class="navbar-link">Usage</a>
+			<a href="#/editor" ng-click="store(active_module)" style="color: green;">Editor Mode</a>
 		</li>
 		<li style="display: inline-block;">
-			<a href="/#/about" class="navbar-link">About</a>
+			<a href="#/usage" class="navbar-link">Usage</a>
+		</li>
+		<li style="display: inline-block;">
+			<a href="#/about" class="navbar-link">About</a>
 		</li>
 	</ul>
 </div>
