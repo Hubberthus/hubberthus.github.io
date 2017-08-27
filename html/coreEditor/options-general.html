@@ -1,0 +1,39 @@
+<div style="cursor: pointer; border: 1px solid #788; height: 30px; line-height: 29px; vertical-align:center;">
+	<div class="panel-title" ng-init="isGeneralCollapsed = true" ng-click="isGeneralCollapsed = !isGeneralCollapsed" data-toggle="collapse" href="#collapseGeneral">
+		<span style="text-align: center; background-color: #788; display: inline-block; width:2.3em; ">
+			<span class="glyphicon glyphicon-{{isGeneralCollapsed ? 'plus' : 'minus'}}" style="color: white;"></span>
+		</span>
+		<span style="color: #788;">
+			General
+		</span>
+	</div>
+</div>
+
+<div style="margin-left: 2em; padding:3px;" class="panel-collapse collapse" id="collapseGeneral">
+	<div class="panel">
+		<div class="row">
+			<span class="col-sm-3">
+				Name
+			</span>
+			<span class="col-sm-7">
+				<input type="text" class="form-control" ng-model="core.name" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-3">
+				Owner
+			</span>
+			<span class="col-sm-7">
+				<input type="text" class="form-control" ng-model="core.owner" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-3">
+				Link
+			</span>
+			<span class="col-sm-7">
+				<input type="text" class="form-control" ng-model="core.link" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+			</span>
+		</div>
+	</div>
+</div>

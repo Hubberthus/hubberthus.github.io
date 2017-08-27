@@ -4,11 +4,13 @@
 	</h1>
 </div>
 
-<nav top-navbar ng-if="active_page != 'editor'" class="navbar navbar-default" style="border-color: #aaa; border-radius: 0px;"></nav>
+<nav top-navbar ng-if="(active_page != 'editor') && (active_page != 'coreEditor')" class="navbar navbar-default" style="border-color: #aaa; border-radius: 0px;"></nav>
 
 <div select ng-if="active_page == 'select'" class="row"></div>
 
 <div layout ng-if="active_page == 'layout'" class="row"></div>
+
+<div core-editor ng-if="active_page == 'coreEditor'" class="row"></div>
 
 <div editor ng-if="active_page == 'editor'" class="row"></div>
 

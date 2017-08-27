@@ -31,7 +31,9 @@ define([
 		// Set active page according to URL
 		$scope.$on("$locationChangeStart",function(event, next, current) {
 
-			if ($location.path() == "/editor") {
+			if ($location.path() == "/coreEditor") {
+				$scope.active_page = 'coreEditor';
+			} else if ($location.path() == "/editor") {
 				$scope.active_page = 'editor';
 			} else if ($location.path() == "/about") {
 				$scope.active_page = 'about';
@@ -432,6 +434,11 @@ define([
 	.directive('layoutPins', function() {
 	  return {
 		  templateUrl: 'html/layout/pins.html'
+	  };
+	})
+	.directive('coreEditor', function() {
+	  return {
+		  templateUrl: 'html/coreEditor/coreEditor.html'
 	  };
 	})
 	.directive('editor', function() {

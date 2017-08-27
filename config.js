@@ -55,6 +55,6 @@ requirejs.config({
 });
 
 // Start up AngularJS application using RequireJS
-require(['angular', 'app/main', 'app/controller', 'app/editor'], function(angular) {
+require(['angular', 'app/main', 'app/controller', 'app/coreEditor', 'app/editor'], function(angular) {
 	angular.bootstrap(document, ['app']);
 });

@@ -1,0 +1,30 @@
+<div class="navbar navbar-default navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar" style="width: 90%; text-align: center;">
+	<ul class="nav navbar-nav">
+		<li class="navbar-text" style="font-style: italic;">
+			All rights of resources used belong to their respective owners
+		</li>
+		<li ng-if="active_module">
+			<a class="btn btn-link" href="{{active_module.link}}" target="_blank" style="text-decoration: underline;">Module "{{active_module.name}}" by {{active_module.owner}}</a>
+		</li>
+		<li ng-if="active_module">
+			<a class="btn btn-link" href="{{core.link}}" target="_blank" style="text-decoration: underline;">Core "{{core.name}}" by {{core.owner}}</a>
+		</li>
+	</ul>
+</div>
+
+<div class="navbar navbar-default navbar-fixed-bottom collapse navbar-collapse" id="collapse-navbar">
+	<ul class="nav navbar-nav">
+		<li class="navbar-text" style="font-style: italic;">
+			All rights of resources used belong to their respective owners
+		</li>
+		<li ng-if="active_module">
+			<a class="btn btn-link" href="{{active_module.link}}" target="_blank" style="text-decoration: underline;">Module "{{active_module.name}}" by {{active_module.owner}}</a>
+		</li>
+		<li ng-if="active_module" class="navbar-text">
+			-
+		</li>
+		<li ng-if="active_module">
+			<a class="btn btn-link" href="{{core.link}}" target="_blank" style="text-decoration: underline;">Core "{{core.name}}" by {{core.owner}}</a>
+		</li>
+	</ul>
+</div>
