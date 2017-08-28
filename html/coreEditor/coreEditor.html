@@ -9,7 +9,13 @@
 	</div>
 	
 	<div class="col-sm-7">
-		<div style="position: relative; display: inline-block; width: 70vw;">
+		<div>
+			<div class="input-group" style="display: inline-block;">
+				<span class="input-group-addon btn {{(view_mode == 'top' ? 'btn-info' : '')}}" ng-click="setViewMode('top');">Top</span>
+				<span class="input-group-addon btn {{(view_mode == 'bottom' ? 'btn-info' : '')}}" ng-click="setViewMode('bottom');">Bottom</span>
+			</div>
+		</div>
+		<div style="position: relative; display: inline-block; width: 100%;">
 			
 			<core-editor-pins ></core-editor-pins>
 			

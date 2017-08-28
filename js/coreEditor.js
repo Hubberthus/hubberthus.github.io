@@ -38,6 +38,12 @@ define([
 		$scope.redo_list = [];
 		
 		$scope.active_package = Object.keys($scope.core.packages)[0];
+		$scope.view_mode = "top";
+		
+		$scope.setViewMode = function( new_view_mode ) {
+			
+			$scope.view_mode = new_view_mode;
+		}
 		
 		$scope.setActivePin = function( pin ) {
 			
