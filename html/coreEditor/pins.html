@@ -1,7 +1,7 @@
 <div ng-if="active_package.indexOf('QFN') != -1" ng-init="side_num = (core.packages[active_package].length-1)/4">
 	<div style="position: absolute; left: 0; top: 0; width: {{6 + (side_num * 3)}}vw; height: {{6 + (side_num * 3)}}vw; background: black;"></div>
 	<div style="position: absolute; left: {{(view_mode == 'top' ? '1' : 4 + (side_num*3))}}vw; top: 1vw; width: 1vw; height: 1vw; background: {{(view_mode == 'top' ? 'grey' : '')}}; border: 2px solid grey; border-radius: 0.5vw;"></div>
-	<div ng-repeat="pin in core.packages[active_package]">
+	<div ng-repeat="pin in core.packages[active_package] track by $index">
 		<div ng-if="$index < side_num" ng-click="setActivePin($index)" class="btn btn-{{(view_mode == 'top' ? 'inverse' : 'default')}}" style="cursor: pointer; position: absolute; left: {{(view_mode == 'top' ? '0' : 3 + (side_num*3))}}vw; top: {{3 + $index*3}}vw; width: 3vw; height: 2vw; {{(view_mode == 'top' ? 'border: 1px dashed lightgrey; color: lightgrey;' : '')}} {{($index == active_pin ? 'font-weight: bold;' : '')}}">
 			{{core.pins[pin].name}}
 		</div>

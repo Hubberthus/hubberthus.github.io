@@ -50,6 +50,17 @@ define([
 			$scope.active_pin = pin;
 		}
 		
+		$scope.setPinTo = function( pin ) {
+			
+			$scope.core.packages[$scope.active_package][$scope.active_pin] = pin;
+		}
+		
+		$scope.setActivePackage = function( package ) {
+			
+			$scope.active_package = package;
+			$scope.active_pin = null;
+		}
+		
 		$scope.store = function() {
 			
 			$scope.undo_list.push(JSON.parse(JSON.stringify([$scope.core, $scope.active_pin])));
@@ -121,6 +132,11 @@ define([
 	.directive('coreEditorOptionsGeneral', function() {
 	  return {
 		  templateUrl: 'html/coreEditor/options-general.html'
+	  };
+	})
+	.directive('coreEditorOptionsPackage', function() {
+	  return {
+		  templateUrl: 'html/coreEditor/options-package.html'
 	  };
 	});
 });
