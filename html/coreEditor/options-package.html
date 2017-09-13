@@ -40,16 +40,11 @@
 					Selected pin
 				</label>
 			</div>
-			<div ng-if="active_pin != null" class="btn" style="display: inline-block;">
-				<div class="dropdown">
-					<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
-						{{core.packages[active_package][active_pin]+1}}: {{core.pins[core.packages[active_package][active_pin]].name}}
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li ng-repeat="pin in core.pins"><button ng-click="setPinTo($index)">{{($index+1)}}: {{pin.name}}</button></li>
-					</ul>
-				</div>
+			<div class="col-xs-4" ng-if="active_pin != null" ng-repeat="pin in core.pins">
+				<span ng-click="setPinTo($index)" class="btn btn-{{($index == core.packages[active_package][active_pin] ? 'info' : 'default')}}">
+					{{($index+1)}}: {{pin.name}}
+				</span>
+				<div class="clearfix visible-xs" ng-if="$index % 3 == 0"></div>
 			</div>
 		</div>
 	</div>
