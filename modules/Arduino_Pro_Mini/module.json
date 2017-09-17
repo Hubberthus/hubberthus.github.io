@@ -2,6 +2,7 @@
   "name": "Arduino Pro Mini",
   "owner": "Arduino AG",
   "link": "https://www.arduino.cc/",
+  "description": "To be added",
   "core": {
     "name": "ATmega328",
     "package": "QFN32"

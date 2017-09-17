@@ -4,7 +4,31 @@
 		
 		<div ng-repeat="pin in array.pins track by $index" style="position: absolute; top: {{array.position.y + ($index * array.pitch)}}%; left: {{array.position.x}}%; float: left;">
 			<div class="label" ng-click="setActiveArrayAndPin(array_index, pin);" style="cursor: pointer; position: relative; left: {{(array.side == 'right' ? '0%' : '-100%')}}; font-size: 1vw; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; border: {{(active_pin == pin ? '2px black solid' : '0')}};">
-				{{pin}}
+				<span ng-if="array.side == 'right'">
+					{{(core.pins[active_module.pins[pin].number-1].pwm ?
+						(core.pins[active_module.pins[pin].number-1].input ?
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x21AD;' : '&#x219C;') :
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x219D;' : '!!!')
+						) :
+						(core.pins[active_module.pins[pin].number-1].input ?
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x2194;' : '&#x2190;') :
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x2192;' : '---')
+						))}}
+				</span>
+				<span>
+					{{pin}}
+				</span>
+				<span ng-if="array.side == 'left'">
+					{{(core.pins[active_module.pins[pin].number-1].pwm ?
+						(core.pins[active_module.pins[pin].number-1].input ?
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x21AD;' : '&#x219C;') :
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x219D;' : '!!!')
+						) :
+						(core.pins[active_module.pins[pin].number-1].input ?
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x2194;' : '&#x2190;') :
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x2192;' : '---')
+						))}}
+				</span>
 			</div>
 		</div>
 	</div>
@@ -14,7 +38,31 @@
 		
 		<div ng-repeat="pin in array.pins track by $index" style="position: absolute; top: {{array.position.y}}%; left: {{array.position.x + ($index * array.pitch)}}%;">
 			<div class="label" ng-click="setActiveArrayAndPin(array_index, pin);" style="cursor: pointer; position: absolute; transform-origin: 0% 50%; transform: translateY(-50%) translateX(25%) rotate({{(array.side == 'top' ? '270' : '90')}}deg); font-size: 1vw; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; border: {{(active_pin == pin ? '2px black solid' : '0')}};">
-				{{pin}}
+				<span ng-if="array.side == 'top'">
+					{{(core.pins[active_module.pins[pin].number-1].pwm ?
+						(core.pins[active_module.pins[pin].number-1].input ?
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x21AD;' : '&#x219C;') :
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x219D;' : '!!!')
+						) :
+						(core.pins[active_module.pins[pin].number-1].input ?
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x2194;' : '&#x2190;') :
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x2192;' : '---')
+						))}}
+				</span>
+				<span>
+					{{pin}}
+				</span>
+				<span ng-if="array.side == 'bottom'">
+					{{(core.pins[active_module.pins[pin].number-1].pwm ?
+						(core.pins[active_module.pins[pin].number-1].input ?
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x21AD;' : '&#x219C;') :
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x219D;' : '!!!')
+						) :
+						(core.pins[active_module.pins[pin].number-1].input ?
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x2194;' : '&#x2190;') :
+							(core.pins[active_module.pins[pin].number-1].output ? '&#x2192;' : '---')
+						))}}
+				</span>
 			</div>
 		</div>
 	</div>

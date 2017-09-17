@@ -4,7 +4,20 @@
 			<div style="position: relative; left: {{(array.side == 'right' ? '0%' : '-100%')}}; font-size: 1vw; width: 200px;">
 				
 				<div ng-if="array.side == 'right'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
-					{{pin}}
+					<span>
+						{{(core.pins[active_module.pins[pin].number-1].pwm ?
+							(core.pins[active_module.pins[pin].number-1].input ?
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x21AD;' : '&#x219C;') :
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x219D;' : '!!!')
+							) :
+							(core.pins[active_module.pins[pin].number-1].input ?
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x2194;' : '&#x2190;') :
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x2192;' : '---')
+							))}}
+					</span>
+					<span>
+						{{pin}}
+					</span>
 				</div>
 				
 				<div ng-if="active_module.pins[pin].number != null" ng-repeat="(name, peripheral) in core.peripherals" style="display:inline-block;">
@@ -14,7 +27,20 @@
 				</div>
 				
 				<div ng-if="array.side == 'left'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
-					{{pin}}
+					<span>
+						{{pin}}
+					</span>
+					<span>
+						{{(core.pins[active_module.pins[pin].number-1].pwm ?
+							(core.pins[active_module.pins[pin].number-1].input ?
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x21AD;' : '&#x219C;') :
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x219D;' : '!!!')
+							) :
+							(core.pins[active_module.pins[pin].number-1].input ?
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x2194;' : '&#x2190;') :
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x2192;' : '---')
+							))}}
+					</span>
 				</div>
 			</div>
 		</div>
@@ -25,7 +51,20 @@
 			<div style="position: absolute; transform-origin: 0% 50%; transform: translateY(-50%) translateX(50%) rotate({{(array.side == 'top' ? '270' : '90')}}deg); font-size: 1vw;">
 				
 				<div ng-if="array.side == 'top'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
-					{{pin}}
+					<span>
+						{{(core.pins[active_module.pins[pin].number-1].pwm ?
+							(core.pins[active_module.pins[pin].number-1].input ?
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x21AD;' : '&#x219C;') :
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x219D;' : '!!!')
+							) :
+							(core.pins[active_module.pins[pin].number-1].input ?
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x2194;' : '&#x2190;') :
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x2192;' : '---')
+							))}}
+					</span>
+					<span>
+						{{pin}}
+					</span>
 				</div>
 				
 				<div ng-if="active_module.pins[pin].number != null" ng-repeat="(name, peripheral) in core.peripherals" style="display:inline-block;">
@@ -35,7 +74,20 @@
 				</div>
 				
 				<div ng-if="array.side == 'bottom'" class="label" ng-click="selectPin(active_module.pins[pin]);" style="cursor: pointer; background: {{(active_module.pins[pin].color ? active_module.pins[pin].color : 'grey')}}; display:inline-block;">
-					{{pin}}
+					<span>
+						{{pin}}
+					</span>
+					<span>
+						{{(core.pins[active_module.pins[pin].number-1].pwm ?
+							(core.pins[active_module.pins[pin].number-1].input ?
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x21AD;' : '&#x219C;') :
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x219D;' : '!!!')
+							) :
+							(core.pins[active_module.pins[pin].number-1].input ?
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x2194;' : '&#x2190;') :
+								(core.pins[active_module.pins[pin].number-1].output ? '&#x2192;' : '---')
+							))}}
+					</span>
 				</div>
 			</div>
 		</div>

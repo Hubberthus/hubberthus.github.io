@@ -58,7 +58,8 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-3" ng-repeat="pin in core.pins">
-				{{($index+1)}}:{{(core.pins[$index].pwm ?
+				<span>
+					{{($index+1)}} : {{(core.pins[$index].pwm ?
 					(core.pins[$index].input ?
 						(core.pins[$index].output ? '&#x21AD;' : '&#x219C;') :
 						(core.pins[$index].output ? '&#x219D;' : '!!!')
@@ -67,6 +68,7 @@
 						(core.pins[$index].output ? '&#x2194;' : '&#x2190;') :
 						(core.pins[$index].output ? '&#x2192;' : '---')
 					))}}
+				</span>
 				<span ng-click="setPinTo($index)" class="btn btn-{{($index == core.packages[active_package][active_pin] ? 'info' : 'default')}}">
 					{{pin.name}}
 				</span>
