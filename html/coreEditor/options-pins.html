@@ -1,0 +1,76 @@
+<div style="cursor: pointer; border: 1px solid #588; height: 30px; line-height: 29px; vertical-align:center;">
+	<div class="panel-title" ng-init="isArrayCollapsed = true" ng-click="isArrayCollapsed = !isArrayCollapsed" data-toggle="collapse" href="#collapseArray">
+		<span style="text-align: center; background-color: #588; display: inline-block; width:2.3em; ">
+			<span class="glyphicon glyphicon-{{isArrayCollapsed ? 'plus' : 'minus'}}" style="color: white;"></span>
+		</span>
+		<span style="color: #588;">
+			Pins
+		</span>
+	</div>
+</div>
+
+<div style="margin-left: 2em; padding:3px;" class="panel-collapse collapse" id="collapseArray">
+	<div class="panel">
+		<div ng-if="active_pin_num != null">
+			<div class="row">
+				<span class="col-sm-3">
+					Name
+				</span>
+				<span ng-if="active_pin_num != null" class="col-sm-7">
+					<input type="text" class="form-control" ng-model="core.pins[active_pin_num].name" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+				</span>
+			</div>
+			<div class="row">
+				<span class="col-sm-3">
+					PWM
+				</span>
+				<span class="col-sm-7">
+					<button ng-click="core.pins[active_pin_num].pwm = ! core.pins[active_pin_num].pwm" class="btn label {{(core.pins[active_pin_num].pwm ? 'label-success' : 'label-default')}}">
+						{{(core.pins[active_pin_num].pwm == true ? "YES" : "NO")}}
+					</button>
+				</span>
+			</div>
+			<div class="row">
+				<span class="col-sm-3">
+					Input
+				</span>
+				<span class="col-sm-7">
+					<button ng-click="core.pins[active_pin_num].input = ! core.pins[active_pin_num].input" class="btn label {{(core.pins[active_pin_num].input ? 'label-success' : 'label-default')}}">
+						{{(core.pins[active_pin_num].input == true ? "YES" : "NO")}}
+					</button>
+				</span>
+			</div>
+			<div class="row">
+				<span class="col-sm-3">
+					Output
+				</span>
+				<span class="col-sm-7">
+					<button ng-click="core.pins[active_pin_num].output = ! core.pins[active_pin_num].output" class="btn label {{(core.pins[active_pin_num].output ? 'label-success' : 'label-default')}}">
+						{{(core.pins[active_pin_num].output == true ? "YES" : "NO")}}
+					</button>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<span class="col-sm-12">
+				Pin list
+			</span>
+		</div>
+		<div class="row">
+			<div class="col-sm-3" ng-repeat="pin in core.pins">
+				{{($index+1)}}:{{(core.pins[$index].pwm ?
+					(core.pins[$index].input ?
+						(core.pins[$index].output ? '&#x21AD;' : '&#x219C;') :
+						(core.pins[$index].output ? '&#x219D;' : '!!!')
+					) :
+					(core.pins[$index].input ?
+						(core.pins[$index].output ? '&#x2194;' : '&#x2190;') :
+						(core.pins[$index].output ? '&#x2192;' : '---')
+					))}}
+				<span ng-click="setPinTo($index)" class="btn btn-{{($index == core.packages[active_package][active_pin] ? 'info' : 'default')}}">
+					{{pin.name}}
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

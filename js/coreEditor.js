@@ -32,6 +32,7 @@ define([
 		}
 		$scope.core = cores.loadCore($scope.active_module.core.name);
 		$scope.active_pin = null;
+		$scope.active_core_pin = null;
 		
 		$scope.init_list = [cores.loadCore($scope.active_module.core.name), $scope.active_pin];
 		$scope.undo_list = [];
@@ -48,11 +49,16 @@ define([
 		$scope.setActivePin = function( pin ) {
 			
 			$scope.active_pin = pin;
+			$scope.active_pin_num = $scope.core.packages[$scope.active_package][$scope.active_pin];
 		}
 		
 		$scope.setPinTo = function( pin ) {
 			
+			$scope.active_pin_num = pin;
+			
 			$scope.core.packages[$scope.active_package][$scope.active_pin] = pin;
+			
+			$scope.active_pin = null;
 		}
 		
 		$scope.setActivePackage = function( package ) {
@@ -134,9 +140,9 @@ define([
 		  templateUrl: 'html/coreEditor/options-general.html'
 	  };
 	})
-	.directive('coreEditorOptionsPackage', function() {
+	.directive('coreEditorOptionsPins', function() {
 	  return {
-		  templateUrl: 'html/coreEditor/options-package.html'
+		  templateUrl: 'html/coreEditor/options-pins.html'
 	  };
 	});
 });

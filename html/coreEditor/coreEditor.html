@@ -6,12 +6,23 @@
 		<div class="panel panel-info">
 			<div core-editor-options-general class="panel" style="margin: 0px;"></div>
 			
-			<div core-editor-options-package class="panel" style="margin: 0px;"></div>
+			<div core-editor-options-pins class="panel" style="margin: 0px;"></div>
 		</div>
 	</div>
 	
 	<div class="col-sm-7">
 		<div>
+			<div style="display: inline-block;">
+				<div class="col-sm-7 dropdown">
+					<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
+						{{active_package}}
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li ng-repeat="(name, pins) in core.packages"><button ng-click="setActivePackage(name)">{{name}}</button></li>
+					</ul>
+				</div>
+			</div>
 			<div class="input-group" style="display: inline-block;">
 				<span class="input-group-addon btn {{(view_mode == 'top' ? 'btn-info' : '')}}" ng-click="setViewMode('top');">Top</span>
 				<span class="input-group-addon btn {{(view_mode == 'bottom' ? 'btn-info' : '')}}" ng-click="setViewMode('bottom');">Bottom</span>
