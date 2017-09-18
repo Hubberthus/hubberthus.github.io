@@ -12,10 +12,14 @@
 	
 	<div class="col-sm-7">
 		<div>
+			<div class="input-group" style="display: inline-block;">
+				<span class="input-group-addon btn" ng-click="showNewPackage()">New</span>
+				<span class="input-group-addon btn btn-danger" ng-disable="active_package == null" ng-click="removePackage()" style="color: white;">Remove</span>
+			</div>
 			<div style="display: inline-block;">
-				<div class="col-sm-7 dropdown">
+				<div class="dropdown">
 					<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
-						{{active_package}}
+						{{(active_package == null ? "---" : active_package)}}
 						<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu">
@@ -24,13 +28,50 @@
 				</div>
 			</div>
 			<div class="input-group" style="display: inline-block;">
-				<span class="input-group-addon btn {{(view_mode == 'top' ? 'btn-info' : '')}}" ng-click="setViewMode('top');">Top</span>
-				<span class="input-group-addon btn {{(view_mode == 'bottom' ? 'btn-info' : '')}}" ng-click="setViewMode('bottom');">Bottom</span>
+				<span class="input-group-addon btn {{(view_mode == 'top' ? 'btn-info' : '')}}" ng-click="setViewMode('top')">Top</span>
+				<span class="input-group-addon btn {{(view_mode == 'bottom' ? 'btn-info' : '')}}" ng-click="setViewMode('bottom')">Bottom</span>
+			</div>
+		</div>
+		<div ng-if="show_newpackage">
+			<span>
+				Type:
+			</span>
+			<div style="display: inline-block;">
+				<div class="dropdown">
+					<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
+						{{(newpackage_type == null ? 'select' : newpackage_type)}}
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li ng-repeat="(type, num) in package_types"><button ng-click="setPackageType(type)">{{type}}</button></li>
+					</ul>
+				</div>
+			</div>
+			<span>
+				Number of pins:
+			</span>
+			<div ng-if="newpackage_type != null" style="display: inline-block;">
+				<div class="dropdown">
+					<button class="btn dropdown-toggle" style="padding: 0; background: none;" data-toggle="dropdown">
+						{{(newpackage_num == null ? 'select' : newpackage_num)}}
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li ng-repeat="num in newpackage_pin_nums"><button ng-click="setPackagePinNum(num)">{{num}}</button></li>
+					</ul>
+				</div>
+			</div>
+			<div ng-if="newpackage_type == null" style="display: inline-block;">
+				---
+			</div>
+			<div class="input-group" style="display: inline-block;">
+				<span class="input-group-addon btn" ng-click="createNewPackage()" ng-disabled="newpackage_num == null">New</span>
+				<span class="input-group-addon btn btn-danger" ng-disable="active_package == null" ng-click="cancelNewPackage()" style="color: white;">Cancel</span>
 			</div>
 		</div>
 		<div style="position: relative; display: inline-block; width: 100%;">
 			
-			<core-editor-pins ></core-editor-pins>
+			<core-editor-pins ng-if="active_package != null"></core-editor-pins>
 			
 		</div>
 	</div>

@@ -26,6 +26,10 @@ define([
 	// Core Editor controller function for the AngularJS application	
 	app.controller('mcuSetupCoreEditorController',function($scope) {
 		
+		$scope.package_types = {
+			"QFN": [4, true], "TQFN": [4, true],
+			"QFP": [4, false], "TQFP": [4, false]};
+		
 		$scope.active_module = storage.restoreModule();
 		if (! $scope.active_module) {
 			$scope.active_module = $scope.modules[0];
@@ -33,6 +37,10 @@ define([
 		$scope.core = cores.loadCore($scope.active_module.core.name);
 		$scope.active_pin = null;
 		$scope.active_core_pin = null;
+		$scope.show_newpackage = false;
+		$scope.newpackage_type = null;
+		$scope.newpackage_pin_nums = null;
+		$scope.newpackage_num = null;
 		
 		$scope.init_list = [cores.loadCore($scope.active_module.core.name), $scope.active_pin];
 		$scope.undo_list = [];
@@ -65,6 +73,59 @@ define([
 			
 			$scope.active_package = package;
 			$scope.active_pin = null;
+		}
+		
+		$scope.setPackageType = function( type ) {
+			
+			$scope.newpackage_type = type;
+			$scope.newpackage_num = null;
+			$scope.newpackage_pin_nums = [$scope.package_types[$scope.newpackage_type][0]];		
+			
+			while(($scope.newpackage_pin_nums[$scope.newpackage_pin_nums.length - 1]
+				+ $scope.package_types[$scope.newpackage_type][0]) < $scope.core.pins.length) {
+				$scope.newpackage_pin_nums.push($scope.newpackage_pin_nums[$scope.newpackage_pin_nums.length - 1]
+					+ $scope.package_types[$scope.newpackage_type][0]);
+			}
+			
+			if ($scope.package_types[$scope.newpackage_type][1]) {
+				for (i in $scope.newpackage_pin_nums) {
+					$scope.newpackage_pin_nums[i]++;
+				}
+			}
+		}
+		
+		$scope.setPackagePinNum = function( num ) {
+			
+			$scope.newpackage_num = num;
+		}
+		
+		$scope.showNewPackage = function () {
+			
+			$scope.show_newpackage = true;
+			$scope.newpackage_type = null;
+			$scope.newpackage_pin_nums = null;
+			$scope.newpackage_num = null;
+		}
+		
+		$scope.createNewPackage = function () {
+			
+			$scope.show_newpackage = false;
+			$scope.core.packages[$scope.newpackage_type + $scope.newpackage_num] =
+				Array.apply(null, {length: $scope.newpackage_num}).map(Number.call, Number);
+			$scope.active_package = $scope.newpackage_type + $scope.newpackage_num;
+		}
+		
+		$scope.cancelNewPackage = function () {
+			
+			$scope.show_newpackage = false;
+		}
+		
+		$scope.removePackage = function () {
+			
+			if ($scope.active_package) {
+				delete $scope.core.packages[$scope.active_package];
+				$scope.active_package = null;
+			}
 		}
 		
 		$scope.store = function() {
