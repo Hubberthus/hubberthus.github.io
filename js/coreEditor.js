@@ -79,7 +79,7 @@ define([
 			
 			$scope.newpackage_type = type;
 			$scope.newpackage_num = null;
-			$scope.newpackage_pin_nums = [$scope.package_types[$scope.newpackage_type][0]];		
+			$scope.newpackage_pin_nums = [$scope.package_types[$scope.newpackage_type][0] * 2];		
 			
 			while(($scope.newpackage_pin_nums[$scope.newpackage_pin_nums.length - 1]
 				+ $scope.package_types[$scope.newpackage_type][0]) < $scope.core.pins.length) {
@@ -109,10 +109,12 @@ define([
 		
 		$scope.createNewPackage = function () {
 			
+			var newpackage_name = $scope.newpackage_type + $scope.newpackage_num;
+			
 			$scope.show_newpackage = false;
-			$scope.core.packages[$scope.newpackage_type + $scope.newpackage_num] =
+			$scope.core.packages[newpackage_name] =
 				Array.apply(null, {length: $scope.newpackage_num}).map(Number.call, Number);
-			$scope.active_package = $scope.newpackage_type + $scope.newpackage_num;
+			$scope.setActivePackage(newpackage_name);
 		}
 		
 		$scope.cancelNewPackage = function () {
