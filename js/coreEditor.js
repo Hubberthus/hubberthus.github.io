@@ -27,6 +27,7 @@ define([
 	app.controller('mcuSetupCoreEditorController',function($scope) {
 		
 		$scope.package_types = {
+			"DIP": [2, false], "PDIP": [2, false],
 			"QFN": [4, true], "TQFN": [4, true],
 			"QFP": [4, false], "TQFP": [4, false]};
 		

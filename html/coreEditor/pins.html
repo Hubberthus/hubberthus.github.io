@@ -1,4 +1,17 @@
-<div ng-if="active_package.indexOf('QFN') != -1" ng-init="side_num = (core.packages[active_package].length-1)/4">
+<div ng-init="side_num = (core.packages[active_package].length)/2" ng-if="active_package.indexOf('DIP') != -1">
+	<div style="position: absolute; left: 3vw; top: 0vw; width: {{side_num+5}}vw; height: {{side_num * 3}}vw; background: black;"></div>
+	<div style="position: absolute; left: {{(view_mode == 'top' ? '4' : 1 + (side_num+5))}}vw; top: 1vw; width: 1vw; height: 1vw; background: {{(view_mode == 'top' ? 'grey' : '')}}; border: 2px solid grey; border-radius: 0.5vw;"></div>
+	<div ng-repeat="pin in core.packages[active_package] track by $index">
+		<div ng-if="$index < side_num" ng-click="setActivePin($index)" class="btn btn-default" style="cursor: pointer; position: absolute; left: {{(view_mode == 'top' ? '0' : 3 + (side_num+5))}}vw; top: {{$index*3}}vw; width: 3vw; height: 2vw; {{($index == active_pin ? 'font-weight: bold;' : '')}}">
+			{{core.pins[pin].name}}
+		</div>
+		<div ng-if="$index >= side_num" ng-click="setActivePin($index)" class="btn btn-default" style="cursor: pointer; position: absolute; left: {{(view_mode == 'top' ? 3 + (side_num+5) : '0')}}vw; top: {{(side_num*3) - ($index - (side_num))*3 - 3}}vw; width: 3vw; height: 2vw; {{($index == active_pin ? 'font-weight: bold;' : '')}}">
+			{{core.pins[pin].name}}
+		</div>
+	</div>
+</div>
+
+<div ng-init="side_num = (core.packages[active_package].length-1)/4" ng-if="active_package.indexOf('QFN') != -1">
 	<div style="position: absolute; left: 0; top: 0; width: {{6 + (side_num * 3)}}vw; height: {{6 + (side_num * 3)}}vw; background: black;"></div>
 	<div style="position: absolute; left: {{(view_mode == 'top' ? '1' : 4 + (side_num*3))}}vw; top: 1vw; width: 1vw; height: 1vw; background: {{(view_mode == 'top' ? 'grey' : '')}}; border: 2px solid grey; border-radius: 0.5vw;"></div>
 	<div ng-repeat="pin in core.packages[active_package] track by $index">
@@ -20,7 +33,7 @@
 	</div>
 </div>
 
-<div ng-if="active_package.indexOf('QFP') != -1" ng-init="side_num = (core.packages[active_package].length)/4">
+<div ng-init="side_num = (core.packages[active_package].length)/4" ng-if="active_package.indexOf('QFP') != -1">
 	<div style="position: absolute; left: 3vw; top: 3vw; width: {{side_num * 3}}vw; height: {{side_num * 3}}vw; background: black;"></div>
 	<div style="position: absolute; left: {{(view_mode == 'top' ? '4' : 1 + (side_num*3))}}vw; top: 4vw; width: 1vw; height: 1vw; background: {{(view_mode == 'top' ? 'grey' : '')}}; border: 2px solid grey; border-radius: 0.5vw;"></div>
 	<div ng-repeat="pin in core.packages[active_package] track by $index">
