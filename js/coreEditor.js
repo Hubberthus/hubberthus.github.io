@@ -42,6 +42,7 @@ define([
 		$scope.newpackage_type = null;
 		$scope.newpackage_pin_nums = null;
 		$scope.newpackage_num = null;
+		$scope.side_num = 1;
 		
 		$scope.init_list = [cores.loadCore($scope.active_module.core.name), $scope.active_pin];
 		$scope.undo_list = [];
@@ -49,6 +50,16 @@ define([
 		
 		$scope.active_package = Object.keys($scope.core.packages)[0];
 		$scope.view_mode = "top";
+		
+		$scope.initSidePinNum = function() {
+			
+			var type = $scope.active_package.replace(/([^\d]+)\d+/, '$1');
+
+			$scope.side_num = ($scope.core.packages[$scope.active_package].length)
+				/ ($scope.package_types[type][0]);
+		}
+		
+		$scope.initSidePinNum();
 		
 		$scope.setViewMode = function( new_view_mode ) {
 			
@@ -74,6 +85,8 @@ define([
 			
 			$scope.active_package = package;
 			$scope.active_pin = null;
+			
+			$scope.initSidePinNum();
 		}
 		
 		$scope.setPackageType = function( type ) {
@@ -110,7 +123,8 @@ define([
 		
 		$scope.createNewPackage = function () {
 			
-			var newpackage_name = $scope.newpackage_type + $scope.newpackage_num;
+			var newpackage_name = $scope.newpackage_type
+			    + ($scope.newpackage_num - ($scope.package_types[$scope.newpackage_type][1] ? 1 : 0));
 			
 			$scope.show_newpackage = false;
 			$scope.core.packages[newpackage_name] =
