@@ -55,8 +55,8 @@ define([
 			
 			var type = $scope.active_package.replace(/([^\d]+)\d+/, '$1');
 
-			$scope.side_num = ($scope.core.packages[$scope.active_package].length)
-				/ ($scope.package_types[type][0]);
+			$scope.side_num = (($scope.core.packages[$scope.active_package].length)
+				/ ($scope.package_types[type][0]))|0;
 		}
 		
 		$scope.initSidePinNum();
@@ -192,6 +192,9 @@ define([
 		
 		$scope.export = function() {
 			tmp_core = JSON.parse(JSON.stringify($scope.core));
+			for (index in tmp_core.pins) {
+				delete tmp_core.pins[index]["$$hashKey"];
+			}
 			delete tmp_core["$$hashKey"];
 			
 			var blob = new Blob([JSON.stringify(tmp_core, null, 2)], {type: "text/plain;charset=utf-8"});
