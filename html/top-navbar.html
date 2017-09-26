@@ -9,7 +9,7 @@
 
 <div class="collapse navbar-collapse" id="collapse-navbar">
 	
-	<ul class="nav navbar-nav">
+	<ul class="nav navbar-nav" id="navbar_left">
 		<li class="navbar-link" ng-if="active_page == 'layout'">
 			<a href="#/" ng-click="selectModule(null)">Module: {{active_module.name}} - (Click to select other)</a>
 		</li>
@@ -24,9 +24,9 @@
 		</li -->
 	</ul>
 	
-	<ul class="nav navbar-right">
+	<ul class="nav navbar-right" id="navbar_right">
 		<li style="display: inline-block;">
-			<a href="#/coreEditor" ng-click="store(active_module)" style="color: green;">Core Editor</a>
+			<a href="#/core-editor" ng-click="store(active_module)" style="color: green;">Core Editor</a>
 		</li>
 		<li style="display: inline-block;">
 			<a href="#/editor" ng-click="store(active_module)" style="color: green;">Module Editor</a>

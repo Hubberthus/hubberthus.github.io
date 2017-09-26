@@ -32,9 +32,11 @@ define([
 			"QFP": [4, false], "TQFP": [4, false]};
 		
 		$scope.active_module = storage.restoreModule();
-		if (! $scope.active_module) {
-			$scope.active_module = $scope.modules[0];
+		
+		if ( ! $scope.active_module) {
+			return;
 		}
+		
 		$scope.core = cores.loadCore($scope.active_module.core.name);
 		$scope.active_pin = null;
 		$scope.active_core_pin = null;
@@ -50,6 +52,23 @@ define([
 		
 		$scope.active_package = Object.keys($scope.core.packages)[0];
 		$scope.view_mode = "top";
+		
+		$scope.initNewCore = function() {
+			$scope.new_core = {
+				"name": "",
+				"owner": "",
+				"link": "http://",
+				"description": "",
+				"pins": [],
+				"packages": {},
+				"flavors": {}
+				};
+			$scope.new_core_pin_num = 1;
+		}
+		
+		$scope.createNewCore = function() {
+			// TODO: Create it.
+		}
 		
 		$scope.initSidePinNum = function() {
 			
@@ -201,29 +220,34 @@ define([
 			saveAs(blob, "core.json");
 		}
 	})
+	.directive('coreEditorMain', function() {
+	  return {
+		  templateUrl: 'html/core-editor/core-editor-main.html'
+	  };
+	})
 	.directive('coreEditorTopNavbar', function() {
 	  return {
-		  templateUrl: 'html/coreEditor/top-navbar.html'
+		  templateUrl: 'html/core-editor/top-navbar.html'
 	  };
 	})
 	.directive('coreEditorBottomNavbar', function() {
 	  return {
-		  templateUrl: 'html/coreEditor/bottom-navbar.html'
+		  templateUrl: 'html/core-editor/bottom-navbar.html'
 	  };
 	})
 	.directive('coreEditorPins', function() {
 	  return {
-		  templateUrl: 'html/coreEditor/pins.html'
+		  templateUrl: 'html/core-editor/pins.html'
 	  };
 	})
 	.directive('coreEditorOptionsGeneral', function() {
 	  return {
-		  templateUrl: 'html/coreEditor/options-general.html'
+		  templateUrl: 'html/core-editor/options-general.html'
 	  };
 	})
 	.directive('coreEditorOptionsPins', function() {
 	  return {
-		  templateUrl: 'html/coreEditor/options-pins.html'
+		  templateUrl: 'html/core-editor/options-pins.html'
 	  };
 	});
 });

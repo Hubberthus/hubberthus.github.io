@@ -20,13 +20,21 @@ define(function (require) {
 	return {
 		// Store a modified version of the current module
     	storeModule: function ( module ) {
-
-    		localStorage.setItem("active_module", JSON.stringify(module));
+			
+			if (module) {
+				localStorage.setItem("active_module", JSON.stringify(module));
+			} else {
+				localStorage.removeItem("active_module");
+			}
         },
         // Restore a module if any
         restoreModule: function ( ) {
     		
-    		return JSON.parse(localStorage.getItem("active_module"));
+    		if (localStorage.getItem("active_module")) {
+				return JSON.parse(localStorage.getItem("active_module"));
+			} else {
+				return null;
+			}
         }
     };
 });

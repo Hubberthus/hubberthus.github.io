@@ -1,0 +1,62 @@
+<div ng-controller="mcuSetupCoreEditorController">
+	
+	<nav core-editor-top-navbar class="navbar navbar-default" style="border-color: #aaa; border-radius: 0px;"></nav>
+	
+	<div core-editor-main ng-if="active_module != null"></div>
+	
+	<div ng-if="active_module == null" ng-init="initNewCore()" class="container">
+		<div class="row">
+			<h3>Add new Core</h3>
+		</div>
+		<div class="row">
+			<span class="col-sm-2">
+				Name
+			</span>
+			<span class="col-sm-4">
+				<input type="text" class="form-control" ng-model="new_core.name" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-2">
+				Owner
+			</span>
+			<span class="col-sm-4">
+				<input type="text" class="form-control" ng-model="new_core.owner" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-2">
+				Link
+			</span>
+			<span class="col-sm-4">
+				<input type="text" class="form-control" ng-model="new_core.link" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-2">
+				Total number of pins
+			</span>
+			<span class="col-sm-4">
+				<input type="text" class="form-control" ng-model="new_core_pin_num" convert-to-number>
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-6">
+				Description
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-6">
+				<textarea class="form-control" ng-model="new_core.description" rows="15" style="display: inline-block; padding: 0 0.5em; resize:vertical;"></textarea>
+			</span>
+		</div>
+		<div class="row">
+			<span class="col-sm-6">
+				<div class="btn btn-default" ng-click="createNewCore()">Create</div>
+			</span>
+		</div>
+	</div>
+	
+	<nav core-editor-bottom-navbar></nav>
+	
+</div>

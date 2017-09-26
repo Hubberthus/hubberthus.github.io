@@ -31,8 +31,8 @@ define([
 		// Set active page according to URL
 		$scope.$on("$locationChangeStart",function(event, next, current) {
 
-			if ($location.path() == "/coreEditor") {
-				$scope.active_page = 'coreEditor';
+			if ($location.path() == "/core-editor") {
+				$scope.active_page = 'core-editor';
 			} else if ($location.path() == "/editor") {
 				$scope.active_page = 'editor';
 			} else if ($location.path() == "/about") {
@@ -310,6 +310,8 @@ define([
 				$scope.active_module = null;
 				$scope.active_page = 'select';
 			}
+			
+			$scope.store($scope.active_module);
 		}
 		
 		// Enable/disable/validate given peripheral and its options
@@ -438,7 +440,7 @@ define([
 	})
 	.directive('coreEditor', function() {
 	  return {
-		  templateUrl: 'html/coreEditor/coreEditor.html'
+		  templateUrl: 'html/core-editor/core-editor.html'
 	  };
 	})
 	.directive('editor', function() {
