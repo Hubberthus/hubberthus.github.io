@@ -34,6 +34,34 @@ define([
 		$scope.active_module = storage.restoreModule();
 		
 		if ( ! $scope.active_module) {
+			$scope.initNewCore = function() {
+				$scope.new_core = {
+					"name": "",
+					"owner": "",
+					"link": "http://",
+					"description": "",
+					"pins": [],
+					"packages": {},
+					"flavors": {},
+					"pin_num": "4"
+					};
+			}
+			
+			$scope.createNewCore = function() {
+				if ($scope.new_core.name.trim().length == 0) {
+					return;
+				}
+				
+			}
+			
+			$scope.parsePinNum = function() {
+				if (isNaN(parseInt($scope.new_core.pin_num))) {
+					return null;
+				} else {
+					return parseInt($scope.new_core.pin_num);
+				}
+			}
+		
 			return;
 		}
 		
@@ -45,6 +73,7 @@ define([
 		$scope.newpackage_pin_nums = null;
 		$scope.newpackage_num = null;
 		$scope.side_num = 1;
+		$scope.new_core = null;
 		
 		$scope.init_list = [cores.loadCore($scope.active_module.core.name), $scope.active_pin];
 		$scope.undo_list = [];
@@ -52,23 +81,6 @@ define([
 		
 		$scope.active_package = Object.keys($scope.core.packages)[0];
 		$scope.view_mode = "top";
-		
-		$scope.initNewCore = function() {
-			$scope.new_core = {
-				"name": "",
-				"owner": "",
-				"link": "http://",
-				"description": "",
-				"pins": [],
-				"packages": {},
-				"flavors": {}
-				};
-			$scope.new_core_pin_num = 1;
-		}
-		
-		$scope.createNewCore = function() {
-			// TODO: Create it.
-		}
 		
 		$scope.initSidePinNum = function() {
 			

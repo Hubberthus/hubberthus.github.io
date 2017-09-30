@@ -13,7 +13,10 @@
 				Name
 			</span>
 			<span class="col-sm-4">
-				<input type="text" class="form-control" ng-model="new_core.name" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
+				<input type="text" class="form-control" ng-model="new_core.name" value="{{new_core.name}}" style="display: inline-block; padding: 0 0.5em; height: 1.5em;"></input>
+			</span>
+			<span ng-hide="new_core.name.trim().length > 0" class="col-sm-2 label label-danger">
+				Must have a name!
 			</span>
 		</div>
 		<div class="row">
@@ -23,6 +26,9 @@
 			<span class="col-sm-4">
 				<input type="text" class="form-control" ng-model="new_core.owner" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
 			</span>
+			<span ng-hide="new_core.owner.trim().length > 0" class="col-sm-2 label label-warning">
+				Should have an owner!
+			</span>
 		</div>
 		<div class="row">
 			<span class="col-sm-2">
@@ -31,13 +37,22 @@
 			<span class="col-sm-4">
 				<input type="text" class="form-control" ng-model="new_core.link" style="display: inline-block; padding: 0 0.5em; height: 1.5em;">
 			</span>
+			<span ng-hide="new_core.link.trim().length > 0" class="col-sm-2 label label-warning">
+				Should have a link to owners site!
+			</span>
 		</div>
 		<div class="row">
 			<span class="col-sm-2">
 				Total number of pins
 			</span>
 			<span class="col-sm-4">
-				<input type="text" class="form-control" ng-model="new_core_pin_num" convert-to-number>
+				<input type="text" class="form-control" ng-model="new_core.pin_num" convert-to-number>
+			</span>
+			<span ng-hide="parsePinNum() != null" class="col-sm-2 label label-danger">
+				Must be a valid number!
+			</span>
+			<span ng-hide="(parsePinNum() != null) && (parsePinNum() >= 4)" class="col-sm-2 label label-danger">
+				Must be at least 4!
 			</span>
 		</div>
 		<div class="row">
